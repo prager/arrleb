@@ -9,7 +9,7 @@
                     <div class="row mb-small">
                         <div class="col-sm-12 text-center">
                             <h1>Providing Support</h1>
-                            <h3>for amateur radio  in San Francisco East Bay area. </h3>
+                            <h3>for radio amateurs  in San Francisco East Bay area.</h3>
                         </div>
                     </div>
 

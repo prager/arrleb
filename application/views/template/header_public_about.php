@@ -106,9 +106,9 @@ _________________________________________________________ -->
 
                             <ul class="nav navbar-nav navbar-right">
                               <li><?php echo anchor('Public_ctl', 'Home');?></li>
-                              <li class="active"><?php echo anchor('about', 'About');?></li>
-                              <li><?php echo anchor('team', 'Team');?></li>
-                              <li><?php echo anchor('contact', 'Contact');?></li>
+                              <li class="active"><a href="#">About</a></li>
+                              <li><?php echo anchor('Public_ctl/team', 'Team');?></li>
+                              <li><?php echo anchor('Public_ctl/contact', 'Contact');?></li>
                             </ul>
 
                         </div>
