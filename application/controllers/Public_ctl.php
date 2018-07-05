@@ -8,10 +8,15 @@ class Public_ctl extends CI_Controller {
 		date_default_timezone_set("America/Los_Angeles");
 	}
 	
-	public function index()
-	{
+	public function index() {
 		$this->load->view('template/header_public_main');
 		$this->load->view('public/main_view');
+		$this->load->view('template/footer');
+	}
+	
+	public function contact() {		
+		$this->load->view('template/header_public_contact');
+		
 		$this->load->view('template/footer');
 	}
 }

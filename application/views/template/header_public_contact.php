@@ -105,10 +105,10 @@ _________________________________________________________ -->
                         <div class="navbar-collapse collapse" id="navigation">
 
                             <ul class="nav navbar-nav navbar-right">
-                              <li class="active"><a href="javascript: void(0)">Home</a></li>
-                              <li><?php echo anchor('Public_ctl/about', 'About');?></li>
-                              <li><?php echo anchor('Public_ctl/team', 'Team');?></li>
-                              <li><?php echo anchor('Public_ctl/contact', 'Contact');?></li>
+                              <li><?php echo anchor('Public_ctl', 'Home');?></li>
+                              <li><?php echo anchor('about', 'About');?></li>
+                              <li><?php echo anchor('team', 'Team');?></li>
+                              <li class="active"><?php echo anchor('contact', 'Contact');?></li>
                             </ul>
 
                         </div>

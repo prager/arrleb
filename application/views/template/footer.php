@@ -42,7 +42,7 @@ _________________________________________________________ -->
                         <br>
                     </p>
 
-                    <a href="contact.html" class="btn btn-small btn-template-main" style="text-decoration: none;">Go to contact page</a>
+                    <a href="<?php echo base_url() . 'index.php/Public_ctl/contact' ;?>" class="btn btn-small btn-template-main" style="text-decoration: none;">Go to contact page</a>
 
                 </div>
                 <div class="col-md-3 col-sm-6">
