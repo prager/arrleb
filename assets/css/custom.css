@@ -1,0 +1,8 @@
+#ft_link a:link {
+  color: #999999;
+  text-decoration: underline dotted;
+}
+#ft_link a:hover {
+  color: #4fbfa8;
+  text-decoration: none;
+}
