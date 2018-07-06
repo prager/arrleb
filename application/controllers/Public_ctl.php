@@ -25,4 +25,10 @@ class Public_ctl extends CI_Controller {
 		$this->load->view('public/about_view');
 		$this->load->view('template/footer');
 	}
+	
+	public function team() {
+		$this->load->view('template/header_public_team');
+		$this->load->view('public/team_view');
+		$this->load->view('template/footer');
+	}
 }
