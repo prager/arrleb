@@ -68,7 +68,7 @@
                                     <i class="fa fa-address-card"></i>
                                 </div>
                                 <h3>Local Clubs</h3>
-                                <p>There are many local clubs in and around San Francisco East Bay. Thre is a good chance there is one just near you.
+                                <p>There are many local clubs in and around San Francisco East Bay. There is a good chance there is one just near you.
                                   For the complete lists of ham radio clubs and their points of contact click
                                   <a href="http://www.arrl.org/find-a-club">here</a></p>
                             </div>

@@ -42,10 +42,11 @@
                                 <h3><a href="team-member.html">Jim Siemons</a></h3>
                                 <p class="role">Section Manager</p>
                                 <div class="social">
-                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                -------------
+                                    <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                                     <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> -->
                                 </div>
                                 <div class="text">
                                     <p>Jim is also a proud owner of <a href="https://elkantennas.com/">Elk Antennas</a> besides being extremely passionate about Ham Radio
@@ -65,8 +66,8 @@
                                 <p class="role">Assistant Section Manager</p>
 
                                 <div class="social">
-                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                    <a href="https://www.facebook.com/jkulisek" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://plus.google.com/102144146559622259709" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                                     <!--<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
                                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>-->
                                 </div>

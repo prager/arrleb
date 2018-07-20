@@ -25,7 +25,7 @@ _________________________________________________________ -->
                     <h4>About us</h4>
 
                     <p>The ARRL East Bay Section organizes and provides support to Amateur Radio licensees who live and work within its borders.</p>
-                    <p>For more about us click <span id="ft_link"><a href="about.html" style="color: #999999;">here</a></span></p>
+                    <p>For more about us click <span id="ft_link"><a href="<?php echo base_url() ;?>index.php/about" style="color: #999999;">here</a></span></p>
 
                 </div>
 

@@ -66,4 +66,27 @@ class User_model extends CI_Model {
 		}
 		return $retval;
 	}
+	
+	public function send_msg($param) {
+		/*$this->email->from($param['email'], $param['name']);
+		 $this->email->to('fairball@jlkconsulting.info');
+		 
+		 $this->email->subject($param['subj']);
+		 $this->email->message($param['msg']);
+		 send_email('fairball@jlkconsulting.info', $param['subj'], $param['msg']);
+		 $this->email->send();*/
+		
+		$recipient = 'jank@jlkconsulting.info';
+		$message = "Message from ARRL-EB:\n\n Name: " . $param['fname'] . ' ' . $param['lname'] . "\n\n" . "Message:\n\n" . $param['msg'];
+		mail($recipient, 'From ARRL-EB: ' . $param['subject'], $message);
+		
+		/*$msg_arr = array(
+				'date' => time(),
+				'name' => $param['name'],
+				'email' => $param['email'],
+				'subject' => $param['subject'],
+				'message' => $param['msg']);
+		
+		$this->db->insert('messages', $msg_arr);*/
+	}
 }
