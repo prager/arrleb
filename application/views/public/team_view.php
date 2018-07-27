@@ -49,7 +49,7 @@
                                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> -->
                                 </div>
                                 <div class="text">
-                                    <p>Jim is also a proud owner of <a href="https://elkantennas.com/">Elk Antennas</a> besides being extremely passionate about Ham Radio
+                                    <p>Jim provides awsome leadership to ARRL East Bay Section besides being extremely passionate about Ham Radio
                                       hobby as a whole.</p>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() ;?>/assets/img/me.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Jan Kulisek</a></h3>
