@@ -36,7 +36,7 @@
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() ;?>/assets/img/jim.jpg" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Jim Siemons</a></h3>
