@@ -110,10 +110,11 @@
                                 <h3><a href="team-member.html">Bart Lee, K6VK</a></h3>
                                 <p class="role">Local Government Liaison</p>
                                 <div class="social">
-                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                -------------
+                                   <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                                     <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> --> 
                                 </div>
                                 <div class="text">
                                     <p>Bart Lee</p>

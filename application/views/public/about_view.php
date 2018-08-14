@@ -6,8 +6,7 @@
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
-                            <li><?php echo anchor('Public_ctl', 'Home');?>
-                            </li>
+                            <li><?php echo anchor('Public_ctl', 'Home');?></li>
                             <li>About us</li>
                         </ul>
 

@@ -84,4 +84,10 @@ class Public_ctl extends CI_Controller {
 			return TRUE;
 		}
 	}
+	
+	public function education() {
+		$this->load->view('template/header_public_main');
+		$this->load->view('public/edu_view');
+		$this->load->view('template/footer');
+	}
 }

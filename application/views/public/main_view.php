@@ -85,7 +85,8 @@
                         <h2 class="text-uppercase">Education</h2>
                         <p class="lead mb-small">Local clubs offer many classes for anyone interested</p>
                         <p class="mb-small">You don't need to hold an engineering degree to be a profficient ham radio operator.
-                        <strong>Local clubs provide expertise you need and beyond</strong>. Stay tuned for more info. Click on the below button to read the 
+                        <strong>Local clubs provide expertise you need and beyond</strong>. Stay tuned for more info. 
+                        Page for listing of current <?php echo anchor('Public_ctl/education', 'classes here'); ?>. Click on the below button to read the 
                         original mission statement
                       on education via the old ARRL East Bay Section web site.</p>
 

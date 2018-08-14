@@ -1754,6 +1754,11 @@ fieldset[disabled] .btn-template-primary.active {
   background: #4fbfa8;
   padding: 60px 0;
 }
+.bar2 {
+  position: relative;
+  background: #ffffff;
+  padding: 60px 0;
+}
 .bar.background-pentagon {
   background: url('../img/texture-bw.png') center center repeat;
   border-top: solid 1px #999999;
