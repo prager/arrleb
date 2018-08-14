@@ -36,9 +36,10 @@ _________________________________________________________ -->
                     <h4>Contact</h4>
 
                     <p><strong>ARRL East Bay Section</strong>
-                        <br>c/o Our Savior's Lutheran Church
-                        <br>1035 Carol Lane
-                        <br>Lafayette, CA
+                        <br>Jim Siemons, W6LK
+                        <br>2308 Lomond Ln
+                        <br>Walnut Creek, CA 94598-3705
+                        <br>925-330-0049
                         <br>
                     </p>
 

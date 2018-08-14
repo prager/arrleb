@@ -39,7 +39,7 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/jim.jpg" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Jim Siemons</a></h3>
+                                <h3><a href="team-member.html">Jim Siemons, W6LK</a></h3>
                                 <p class="role">Section Manager</p>
                                 <div class="social">
                                 -------------
@@ -62,7 +62,7 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/me.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Jan Kulisek</a></h3>
+                                <h3><a href="team-member.html">Jan Kulisek, KM6NFC</a></h3>
                                 <p class="role">Assistant Section Manager</p>
 
                                 <div class="social">
@@ -104,10 +104,10 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() ;?>/assets/img/bart.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3><a href="team-member.html">Bart Lee, K6VK</a></h3>
                                 <p class="role">Local Government Liaison</p>
                                 <div class="social">
                                     <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
@@ -116,7 +116,7 @@
                                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                                 </div>
                                 <div class="text">
-                                    <p>This position is vacant at this time.</p>
+                                    <p>Bart Lee</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -132,7 +132,7 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3><a href="team-member.html">Jim Tittle, K6SOE</a></h3>
                                 <p class="role">Official Observer Coordinator</p>
                             </div>
                             <!-- /.team-member -->
@@ -153,10 +153,10 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() ;?>/assets/img/scott.jpg" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3><a href="team-member.html">Scott Morse, KC6SKM</a></h3>
                                 <p class="role">Section Emergency Coordinator</p>
                             </div>
                             <!-- /.team-member -->

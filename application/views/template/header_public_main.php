@@ -59,7 +59,7 @@ _________________________________________________________ -->
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-5 contact">
-                            <p class="hidden-sm hidden-xs">Webmaster contact: email@jlkconsulting.info</p>
+                            <p class="hidden-sm hidden-xs">Contact: w6lk@arrl.org</p>
                             <p class="hidden-md hidden-lg"><a href="#" data-animate-hover="pulse"><i class="fa fa-phone"></i></a>  
                             <a href="#" data-animate-hover="pulse">
                               <i class="fa fa-envelope"></i></a>
