@@ -18,40 +18,14 @@
         <div class="container">
         
             <div id="customer-orders" class="col-md-12">
-              <p class="text-muted lead">
-              Classes listed in ARRL East Bay Section area:</p>
               <div class="box mt-0 mb-lg-0">
-                <div class="table-responsive">
-                  <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th>Course</th>
-                        <th>Dates</th>
-                        <th>Fee</th>
-                        <th style="text-align:center">Status</th>
-                        <th>Details</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th>Amateur Radio Extra Class</th>
-                        <td>08/09/2018 - 10/11/2018</td>
-                        <td>$ 8.00</td>
-                        <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
-                        <td style="text-align:center"><span class="label label-warning">In Session</span></td>
-                        <td><?php echo anchor('Public_ctl/class_details', 'View'); ?></td>
-                      </tr>
-                      <tr>
-                        <th>Amateur Radio License Class</th>
-                        <td>10/06/2018</td>
-                        <td>$ 30.00</td>
-                        <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
-                        <td style="text-align:center"><span class="label label-success">Open</span></td>
-                        <td><?php echo anchor_popup('http://files.arrleb.org/Ham-Class-Oct2018-flyer.pdf', 'View'); ?></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                <h3>Amateur Extra Class</h3>
+                <p class="text-muted lead">
+                Dates: 08/09/2018 - 10/11/2018<br><br>
+                Location: The Salvation Army, 950 Clayton Road (at West St.), Concord <br><br>
+                Additional details on MDARC site: 
+                <?php echo anchor_popup('http://www.mdarc.org/activities/education/Classes', 'MDARC Classes'); ?>               
+                </p>
               </div>
             </div>
            <!-- <div class="col-md-3 mt-4 mt-md-0">-->
