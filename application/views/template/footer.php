@@ -7,7 +7,8 @@ _________________________________________________________ -->
                     <h3>The site is under construction</h3>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <a href="http://www.arrleastbaysection.org/" class="btn btn-template-transparent-primary">Click here for the original site</a>
+                    <a href="http://www.arrleastbaysection.org/" class="btn btn-template-transparent-primary">
+                    Click here for the original site</a>                    
                 </div>
             </div>
         </div>

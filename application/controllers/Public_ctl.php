@@ -40,7 +40,7 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function login() {
-		$this->load->view('template/header_public_main');
+		$this->load->view('template/header_public_gen');
 		$data['title'] = 'Working on It';
 		$data['msg'] = 'User login and registration is currently being worked on. Please, come back soon and check. Thank you for your
 		patience!<br><br>';
@@ -94,6 +94,12 @@ class Public_ctl extends CI_Controller {
 	public function class_details() {
 		$this->load->view('template/header_public_gen');
 		$this->load->view('public/details_edu_view');
+		$this->load->view('template/footer');
+	}
+	
+	public function club_corner() {
+		$this->load->view('template/header_public_gen');
+		$this->load->view('public/corner_view');
 		$this->load->view('template/footer');
 	}
 }

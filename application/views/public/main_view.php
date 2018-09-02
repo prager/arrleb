@@ -69,8 +69,8 @@
                                 </div>
                                 <h3>Local Clubs</h3>
                                 <p>There are many local clubs in and around San Francisco East Bay. There is a good chance there is one just near you.
-                                  For the complete lists of ham radio clubs and their points of contact click
-                                  <a href="http://www.arrl.org/find-a-club">here</a></p>
+                                  For the lists of ham radio clubs and their points of contact click
+                                  on the Club Corner page <?php echo anchor(base_url() . '/index.php/club-corner', 'here')?></p>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,8 @@
                         original mission statement
                       on education via the old ARRL East Bay Section web site.</p>
 
-                        <p><a href="http://www.arrleastbaysection.org/education-and-training" class="btn btn-template-main">More on the old site</a>
+                        <p><a href="http://www.arrleastbaysection.org/education-and-training" 
+                        class="btn btn-template-main">More on the old site</a>
                         </p>
                     </div>
                     <div class="col-md-6 text-center">
