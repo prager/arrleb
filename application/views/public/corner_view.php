@@ -114,19 +114,20 @@
                       		Lamorinda Amateur Radio Interest Group (LARIC) meets on the air Wednesdays at 1930 hours local, on 147.540 FM simplex, 
                       		and in person 3rd Wednesday, 1900 hours, Sarge Littlehale Room, Orinda City building. LARIG holds a 
                       		no-host coffee meeting at 0930 at Caffe Teatro, Orinda (downstairs from the library) on Tuesdays. 
+                      		<br>                      		
+                      		For their web page
+							<?php echo anchor_popup('https://www.facebook.com/K6ORI/',
+							'click here'); ?>
                       		</p>
                       	</td>
                       </tr>
                       <tr>
                       	<td>
-                      		For their web page
-							<?php echo anchor_popup('https://www.facebook.com/K6ORI/',
-							'click here'); ?>
+                      	
                       	</td>
                       </tr>
                     </tbody>
                   </table>
-                  <hr />
                 </div>
 
             </div>
