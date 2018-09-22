@@ -7,7 +7,6 @@ class User_model extends CI_Model {
 	}
 	/**
 	 * Gets the user data and returns them in an array
-	 * @param unknown $username
 	 */
 	public function get_user($username){
 		//get username from users table

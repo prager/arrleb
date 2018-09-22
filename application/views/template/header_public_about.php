@@ -107,6 +107,7 @@ _________________________________________________________ -->
                             <ul class="nav navbar-nav navbar-right">
                               <li><?php echo anchor('Public_ctl', 'Home');?></li>
                               <li class="active"><a href="#">About</a></li>
+                              <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
                               <li><?php echo anchor('Public_ctl/Team', 'Team');?></li>
                               <li><?php echo anchor('Public_ctl/contact', 'Contact');?></li>
                             </ul>

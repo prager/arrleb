@@ -70,7 +70,7 @@
                                 <h3>Local Clubs</h3>
                                 <p>There are many local clubs in and around San Francisco East Bay. There is a good chance there is one just near you.
                                   For the lists of ham radio clubs and their points of contact click
-                                  on the Club Corner page <?php echo anchor(base_url() . '/index.php/club-corner', 'here')?></p>
+                                  on the Club Corner page <?php echo anchor(base_url() . 'index.php/club-corner', 'here')?></p>
                             </div>
                         </div>
                     </div>

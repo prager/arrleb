@@ -98,7 +98,7 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function club_corner() {
-		$this->load->view('template/header_public_gen');
+		$this->load->view('template/header_public_corner');
 		$this->load->view('public/corner_view');
 		$this->load->view('template/footer');
 	}
