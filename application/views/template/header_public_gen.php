@@ -51,6 +51,8 @@
 
     <link href="<?php echo base_url() ;?>/assets/css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>/assets/css/owl.theme.css" rel="stylesheet">
+    
+    
 </head>
 
 <body>
