@@ -19,64 +19,112 @@
             <div class="row">
                     <div class="col-md-12">
                     <div class="box">
-
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                            <h2 class="text-uppercase">New User Account</h2>
-
-                            <p class="lead">Please, fill all your information below:</p>
-                    </div>
-                </div>
-                <form action="customer-orders.html" method="post">
+                  <?php if($msg != '') {?>
+                  <div class="row">
+                  <div class="col-md-6 col-md-offset-3">
+                  <p><?php echo $msg; ?></p>
+                  </div>
+                  </div>
+                  <?php }?>
+                <?php echo form_open('public_ctl/send_reg/'); ?>
                 <div class="row">
                     <div class="col-md-3 col-md-offset-3">
                     <div class="form-group">
+                    	<?php $data = array(
+							'name'          => 'fname',
+							'id'            => 'fname',
+			            	'value'         =>  $fname,
+			            	'placeholder' => 'First Name',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                         <label for="name-login">First Name</label>
-                        <input type="text" class="form-control" id="name-login">
+                        <?php echo form_input($data);?>
                     </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'lname',
+							'id'            => 'lname',
+			            	'value'         =>  $lname,
+			            	'placeholder' => 'First Name',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                         <label for="name-login">Last Name</label>
-                        <input type="text" class="form-control" id="name-login">
+                        <?php echo form_input($data);?>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                       <div class="col-md-3 col-md-offset-3">
                       <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'email',
+							'id'            => 'email',
+			            	'value'         =>  $email,
+			            	'placeholder' => 'Email',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                           <label for="name-login">Email</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_input($data);?>
                       </div>
                       </div>
                           <div class="col-md-3">
                           <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'callsign',
+							'id'            => 'callsign',
+			            	'value'         =>  $callsign,
+			            	'placeholder' => 'Callsign',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                               <label for="name-login">Call Sign</label>
-                              <input type="text" class="form-control" id="name-login">
+                              <?php echo form_input($data);?>
                           </div>
                           </div>
                   </div>
                   <div class="row">
                       <div class="col-md-5 col-md-offset-3">
                       <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'phone',
+							'id'            => 'phone',
+			            	'value'         =>  $phone,
+			            	'placeholder' => 'Phone Number',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                           <label for="name-login">Phone Number</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_input($data);?>
                       </div>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-md-5 col-md-offset-3">
                       <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'street',
+							'id'            => 'street',
+			            	'value'         =>  $street,
+			            	'placeholder' => 'Street Address',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                           <label for="name-login">Street Address</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_input($data);?>
                       </div>
                       </div>
                   </div>
                   <div class="row">
                       <div class="col-md-5 col-md-offset-3">
                       <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'city',
+							'id'            => 'city',
+			            	'value'         =>  $city,
+			            	'placeholder' => 'City',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                           <label for="name-login">City</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_input($data);?>
                       </div>
                       </div>
                   </div>
@@ -84,13 +132,21 @@
                       <div class="col-md-3 col-md-offset-3">
                       <div class="form-group">
                           <label for="name-login">State</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_dropdown('state', $this->data_lib->get_states_array(), $state, 
+			          			'class="form-control"'); ?>
                       </div>
                       </div>
                       <div class="col-md-3">
                         <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'zip',
+							'id'            => 'zip',
+			            	'value'         =>  $zip,
+			            	'placeholder' => 'Zip Code',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
                           <label for="name-login">Zip Code</label>
-                          <input type="text" class="form-control" id="name-login">
+                          <?php echo form_input($data);?>
                         </div>
                       </div>
                     </div>

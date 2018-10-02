@@ -12,7 +12,7 @@ class User_model extends CI_Model {
 		//get username from users table
 		$this->db->select('*');
 		$this->db->where('user_name', $username);
-		$query = $this->db->get('user_tbl');
+		$query = $this->db->get('users');
 		$row = $query->row();
 		//$user['type'] = $row->type_code;
 		$user['level'] = $row->type_code;
@@ -52,7 +52,7 @@ class User_model extends CI_Model {
 	public function get_user_by_id($id) {
 		$this->db->select('*');
 		$this->db->where('id_user', $id);
-		return $this->db->get('user_tbl')->row();
+		return $this->db->get('users')->row();
 	}
 	
 	public function check_authorized() {
@@ -60,7 +60,7 @@ class User_model extends CI_Model {
 		$id = $this->Login_model->get_cur_user_id();
 		$this->db->select('authorized');
 		$this->db->where('id_user', $id);
-		if($this->db->get('user_tbl')->row()->authorized == 0) {
+		if($this->db->get('users')->row()->authorized == 0) {
 			$retval = FALSE;
 		}
 		return $retval;
@@ -87,5 +87,141 @@ class User_model extends CI_Model {
 				'message' => $param['msg']);
 		
 		$this->db->insert('messages', $msg_arr);*/
+	}
+	
+	public function register($param) {
+	    $retval = TRUE;
+	    
+	    $this->db->select('email');
+	    $q = $this->db->get_where('users', array('email' => $param['email']));
+	    
+	    if($q->num_rows() == 0) {
+	        
+	        $this->db->insert('new_user', $param);
+	        
+	        $rand_str = bin2hex(openssl_random_pseudo_bytes(12));
+	        
+	        $param['verifystr'] = base_url() . 'index.php/public_ctl/confirm_reg/' . $rand_str;
+	        $param['email_key'] = $rand_str;	        
+	       
+	        $param['active'] = 1;
+	        
+	        $this->db->insert('users', $param);
+	        
+	        $recipient = 'jank@jlkconsulting.info';
+	        $subject = 'ARRL EB registration';
+	        $message = $param['fname'] . ' ' . $param['lname'] . "\n\n".
+	   	        $param['street'] . "\n\n" .$param['city'] . ' ' . $param['state_cd'] . $param['zip_cd'] . "\n\n".
+	   	        ' Phone: ' . $param['phone'] . ' | Email: ' . $param['email'] . "\n\n";
+	   	        
+	   	        mail($recipient, $subject, $message);
+	   	        
+	   	        $recipient = $param['email'];
+	   	        $subject = 'ARRL EB Registration';
+	   	        
+	   	        
+	   	        $message = 'To finish your registration for ARRL EB click on the following link or copy paste in the browser: ' . $param['verifystr'] . "\n\n";
+	   	        $message .= 'You must do so within 72 hours otherwise you login information may be deactivated. Thank you for your interest in Fair-Ball!';
+	   	        
+	   	        mail($recipient, $subject, $message);
+	   	        
+	   	        
+	   	        
+	   	        $this->db->select('id_user');
+	   	        $this->db->where('email', $param['email']);
+	   	        
+	   	        $param['id_user'] = $this->db->get('users')->row()->id_user;
+	   	        
+	    }
+	    else {
+	        $retval = FALSE;
+	    }
+	    
+	    return $retval;
+	}
+	
+	public function get_user_to_reg($verifystr) {
+	    
+	    $this->db->select('*');
+	    $this->db->where('email_key', $verifystr);
+	    $row = $this->db->get('users')->row();
+	    
+	    $retarr['fname'] = $row->fname;
+	    $retarr['lname'] = $row->lname;
+	    $retarr['id_user'] = $row->id_user;
+	    $retarr['user_name'] = '';
+	    
+	    return $retarr;
+	}
+	
+	public function set_user_login($param) {
+	    $retval = TRUE;
+	    
+	    if($param['pass1'] == $param['pass2']) {
+	        $setarr['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
+	        $setarr['username'] = $param['username'];
+	        $setarr['active'] = 0;
+	        $this->db->select('active');
+	        $this->db->where('id_user', $param['id_user']);
+	        if($this->db->get('users')->row()->active == 1) {
+	            $this->db->where('id_user', $param['id_user']);
+	            $this->db->update('users', $setarr);
+	        }
+	        else {
+	            $retval = FALSE;
+	        }
+	    }
+	    else {
+	        $retval = FALSE;
+	    }
+	    
+	    if($retval) {
+	    }
+	    
+	    return $retval;
+	}
+	
+	public function forgot_password($param) {
+	    
+	    $retarr['error'] = NULL;
+	    $retarr['username'] = NULL;
+	    
+	    $this->db->select('*');
+	    $this->db->where('email', $param['email']);
+	    $q = $this->db->get('users')->row();
+	    
+	    if(!(filter_var($param['email'], FILTER_VALIDATE_EMAIL))) {
+	        $retarr['error'] = 'Entered invalid email address';
+	        $retarr['flag'] = FALSE;
+	    }
+	    elseif(count($q) == 0) {
+	        $retarr['error'] = 'Email address doesn\'t exist in the system';
+	        $retarr['flag'] = FALSE;
+	    }
+	    else {
+	        if($param['pass1'] == $param['pass2']) {
+	            $param['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
+	            unset($param['pass1']);
+	            unset($param['pass2']);
+	            $this->db->select('user_name');
+	            $this->db->where('email', $param['email']);
+	            
+	            $retarr['username'] = $this->db->get('users')->row()->user_name;
+	            
+	            $retarr['flag'] = TRUE;
+	            
+	            $this->db->where('email', $param['email']);
+	            unset($param['email']);
+	            
+	            $this->db->update('users', $param);
+	        }
+	        else {
+	            $retarr['error'] = 'Passwords did not match';
+	            $retarr['flag'] = FALSE;
+	        }
+	        
+	    }
+	    
+	    return $retarr;
 	}
 }

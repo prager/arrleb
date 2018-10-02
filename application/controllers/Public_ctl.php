@@ -24,28 +24,28 @@ class Public_ctl extends CI_Controller {
 		$data['subject'] = '';
 		$data['msg'] = '';
 		$this->load->view('public/contact_view', $data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function about() {
 		$this->load->view('template/header_public_about');
 		$this->load->view('public/about_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function team() {
 		$this->load->view('template/header_public_team');
 		$this->load->view('public/team_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function login() {
 		$this->load->view('template/header_public_gen');
 		$data['title'] = 'Working on It';
-		$data['msg'] = 'User login and registration is currently being worked on. Please, come back soon and check. Thank you for your
+		$data['msg'] = 'User login is currently being worked on. Please, come back soon and check. Thank you for your
 		patience!<br><br>';
 		$this->load->view('status/status_view', $data);
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function msg() {
@@ -88,28 +88,141 @@ class Public_ctl extends CI_Controller {
 	public function education() {
 		$this->load->view('template/header_public_gen');
 		$this->load->view('public/edu_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function class_details() {
 		$this->load->view('template/header_public_gen');
 		$this->load->view('public/details_edu_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function club_corner() {
 		$this->load->view('template/header_public_corner');
 		$this->load->view('public/corner_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function register() {
+	    $data = array();
 	    $this->load->view('template/header_public_gen');
-	    $this->load->view('public/register_view');
-	    $this->load->view('template/footer');
+	    $data['fname'] = '';
+	    $data['lname'] = '';
+	    $data['email'] = '';
+	    $data['callsign'] = '';	    
+	    $data['phone'] = '';
+	    $data['street'] = '';
+	    $data['city'] = '';
+	    $data['state'] = 'CA';
+	    $data['zip'] = '';
+	    $data['msg'] = '';
+	    $this->load->view('public/register_view', $data);
+	    $this->load->view('template/footer_ver1');
 	}
 	
-	public function send_registration() {
+	public function send_reg() {
+	    $param = array();
+	    $param['fname'] = $this->input->post('fname');
+	    $param['lname'] = $this->input->post('lname');
+	    $param['email'] = $this->input->post('email');
+	    $param['street'] = $this->input->post('street');
+	    $param['city'] = $this->input->post('city');
+	    $param['state_cd'] = $this->input->post('state');
+	    $param['zip_cd'] = $this->input->post('zip');
+	    $param['phone'] = $this->input->post('phone');	    
+	    $param['callsign'] = $this->input->post('callsign');
 	    
+	    $this->load->view('template/header_public_gen');
+	    
+	    if($param['lname'] == '' || $param['fname'] == '' || valid_email($param['email']) != TRUE || $param['street'] == '' || $param['city'] == ''
+	        || $param['zip_cd'] == '' || $param['phone'] == '') {
+	            
+	            $data = $param;
+	            $data['state'] = $param['state_cd'];
+	            $data['zip'] = $param['zip_cd'];
+	            $data['title'] = 'Error!';
+	            $data['msg'] = '<span style="color: red">Please, fill all the required information. Thank you!</span>';
+	           
+	            $this->load->view('public/register_view', $data);
+	            
+	        }
+	        else {
+	            if($this->User_model->register($param)) {
+	                $data['title'] = 'Thank you!';
+	                $data['msg'] = 'Your registration has been sent. You will get an email with further instructions within 72 hours.
+                                    Thank you!<br><br>';
+	            }
+	            else {
+	                $data['title'] = 'Error!';
+	                $data['msg'] = '<span style="color: red">The email you provided is already in use. Please, use different email. Thank you!</span>';
+	            }
+	            
+	            $this->load->view('status/status_view', $data);
+	        }
+	        $this->load->view('template/footer_ver1');
+	}
+	
+	public function confirm_reg() {
+	    $verifystr = $this->uri->segment(3, 0);
+	    $data['user'] = $this->User_model->get_user_to_reg($verifystr);
+	    $data['msg'] = '';
+	    $this->load->view('template/header_public_gen');
+	    $this->load->view('public/update_user_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function set_user_login() {
+	    $param['id_user'] = $this->uri->segment(3, 0);
+	    $param['username'] = $this->input->post('uname');
+	    $param['pass1'] = $this->input->post('pass1');
+	    $param['pass2'] = $this->input->post('pass2');
+	    
+	    $this->load->view('template/header_public_gen');
+	    
+	    if($this->User_model->set_user_login($param)) {
+	        
+	        $data['title'] = 'Username and password has been set';
+	        $data['msg'] = 'However, you have not been authorized yet. You will receive authorization email within 72 hours. Thank you!';
+	        $this->load->view('status/status_view', $data);
+	    }
+	    else {
+	        
+	        $data['title'] = 'Set Authorized Error';
+	        $data['msg'] = 'Error, changes not loaded. Please, use a different username. Thank you.';
+	        $this->load->view('status/status_view', $data);
+	    }
+	    
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function forgot_password() {
+	    
+	    $this->load->view('template/header_public_gen');
+	    $this->load->view('public/lost_pass_view');
+	    $this->load->view('template/footer_ver1');
+	    
+	}
+	
+	public function load_forgot_password(){
+	    
+	    $param['email'] = $this->input->post('email');
+	    $param['pass1'] = $this->input->post('pass1');
+	    $param['pass2'] = $this->input->post('pass2');
+	    
+	    $retarr = $this->User_model->forgot_password($param);
+	    
+	    $this->load->view('template/header_public_gen');
+	    
+	    if($retarr['flag']) {
+	        $data['title'] = "Password Reset for user " . $retarr['username'] . "!";
+	        $data['msg'] = 'Your password has been reset. Thank you!<br><br>';
+	    }
+	    else {
+	        $data['title'] = "Password Reset Error";
+	        $data['msg'] = "Your password has not been reset. There was the following error: " . $retarr['error'] . "<br><br>";
+	    }
+	    
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
 	}
 }
