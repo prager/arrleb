@@ -29,14 +29,37 @@ class Master extends CI_Controller {
 	        
 	        $output = $crud->render();
 	        
-	        $this->_example_output($output);
+	        $this->_user_output($output);
 	        
 	    }catch(Exception $e){
 	        show_error($e->getMessage().' --- '.$e->getTraceAsString());
 	    }
 	}
 	
-	function _example_output($output=NULL) {
-	    $this->load->view('master/crud_view.php', $output);
+	private function _user_output($output=NULL) {
+	    $this->load->view('master/edit_users_view.php', $output);
+	}
+	
+	public function user_types() {
+	    try{
+	        $crud = new grocery_CRUD();
+	        
+	        $crud->set_theme('datatables');
+	        $crud->set_table('user_types');
+	        $crud->set_subject('Types');
+	        $crud->required_fields('type_code');
+	        $crud->columns('type_code','description','code_str');
+	        
+	        $output = $crud->render();
+	        
+	        $this->_types_output($output);
+	        
+	    }catch(Exception $e){
+	        show_error($e->getMessage().' --- '.$e->getTraceAsString());
+	    }
+	}
+	
+	private function _types_output($output=NULL) {
+	    $this->load->view('master/types_view.php', $output);
 	}
 }

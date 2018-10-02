@@ -74,7 +74,7 @@ _________________________________________________________ -->
                             <div class="login">
                                 <a href="#" data-toggle="modal" data-target="#login-modal">
                                 <i class="fa fa-sign-in"></i> <span class="hidden-xs">Sign in</span></a>
-                                <!--<a href="customer-register.html"><i class="fa fa-user"></i> <span class="hidden-xs">Sign up</span></a>-->
+                                <a href="<?php echo base_url() ;?>index.php/Public_ctl/register"><i class="fa fa-user"></i> <span class="hidden-xs">Sign up</span></a>
                             </div>
 
                         </div>

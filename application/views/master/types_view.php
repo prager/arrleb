@@ -50,7 +50,8 @@
 
     <link href="<?php echo base_url() ;?>/assets/css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>/assets/css/owl.theme.css" rel="stylesheet">
- 
+   
+     
 <?php 
 foreach($css_files as $file): ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
@@ -60,37 +61,21 @@ foreach($css_files as $file): ?>
  
     <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
- 
-<style type='text/css'>
-body
-{
-    font-family: Arial;
-    font-size: 14px;
-}
-a {
-    color: blue;
-    text-decoration: none;
-    font-size: 14px;
-}
-a:hover
-{
-    text-decoration: underline;
-}
-</style>
+    
+    
 </head>
 <body>
 <div id="heading-breadcrumbs">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
-                        <h1>About us</h1>
+                        <h1>User Types</h1>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
                             <li><?php echo anchor('Public_ctl', 'Home');?></li>
-                            <li>About us</li>
+                            <li>User Types</li>
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -98,31 +83,17 @@ a:hover
 
         <div id="content">
             <div class="container">
-
                 <section>
                     <div class="row">
                         <div class="col-md-12">
-<!-- Beginning header -->
-    <div>
-        <a href='<?php echo site_url('master/user_management')?>'>Users</a>
-    </div>
-<!-- End of header-->
-    <div style='height:20px;'></div>  
-    <div>
-<?php echo $output; ?>
- 
-    </div>
-    
-                    </div>
-
-                    
+                            <div style='height:20px;'></div>  
+                            <div>
+							<?php echo $output; ?> 
+    						</div>
+    					</div>
+                    </div>                    
                 </section>
-
             </div>
-
-
-
-
         </div>
 </body>
 </html>

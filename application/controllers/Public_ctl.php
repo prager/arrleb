@@ -102,4 +102,14 @@ class Public_ctl extends CI_Controller {
 		$this->load->view('public/corner_view');
 		$this->load->view('template/footer');
 	}
+	
+	public function register() {
+	    $this->load->view('template/header_public_gen');
+	    $this->load->view('public/register_view');
+	    $this->load->view('template/footer');
+	}
+	
+	public function send_registration() {
+	    
+	}
 }
