@@ -164,18 +164,27 @@ class User_model extends CI_Model {
 	
 	public function forgot_password($param) {
 	    
+	    $retarr = array();
+	    
 	    $retarr['error'] = NULL;
 	    $retarr['username'] = NULL;
 	    
-	    $this->db->select('*');
+	    //$this->db->select('*');
 	    $this->db->where('email', $param['email']);
-	    $q = $this->db->get('users')->row();
+	    $this->db->from('users');
+	    $q = $this->db->count_all_results();
+	    
+	    if(($param['pass1'] == '') || ($param['pass2'] == '')) {
+	        $retarr['error'] = 'Entered invalid passwords!';
+	        $retarr['flag'] = FALSE;
+	        return;
+	    }
 	    
 	    if(!(filter_var($param['email'], FILTER_VALIDATE_EMAIL))) {
 	        $retarr['error'] = 'Entered invalid email address';
 	        $retarr['flag'] = FALSE;
 	    }
-	    elseif(count($q) == 0) {
+	    elseif($q == 0) {
 	        $retarr['error'] = 'Email address doesn\'t exist in the system';
 	        $retarr['flag'] = FALSE;
 	    }
@@ -202,7 +211,6 @@ class User_model extends CI_Model {
 	        }
 	        
 	    }
-	    
 	    return $retarr;
 	}
 }
