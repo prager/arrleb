@@ -28,8 +28,7 @@ class Master extends CI_Controller {
 	    $this->_example_output($output);
 	}
 	
-	public function user_management()
-	{
+	public function user_management() {
 	    if($this->check_master()) {
     	    try{
     	        $crud = new grocery_CRUD();
@@ -50,7 +49,7 @@ class Master extends CI_Controller {
     	    }
 	    }
 	    else {
-	        $this->load->view('template/header_public_gen');
+	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	        $data['title'] = 'Error';
 	        $data['msg'] = 'Checking credentials error.
 					Go to home page ' . anchor('public_ctl', 'here'). '<br><br>';

@@ -93,6 +93,7 @@ class Login_model extends CI_Model {
 		if($usr_data->type_code == 0) {
 		    $retarr['header'] = 'template/header_public_gen';
 		    $retarr['view'] = 'status/status_view';
+		    $retarr['data']['logged'] = TRUE;
 		    $retarr['data']['title'] = 'User Not Set';
 		    $retarr['data']['msg'] = 'Unfortunately, your user profile has not been setup yet. If you find this message in error, you may
             contact the webmaster at jan@kulisek.org<br><br>';
@@ -101,13 +102,13 @@ class Login_model extends CI_Model {
 		elseif($usr_data->type_code == 1) {
 			$retarr['header'] = 'template/header_public_gen';
 			$retarr['view'] = 'events/main_view';
-			$retarr['data'] = NULL;
+			$data['logged'] = TRUE;
 		}
 		elseif($usr_data->type_code == 2) {
 			
 			$retarr['header'] = 'template/header_public_gen';
 			$retarr['view'] = 'edu/main_view';
-			$retarr['data'] = NULL;
+			$retarr['data']['logged'] = TRUE;
 		}
 		
 		elseif($usr_data->type_code == 99) {
@@ -115,6 +116,7 @@ class Login_model extends CI_Model {
 		    $retarr['header'] = 'template/header_private';
 		    $retarr['view'] = 'master/main_view';
 		    $retarr['data']['msg'] = 'This is it!';
+		    $retarr['data']['logged'] = TRUE;
 		}
 		else {
 		    $retarr['header'] = 'template/header_public_gen';
@@ -122,6 +124,7 @@ class Login_model extends CI_Model {
 		    $retarr['data']['title'] = 'Login Error';
 		    $retarr['data']['msg'] = 'Unfortunately, your user profile is not properly setup. If you find this message in error, you may
             contact the webmaster at jan@kulisek.org<br><br>';
+		    $retarr['data']['logged'] = FALSE;
 		}
 				
 		return $retarr;
@@ -180,5 +183,101 @@ class Login_model extends CI_Model {
 
 		session_regenerate_id(FALSE);
 		session_destroy();
+	}
+	
+	public function check_table() {	    
+	    
+	    $id = $this->get_cur_user()['id'];
+	    
+	    $tbl_name = 'user_' . $id . '_tbl';
+	    
+	    $this->db->select('*');
+	    $this->db->where('id_user', $id);
+	    $usr_data = $this->db->get('users')->row();
+	    
+	    if (!($this->db->table_exists($tbl_name)))	{
+	        $this->load->dbforge();
+	        
+	        $id_field = 'id_' . $tbl_name;
+	        $fields = array(
+	            $id_field => array(
+	                'type' => 'INT',
+	                'constraint' => 11,
+	                'unsigned' => TRUE,
+	                'auto_increment' => TRUE
+	            ),
+	            'id_user' => array(
+	                'type' => 'INT',
+	                'constraint' => 11,
+	                'unsigned' => TRUE
+	            ),
+	            'fname' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '100',
+	                'default' => ''
+	            ),
+	            'lname' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '100',
+	                'default' => ''
+	            ),
+	            'username' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '32',
+	                'default' => ''
+	            ),
+	            'email' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '50',
+	                'default' => ''
+	            ),
+	            'phone' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '32',
+	                'default' => ''
+	            ),
+	            'street' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '100',
+	                'default' => ''
+	            ),
+	            'city' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '128',
+	                'default' => ''
+	            ),
+	            'state_cd' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '2',
+	                'default' => ''
+	            ),
+	            'zip_cd' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '10',
+	                'default' => ''
+	            )
+	            
+	        );
+	        $this->dbforge->add_field($fields);
+	        $this->dbforge->add_key($id_field, TRUE);
+	        $this->dbforge->create_table($tbl_name);
+	        
+	        $data = array(
+	            'id_user' => $id,
+	            'fname' => $usr_data->fname,
+	            'lname' => $usr_data->lname,
+	            'email' => $usr_data->email,
+	            'username' => $usr_data->username,
+	            'street' => $usr_data->street,
+	            'phone' => $usr_data->phone,
+	            'city' => $usr_data->city,
+	            'state_cd' => $usr_data->state_cd,
+	            'zip_cd' => $usr_data->zip_cd
+	        );
+	        
+	        $this->db->insert($tbl_name, $data);
+	    }
+	    
+	    return $tbl_name;
 	}
 }

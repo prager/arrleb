@@ -11,10 +11,6 @@ class Login extends CI_Controller {
     }
     
 	public function index() {
-	    $this->load_user();
-	}
-	
-	public function load_user() {
 	    $this->form_validation->set_rules('user', 'Username', 'required|trim|callback_validate_credentials');
 	    $this->form_validation->set_rules('pass', 'Password', 'required|trim');
 	    if($this->form_validation->run()) {
@@ -22,13 +18,23 @@ class Login extends CI_Controller {
 	        $this->load_view($data);
 	    }
 	    else {
-	        $this->load->view('template/header_public_gen');
+	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	        $data['title'] = 'Login Error';
 	        $data['msg'] = 'There was an error while checking your credentials.
 					Go to home page ' . anchor('public_ctl', 'here'). '<br><br>';
 	        $this->load->view('status/status_view', $data);
 	        $this->load->view('template/footer_ver1');
 	    }
+	}
+	
+	public function load_user() {
+	    $this->load->view('template/header_private');
+	    
+	    if($this->Login_model->get_cur_user()['level'] == 99) {
+	        $this->load->view('master/main_view');
+	    }
+	    
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function validate_credentials() {
@@ -49,6 +55,7 @@ class Login extends CI_Controller {
 	    $this->load->view($data['view'], $data['data']);
 	    $this->load->view('template/footer_ver1');
 	}
+	
 	public function logout() {
 	    $this->Login_model->logout();
 	    $this->load->view('template/header_public_main', array('logged' => FALSE));
