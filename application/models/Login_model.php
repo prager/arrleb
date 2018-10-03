@@ -31,13 +31,13 @@ class Login_model extends CI_Model {
 			session_start();
 			session_regenerate_id(FALSE);
 		}
-		$this->db->select('user_name');
-		$this->db->where('user_name', $data['user']);
-		$query = $this->db->get('user_tbl');
+		$this->db->select('username');
+		$this->db->where('username', $data['user']);
+		$query = $this->db->get('users');
 		if(count($query->result()) == 1) {
 			$this->db->select('pass');
-			$this->db->where('user_name', $data['user']);
-			$query = $this->db->get('user_tbl');
+			$this->db->where('username', $data['user']);
+			$query = $this->db->get('users');
 			if(count($query->result()) == 1) {
 				$row = $query->row();
 				if(password_verify($data['pass'], $row->pass)) {
@@ -80,63 +80,46 @@ class Login_model extends CI_Model {
 		$this->db->insert('ci_sessions', $session_data);
 	}
 	
-	public function get_viewdata($user_name) {
+	public function get_viewdata($username) {
 		$retarr = array();
 		$this->db->select('*');
-		$this->db->where('user_name', $user_name);
-		$usr_data = $this->db->get('user_tbl')->row();
+		$this->db->where('username', $username);
+		$usr_data = $this->db->get('users')->row();
+		
+		$data = array();
 		
 		if($usr_data->type_code == 0) {
-			$retarr['header'] = 'template/guest_header';
-			$retarr['view'] = 'guest/guest_view';
-			$retarr['data'] = NULL;
+		    $retarr['header'] = 'template/header_public_gen';
+		    $retarr['view'] = 'status/status_view';
+		    $retarr['data']['title'] = 'User Not Set';
+		    $retarr['data']['msg'] = 'Unfortunately, your user profile has not been setup yet. If you find this message in error, you may
+            contact the webmaster at jan@kulisek.org<br><br>';
+		    
 		}
 		elseif($usr_data->type_code == 1) {
-			$retarr['header'] = 'template/parent_header';
-			$retarr['view'] = 'parent/parent_view';
+			$retarr['header'] = 'template/header_public_gen';
+			$retarr['view'] = 'events/main_view';
 			$retarr['data'] = NULL;
 		}
 		elseif($usr_data->type_code == 2) {
 			
-			$arr = $this->Coach_model->get_players(0);
-			
-			if($arr['team'] != NULL) {
-				$retarr['header'] = 'template/coach_header';
-				$retarr['view'] = 'coach/coach_view';
-				$retarr['data'] = $this->Coach_model->get_coach_data();
-				$retarr['data']['coach'] = $this->Login_model->get_cur_user();
-				$retarr['data']['players'] = $arr['players'];
-				$retarr['data']['has_players'] = $arr['has_players'];
-				$retarr['data']['cur_lineup'] = $this->Coach_model->cur_lineup();
-				
-				$retarr['data']['league'] = $arr['league'];
-				$retarr['data']['team'] = $arr['team'];
-				$retarr['data']['msg'] = '';
-			}
-			else {
-				$retarr['data']['title'] = 'Cannot load page';
-				$retarr['data']['msg'] = 'There is an error while loading page';
-			}
-		}
-		elseif($usr_data->type_code == 4) {
-			$retarr['header'] = 'template/rep_header';
-			$retarr['view'] = 'rep/rep_view';
+			$retarr['header'] = 'template/header_public_gen';
+			$retarr['view'] = 'edu/main_view';
 			$retarr['data'] = NULL;
 		}
-		elseif($usr_data->type_code == 6) {
-			$retarr['header'] = 'template/division_header';
-			$retarr['view'] = 'division/main_view';
-			$retarr['data'] = NULL;
-		}
-		elseif($usr_data->type_code == 3) {
-			$retarr['header'] = 'template/parent_header';
-			$retarr['view'] = 'parent/parent_view';
-			$retarr['data'] = NULL;
-		}
+		
 		elseif($usr_data->type_code == 99) {
-			$retarr['header'] = 'template/master_header';
-			$retarr['view'] = 'master/master_view';
-			$retarr['data'] = NULL;
+		    
+		    $retarr['header'] = 'template/header_private';
+		    $retarr['view'] = 'master/main_view';
+		    $retarr['data']['msg'] = 'This is it!';
+		}
+		else {
+		    $retarr['header'] = 'template/header_public_gen';
+		    $retarr['view'] = 'status/status_view';
+		    $retarr['data']['title'] = 'Login Error';
+		    $retarr['data']['msg'] = 'Unfortunately, your user profile is not properly setup. If you find this message in error, you may
+            contact the webmaster at jan@kulisek.org<br><br>';
 		}
 				
 		return $retarr;

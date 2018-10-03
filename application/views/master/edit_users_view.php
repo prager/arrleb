@@ -73,7 +73,7 @@ foreach($css_files as $file): ?>
                     </div>
                     <div class="col-md-5">
                         <ul class="breadcrumb">
-                            <li><?php echo anchor('Public_ctl', 'Home');?></li>
+                            <li><?php echo anchor('master', 'Master Home');?></li>
                             <li>Users</li>
                         </ul>
                     </div>

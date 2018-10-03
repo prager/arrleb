@@ -9,7 +9,7 @@
                         <h4 class="modal-title" id="Login">User login</h4>
                     </div>
                     <div class="modal-body">
-                        <?php echo form_open('Public_ctl/login'); ?>
+                        <?php echo form_open('Login'); ?>
                             <div class="form-group">
                                 <?php  
 			                     $num_yrs = array(

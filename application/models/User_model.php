@@ -11,7 +11,7 @@ class User_model extends CI_Model {
 	public function get_user($username){
 		//get username from users table
 		$this->db->select('*');
-		$this->db->where('user_name', $username);
+		$this->db->where('username', $username);
 		$query = $this->db->get('users');
 		$row = $query->row();
 		//$user['type'] = $row->type_code;
@@ -20,26 +20,7 @@ class User_model extends CI_Model {
 		$user['fname'] = $row->fname;
 		$user['lname'] = $row->lname;
 		$user['authorized'] = $row->authorized;
-		$user['user_name'] = $username;
-		
-//get id_roster
-		$this->db->select('*');
-		$this->db->where('id_user', $user['id']);
-		$q = $this->db->get('team_roster');
-		$row = $q->row();
-		if(count($row) == 0) {
-			$user['id_roster']= 0;
-			$user['id_team']= 0;
-			$user['team'] = '';
-		}
-		else {
-			$user['id_roster']= $row->id_roster;
-			$user['id_team'] = $row->id_team;
-//get team name
-			$this->db->select('*');
-			$this->db->where('id_team', $user['id_team']);
-			$user['team'] = $this->db->get('team_tbl')->row()->team_name;
-		}
+		$user['username'] = $username;
 		
 //get user attributes from logins table
 		$this->db->select('description');
@@ -149,7 +130,7 @@ class User_model extends CI_Model {
 	    $retarr['fname'] = $row->fname;
 	    $retarr['lname'] = $row->lname;
 	    $retarr['id_user'] = $row->id_user;
-	    $retarr['user_name'] = '';
+	    $retarr['username'] = '';
 	    
 	    return $retarr;
 	}
@@ -203,10 +184,10 @@ class User_model extends CI_Model {
 	            $param['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
 	            unset($param['pass1']);
 	            unset($param['pass2']);
-	            $this->db->select('user_name');
+	            $this->db->select('username');
 	            $this->db->where('email', $param['email']);
 	            
-	            $retarr['username'] = $this->db->get('users')->row()->user_name;
+	            $retarr['username'] = $this->db->get('users')->row()->username;
 	            
 	            $retarr['flag'] = TRUE;
 	            
