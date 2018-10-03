@@ -6,14 +6,16 @@ class Login_model extends CI_Model {
 	}
 	
 	function is_logged() {
-		$retval = 100;
+		$retval = array();
+		$retval['logged'] = FALSE;
 		if (session_status() !== PHP_SESSION_ACTIVE) {
 			session_start();
 		}
 		
 		if(isset($_SESSION['logged'])) {
 			if($_SESSION['logged']) {
-				$retval = $_SESSION['level'];
+				$retval['level'] = $_SESSION['level'];
+				$retval['logged'] = TRUE;
 			}
 		}
 		
@@ -137,10 +139,16 @@ class Login_model extends CI_Model {
 	}
 	
 	public function get_cur_user() {
-		if (session_status() !== PHP_SESSION_ACTIVE) {
+		
+	    if (session_status() !== PHP_SESSION_ACTIVE) {
 			session_start();
 		}
-		return $_SESSION['user'];
+		if(isset($_SESSION['logged'])) {
+		  return $_SESSION['user'];
+		}
+		else {
+		    return NULL;
+		}
 	}
 	
 

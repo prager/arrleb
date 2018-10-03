@@ -11,13 +11,13 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function index() {
-		$this->load->view('template/header_public_main');
+	    $this->load->view('template/header_public_main', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/main_view');
 		$this->load->view('template/footer');
 	}
 	
 	public function contact() {		
-		$this->load->view('template/header_public_contact');
+	    $this->load->view('template/header_public_contact', array('logged' => $this->Login_model->is_logged()['logged']));
 		$data['fname'] = '';
 		$data['lname'] = '';
 		$data['email'] = '';
@@ -28,19 +28,19 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function about() {
-		$this->load->view('template/header_public_about');
+	    $this->load->view('template/header_public_about', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/about_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function team() {
-		$this->load->view('template/header_public_team');
+	    $this->load->view('template/header_public_team', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/team_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function login() {
-		$this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$data['title'] = 'Working on It';
 		$data['msg'] = 'User login is currently being worked on. Please, come back soon and check. Thank you for your
 		patience!<br><br>';
@@ -86,26 +86,26 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function education() {
-		$this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/edu_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function class_details() {
-		$this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/details_edu_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function club_corner() {
-		$this->load->view('template/header_public_corner');
+	    $this->load->view('template/header_public_corner', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/corner_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function register() {
 	    $data = array();
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    $data['fname'] = '';
 	    $data['lname'] = '';
 	    $data['email'] = '';
@@ -132,7 +132,7 @@ class Public_ctl extends CI_Controller {
 	    $param['phone'] = $this->input->post('phone');	    
 	    $param['callsign'] = $this->input->post('callsign');
 	    
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    
 	    if($param['lname'] == '' || $param['fname'] == '' || valid_email($param['email']) != TRUE || $param['street'] == '' || $param['city'] == ''
 	        || $param['zip_cd'] == '' || $param['phone'] == '') {
@@ -166,7 +166,7 @@ class Public_ctl extends CI_Controller {
 	    $verifystr = $this->uri->segment(3, 0);
 	    $data['user'] = $this->User_model->get_user_to_reg($verifystr);
 	    $data['msg'] = '';
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    $this->load->view('public/update_user_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
@@ -177,7 +177,7 @@ class Public_ctl extends CI_Controller {
 	    $param['pass1'] = $this->input->post('pass1');
 	    $param['pass2'] = $this->input->post('pass2');
 	    
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    
 	    if($this->User_model->set_user_login($param)) {
 	        
@@ -197,7 +197,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function forgot_password() {
 	    
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    $this->load->view('public/lost_pass_view');
 	    $this->load->view('template/footer_ver1');
 	    
@@ -211,7 +211,7 @@ class Public_ctl extends CI_Controller {
 	    
 	    $retarr = $this->User_model->forgot_password($param);
 	    
-	    $this->load->view('template/header_public_gen');
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    
 	    if($retarr['flag']) {
 	        $data['title'] = "Password Reset for user " . $retarr['username'] . "!";
