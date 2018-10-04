@@ -136,27 +136,29 @@ class User_model extends CI_Model {
 	}
 	
 	public function set_user_login($param) {
-	    $retval = TRUE;
+	    $retval = FALSE;
 	    
-	    if($param['pass1'] == $param['pass2']) {
-	        $setarr['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
-	        $setarr['username'] = $param['username'];
-	        $setarr['active'] = 0;
-	        $this->db->select('active');
-	        $this->db->where('id_user', $param['id_user']);
-	        if($this->db->get('users')->row()->active == 1) {
-	            $this->db->where('id_user', $param['id_user']);
-	            $this->db->update('users', $setarr);
-	        }
-	        else {
-	            $retval = FALSE;
-	        }
-	    }
-	    else {
-	        $retval = FALSE;
-	    }
+	    $pass1 = trim($param['pass1']);
+	    $pass2 = trim($param['pass2']);
 	    
-	    if($retval) {
+	    if($pass1 == $pass2) {
+	        $uppercase = preg_match('@[A-Z]@', $pass1);
+	        $lowercase = preg_match('@[a-z]@', $pass1);
+	        $number    = preg_match('@[0-9]@', $pass1);
+	        
+	        //if(!$uppercase || !$lowercase || !$number || strlen($password) < 8) {
+	        if(strlen($pass1) > 5) {
+    	        $setarr['pass'] = password_hash($pass1, PASSWORD_BCRYPT, array('cost' => 12));
+    	        $setarr['username'] = $param['username'];
+    	        $setarr['active'] = 0;
+    	        $this->db->select('active');
+    	        $this->db->where('id_user', $param['id_user']);
+    	        if($this->db->get('users')->row()->active == 1) {
+    	            $this->db->where('id_user', $param['id_user']);
+    	            $this->db->update('users', $setarr);
+    	            $retval = TRUE;
+    	        }    	        
+	        }
 	    }
 	    
 	    return $retval;
@@ -168,6 +170,9 @@ class User_model extends CI_Model {
 	    
 	    $retarr['error'] = NULL;
 	    $retarr['username'] = NULL;
+	    
+	    $param['pass1'] = trim( $param['pass1']);
+	    $param['pass2'] = trim( $param['pass2']);
 	    
 	    //$this->db->select('*');
 	    $this->db->where('email', $param['email']);
@@ -190,20 +195,32 @@ class User_model extends CI_Model {
 	    }
 	    else {
 	        if($param['pass1'] == $param['pass2']) {
-	            $param['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
-	            unset($param['pass1']);
-	            unset($param['pass2']);
-	            $this->db->select('username');
-	            $this->db->where('email', $param['email']);
 	            
-	            $retarr['username'] = $this->db->get('users')->row()->username;
+	            $uppercase = preg_match('@[A-Z]@', $param['pass1']);
+	            $lowercase = preg_match('@[a-z]@', $param['pass1']);
+	            $number    = preg_match('@[0-9]@', $param['pass1']);
 	            
-	            $retarr['flag'] = TRUE;
-	            
-	            $this->db->where('email', $param['email']);
-	            unset($param['email']);
-	            
-	            $this->db->update('users', $param);
+	            if($uppercase && $lowercase && $number && (strlen($param['pass1']) > 5)) {
+	            //if(strlen($param['pass1']) > 5) {
+	                $param['pass'] = password_hash($param['pass1'], PASSWORD_BCRYPT, array('cost' => 12));
+	                unset($param['pass1']);
+	                unset($param['pass2']);
+	                $this->db->select('username');
+	                $this->db->where('email', $param['email']);
+	                
+	                $retarr['username'] = $this->db->get('users')->row()->username;
+	                
+	                $retarr['flag'] = TRUE;
+	                
+	                $this->db->where('email', $param['email']);
+	                unset($param['email']);
+	                
+	                $this->db->update('users', $param);
+	            } 
+	            else {
+	                $retarr['error'] = 'Password must be with upper/lower case letter(s), number(s) and number(s)';
+	                $retarr['flag'] = FALSE;
+	            }
 	        }
 	        else {
 	            $retarr['error'] = 'Passwords did not match';

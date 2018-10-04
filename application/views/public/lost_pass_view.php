@@ -44,7 +44,7 @@
 			            	'placeholder' => 'password',
 			               'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-						Password (6 or more characters including numbers)
+						Password (at least 6 chars, upper/lower case + num)
 						<?php echo form_password($data);?>
         					</div>
                         </div>
