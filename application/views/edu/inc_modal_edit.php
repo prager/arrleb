@@ -27,15 +27,22 @@
 					<div class="row">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-6">
+						<?php $data = array(
+							'name'          => 'date_from',
+							'id'            => 'date_from',
+						    'value'         =>  date("Y-m-d", $row['date_from']),
+						    'type' => 'date',
+			            	'placeholder' => 'To',
+			                'class'			=> 'form-control',
+							'maxlength'     => '35');?>
 						Date From
-						<input type="date" id="myDate" value="<?php echo date("Y-m-d", $row['date_from']);?>" class="form-control">
-						
+						<?php echo form_input($data);?>
 						</div>
 						<div class="col-md-6">
 						<?php $data = array(
 							'name'          => 'date_to',
 							'id'            => 'date_to',
-						    'value'         =>  $row['date_to'],
+						    'value'         =>  date("Y-m-d", $row['date_to']),
 						    'type' => 'date',
 			            	'placeholder' => 'To',
 			                'class'			=> 'form-control',
@@ -89,10 +96,10 @@
 						<?php $data = array(
 							'name'          => 'details_url',
 							'id'            => 'details_url',
-			            		'value'         =>  $row['details_url'],
+			            		'value'         =>  $row['details'],
 			            	'placeholder' => 'status',
 			                'class'			=> 'form-control',
-							'maxlength'     => '75');?>
+							'maxlength'     => '375');?>
 						URL
 						<?php echo form_input($data);?>
 						</div>
@@ -102,7 +109,7 @@
 					<div class="row">
 					<div class="col-md-4">&nbsp;</div>
 						<div class="col-md-4">
-			          	<?php echo form_submit('submit', 'Submit Changes', 'class="btn btn-block"'); ?>
+			          	<?php echo form_submit('submit', 'Submit Changes', 'class="btn btn-primary btn-block"'); ?>
 			          	</div>
 		          	</div>
 		          	<div class="row">&nbsp;</div>

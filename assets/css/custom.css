@@ -6,3 +6,20 @@
   color: #4fbfa8;
   text-decoration: none;
 }
+.row-date {
+	width: 8%;
+}
+
+.elips1 {
+    max-width: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.elips2 {
+    max-width: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

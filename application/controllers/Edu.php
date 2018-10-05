@@ -40,15 +40,18 @@ class Edu extends CI_Controller {
 	    $param = array();
 	    $param['id'] = $this->uri->segment(3, 0);
 	    $param['course'] = $this->input->post('course');
-	    echo '<br>date to: ' . $this->input->post('date_to');
 	    $param['date_from'] = strtotime($this->input->post('date_from'));
 	    $param['date_to'] = strtotime($this->input->post('date_to'));
-	    echo '<br>date to: ' . $param['date_to'];
-	    $param['fee'] = substr($this->input->post('course'), 1, (strlen($this->input->post('course'))-1));
+	    $param['fee'] = substr($this->input->post('fee'), 1, (strlen($this->input->post('fee'))-1));
 	    $param['status'] = $this->input->post('status');
 	    $param['location'] = $this->input->post('location');
 	    $param['details_url'] = $this->input->post('details_url');
 	    $this->Edu_model->edit_class($param);
 	    $this->load_edu('Class has been added/edited. Thank you!');
+	}
+	
+	public function delete_class() {
+	    $this->Edu_model->delete_class($this->uri->segment(3, 0));
+	    $this->load_edu('Class has been deleted. Thank you!');
 	}
 }

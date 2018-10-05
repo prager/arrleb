@@ -24,7 +24,8 @@ class Edu_model extends CI_Model {
 	                    'fee' => $row->fee,
 	                    'status' => $row->status,
 	                    'location' => $row->location,
-	                    'details_url' => $row->details_url
+	                    'details' => $row->details_url,
+	                    'details_url' => $this->make_clickable_url($row->details_url)
 	                );
 	                array_push($retarr['classes'], $arr);
 	            }
@@ -44,5 +45,33 @@ class Edu_model extends CI_Model {
 	    else {
 	        $this->db->insert('education', $param);
 	    }
+	}
+	
+	public function delete_class($id) {
+	    $this->db->where('id_education', $id);
+	    $this->db->delete('education');
+	}	
+	
+	private function make_clickable_url($string){
+	    
+	    //FIND URLS INSIDE TEXT
+	    //The Regular Expression filter
+	    $reg_exUrl = "/(?i)\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'\".,<>?«»“”‘’]))/";
+	    
+	    // Check if there is a url in the text
+	    if(preg_match($reg_exUrl, $string, $url)) {
+	        
+	        if(strpos( $url[0], ":" ) === false){
+	            $link = 'http://'.$url[0];
+	        }else{
+	            $link = $url[0];
+	        }
+	        
+	        // make the urls hyper links
+	        $string = preg_replace($reg_exUrl, '<a href="'.$link.'" title="'.$url[0].'" target="_blank">'.$url[0].'</a>', $string);
+	        
+	    }
+	    
+	    return $string;
 	}
 }

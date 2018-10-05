@@ -86,8 +86,9 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function education() {
+	    $data['edu'] = $this->Edu_model->get_classes();
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-		$this->load->view('public/edu_view');
+		$this->load->view('public/edu_view', $data);
 		$this->load->view('template/footer_ver1');
 	}
 	

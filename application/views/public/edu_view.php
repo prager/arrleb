@@ -33,22 +33,18 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php foreach($edu['classes'] as $row) {?>
                       <tr>
-                        <th>Amateur Radio Extra Class</th>
-                        <td>08/09/2018 - 10/11/2018</td>
-                        <td>$ 8.00</td>
+                        <th><?php echo $row['course']?></th>
+                        <td><?php echo date("m/d/Y", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
+                        <td><?php 
+                            setlocale(LC_MONETARY, 'en_US.utf8');
+                            echo money_format('%(#10n', $row['fee']); ?></td>
                         <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
-                        <td style="text-align:center"><span class="label label-warning">In Session</span></td>
+                        <td style="text-align:center"><?php echo $row['status']; ?></td>
                         <td><?php echo anchor('Public_ctl/class_details', 'View'); ?></td>
                       </tr>
-                      <tr>
-                        <th>Amateur Radio License Class</th>
-                        <td>10/06/2018</td>
-                        <td>$ 30.00</td>
-                        <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
-                        <td style="text-align:center"><span class="label label-success">Open</span></td>
-                        <td><?php echo anchor_popup('http://files.arrleb.org/Ham-Class-Oct2018-flyer.pdf', 'View'); ?></td>
-                      </tr>
+                      <?php }?>                      
                     </tbody>
                   </table>
                 </div>

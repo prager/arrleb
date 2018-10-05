@@ -19,6 +19,12 @@
 <div class="col-md-8">
 <p style="text-align: center;"><?php echo anchor('user', 'Edit Account Info'); ?></p>
 </div>
+</div><br>
+<div class="row">
+<div class="col-md-1 offset-col-md-3">&nbsp;</div>
+<div class="col-md-8">
+<p style="text-align: center;"><?php echo anchor('edu', 'Classes'); ?></p>
+</div>
 </div>
 <br><br><br>
 <hr />
