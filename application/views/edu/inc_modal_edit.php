@@ -6,13 +6,13 @@
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-pencil"></span>Edit Class</h4>
+		          <h4><span class="glyphicon glyphicon-pencil"></span> Edit Class</h4>
 		        </div>
 		        <div class="modal-body">
 		        <?php echo form_open('edu/edit_class/' .  $row['id']); ?>
 		            <div class="form-group">
 		            <div class="row">
-			            <div class="col-md-12">
+			            <div class="col-md-10 col-md-offset-1">
 			            <?php $data = array(
 							'name'          => 'course',
 							'id'            => 'fname',
@@ -26,7 +26,7 @@
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5 col-md-offset-1">
 						<?php $data = array(
 							'name'          => 'date_from',
 							'id'            => 'date_from',
@@ -38,7 +38,7 @@
 						Date From
 						<?php echo form_input($data);?>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-5">
 						<?php $data = array(
 							'name'          => 'date_to',
 							'id'            => 'date_to',
@@ -53,7 +53,7 @@
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5 col-md-offset-1">
 						<?php $data = array(
 							'name'          => 'fee',
 							'id'            => 'fee',
@@ -64,7 +64,7 @@
 						Fee
 						<?php echo form_input($data);?>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-5">
 						<?php $data = array(
 							'name'          => 'status',
 							'id'            => 'status',
@@ -78,7 +78,7 @@
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-10 col-md-offset-1">
 						<?php $data = array(
 							'name'          => 'location',
 							'id'            => 'location',
@@ -92,7 +92,7 @@
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-10">
+						<div class="col-md-10 col-md-offset-1">
 						<?php $data = array(
 							'name'          => 'details_url',
 							'id'            => 'details_url',

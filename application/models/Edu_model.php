@@ -34,6 +34,23 @@ class Edu_model extends CI_Model {
 	    
 	    return $retarr;
 	}
+	
+	public function get_class($id) {
+	    $this->db->select('*');
+	    $this->db->where('id_education', $id);
+	    $res = $this->db->get('education')->row();
+	    
+	    $retarr = array();
+	    $retarr['id'] = $res->id_education;
+	    $retarr['course'] = $res->course;
+	    $retarr['date_from'] = $res->date_from;
+	    $retarr['date_to'] = $res->date_to;
+	    $retarr['location'] = $res->location;
+	    $retarr['fee'] = $res->fee;
+	    $retarr['details_url'] = $this->make_clickable_url($res->details_url);
+	    
+	    return $retarr;
+	}
     
 	public function edit_class($param) {
 	    $id = $param['id'];

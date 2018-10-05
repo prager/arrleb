@@ -2,12 +2,12 @@
  <div class="container">
   <div class="row d-flex align-items-center flex-wrap">
    <div class="col-md-7">
-    <h1 class="h2">Education</h1>
+    <h1 class="h2">Class Details</h1>
     </div>
      <div class="col-md-5">
       <ul class="breadcrumb d-flex justify-content-end">
        <li class="breadcrumb-item"><?php echo anchor('Public_ctl', 'Home');?></li>
-       <li class="breadcrumb-item active">Education</li>
+       <li class="breadcrumb-item active">Class Details</li>
       </ul>
      </div>
     </div>
@@ -19,12 +19,13 @@
         
             <div id="customer-orders" class="col-md-12">
               <div class="box mt-0 mb-lg-0">
-                <h3>Amateur Extra Class</h3>
+                <h3><?php echo $class['course']; ?></h3>
                 <p class="text-muted lead">
-                Dates: 08/09/2018 - 10/11/2018<br><br>
-                Location: The Salvation Army, 950 Clayton Road (at West St.), Concord <br><br>
-                Additional details on MDARC site: 
-                <?php echo anchor_popup('http://www.mdarc.org/activities/education/Classes', 'MDARC Classes'); ?>               
+                Dates: <?php echo date("m/d/Y", $class['date_from']); ?> - <?php echo date("m/d/Y", $class['date_to']); ?><br><br>
+                Location: <?php echo $class['location']; ?> <br><br>
+                Fee: <?php setlocale(LC_MONETARY, 'en_US.utf8');
+                            echo money_format('%(#10n', $class['fee']);?><br><br>
+                Additional details- <?php echo $class['details_url']; ?>               
                 </p>
               </div>
             </div>

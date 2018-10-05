@@ -2,12 +2,12 @@
  <div class="container">
   <div class="row d-flex align-items-center flex-wrap">
    <div class="col-md-7">
-    <h1 class="h2">Education</h1>
+    <h1 class="h2">Classes & Testing</h1>
     </div>
      <div class="col-md-5">
       <ul class="breadcrumb d-flex justify-content-end">
        <li class="breadcrumb-item"><?php echo anchor('Public_ctl', 'Home');?></li>
-       <li class="breadcrumb-item active">Education</li>
+       <li class="breadcrumb-item active">Classes & Testing</li>
       </ul>
      </div>
     </div>
@@ -18,8 +18,7 @@
         <div class="container">
         
             <div id="customer-orders" class="col-md-12">
-              <p class="text-muted lead">
-              Classes listed in ARRL East Bay Section area:</p>
+              
               <div class="box mt-0 mb-lg-0">
                 <div class="table-responsive">
                   <table class="table table-hover">
@@ -42,7 +41,7 @@
                             echo money_format('%(#10n', $row['fee']); ?></td>
                         <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
                         <td style="text-align:center"><?php echo $row['status']; ?></td>
-                        <td><?php echo anchor('Public_ctl/class_details', 'View'); ?></td>
+                        <td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>
                       </tr>
                       <?php }?>                      
                     </tbody>

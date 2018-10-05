@@ -94,7 +94,8 @@ class Public_ctl extends CI_Controller {
 	
 	public function class_details() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-		$this->load->view('public/details_edu_view');
+	    $data['class'] = $this->Edu_model->get_class($this->uri->segment(3, 0));
+		$this->load->view('public/details_edu_view', $data);
 		$this->load->view('template/footer_ver1');
 	}
 	
@@ -223,6 +224,14 @@ class Public_ctl extends CI_Controller {
 	        $data['msg'] = "Your password has not been reset. There was the following error: " . $retarr['error'] . "<br><br>";
 	    }
 	    
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function public_events() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $data['title'] = "Coming soon...";
+	    $data['msg'] = "Public Events page is coming soon..." . "<br><br>";
 	    $this->load->view('status/status_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}

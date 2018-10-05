@@ -93,6 +93,14 @@ _________________________________________________________ -->
                             <ul class="nav navbar-nav navbar-right">
                               <li><?php echo anchor('Public_ctl', 'Home');?></li>
                               <li><?php echo anchor('Public_ctl/about', 'About');?></li>
+                              <li class="dropdown">
+                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret">
+                                </b></a>
+                                <ul class="dropdown-menu">
+                                    <li><?php echo anchor('public_ctl/education', 'Education & Testing')?></li>
+                                	<li><?php echo anchor('public_ctl/public_events', 'Public Events')?></li>
+                              	</ul>
+                              </li>
                               <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
                               <li><?php echo anchor('Public_ctl/team', 'Team');?></li>
                               <li><?php echo anchor('Public_ctl/contact', 'Contact');?></li>

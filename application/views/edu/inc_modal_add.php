@@ -6,7 +6,7 @@
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-pencil"></span>Add Class</h4>
+		          <h4><span class="glyphicon glyphicon-copy"></span> Add Class</h4>
 		        </div>
 		        <div class="modal-body">
 		        <?php echo form_open('edu/edit_class/'); ?>
