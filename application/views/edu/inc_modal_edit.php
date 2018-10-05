@@ -6,7 +6,7 @@
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-pencil"></span>Edit User</h4>
+		          <h4><span class="glyphicon glyphicon-pencil"></span>Edit Class</h4>
 		        </div>
 		        <div class="modal-body">
 		        <?php echo form_open('edu/edit_class/' .  $row['id']); ?>
@@ -27,21 +27,16 @@
 					<div class="row">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-6">
-						<?php $data = array(
-							'name'          => 'date_from',
-							'id'            => 'date_from',
-			            		'value'         =>  $row['date_from'],
-			            	'placeholder' => 'From',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
 						Date From
-						<?php echo form_input($data);?>
+						<input type="date" id="myDate" value="<?php echo date("Y-m-d", $row['date_from']);?>" class="form-control">
+						
 						</div>
 						<div class="col-md-6">
 						<?php $data = array(
 							'name'          => 'date_to',
 							'id'            => 'date_to',
-			            		'value'         =>  $row['date_to'],
+						    'value'         =>  $row['date_to'],
+						    'type' => 'date',
 			            	'placeholder' => 'To',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>

@@ -11,7 +11,6 @@ class Edu_model extends CI_Model {
 	    $cnt = $this->db->count_all_results();
 	    $retarr['cnt'] = $cnt;
 	    $retarr['classes'] = array();
-	    echo '<br><br><br>';
 	    if($cnt > 0) {
 	        $this->db->select('*');
 	        $res = $this->db->get('education')->result();
@@ -20,8 +19,8 @@ class Edu_model extends CI_Model {
 	                $arr = array(
 	                    'id' => $row->id_education,
 	                    'course' => $row->course,
-	                    'date_from' => $this->date_lib->set_date($row->date_from)['short'],
-	                    'date_to' => $this->date_lib->set_date($row->date_from)['short'],
+	                    'date_from' => $row->date_from,
+	                    'date_to' => $row->date_to,
 	                    'fee' => $row->fee,
 	                    'status' => $row->status,
 	                    'location' => $row->location,

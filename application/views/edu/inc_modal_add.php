@@ -30,7 +30,8 @@
 						<?php $data = array(
 							'name'          => 'date_from',
 							'id'            => 'date_from',
-			            		'value'         =>  '',
+						    'value'         =>  '',
+						    'type' => 'date',
 			            	'placeholder' => 'mm/dd/yyyy',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
@@ -42,7 +43,8 @@
 							'name'          => 'date_to',
 							'id'            => 'date_to',
 			            		'value'         =>  '',
-			            	'placeholder' => 'mm/dd/yyyy',
+						    'type' => 'date',
+						    'placeholder' => 'mm/dd/yyyy',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
 						Date To
@@ -55,11 +57,11 @@
 						<?php $data = array(
 							'name'          => 'fee',
 							'id'            => 'fee',
-			            		'value'         =>  '$',
+			            		'value'         =>  '0',
 			            	'placeholder' => 'Fee',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
-						Fee
+						Fee $
 						<?php echo form_input($data);?>
 						</div>
 						<div class="col-md-5">

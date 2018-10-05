@@ -21,8 +21,8 @@
         		    foreach($edu['classes'] as $row) {?>
         			<tr>
         				<td><?php echo $row['course']; ?></td>
-        				<td><?php echo $row['date_from']; ?></td>
-        				<td><?php echo $row['date_to']; ?></td>
+        				<td><?php echo date("m-d-Y", $row['date_from']); ?></td>
+        				<td><?php echo date("m-d-Y", $row['date_to']); ?></td>
         				<td><?php echo $row['fee']; ?></td>
         				<td><?php echo $row['status']; ?></td>
         				<td><?php echo $row['location']; ?></td>
