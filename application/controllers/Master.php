@@ -11,7 +11,7 @@ class Master extends CI_Controller {
 	       
 	    }
 	    else {
-	        $this->load->view('template/header_public_gen');
+	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	        $data['title'] = 'Error';
 	        $data['msg'] = 'Checking credentials error.
 					Go to home page ' . anchor('public_ctl', 'here'). '<br><br>';
@@ -36,8 +36,8 @@ class Master extends CI_Controller {
     	        $crud->set_theme('datatables');
     	        $crud->set_table('users');
     	        $crud->set_subject('Users');
-    	        $crud->columns('type_code','role','username', 'fname', 'lname');
-    	        $crud->fields('type_code', 'role', 'username', 'fname', 'lname');
+    	        $crud->columns('type_code','role','authorized', 'username', 'fname', 'lname');
+    	        $crud->fields('type_code', 'role','authorized', 'username', 'fname', 'lname');
     	        $crud->required_fields('username');
     	        
     	        $output = $crud->render();

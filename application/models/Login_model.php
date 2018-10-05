@@ -101,13 +101,15 @@ class Login_model extends CI_Model {
 		}
 		elseif($usr_data->type_code == 1) {
 			$retarr['header'] = 'template/header_public_gen';
-			$retarr['view'] = 'events/main_view';
-			$data['logged'] = TRUE;
+			$retarr['view'] = 'edu/main_view';
+			$retarr['data']['msg'] = '';
+			$retarr['data']['edu'] = $this->Edu_model->get_classes();
+			$retarr['data']['logged'] = TRUE;
 		}
 		elseif($usr_data->type_code == 2) {
 			
 			$retarr['header'] = 'template/header_public_gen';
-			$retarr['view'] = 'edu/main_view';
+			$retarr['view'] = 'events/main_view';
 			$retarr['data']['logged'] = TRUE;
 		}
 		

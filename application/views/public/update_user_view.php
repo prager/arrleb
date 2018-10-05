@@ -25,7 +25,7 @@
         			            <?php $data = array(
         							'name'          => 'uname',
         							'id'            => 'uname',
-        			            	'value'         =>  $user['user_name'],
+        			            	'value'         =>  $user['username'],
         			            	'placeholder' => 'username',
         			               'class'			=> 'form-control',
         							'maxlength'     => '75');?>

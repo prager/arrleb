@@ -34,6 +34,12 @@ class Login extends CI_Controller {
 	        $this->load->view('master/main_view');
 	    }
 	    
+	    if($this->Login_model->get_cur_user()['level'] == 1) {
+	        $data['edu'] = $this->Edu_model->get_classes();
+	        $data['msg'] = '';
+	        $this->load->view('edu/main_view', $data);
+	    }
+	    
 	    $this->load->view('template/footer_ver1');
 	}
 	
