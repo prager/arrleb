@@ -30,9 +30,8 @@
 						<?php $data = array(
 							'name'          => 'date_from',
 							'id'            => 'date_from',
-						    'value'         =>  date("Y/m/d", $row['date_from']),
+						    'value'         =>  date("Y-m-d", $row['date_from']),
 						    'type' => 'date',
-			            	'placeholder' => 'To',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
 						Date From
@@ -42,7 +41,7 @@
 						<?php $data = array(
 							'name'          => 'date_to',
 							'id'            => 'date_to',
-						    'value'         =>  date("Y/m/d", $row['date_to']),
+						    'value'         =>  date("Y-m-d", $row['date_to']),
 						    'type' => 'date',
 			            	'placeholder' => 'To',
 			                'class'			=> 'form-control',
