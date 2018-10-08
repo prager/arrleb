@@ -21,8 +21,8 @@
         		    foreach($edu['classes'] as $row) {?>
         			<tr>
         				<td><strong><?php echo $row['course']; ?></strong></td>
-        				<td><?php echo date("m-d-Y", $row['date_from']); ?></td>
-        				<td><?php echo date("m-d-Y", $row['date_to']); ?></td>
+        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
+        				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
         				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
                             echo money_format('%(#10n', $row['fee']);?></td>
         				<td><?php echo $row['status']; ?></td>
