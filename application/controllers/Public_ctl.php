@@ -13,7 +13,7 @@ class Public_ctl extends CI_Controller {
 	public function index() {
 	    $this->load->view('template/header_public_main', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/main_view');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer_ver1');
 	}
 	
 	public function contact() {		
@@ -231,7 +231,7 @@ class Public_ctl extends CI_Controller {
 	public function public_events() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $data['title'] = "Coming soon...";
-	    $data['msg'] = "Public Events page is coming soon..." . "<br><br>";
+	    $data['msg'] = "Public Events page is coming soon" . "<br><br>";
 	    $this->load->view('status/status_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}

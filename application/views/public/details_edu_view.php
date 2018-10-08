@@ -6,7 +6,7 @@
     </div>
      <div class="col-md-5">
       <ul class="breadcrumb d-flex justify-content-end">
-       <li class="breadcrumb-item"><?php echo anchor('Public_ctl', 'Home');?></li>
+       <li class="breadcrumb-item"><?php echo anchor('public_ctl/education', 'Classes & Testing')?></li>
        <li class="breadcrumb-item active">Class Details</li>
       </ul>
      </div>
@@ -25,7 +25,7 @@
                 Location: <?php echo $class['location']; ?> <br><br>
                 Fee: <?php setlocale(LC_MONETARY, 'en_US.utf8');
                             echo money_format('%(#10n', $class['fee']);?><br><br>
-                Additional details- <?php echo $class['details_url']; ?>               
+                Additional details - <?php echo $class['details_url']; ?>               
                 </p>
               </div>
             </div>

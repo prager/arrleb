@@ -9,7 +9,7 @@
         				<th>Course</th>
         				<th style="width: 8%">Date From</th>
         				<th style="width: 8%">Date To</th>
-        				<th>Fee ($)</th>
+        				<th>Fee</th>
         				<th>Status</th>
         				<th>Location</th>
         				<th>URL</th>

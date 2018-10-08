@@ -23,7 +23,7 @@
                                 <br />Education and classes
                                 <br />Ham Radio clubs
                                 <br />...and much more!</p>
-                            <p>It comprises
+                            <p>It comprises of 
                             California’s Alameda, Contra Costa, Napa, and Solano Counties</p>
                             <p><a href="#get-it" class="scroll-to btn btn-template-transparent-black">Read more</a>
                             </p>
@@ -35,7 +35,28 @@
 
             <!-- *** JUMBOTRON END *** -->
         </section>
-
+        
+        
+		<section class="bar background-gray no-mb padding-big text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-uppercase">Major Event: Pacificon 2018</h2>  
+                        <a href="http://pacificon.org"></a>
+                        <p class="lead mb-small">Annual Ham Radio Convention held in San Ramon, CA 
+                        on Friday through Sunday Oct. 19-21, 2018</p>                      
+                        <p class="mb-small">More details here: <?php echo anchor_popup('http://pacificon.org', 'http://pacificon.org')?>
+                        
+                        </p>
+                    </div>
+                    <!-- <div class="col-md-6">
+                    	<br><br>
+                    	<a href="http://pacificon.org">
+                        <img src="<?php echo base_url() ;?>/assets/img/pac.jpeg" alt="" class="img-responsive center-block"></a><br>
+                    </div>-->
+                </div>
+            </div>
+        </section>
         <section class="bar background-white">
             <div class="container">
                 <div class="col-md-12">
@@ -73,29 +94,6 @@
                                   on the Club Corner page <?php echo anchor(base_url() . 'index.php/club-corner', 'here')?></p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bar background-gray no-mb padding-big text-center-sm">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h2 class="text-uppercase">Education</h2>
-                        <p class="lead mb-small">Local clubs offer many classes for anyone interested</p>
-                        <p class="mb-small">You don't need to hold an engineering degree to be a profficient ham radio operator.
-                        <strong>Local clubs provide expertise you need and beyond</strong>. Stay tuned for more info. 
-                        Page for listing of current <?php echo anchor('Public_ctl/education', 'classes here'); ?>. Click on the below button to read the 
-                        original mission statement
-                      on education via the old ARRL East Bay Section web site.</p>
-
-                        <p><a href="http://www.arrleastbaysection.org/education-and-training" 
-                        class="btn btn-template-main">More on the old site</a>
-                        </p>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <img src="<?php echo base_url() ;?>/assets/img/edu.png" alt="" class="img-responsive">
                     </div>
                 </div>
             </div>

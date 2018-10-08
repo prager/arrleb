@@ -117,7 +117,7 @@ _________________________________________________________ -->
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret">
                                 </b></a>
                                 <ul class="dropdown-menu">
-                                    <li><?php echo anchor('public_ctl/education', 'Education & Testing')?></li>
+                                    <li><?php echo anchor('public_ctl/education', 'Classes & Testing')?></li>
                                 	<li><?php echo anchor('public_ctl/public_events', 'Public Events')?></li>
                               	</ul>
                               </li>
