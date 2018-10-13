@@ -49,6 +49,20 @@
                         
                         </p>
                     </div>
+                    <div class="col-md-4 col-md-offset-4">
+    <!--<a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//arrleb.org" class="btn btn-social-icon btn-facebook">
+    <span class="fa fa-facebook"></span>
+  </a>
+         <ul class="social-network social-circle">
+          <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-rss"></i></a></li>
+          <li><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//arrleb.org" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i>
+          </a></li>
+          <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" class="icoGoogle" title="Reddit"><i class="fa fa-reddit"></i></a></li>
+          <li><a href="#" class="icoPinterest" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
+        </ul> -->
+                    
+                    </div>
                     <!-- <div class="col-md-6">
                     	<br><br>
                     	<a href="http://pacificon.org">

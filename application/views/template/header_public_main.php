@@ -16,8 +16,7 @@
     <!-- Bootstrap and Font Awesome css
     <link rel="stylesheet" href="<?php echo base_url() ;?>/assets/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="<?php echo base_url() ;?>/assets/vendor/bootstrap/css/bootstrap.min.css"> -->
-    
-    
+        
     <!-- Bootstrap and Font Awesome css -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -51,6 +50,7 @@
 
     <link href="<?php echo base_url() ;?>/assets/css/owl.carousel.css" rel="stylesheet">
     <link href="<?php echo base_url() ;?>/assets/css/owl.theme.css" rel="stylesheet">
+    <link href="<?php echo base_url() ;?>/assets/css/bootstrap-social.css" rel="stylesheet">
 </head>
 
 <body>
