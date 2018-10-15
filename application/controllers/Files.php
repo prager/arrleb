@@ -15,7 +15,7 @@ class Files extends CI_Controller {
 	}
 	
 	public function do_public_upload() {
-	    $config['upload_path']          = '././uploads/public/';
+	    $config['upload_path']          = '././uploads/uploads_public/';
 	    $config['allowed_types']        = 'pdf|docx|pptx|odt';
 	    $config['max_size']             = 10000;
 	    
@@ -56,10 +56,10 @@ class Files extends CI_Controller {
 	    }
 	    else
 	    {
-	        $data['msg'] = 'File was uploaded. Thank you!';
-	        $data['title'] = 'Success!';
-	        
-	        $this->load->view('status/status_view', $data);
+	        $data['error'] = NULL;
+	        $data['private'] = TRUE;
+	        $data['files'] = $this->Files_model->get_files();
+	        $this->load->view('files/files_view', $data);
 	    }
 	    $this->load->view('template/footer_ver1');
 	}
@@ -83,5 +83,10 @@ class Files extends CI_Controller {
 	        header('Pragma: public');
 	        header('Content-Length: ' . filesize($file));
 	        readfile($file);
+	}
+	
+	function download_file() {	    
+	    $this->Files_model->download_file($this->uri->segment(3, 0));
+	    redirect(base_url());
 	}
 }
