@@ -20,7 +20,7 @@ class Files extends CI_Controller {
 	    $this->load->library('upload', $config);
 	    $this->load->helper('directory');
 	    	    
-	    $this->load->view('template/header_public_gen', $this->Login_model->is_logged());
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    if ( !$this->upload->do_upload('userfile')) {
 	        $data['error'] = array('error' => $this->upload->display_errors());
 	        $data['private'] = $this->Login_model->is_logged();
@@ -48,14 +48,16 @@ class Files extends CI_Controller {
 	    $this->load->library('upload', $config);
 	    $this->load->helper('directory');
 	    
-	    $this->load->view('template/header_private');
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    if ( ! $this->upload->do_upload('userfile'))
 	    {
-	        $error = array('error' => $this->upload->display_errors());
-	        $error['dir'] = $this->Files_model->get_dir();
-	        $error['private'] = TRUE;
-	        $error['files'] = $this->Files_model->get_files();
-	        $this->load->view('files/files_view', $error);
+	        $data['error'] = array('error' => $this->upload->display_errors());
+	        $data['dir'] = $this->Files_model->get_dir();
+	        $data['private'] = TRUE;
+	        $files = $this->Files_model->get_files();
+	        $data['files_private'] = $files['private'];
+	        $data['files_public'] = $files['public'];
+	        $this->load->view('files/files_view', $data);
 	    }
 	    else
 	    {

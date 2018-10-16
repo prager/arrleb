@@ -28,7 +28,7 @@ class Login extends CI_Controller {
 	}
 	
 	public function load_user() {
-	    $this->load->view('template/header_private');
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    
 	    if($this->Login_model->get_cur_user()['level'] == 99) {
 	        $this->load->view('master/main_view');

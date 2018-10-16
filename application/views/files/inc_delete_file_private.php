@@ -1,5 +1,5 @@
 <!-- Delete User Modal -->
-		  <div class="modal fade" id="deleteFilePublic<?php echo $i; ?>" role="dialog">
+		  <div class="modal fade" id="deleteFilePrivate<?php echo $i; ?>" role="dialog">
 		    <div class="modal-dialog  modal-sm">
 		
 		      <!-- Modal content-->
@@ -12,7 +12,8 @@
     		    <div class="row">
     		    <div class="row text-center">
 				<div class="col-md-12">
-    		    	Delete File "<?php echo $files_public[$i]; ?>" ?<br><br><?php echo anchor('files/delete_file/' . $i, ' Yes, Delete File ', 'class="btn btn-default"')?> 
+    		    	Delete File "<?php echo $files_private[$i]; ?>" ?<br><br><?php echo anchor('files/delete_file/' . $i . '/1',
+    		    	    ' Yes, Delete File ', 'class="btn btn-default"')?> 
     		    	<br><br>   		    
     		    </div>
 		    	</div> 

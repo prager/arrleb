@@ -21,8 +21,7 @@
     <br /><br />
     
     <input type="submit" value=" Upload File" class="form-control" />
-    <?php echo form_close(); 
-    ?>
+    <?php echo form_close(); ?>
 	
 	</div>
 </div>
@@ -35,12 +34,14 @@
 <div class="col-md-4 col-md-offset-4">
 <?php 
 for($i=2; $i < count($files_private); $i++) {
-    echo anchor('files/download_file/' . $i . '/1', $files_private[$i]) . ' --- ' . anchor('files/delete_file/' . $i . '/1', 'Delete File') . 
-        '<br>-------------------------------<br>';
-    
-}
-
-?>
+        $url_str = base_url() . 'index.php/files/download_file/' . $i . '/1';
+        ?>
+        <a href="<?php echo $url_str; ?>"><?php echo $files_private[$i]; ?></a>
+        &nbsp;/&nbsp;
+        <a href="#" data-toggle="modal" data-target="#deleteFilePrivate<?php echo $i; ?>">Delete File</a>
+        <br>------------------------------------<br>
+        <?php include 'inc_delete_file_private.php'; ?>
+	<?php } ?>
 </div>
 </div>
 

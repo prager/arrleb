@@ -6,7 +6,7 @@ class Master extends CI_Controller {
 	public function index() {
 	    
 	    if($this->check_master()) {
-	       $this->load->view('template/header_private');
+	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	       $this->load->view('master/main_view');
 	       
 	    }

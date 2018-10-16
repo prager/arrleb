@@ -56,7 +56,12 @@ class Files_model extends CI_Model {
 	    $files = $this->get_files();
 	    
 	    if($private == 1) {
-	        
+	        for($i=2; $i < count($files['private']); $i++) {
+	            if($i == $index) {
+	                $filename = $files['private'][$i];
+	            }
+	        }
+	        unlink('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id() .'/' . $filename);
 	    }
 	    else {
 	        for($i=2; $i < count($files['public']); $i++) {

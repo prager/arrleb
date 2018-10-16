@@ -13,7 +13,7 @@ class Edu extends CI_Controller {
     	    $data = array();
     	    $data['edu'] = $this->Edu_model->get_classes();
     	    $data['msg'] = $msg;
-    	    $this->load->view('template/header_private');
+    	    $this->load->view('template/header_public_gen',array('logged' => TRUE));
     	    $this->load->view('edu/main_view', $data);
 	    }
 	    else {
