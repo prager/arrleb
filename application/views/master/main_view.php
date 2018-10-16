@@ -30,17 +30,9 @@
 
 <div class="col-md-4 col-md-offset-3">
     <p><?php 
-        echo form_open_multipart('files/do_private_upload', array('class' => 'form-control'));
-    ?>
-    
-    <input type="file" name="userfile" size="10" />
-    
-    <br /><br />
-    
-    <input type="submit" value=" Upload Private File" />
-    
-    </form></p>
-    </div>
+        echo anchor('files', 'Files');
+    ?></p>
+</div>
 
 </div>
 <br><br><br>

@@ -65,9 +65,10 @@ class Login_model extends CI_Model {
 		$this->db->select('logged');
 		$this->db->where('logged', 1);
 		$this->db->where('id_user', $user['id']);
-		$res = $this->db->get('ci_sessions')->result();
+		//$res = $this->db->get('ci_sessions')->result();
+		$cnt = $this->db->count_all_results('ci_sessions', TRUE);
 		
-		if(count($res) > 0) {
+		if($cnt > 0) {
 			$this->db->where('logged', 1);
 			$this->db->where('id_user', $user['id']);
 			$this->db->update('ci_sessions', array('logged' => 0));

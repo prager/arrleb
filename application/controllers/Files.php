@@ -9,32 +9,35 @@ class Files extends CI_Controller {
 	}
 	
 	public function index() {
-	    $this->load->view('template/coach_header', array('coach' => $this->Login_model->get_cur_user()));
-	    $this->load->view('files/files_view', array('error' => ' ' ));
-	    $this->load->view('template/footer_simple');
+	   $this->load_dir();
 	}
 	
 	public function do_public_upload() {
-	    $config['upload_path']          = '././uploads/uploads_public/';
+	    $config['upload_path']          = '././assets/uploads/uploads_public';
 	    $config['allowed_types']        = 'pdf|docx|pptx|odt';
 	    $config['max_size']             = 10000;
 	    
 	    $this->load->library('upload', $config);
 	    $this->load->helper('directory');
 	    	    
-	    $this->load->view('template/coach_header', array('coach' => $this->Login_model->get_cur_user()));
+	    $this->load->view('template/header_public_gen', $this->Login_model->is_logged());
 	    if ( !$this->upload->do_upload('userfile')) {
-	        $error = array('error' => $this->upload->display_errors());
-	        
-	        $this->load->view('files/files_view', $error);
+	        $data['error'] = array('error' => $this->upload->display_errors());
+	        $data['private'] = $this->Login_model->is_logged();
+	        $files = $this->Files_model->get_files();
+	        $data['files_private'] = $files['private'];
+	        $data['files_public'] = $files['public'];
+	        $this->load->view('files/files_view', $data);
 	    }
 	    else {
-	        $data['msg'] = 'File was uploaded. Thank you!';
-	        $data['title'] = 'Success!';
-	        
-	        $this->load->view('status/status_view', $data);
+	        $data['error'] = NULL;
+	        $data['private'] = $this->Login_model->is_logged();
+	        $files = $this->Files_model->get_files();
+	        $data['files_private'] = $files['private'];
+	        $data['files_public'] = $files['public'];
+	        $this->load->view('files/files_view', $data);
 	    }
-	    $this->load->view('template/footer_simple');
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function do_private_upload() {
@@ -58,22 +61,32 @@ class Files extends CI_Controller {
 	    {
 	        $data['error'] = NULL;
 	        $data['private'] = TRUE;
-	        $data['files'] = $this->Files_model->get_files();
+	        $files = $this->Files_model->get_files();
+	        $data['files_private'] = $files['private'];
+	        $data['files_public'] = $files['public'];
 	        $this->load->view('files/files_view', $data);
 	    }
 	    $this->load->view('template/footer_ver1');
 	}
 	
-	function load_dir() {
-	    $this->load->view('template/header_private');
+	public function load_dir() {
+	    if($this->Login_model->is_logged()['logged']) {
+	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	        $data['private'] = TRUE;
+	    }
+	    else {
+	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
+	        $data['private'] = FALSE;
+	    }
 	    $data['error'] = NULL;
-	    $data['private'] = TRUE;
-	    $data['files'] = $this->Files_model->get_files();
+	    $files = $this->Files_model->get_files();
+	    $data['files_private'] = $files['private'];
+	    $data['files_public'] = $files['public'];
 	    $this->load->view('files/files_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	
-	function save_file() {
+	public function save_file() {
 	    
 	        header('Content-Description: File Transfer');
 	        header('Content-Type: application/octet-stream');
@@ -85,8 +98,14 @@ class Files extends CI_Controller {
 	        readfile($file);
 	}
 	
-	function download_file() {	    
-	    $this->Files_model->download_file($this->uri->segment(3, 0));
-	    redirect(base_url());
+	public function download_file() {	    
+	    $this->Files_model->download_file($this->uri->segment(3, 0), $this->uri->segment(4, 0));
+	    echo '<br><br>here';
+	    //redirect(base_url());
+	}
+	
+	public function delete_file() {
+	    $this->Files_model->delete_file($this->uri->segment(3, 0), $this->uri->segment(4, 0));
+	    $this->load_dir();
 	}
 }
