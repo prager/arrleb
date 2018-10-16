@@ -1,5 +1,4 @@
 
-
         <footer id="footer">
             <div class="container">
                 <div class="col-md-4 col-sm-6">
@@ -33,7 +32,8 @@
                   <span id="ft_link"><a href="http://www.arrl.org" style="color: #999999;">ARRL</a></span><br>
                   <span id="ft_link"><a href="http://www.hello-radio.org/" style="color: #999999;">Hello Radio</a></span><br>
                   <span id="ft_link"><a href="http://www.pacificon.org/" style="color: #999999;">Pacificon</a></span><br>
-                  <span id="ft_link"><a href="http://www.arrl.org/field-day" style="color: #999999;">ARRL Field Day</a></span>
+                  <span id="ft_link"><a href="http://www.arrl.org/field-day" style="color: #999999;">ARRL Field Day</a></span><br>
+                  <span id="ft_link"><a href="http://www.arrleastbaysection.org/" style="color: #999999;">Old ARRLEB Section Site</a></span>
                   </p>
                 </div>
             </div>
@@ -84,9 +84,6 @@ _________________________________________________________ -->
 
     <!-- owl carousel -->
     <script src="js/owl.carousel.min.js"></script>
-
-
-
 </body>
 
 </html>

@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['default_controller'] = 'Welcome';
 $route['default_controller'] = 'Public_ctl';
 $route['about'] = 'Public_ctl/about';
+$route['contact'] = 'Public_ctl/contact';
 $route['education'] = 'Public_ctl/education';
 $route['club-corner'] = 'Public_ctl/club_corner';
 $route['404_override'] = '';

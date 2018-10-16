@@ -103,7 +103,13 @@ _________________________________________________________ -->
                               </li>
                               <li class="active"><a href="#">Club Corner</a></li>
                               <li><?php echo anchor('Public_ctl/team', 'Team');?></li>
-                              <li><?php echo anchor('Public_ctl/contact', 'Contact');?></li>
+                              <li class="dropdown">
+                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">
+                                </b></a>
+                                <ul class="dropdown-menu">
+                                    <li><?php echo anchor('files', 'Files Repository')?></li>
+                              	</ul>
+                              </li>
                             </ul>
 
                         </div>

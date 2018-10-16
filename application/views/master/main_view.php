@@ -30,7 +30,7 @@
 
 <div class="col-md-4 col-md-offset-3">
     <p><?php 
-        echo anchor('files', 'Files');
+        //echo anchor('files', 'Files');
     ?></p>
 </div>
 

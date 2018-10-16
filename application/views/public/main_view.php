@@ -25,7 +25,8 @@
                                 <br />...and much more!</p>
                             <p>It comprises of 
                             California’s Alameda, Contra Costa, Napa, and Solano Counties</p>
-                            <p><a href="#get-it" class="scroll-to btn btn-template-transparent-black">Read more</a>
+                            <p><a href="<?php echo base_url() ;?>index.php/contact" class="scroll-to btn btn-template-transparent-black">
+                            Contact ARRL EB Section</a>
                             </p>
 
                         </div>

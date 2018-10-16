@@ -41,7 +41,11 @@ for($i=2; $i < count($files_private); $i++) {
         <a href="#" data-toggle="modal" data-target="#deleteFilePrivate<?php echo $i; ?>">Delete File</a>
         <br>------------------------------------<br>
         <?php include 'inc_delete_file_private.php'; ?>
-	<?php } ?>
+	<?php }	
+	if((count($files_private)) == 2) {
+	    echo 'There are no files in repository.';
+	}
+	?>
 </div>
 </div>
 
@@ -65,6 +69,9 @@ for($i=2; $i < count($files_public); $i++) {
         echo anchor('files/download_file/' . $i, $files_public[$i]). '<br>-------------------------------<br>';
     }
     
+}
+if((count($files_public)) == 2) {
+    echo 'There are no files in repository.';
 }
 echo '<br>';
 if($private) {

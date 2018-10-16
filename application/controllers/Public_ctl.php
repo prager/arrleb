@@ -17,7 +17,7 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function contact() {		
-	    $this->load->view('template/header_public_contact', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$data['fname'] = '';
 		$data['lname'] = '';
 		$data['email'] = '';
