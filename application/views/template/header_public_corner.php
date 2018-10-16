@@ -98,7 +98,7 @@ _________________________________________________________ -->
                                 <ul class="dropdown-menu">
                                     <li><?php echo anchor('public_ctl/education', 'Classes & Testing')?></li>
                                     <li><?php echo anchor('http://pacificon.org', 'Pacificon 2018')?></li>
-                                	<li><?php echo anchor('public_ctl/public_events', 'Public Events')?></li>
+                                	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
                               	</ul>
                               </li>
                               <li class="active"><a href="#">Club Corner</a></li>
