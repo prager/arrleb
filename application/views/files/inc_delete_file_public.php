@@ -12,7 +12,7 @@
     		    <div class="row">
     		    <div class="row text-center">
 				<div class="col-md-12">
-    		    	Delete File?<br><br><?php echo anchor('files/delete_file/' . $i, ' Yes, Delete! ', 'class="btn btn-default"')?> 
+    		    	Delete File?<br><br><?php echo anchor('files/delete_file/' . $i, ' Yes Delete! ', 'class="btn btn-default"')?> 
     		    	<br><br>   		    
     		    </div>
 		    	</div> 
