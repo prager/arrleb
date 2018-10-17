@@ -39,10 +39,10 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/jim.jpg" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Jim Siemons, W6LK</a></h3>
+                                <h3>Jim Siemons, W6LK</h3>
                                 <p class="role">Section Manager</p>
                                 <div class="social">
-                                -------------
+                                <p>-------------</p>
                                     <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                                     <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
@@ -62,7 +62,7 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/me.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Jan Kulisek, KM6NFC</a></h3>
+                                <h3>Jan Kulisek, KM6NFC</h3>
                                 <p class="role">Assistant Section Manager</p>
 
                                 <div class="social">
@@ -86,16 +86,17 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3>Mathew Vurek, N4DLA</h3>
                                 <p class="role">Affiliated Club Coordinator</p>
                                 <div class="social">
-                                    <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
+                                <p>----------------</p>
+                                    <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
                                     <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
                                     <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> -->
                                 </div>
                                 <div class="text">
-                                    <p>This position is vacant at this time.</p>
+                                    <p>Mathew Vurek's short bio is coming soon.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -107,7 +108,7 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/bart.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Bart Lee, K6VK</a></h3>
+                                <h3>Bart Lee, K6VK</h3>
                                 <p class="role">Local Government Liaison</p>
                                 <div class="social">
                                 -------------
@@ -117,7 +118,7 @@
                                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> --> 
                                 </div>
                                 <div class="text">
-                                    <p>Bart Lee</p>
+                                    <p>Bart Lee's short bio is coming soon.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -126,26 +127,14 @@
                     <!-- /.row -->
 
                     <div class="row">
-                        <div class="col-md-2 col-sm-3">
-                            <div class="team-member" data-animate="fadeInDown">
-                                <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
-                                    </a>
-                                </div>
-                                <h3><a href="team-member.html">Jim Tittle, K6SOE</a></h3>
-                                <p class="role">Official Observer Coordinator</p>
-                            </div>
-                            <!-- /.team-member -->
-                        </div>
-                        <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
+                        <div class="col-md-2 col-md-offset-1 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() ;?>/assets/img/misa.png" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3><a href="team-member.html">Misa Siemons, KJ6BUE</a></h3>
                                 <p class="role">Public Information Coordinator</p>
                             </div>
                             <!-- /.team-member -->
@@ -169,8 +158,8 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
-                                <p class="role">Section Traffic Manager</p>
+                                <h3><a href="team-member.html">Steve Hawes, WB6UZX</a></h3>
+                                <p class="role">Section Net Manager</p>
                             </div>
                             <!-- /.team-member -->
                         </div>
@@ -181,8 +170,35 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
-                                <p class="role">Section Youth Coordinator</p>
+                                <h3><a href="team-member.html">Gary Gross, KE6QR</a></h3>
+                                <p class="role">Official Relay Station</p>
+                            </div>
+                            <!-- /.team-member -->
+                        </div>
+                        <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
+                            <div class="team-member">
+                                <div class="image">
+                                    <a href="team-member.html">
+                                        <img src="<?php echo base_url() ;?>/assets/img/dave.png" alt="" class="img-responsive img-circle">
+                                    </a>
+                                </div>
+                                <h3><a href="team-member.html">Dave Piersall, N6ORB</a></h3>
+                                <p class="role">Contra Costa County</p>
+                            </div>
+                            <!-- /.team-member -->
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-3 col-sm-3" data-animate="fadeInDown">
+                            <div class="team-member" data-animate="fadeInDown">
+                                <div class="image">
+                                    <a href="team-member.html">
+                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                    </a>
+                                </div>
+                                <h3><a href="team-member.html">Jim Tittle, K6SOE</a></h3>
+                                <p class="role">Official Observer Coordinator</p>
                             </div>
                             <!-- /.team-member -->
                         </div>
@@ -193,11 +209,26 @@
                                         <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Vacant</a></h3>
+                                <h3><a href="team-member.html">Kristen McIntyre K6WX</a></h3>
                                 <p class="role">Technical Coordinator</p>
                             </div>
                             <!-- /.team-member -->
                         </div>
+                        <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
+                            <div class="team-member">
+                                <div class="image">
+                                    <a href="team-member.html">
+                                        <img src="<?php echo base_url() ;?>/assets/img/john.png" alt="" class="img-responsive img-circle">
+                                    </a>
+                                </div>
+                                <h3><a href="team-member.html">John Primus, AF6RJ</a></h3>
+                                <p class="role">Education Coordinator</p>
+                            </div>
+                            <!-- /.team-member -->
+                        </div>
+                    </div>
+                    
+                    
                     </div>
                     <!-- /.row -->
 
