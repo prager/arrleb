@@ -16,7 +16,7 @@ _________________________________________________________ -->
                                 <?php if($logged) {?>
                                     <a href="<?php echo base_url() ;?>index.php/login/logout">
                                     <i class="fa fa-sign-out"></i> <span class="hidden-xs">Logout</span></a>
-                                    <?php echo anchor('login/load_user', 'Account Info'); ?>
+                                    <?php echo anchor('login/load_user', 'Admin Page'); ?>
                                 <?php }
                                       else {?>
                                     <a href="#" data-toggle="modal" data-target="#login-modal">

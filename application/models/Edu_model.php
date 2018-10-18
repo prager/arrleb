@@ -47,7 +47,13 @@ class Edu_model extends CI_Model {
 	    $retarr['date_to'] = $res->date_to;
 	    $retarr['location'] = $res->location;
 	    $retarr['fee'] = $res->fee;
-	    $retarr['details_url'] = $this->make_clickable_url($res->details_url);
+	    
+	    $exploded = explode(' ', $res->details_url);
+	    $retarr['details_url'] = '';
+	    
+	    foreach ($exploded as $str) {
+	       $retarr['details_url'] .= $this->make_clickable_url($str) . ' ';
+	    }
 	    
 	    return $retarr;
 	}

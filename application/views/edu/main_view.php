@@ -30,7 +30,9 @@
         				<td class="elips2"><?php echo $row['details_url']; ?></td>
         				<td>
         					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a> 
-        					/    <?php echo anchor('edu/delete_class/' . $row['id'], 'Delete'); ?>
+        					/    
+        					<a href="#" data-toggle="modal" data-target="#deleteClass<?php echo $row['id']; ?>">Delete Class</a>
+        					<?php include 'inc_delete_class.php'; ?>
         					<?php include 'inc_modal_edit.php'; ?>     				
         				</td>
         			</tr>

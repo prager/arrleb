@@ -84,7 +84,7 @@
 			            		'value'         =>  $row['location'],
 			            	'placeholder' => 'status',
 			                'class'			=> 'form-control',
-							'maxlength'     => '75');?>
+							'maxlength'     => '512');?>
 						Location
 						<?php echo form_input($data);?>
 						</div>
@@ -98,7 +98,7 @@
 			            		'value'         =>  $row['details'],
 			            	'placeholder' => 'status',
 			                'class'			=> 'form-control',
-							'maxlength'     => '375');?>
+							'maxlength'     => '512');?>
 						URL
 						<?php echo form_input($data);?>
 						</div>

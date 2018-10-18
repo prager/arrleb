@@ -57,7 +57,7 @@
 						<?php $data = array(
 							'name'          => 'fee',
 							'id'            => 'fee',
-			            		'value'         =>  '0',
+			            		'value'         =>  '$',
 			            	'placeholder' => 'Fee',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
@@ -85,7 +85,7 @@
 			            		'value'         =>  '',
 			            	'placeholder' => 'location',
 			                'class'			=> 'form-control',
-							'maxlength'     => '75');?>
+							'maxlength'     => '512');?>
 						Location
 						<?php echo form_input($data);?>
 						</div>
@@ -99,7 +99,7 @@
 			            		'value'         =>  '',
 			            	'placeholder' => 'url',
 			                'class'			=> 'form-control',
-							'maxlength'     => '75');?>
+							'maxlength'     => '512');?>
 						URL
 						<?php echo form_input($data);?>
 						</div>
