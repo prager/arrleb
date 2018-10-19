@@ -101,7 +101,8 @@ class User_model extends CI_Model {
 	   	        
 	   	        
 	   	        $message = 'To finish your registration for ARRL EB click on the following link or copy paste in the browser: ' . $param['verifystr'] . "\n\n";
-	   	        $message .= 'You must do so within 72 hours otherwise you login information may be deactivated. Thank you for your interest in Fair-Ball!';
+	   	        $message .= 'You must do so within 72 hours otherwise you login information may be deactivated. 
+Thank you for your interest in ARRL EB Section!';
 	   	        
 	   	        mail($recipient, $subject, $message);
 	   	        
