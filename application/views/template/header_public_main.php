@@ -91,7 +91,6 @@ _________________________________________________________ -->
 
                             <ul class="nav navbar-nav navbar-right">
                               <li class="active"><a href="javascript: void(0)">Home</a></li>
-                              <li><?php echo anchor('Public_ctl/about', 'About');?></li>
                               <li class="dropdown">
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret">
                                 </b></a>
@@ -102,12 +101,19 @@ _________________________________________________________ -->
                               	</ul>
                               </li>
                               <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
-                              <li><?php echo anchor('Public_ctl/team', 'Team');?></li>
                               <li class="dropdown">
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">
                                 </b></a>
                                 <ul class="dropdown-menu">
                                     <li><?php echo anchor('files', 'Files Repository')?></li>
+                              	</ul>
+                              </li>
+                              <li class="dropdown">
+                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret">
+                                </b></a>
+                                <ul class="dropdown-menu">
+                                    <li><?php echo anchor('Public_ctl/about', 'About ARRL EB Section')?></li>
+                                    <li><?php echo anchor('Public_ctl/team', 'Team')?></li>
                               	</ul>
                               </li>
                             </ul>

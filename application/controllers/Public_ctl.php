@@ -28,13 +28,13 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function about() {
-	    $this->load->view('template/header_public_about', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/about_view');
 		$this->load->view('template/footer_ver1');
 	}
 	
 	public function team() {
-	    $this->load->view('template/header_public_team', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/team_view');
 		$this->load->view('template/footer_ver1');
 	}
