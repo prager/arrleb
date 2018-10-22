@@ -42,11 +42,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-uppercase">Major Event: Pacificon 2018</h2>  
-                        <a href="http://pacificon.org"></a>
-                        <p class="lead mb-small">Annual Ham Radio Convention held in San Ramon, CA 
-                        on Friday through Sunday Oct. 19-21, 2018</p>                      
-                        <p class="mb-small">More details here: <?php echo anchor_popup('http://pacificon.org', 'http://pacificon.org')?>
+                        <h2 class="text-uppercase">Public Service Event: Race to the Flagpole</h2> 
+                        <p class="lead mb-small">Supported by the Livermore Amateur Radio Klub 
+                        (<a href="http://www.livermoreark.org/" target="_blank">LARK</a>) held on Saturday November 10th, 2018</p>                      
+                        <p class="mb-small">For more details click on <a href="http://www.livermoreark.org/" target="_blank">
+                        LARK</a> home page or 
+                        <?php echo anchor_popup('http://www.livermoregranadaboosters.org/events.html',
+                            'click here')?>
                         
                         </p>
                     </div>
@@ -83,7 +85,8 @@
                             </div>
                             <h3>Why Ham Radio?</h3>
                             <p>Some of these reasons may be experimenting with radio waves,
-                             find good friends, to volunteer for emergency services, etc. You may find some answers in this inspiring article
+                             find good friends, to volunteer for emergency services, etc. You may find some answers in this 
+                             inspiring article
                              <a href="https://www.popularmechanics.com/technology/gadgets/a14410/why-you-should-learn-to-love-th-ham-radio/">here</a> </p>
                         </div>
                     </div>

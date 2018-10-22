@@ -121,6 +121,17 @@
                       </tr>
                       <tr>
                       	<td>
+                      		<h4>LARK</h4>
+                      		<p>
+                      		Livermore Amateur Radio Klub (LARK) club meetings are normally held on the 3rd Saturday of the month 
+                      		at 0930 hours local at the Livermore City Council Chambers 3575 Pacific Ave, Livermore, CA 
+                      		<br>For their web page
+							<?php echo anchor_popup('http://www.livermoreark.org/',
+							'click here'); ?></p>
+                      	</td>
+                      </tr>
+                      <tr>
+                      	<td>
                       		<h4>MARC</h4>
                       		<p>
                       		Martinez Amateur Radio Club meets on the second Saturday of the month, 0900-1100, at 604 Ferry St., Martinez, CA.
