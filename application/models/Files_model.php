@@ -72,4 +72,35 @@ class Files_model extends CI_Model {
 	        unlink('././assets/uploads/uploads_public/' . $filename); 
 	    }
 	}
+	
+	public function add_file($param) {
+	    
+	    for($i=2; $i < count($param['files']['private']); $i++) {
+    	    $this->db->select('*');
+    	    $this->db->where('name', $param['files']['private'][$i]);
+    	    if($this->db->count_all_results('repository') == 0) {
+    	        $data = array(
+    	            'name' => $param['files']['private'][$i],
+    	            'path' => $param['path'],
+    	            'description' => $param['desc'],
+    	            'private_file' => TRUE
+    	        );
+    	        $this->db->insert('repository', $data);
+    	    }
+	    }
+	    
+	    for($i=2; $i < count($param['files']['public']); $i++) {
+	        $this->db->select('*');
+	        $this->db->where('name', $param['files']['public'][$i]);
+	        if($this->db->count_all_results('repository') == 0) {
+	            $data = array(
+	                'name' => $param['files']['public'][$i],
+	                'path' => $param['path'],
+	                'description' => $param['desc'],
+	                'private_file' => FALSE
+	            );
+	            $this->db->insert('repository', $data);
+	        }
+	    }
+	}
 }

@@ -13,7 +13,8 @@ class Files extends CI_Controller {
 	}
 	
 	public function do_public_upload() {
-	    $config['upload_path']          = '././assets/uploads/uploads_public';
+	    $path = '././assets/uploads/uploads_public';
+	    $config['upload_path']          = $path;
 	    //$config['allowed_types']        = 'pdf|docx|pptx|odt';
 	    $config['max_size']             = 10000;
 	    $config['allowed_types']        = '*';
@@ -34,6 +35,7 @@ class Files extends CI_Controller {
 	        $data['error'] = NULL;
 	        $data['private'] = $this->Login_model->is_logged();
 	        $files = $this->Files_model->get_files();
+	        $data['files'] = $files;
 	        $data['files_private'] = $files['private'];
 	        $data['files_public'] = $files['public'];
 	        $this->load->view('files/files_view', $data);
@@ -42,7 +44,8 @@ class Files extends CI_Controller {
 	}
 	
 	public function do_private_upload() {
-	    $config['upload_path']          = $this->Files_model->get_dir();
+	    $path = $this->Files_model->get_dir();
+	    $config['upload_path']          = $path;
 	    //$config['allowed_types']        = 'pdf|docx|pptx|odt';
 	    $config['max_size']             = 10000;
 	    $config['allowed_types']        = '*';
