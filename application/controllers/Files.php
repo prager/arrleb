@@ -36,6 +36,8 @@ class Files extends CI_Controller {
 	        $data['private'] = $this->Login_model->is_logged();
 	        $files = $this->Files_model->get_files();
 	        $data['files'] = $files;
+	        $data['path'] = $path;
+	        $this->Files_model->add_file($data);
 	        $data['files_private'] = $files['private'];
 	        $data['files_public'] = $files['public'];
 	        $this->load->view('files/files_view', $data);
@@ -69,6 +71,9 @@ class Files extends CI_Controller {
 	        $data['error'] = NULL;
 	        $data['private'] = TRUE;
 	        $files = $this->Files_model->get_files();
+	        $data['files'] = $files;
+	        $data['path'] = $path;
+	        $this->Files_model->add_file($data);
 	        $data['files_private'] = $files['private'];
 	        $data['files_public'] = $files['public'];
 	        $this->load->view('files/files_view', $data);

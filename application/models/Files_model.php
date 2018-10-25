@@ -82,7 +82,6 @@ class Files_model extends CI_Model {
     	        $data = array(
     	            'name' => $param['files']['private'][$i],
     	            'path' => $param['path'],
-    	            'description' => $param['desc'],
     	            'private_file' => TRUE
     	        );
     	        $this->db->insert('repository', $data);
@@ -96,7 +95,6 @@ class Files_model extends CI_Model {
 	            $data = array(
 	                'name' => $param['files']['public'][$i],
 	                'path' => $param['path'],
-	                'description' => $param['desc'],
 	                'private_file' => FALSE
 	            );
 	            $this->db->insert('repository', $data);

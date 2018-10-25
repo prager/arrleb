@@ -1,4 +1,4 @@
-<!-- Delete User Modal -->
+<!-- Delete File Modal -->
 		  <div class="modal fade" id="deleteFilePublic<?php echo $i; ?>" role="dialog">
 		    <div class="modal-dialog  modal-sm">
 		
