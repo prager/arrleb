@@ -71,6 +71,8 @@ class Files_model extends CI_Model {
 	        }
 	        unlink('././assets/uploads/uploads_public/' . $filename); 
 	    }
+	    $this->db->where('name', $filename);
+	    $this->db->delete('repository');
 	}
 	
 	public function add_file($param) {
@@ -82,6 +84,7 @@ class Files_model extends CI_Model {
     	        $data = array(
     	            'name' => $param['files']['private'][$i],
     	            'path' => $param['path'],
+    	            'id_user' => $this->Login_model->get_cur_user_id(),
     	            'private_file' => TRUE
     	        );
     	        $this->db->insert('repository', $data);
@@ -95,6 +98,7 @@ class Files_model extends CI_Model {
 	            $data = array(
 	                'name' => $param['files']['public'][$i],
 	                'path' => $param['path'],
+	                'id_user' => $this->Login_model->get_cur_user_id(),
 	                'private_file' => FALSE
 	            );
 	            $this->db->insert('repository', $data);
