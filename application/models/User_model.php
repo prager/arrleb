@@ -18,6 +18,14 @@ class User_model extends CI_Model {
 		$user['id'] = $row->id_user;
 		$user['fname'] = $row->fname;
 		$user['lname'] = $row->lname;
+		$user['zip'] = $row->zip_cd;
+		$user['email'] = $row->email;
+		$user['callsign'] = $row->callsign;
+		$user['phone'] = $row->phone;
+		$user['street'] = $row->street;
+		$user['city'] = $row->city;
+		$user['state'] = $row->state_cd;
+		$user['callsign'] = $row->callsign;
 		$user['authorized'] = $row->authorized;
 		$user['username'] = $username;
 		

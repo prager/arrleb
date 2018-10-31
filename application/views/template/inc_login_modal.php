@@ -47,8 +47,8 @@
 
                         </form>
                         
-                        <p class="text-center text-muted">Forgot password or username? Click 
-                        <?php echo anchor('public_ctl/forgot_password', '<strong>here</strong>')?></p>
+                        <p class="text-center text-muted">Forgot or need to change password? Click 
+                        <?php echo anchor('public_ctl/reset_password', '<strong>here</strong>')?></p>
                        <!-- <p class="text-center text-muted"><a href="customer-register.html"><strong>Register now</strong></a>!
                           It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
                         -->

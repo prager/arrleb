@@ -197,7 +197,7 @@ class Public_ctl extends CI_Controller {
 	    $this->load->view('template/footer_ver1');
 	}
 	
-	public function forgot_password() {
+	public function reset_password() {
 	    
 	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    $this->load->view('public/lost_pass_view');

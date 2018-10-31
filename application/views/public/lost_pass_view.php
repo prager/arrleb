@@ -44,7 +44,7 @@
 			            	'placeholder' => 'password',
 			               'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-						Password
+						New Password
 						<?php echo form_password($data);?>
         					</div>
                         </div>
