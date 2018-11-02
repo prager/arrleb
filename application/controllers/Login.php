@@ -32,7 +32,7 @@ class Login extends CI_Controller {
 	    
 	    if($this->Login_model->get_cur_user()['level'] == 99) {
 	        $this->load->view('master/main_view');
-	    }
+	    } 
 	    
 	    if($this->Login_model->get_cur_user()['level'] == 1) {
 	        $data['edu'] = $this->Edu_model->get_classes();

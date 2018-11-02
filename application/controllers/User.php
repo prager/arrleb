@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends CI_Controller {
     
+    var $msg; 
+    
 	public function index() {
 	    $this->edit_user();
 	}
@@ -10,8 +12,9 @@ class User extends CI_Controller {
 	public function edit_user() {
 	    if($this->Login_model->is_logged()['logged']) {
 	        $tbl = $this->Login_model->check_table();
-	        $user = $this->Login_model->get_cur_user();
+	        $user = $this->User_model->get_cur_user();
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	        $user['msg'] = $this->msg;
 	        $this->load->view('user/edit_user_view', $user);
 	        $this->load->view('template/footer_ver1');
 	        /* try{
@@ -46,6 +49,24 @@ class User extends CI_Controller {
 	
 	private function _user_output($output=NULL) {
 	    $this->load->view('user/edit_user_view.php', $output);
+	}
+	
+	public function set_user() {
+	    $param['id'] = $this->uri->segment(3, 0);
+	    $param['username'] = $this->input->post('username');
+	    $param['callsign'] = $this->input->post('callsign');
+	    $param['fname'] = $this->input->post('fname');
+	    $param['lname'] = $this->input->post('lname');
+	    $param['street'] = $this->input->post('street');
+	    $param['city'] = $this->input->post('city');
+	    $param['state_cd'] = $this->input->post('state');
+	    $param['zip_cd'] = $this->input->post('zip');
+	    $param['phone'] = $this->input->post('phone');
+	    $param['email'] = $this->input->post('email');
+	    
+	    $this->User_model->set_user($param);
+	    $this->msg = 'User data has been updated. Thank you!';
+	    $this->edit_user();
 	}
 	
 }

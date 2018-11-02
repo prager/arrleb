@@ -238,4 +238,38 @@ Thank you for your interest in ARRL EB Section!';
 	    }
 	    return $retarr;
 	}
+	
+	public function set_user($param) {
+	    $id = $param['id'];
+	    unset($param['id']);
+	    $this->db->where('id_user', $id);
+	    $this->db->update('users', $param);
+	   
+	}
+	
+	public function get_cur_user() {
+	    $id = $this->Login_model->get_cur_user_id();
+	    
+	    $this->db->select('*');
+	    $this->db->where('id_user', $id);	    
+	    $user = $this->db->get('users')->row();
+	    
+	    $user_arr = array(
+	        'id' => $user->id_user,
+	        'level' => $user->type_code,
+	        'role' => $user->role,
+	        'username' => $user->username,
+	        'fname' => $user->fname,
+	        'lname' => $user->lname,
+	        'email' => $user->email,
+	        'callsign' => $user->callsign,
+	        'phone' => $user->phone,
+	        'street' => $user->street,
+	        'city' => $user->city,
+	        'state' => $user->state_cd,
+	        'zip' => $user->zip_cd	        
+	    );
+	    
+	    return $user_arr;
+	}
 }

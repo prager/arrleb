@@ -48,15 +48,21 @@ _________________________________________________________ -->
 
         <div id="copyright">
             <div class="container">
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <p class="pull-left">&copy; 2007 - <script type="text/javascript">
         var today = new Date();
         document.write(today.getFullYear() );
-     </script> ARRL East Bay Section</p>
-                    <p class="pull-right">Design inspired by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://fity.cz">Fity.cz</a>
+     </script> ARRL East Bay Section</p>                   
+
+                </div>
+                <div class="col-md-4">
+                	<p class="text-center">Site designed and hosted by 
+                	<?php echo anchor_popup('http://jlkconsulting.info', 'JLK Consulting'); ?></p>
+                </div>
+                <div class="col-md-4">
+                <p class="pull-right">Design inspired by <a href="https://bootstrapious.com">Bootstrapious</a> & <a href="https://fity.cz">Fity.cz</a>
                          <!-- Not removing these links is part of the license conditions of the template. Thanks for understanding :) If you want to use the template without the attribution links, you can do so after supporting further themes development at https://bootstrapious.com/donate  -->
                     </p>
-
                 </div>
             </div>
         </div>

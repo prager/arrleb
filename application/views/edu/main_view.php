@@ -54,6 +54,11 @@
     	<div class="col-md-10">
     		<p><?php echo anchor('user', 'Edit Your Personal Info', 'class="btn btn"'); ?></p>
     	</div>
+	</div>  
+	<div class="row">
+    	<div class="col-md-10">
+    		<p><?php echo anchor('public_ctl/reset_password', 'Reset Your Password', 'class="btn btn"'); ?></p>
+    	</div>
 	</div>
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>

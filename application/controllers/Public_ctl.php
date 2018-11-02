@@ -199,7 +199,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function reset_password() {
 	    
-	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $this->load->view('public/lost_pass_view');
 	    $this->load->view('template/footer_ver1');
 	    
@@ -207,13 +207,13 @@ class Public_ctl extends CI_Controller {
 	
 	public function load_forgot_password(){
 	    
-	    $param['email'] = $this->input->post('email');
+	    $param['email'] = strtolower($this->input->post('email'));
 	    $param['pass1'] = $this->input->post('pass1');
 	    $param['pass2'] = $this->input->post('pass2');
 	    
 	    $retarr = $this->User_model->forgot_password($param);
 	    
-	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    
 	    if($retarr['flag']) {
 	        $data['title'] = "Password Reset for user " . $retarr['username'] . "!";

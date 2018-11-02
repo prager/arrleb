@@ -15,8 +15,41 @@
         </div>
 
 <div class="container">
+<?php if($msg != NULL) {?>
 	<div class="row">
-		<div class="col-md-5 col-md-offset-1">
+		<div class="col-md-8 col-md-offset-4">
+		<p style="color: red;"><?php echo $msg; ?></p>
+		</div>
+	</div>
+<?php }?>
+<?php echo form_open('User/set_user/' . $id); ?>
+	<div class="row">
+			<div class="col-md-4 col-md-offset-2">
+    			<?php $data = array(
+    			'name'          => 'username',
+    		    'id'            => 'username',
+    			'value'     =>  $username,
+    			'placeholder' => 'username',
+    			'class'			=> 'form-control',
+    			'maxlength'     => '75');?>
+    			Username
+    		<?php echo form_input($data);?>
+		</div>
+		<div class="col-md-4">
+			<?php $data = array(
+				'name'          => 'callsign',
+				'id'            => 'callsign',
+			    'value'         =>  $callsign,
+			    'placeholder' => 'callsign',
+			    'class'			=> 'form-control',
+				'maxlength'     => '35');?>
+			Callsign
+			<?php echo form_input($data);?>
+		</div>	
+	</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
 			<?php $data = array(
 				'name'          => 'fname',
 				'id'            => 'fname',
@@ -27,8 +60,7 @@
 				First Name
 			<?php echo form_input($data);?>
 		</div>
-		<div class="col-md-1">&nbsp;</div>
-			<div class="col-md-5">
+			<div class="col-md-4">
     			<?php $data = array(
     			'name'          => 'lname',
     		    'id'            => 'lname',
@@ -42,7 +74,7 @@
 	</div>
 	<div class="row">&nbsp;</div>
 	<div class="row">
-    	<div class="col-md-3 col-md-offset-1">
+    	<div class="col-md-4 col-md-offset-2">
     		<?php $data = array(
     			'name'          => 'street',
     			'id'            => 'street',
@@ -53,7 +85,7 @@
     		Street
     		<?php echo form_input($data);?>
     	</div>
-    	<div class="col-md-3">
+    	<div class="col-md-4">
     		<?php $data = array(
     			'name'          => 'city',
     			'id'            => 'city',
@@ -64,12 +96,15 @@
     		City
     		<?php echo form_input($data);?>
     	</div>
-    	<div class="col-md-3">
+    </div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+    	<div class="col-md-4 col-md-offset-2">
 			State
 			<?php echo form_dropdown('state', $this->fill_arrays->get_states_array(), $state, 
 			     'class="form-control"'); ?>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-4">
 			<?php $data = array(
 				'name'          => 'zip',
 				'id'            => 'zip',
@@ -106,5 +141,14 @@
 			<?php echo form_input($data);?>
 		</div>
 	</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<?php  echo form_submit('submit', 'Submit', 'class="btn btn-template-main btn-block"');		
+				   echo form_close(); ?>
+		</div>
+	</div>
+	<div class="row">&nbsp;</div>
 	<div class="row">&nbsp;</div>
 </div>
