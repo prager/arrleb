@@ -88,13 +88,12 @@ _________________________________________________________ -->
                               <li><?php echo anchor('Public_ctl', 'Home');?></li>
                               <li class="active"><a href="#">About</a></li>
                               <li class="dropdown">
-                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret">
                                 </b></a>
-                                <ul class="dropdown-menu">
-                                    <li><?php echo anchor('public_ctl/education', 'Classes & Testing')?></li>
+                                <ul class="dropdown-menu">                                    
                                 	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
                               	</ul>
                               </li>
+                              <li><?php echo anchor('public_ctl/education', 'Education & Training')?></li>
                               <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
                               <li><?php echo anchor('Public_ctl/Team', 'Team');?></li>
                               <li class="dropdown">

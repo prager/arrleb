@@ -42,12 +42,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-uppercase">Public Service Event: Race to the Flagpole</h2> 
-                        <p class="lead mb-small">Supported by the Livermore Amateur Radio Klub 
-                        (<a href="http://www.livermoreark.org/" target="_blank">LARK</a>) held on Saturday November 10th, 2018</p>                      
-                        <p class="mb-small">For more details click on <a href="http://www.livermoreark.org/" target="_blank">
-                        LARK</a> home page or 
-                        <?php echo anchor_popup('http://www.livermoregranadaboosters.org/events.html',
+                        <h2 class="text-uppercase">Next Selected Event: Contra Costa ACS Monthly Meeting </h2> 
+                           <p class="lead mb-small">
+                           By Contra Costa ACS (Auxiliary Communications Service)</p> 
+                           <p> On Wednesday November 28, 7:00pm – 8:30pm</p>
+                        <p class="mb-small">For more details <?php echo anchor_popup('http://www.cocoacs.org/meetings/general-meeting/',
                             'click here')?>
                         
                         </p>

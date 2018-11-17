@@ -16,55 +16,49 @@
 
 <div id="content">
         <div class="container">
-        
-            <div id="customer-orders" class="col-md-12">
-              
-              <div class="box mt-0 mb-lg-0">
+        	<div class="row">
+        	<div class="col-md-7">
+        		<h3>Education and Training</h3>
+        	<p>Welcome to the updated The ARRL East Bay Section Education and Training website. This category of the ARRL East 
+        	Bay Section is purpose driven with a prominent banner that provides easy access to the education and training topics which 
+        	interest you.</p>
+        	<hr>
+        	<h5>Vision for the ARRL East Bay Section Education and Training website</h5>
+        	<p>The ARRL East Bay Section Education and Training website shall become a repository of amateur radio education and training.</p>
+        	<hr>
+        	<h5>Mission for the ARRL East Bay Section Education and Training website</h5>
+        	<p>The ARRL East Bay Section believes that amateur radio clubs have developed Amateur Radio education and training materials, topics, speakers,
+        	 etc. that can be shared to enhance the education and training activities of all clubs. This information is available for amateur radio clubs 
+        	 to use to enhance their club Education and Training programs. In addition, amateur radio clubs are invited to send their Education and 
+        	 Training program materials to John Primus, AF6RJ 
+        	 <a href="mailto:af6rj@arrl.net">af6rj@arrl.net</a>, for review and potential inclusion on the ARRL East Bay Section Education 
+        	 and Training website. When sending your Education and Training program materials please ensure that these materials contain contact 
+        	 information. By contributing education and training 
+        	materials among the amateur radio community it is believed that everyone’s amateur radio activities and accomplishments can 
+        	be enhanced.</p>
+        	<br><br>
+        	</div>
+            <div id="customer-orders" class="col-md-5">              
                 <div class="table-responsive">
                   <table class="table table-hover">
                     <thead>
                       <tr>
                         <th>Course</th>
                         <th>Dates</th>
-                        <th>Fee</th>
-                        <th style="text-align:center">Status</th>
-                        <th>Details</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php foreach($edu['classes'] as $row) {?>
                       <tr>
-                        <th><?php echo $row['course']?></th>
-                        <td><?php echo date("m/d/Y", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
-                        <td><?php 
-                            setlocale(LC_MONETARY, 'en_US.utf8');
-                            echo money_format('%(#10n', $row['fee']); ?></td>
-                        <!--  <td><span class="badge badge-info">Being prepared</span></td>-->
-                        <td style="text-align:center"><?php echo $row['status']; ?></td>
-                        <td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>
+                        <td style="color: black;"><?php echo anchor('Public_ctl/class_details/' . $row['id'], $row['course']); ?></td>
+                        <td><?php echo date("m/d", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
                       </tr>
                       <?php }?>                      
                     </tbody>
                   </table>
                 </div>
-              </div>
             </div>
-           <!-- <div class="col-md-3 mt-4 mt-md-0">-->
-              <!-- CUSTOMER MENU -->
-              <!-- <div class="panel panel-default sidebar-menu">
-                <div class="panel-heading">
-                  <h3 class="h4 panel-title">Customer section</h3>
-                </div>
-                <div class="panel-body">
-                  <ul class="nav nav-pills flex-column text-sm">
-                    <li class="nav-item"><a href="customer-orders.html" class="nav-link active"><i class="fa fa-list"></i> My orders</a></li>
-                    <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> My wishlist</a></li>
-                    <li class="nav-item"><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
-                    <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div> --> 
-            <!-- </div>-->
-
+            
+            </div>
         </div>
       </div>
