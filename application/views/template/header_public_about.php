@@ -88,7 +88,6 @@ _________________________________________________________ -->
                               <li><?php echo anchor('Public_ctl', 'Home');?></li>
                               <li class="active"><a href="#">About</a></li>
                               <li class="dropdown">
-                                </b></a>
                                 <ul class="dropdown-menu">                                    
                                 	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
                               	</ul>

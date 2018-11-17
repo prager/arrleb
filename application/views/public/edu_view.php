@@ -36,6 +36,11 @@
         	 information. By contributing education and training 
         	materials among the amateur radio community it is believed that everyone’s amateur radio activities and accomplishments can 
         	be enhanced.</p>
+        	<!-- <p>The Education and Training website has been organized with Amateur Radio topics such as: License Testing, License Courses, 
+        	Disaster Communication, Speakers, etc. Click on the Education and Training Category button at the left of the ARRL East Bay 
+        	Section home page to enter the Education and Training category of the website. At the top of the Education and Training Category 
+        	page a banner appears with topics such as License Testing, License Courses, Disaster Communication, Speakers, etc. shown that can 
+        	be clicked to enter the specific topics.</p> -->
         	<br><br>
         	</div>
             <div id="customer-orders" class="col-md-5">              
@@ -48,12 +53,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                    <?php if(count($edu['classes']) > 0) {?>
                     <?php foreach($edu['classes'] as $row) {?>
                       <tr>
                         <td style="color: black;"><?php echo anchor('Public_ctl/class_details/' . $row['id'], $row['course']); ?></td>
                         <td><?php echo date("m/d", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
                       </tr>
-                      <?php }?>                      
+                      <?php }?> 
+                      <?php }
+                      else { ?>
+                      <tr>
+                      	<td>No classes listed</td>
+                      	<td>&nbsp;</td>
+                      </tr>
+                     <?php }?>                     
                     </tbody>
                   </table>
                 </div>
