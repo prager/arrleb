@@ -119,7 +119,7 @@ _________________________________________________________ -->
                               	</ul>
                               </li>
                               <li><?php echo anchor('public_ctl/education', 'Education & Training')?></li>
-                              <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
+                              <li><?php echo anchor('club-corner', 'Club Corner');?></li>
                               <li class="dropdown">
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">
                                 </b></a>
@@ -131,8 +131,8 @@ _________________________________________________________ -->
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret">
                                 </b></a>
                                 <ul class="dropdown-menu">
-                                    <li><?php echo anchor('Public_ctl/about', 'About ARRL EB Section')?></li>
-                                    <li><?php echo anchor('Public_ctl/team', 'Team')?></li>
+                                    <li><?php echo anchor('about', 'About ARRL EB Section')?></li>
+                                    <li><?php echo anchor('team', 'Team')?></li>
                               	</ul>
                               </li>
                             </ul>

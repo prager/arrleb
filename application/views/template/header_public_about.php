@@ -85,7 +85,7 @@ _________________________________________________________ -->
                         <div class="navbar-collapse collapse" id="navigation">
 
                             <ul class="nav navbar-nav navbar-right">
-                              <li><?php echo anchor('Public_ctl', 'Home');?></li>
+                              <li><a href="<?php echo base_url();?>">Home</a></li>
                               <li class="active"><a href="#">About</a></li>
                               <li class="dropdown">
                                 <ul class="dropdown-menu">                                    

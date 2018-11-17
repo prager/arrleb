@@ -42,7 +42,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 class="text-uppercase">Next Selected Event: Contra Costa ACS Monthly Meeting </h2> 
+                        <h3>Next Selected Event: </h3>
+                        <h2 class="text-uppercase">Contra Costa ACS Monthly Meeting </h2> 
                            <p class="lead mb-small">
                            By Contra Costa ACS (Auxiliary Communications Service)</p> 
                            <p> On Wednesday November 28, 7:00pm – 8:30pm</p>

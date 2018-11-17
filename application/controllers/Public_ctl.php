@@ -11,9 +11,13 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function index() {
+	    $this->load_home();
+	}
+	
+	public function load_home() {
 	    $this->load->view('template/header_public_main', array('logged' => $this->Login_model->is_logged()['logged']));
-		$this->load->view('public/main_view');
-		$this->load->view('template/footer_ver1');
+	    $this->load->view('public/main_view');
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function contact() {		

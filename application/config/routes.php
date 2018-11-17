@@ -51,6 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$route['default_controller'] = 'Welcome';
 $route['default_controller'] = 'Public_ctl';
+$route['home'] = 'Public_ctl/load_home';
+$route['team'] = 'Public_ctl/team';
 $route['about'] = 'Public_ctl/about';
 $route['contact'] = 'Public_ctl/contact';
 $route['education'] = 'Public_ctl/education';
