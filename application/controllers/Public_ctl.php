@@ -97,7 +97,7 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function technician() {
-	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('template/header_public_edu', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $this->load->view('edu/tech_view');
 	    $this->load->view('template/footer_ver1');
 	}
