@@ -1735,10 +1735,10 @@ fieldset[disabled] .btn-template-primary.active {
 }
 #heading-breadcrumbs h1 {
   color: #333333;
-  text-transform: uppercase;
-  font-size: 30px;
+  /*text-transform: uppercase;*/
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 @media (max-width: 991px) {
   #heading-breadcrumbs h1 {
@@ -2656,9 +2656,9 @@ fieldset[disabled] .btn-template-primary.active {
 /* breadcrumbs */
 .breadcrumb {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
+ /* text-transform: uppercase;*/
   background-color: none;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
 }
 /* nav */
 .nav > li > a {
@@ -3186,7 +3186,7 @@ hr {
 }
 /* breadcrumbs */
 .breadcrumb {
-  padding: 20px 0;
+  padding: 10px 0;
   margin-bottom: 20px;
   background-color: transparent;
   border-radius: 0;

@@ -111,3 +111,38 @@ a.socialIcon:hover, .socialHoverClass {
 	-ms-transition: all 0.8s;
 	transition: all 0.8s;
 }
+
+#heading-breadcrumbs {
+  background: url('../img/texture-bw.png') center center repeat;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.breadcrumb {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: none;
+  letter-spacing: 0.08em;
+}
+.breadcrumb-item {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  background-color: none;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.breadcrumb {
+  padding: 20px 0;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border-radius: 0;
+  text-align: center;
+}
+
+.breadcrumb > li + li:before {
+  content: "|\00a0";
+  color: #555555;
+}
+.vertical{
+	margin-top: 10%;
+}

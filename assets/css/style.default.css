@@ -2649,12 +2649,7 @@ fieldset[disabled] .btn-template-primary.active {
 }
 /* Original Boostrap template overwrite */
 /* breadcrumbs */
-.breadcrumb {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  background-color: none;
-  letter-spacing: 0.08em;
-}
+
 /* nav */
 .nav > li > a {
   padding: 10px 15px;
