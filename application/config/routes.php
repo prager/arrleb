@@ -57,5 +57,6 @@ $route['about'] = 'Public_ctl/about';
 $route['contact'] = 'Public_ctl/contact';
 $route['education'] = 'Public_ctl/education';
 $route['club-corner'] = 'Public_ctl/club_corner';
+$route['reset-password'] = 'Public_ctl/reset_password';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

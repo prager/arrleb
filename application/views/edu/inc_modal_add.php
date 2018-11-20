@@ -100,7 +100,7 @@
 			            	'placeholder' => 'url',
 			                'class'			=> 'form-control',
 							'maxlength'     => '512');?>
-						URL
+						URL References
 						<?php echo form_input($data);?>
 						</div>
 					</div>

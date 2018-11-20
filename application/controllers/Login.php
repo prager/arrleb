@@ -20,8 +20,8 @@ class Login extends CI_Controller {
 	    else {
 	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	        $data['title'] = 'Login Error';
-	        $data['msg'] = 'There was an error while checking your credentials.
-					Go to home page ' . anchor('public_ctl', 'here'). '<br><br>';
+	        $data['msg'] = 'There was an error while checking your credentials. Click ' . anchor('Public_ctl/reset_password', 'here') .
+	        ' to reset your password or go to home page ' . anchor('public_ctl', 'here'). '<br><br>';
 	        $this->load->view('status/status_view', $data);
 	        $this->load->view('template/footer_ver1');
 	    }
