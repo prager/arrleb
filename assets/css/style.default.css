@@ -793,7 +793,7 @@ fieldset[disabled] .btn-template-primary.active {
   padding: 30px;
   margin-bottom: 0;
   position: relative;
-  //background: url('../img/photogrid.jpg') center center repeat;
+  background: url('../img/photogrid.jpg') center center repeat;
   background-size: cover;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -2649,7 +2649,12 @@ fieldset[disabled] .btn-template-primary.active {
 }
 /* Original Boostrap template overwrite */
 /* breadcrumbs */
-
+.breadcrumb {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  background-color: none;
+  letter-spacing: 0.08em;
+}
 /* nav */
 .nav > li > a {
   padding: 10px 15px;
@@ -3524,7 +3529,7 @@ a.list-group-item.active > .badge,
 /*!
  * Yamm!3 - Yet another megamenu for Bootstrap 3
  * http://geedmo.github.com/yamm3
- *
+ * 
  * @geedmo - Licensed under the MIT license
  */
 .yamm .nav,

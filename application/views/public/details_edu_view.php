@@ -6,7 +6,7 @@
     </div>
      <div class="col-md-5">
       <ul class="breadcrumb d-flex justify-content-end">
-       <li class="breadcrumb-item"><?php echo anchor('public_ctl/education', 'Education & Training')?></li>
+       <li class="breadcrumb-item"><?php echo anchor($home, $cur)?></li>
        <li class="breadcrumb-item active">Class Details</li>
       </ul>
      </div>

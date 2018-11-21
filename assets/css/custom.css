@@ -144,5 +144,13 @@ a.socialIcon:hover, .socialHoverClass {
   color: #555555;
 }
 .vertical{
-	margin-top: 10%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+.center-section img {
+    width: 200px;
+    height: 200px;
+    margin: auto;    
+    display: block;
 }

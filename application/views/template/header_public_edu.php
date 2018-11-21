@@ -99,7 +99,6 @@ _________________________________________________________ -->
                                 	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
                               	</ul>
                               </li>
-                              <li class="active"><?php echo anchor('public_ctl/education', 'Education & Training')?></li>
                               <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
                               <li class="dropdown">
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">

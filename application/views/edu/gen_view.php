@@ -3,7 +3,7 @@
  <div class="container">
   <div class="row">
   	<div class="col-md-12 text-center">
-  		<h3>General</h3>
+  		<h3>General Class License</h3>
   	</div>
   </div>
   <div class="row d-flex align-items-center flex-wrap">
@@ -40,10 +40,46 @@
        	</div>
        </div>
        <div class="col-md-4">
-       	<a href="https://clipartxtras.com/download/e9d3aa3719ce1a712a2359d2f69fb0fcdea92c0e.html" 
+       	<div class="center-section"><a href="https://clipartxtras.com/download/e9d3aa3719ce1a712a2359d2f69fb0fcdea92c0e.html" 
        	title="Image from clipartxtras.com" target="_blank">
-       	<img src="https://img.clipartxtras.com/441ca517b47787264c830e7017e5a14b_thats-not-real-ham-radio-amateurradiocom-ham-radio-drawing_1280-1173.jpeg" 
-       	width="1280" alt="ham radio drawing" class="img-responsive" /></a>
+       	<img src="<?php echo base_url() ;?>/assets/img/op.png" alt="ham radio drawing" class="img-responsive" /></a>
+       	</div>
+       </div>
+       <div class="row">
+       	<div class="col-md-10 col-md-offset-1">
+       		<table class="table table-striped table-responsive">
+        		<thead>
+        			<tr>
+        				<th>Testing Event</th>
+        				<th style="width: 10%">Date From</th>
+        				<th style="width: 10%">Date To</th>
+        				<th style="width: 8%">Fee</th>
+        				<th>Status</th>
+        				<th style="width: 20%">Location</th>
+        				<th>View Details</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<?php if($cnt > 0)
+        		    foreach($tests as $row) {?>
+        			<tr>
+        				<td><strong><?php echo $row['course']; ?></strong></td>
+        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
+        				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
+        				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
+                            echo money_format('%(#10n', $row['fee']);?></td>
+        				<td><?php echo $row['status']; ?></td>
+        				<td class="elips1"><?php echo $row['location']; ?></td>
+        				<td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>        				
+        			</tr>
+        			<?php }
+        			else {?>
+        			<tr>
+        				<td colspan="7">No testing on schedule</td>
+        			</tr>
+        			<?php }?>
+        		</tbody>        	
+        	</table>
        </div>
        </div>
        <div class="row">&nbsp;</div>

@@ -1,7 +1,12 @@
 
 <div id="heading-breadcrumbs">
- <div class="container">
-  <div class="row d-flex align-items-center flex-wrap">
+ <div class="container align-items-center ">
+  <div class="row">
+  	<div class="col-md-12 text-center">
+  		<h3>Education & Training</h3>
+  	</div>
+  </div>
+  <div class="row d-flex flex-wrap">
      <div class="col-md-12">
       <ul class="breadcrumb d-flex justify-content-end">
        <li class="breadcrumb-item"><?php echo anchor('Public_ctl/technician', 'Technician'); ?></li>

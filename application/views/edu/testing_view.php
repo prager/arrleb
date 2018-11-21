@@ -27,13 +27,40 @@
 <div id="content">
    <div class="container">
        <div class="row">
-       	<div class="col-md-6 col-md-offset-1">
-       	<div class="vertical">
-       	<p>--- is coming ---</p>
-       	</div>
-       </div>
-       <div class="col-md-4">
-       	
+       	<div class="col-md-10 col-md-offset-1">
+       		<table class="table table-striped table-responsive">
+        		<thead>
+        			<tr>
+        				<th>Event</th>
+        				<th style="width: 10%">Date From</th>
+        				<th style="width: 10%">Date To</th>
+        				<th style="width: 8%">Fee</th>
+        				<th>Status</th>
+        				<th style="width: 20%">Location</th>
+        				<th>View Details</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<?php if($cnt > 0)
+        		    foreach($tests as $row) {?>
+        			<tr>
+        				<td><strong><?php echo $row['course']; ?></strong></td>
+        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
+        				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
+        				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
+                            echo money_format('%(#10n', $row['fee']);?></td>
+        				<td><?php echo $row['status']; ?></td>
+        				<td class="elips1"><?php echo $row['location']; ?></td>
+        				<td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>        				
+        			</tr>
+        			<?php }
+        			else {?>
+        			<tr>
+        				<td colspan="7">No testing on schedule</td>
+        			</tr>
+        			<?php }?>
+        		</tbody>        	
+        	</table>
        </div>
        </div>
        <div class="row">&nbsp;</div>
