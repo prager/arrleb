@@ -46,6 +46,7 @@ class Edu extends CI_Controller {
 	    $param['status'] = $this->input->post('status');
 	    $param['location'] = $this->input->post('location');
 	    $param['details_url'] = $this->input->post('details_url');
+	    $param['licensing'] = $this->input->post('category');
 	    $this->Edu_model->edit_class($param);
 	    $this->load_edu('Class has been added/edited. Thank you!');
 	}

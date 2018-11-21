@@ -27,9 +27,11 @@
 <div id="content">
    <div class="container">
        <div class="row">
-       	<div class="col-md-6 col-md-offset-1">
+       	<div class="col-md-9 col-md-offset-1">
        	<div class="vertical">
-       	<p>--- is coming ---</p>
+       	<p>Speakers, please, at first register with the ARRL Eeast Bay Section by clicking <?php echo anchor('register', 
+       	    'here to bring up the registration page')?>
+       	. Thank you!</p>
        	</div>
        </div>
        <div class="col-md-4">

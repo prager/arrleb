@@ -25,6 +25,7 @@ class Edu_model extends CI_Model {
 	                    'status' => $row->status,
 	                    'location' => $row->location,
 	                    'details' => $row->details_url,
+	                    'category' => $row->licensing,
 	                    'details_url' => $this->make_clickable_url($row->details_url)
 	                );
 	                array_push($retarr['classes'], $arr);

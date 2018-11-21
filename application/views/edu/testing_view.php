@@ -31,7 +31,7 @@
        		<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
-        				<th>Event</th>
+        				<th>Testing Event</th>
         				<th style="width: 10%">Date From</th>
         				<th style="width: 10%">Date To</th>
         				<th style="width: 8%">Fee</th>
@@ -51,7 +51,7 @@
                             echo money_format('%(#10n', $row['fee']);?></td>
         				<td><?php echo $row['status']; ?></td>
         				<td class="elips1"><?php echo $row['location']; ?></td>
-        				<td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>        				
+        				<td><?php echo anchor('Public_ctl/test_details/' . $row['id'], 'View'); ?></td>        				
         			</tr>
         			<?php }
         			else {?>

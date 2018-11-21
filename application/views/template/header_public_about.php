@@ -92,7 +92,43 @@ _________________________________________________________ -->
                                 	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
                               	</ul>
                               </li>
-                              <li><?php echo anchor('public_ctl/education', 'Education & Training')?></li>
+                              <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education/Training<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <h5>Education & Training Main Page</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/education', 'Education & Training'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>Ham Licensing</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/technician', 'Technician License Class')?></li>
+                                                            <li><?php echo anchor('public_ctl/general', 'General License Class')?></li>
+                                                            <li><?php echo anchor('public_ctl/extra', 'Extra License Class')?></li>
+                                                            <li><?php echo anchor('public_ctl/testing', 'License Testing'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/inday', 'Ham in One Day'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>Other Education Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/elmer', 'Elmer'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/onair', 'Get on the Air'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/emergency', 'Emergency Preparedness'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/auxiliary', 'Auxiliary'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/speakers', 'Speakers'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
                               <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
                               <li><?php echo anchor('Public_ctl/Team', 'Team');?></li>
                               <li class="dropdown">

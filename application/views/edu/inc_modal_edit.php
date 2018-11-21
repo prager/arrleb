@@ -12,7 +12,7 @@
 		        <?php echo form_open('edu/edit_class/' .  $row['id']); ?>
 		            <div class="form-group">
 		            <div class="row">
-			            <div class="col-md-10 col-md-offset-1">
+			            <div class="col-md-8 col-md-offset-1">
 			            <?php $data = array(
 							'name'          => 'course',
 							'id'            => 'fname',
@@ -22,6 +22,11 @@
 							'maxlength'     => '75');?>
 						Course
 						<?php echo form_input($data);?>
+						</div>
+						<div class="col-md-2">
+							Category
+			          	<?php echo form_dropdown('category', array('none', 'Tech', 'Gen', 'Ext'), $row['category'], 
+			          			'class="form-control"'); ?>
 						</div>						
 					</div>
 					<div class="row">&nbsp;</div>

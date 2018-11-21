@@ -43,11 +43,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Next Selected Event: </h3>
-                        <h2 class="text-uppercase">Contra Costa ACS Monthly Meeting </h2> 
+                        <h2 class="text-uppercase">Technician License Course </h2> 
                            <p class="lead mb-small">
-                           By Contra Costa ACS (Auxiliary Communications Service)</p> 
-                           <p> On Wednesday November 28, 7:00pm – 8:30pm</p>
-                        <p class="mb-small">For more details <?php echo anchor_popup('http://www.cocoacs.org/meetings/general-meeting/',
+                           By MDARC (Mount Diablo Amateur Radio Club)</p> 
+                           <p>Dates: 01/10/2019 - 02/2019</p>
+                        <p class="mb-small">For more details <?php echo anchor_popup('https://tinyurl.com/y7xqu3ts',
                             'click here')?>
                         
                         </p>
