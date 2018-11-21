@@ -46,11 +46,9 @@
                         <h2 class="text-uppercase">Technician License Course </h2> 
                            <p class="lead mb-small">
                            By MDARC (Mount Diablo Amateur Radio Club)</p> 
-                           <p>Dates: 01/10/2019 - 02/2019</p>
-                        <p class="mb-small">For more details <?php echo anchor_popup('https://tinyurl.com/y7xqu3ts',
-                            'click here')?>
-                        
-                        </p>
+                           <p>Dates: 01/10/2019 - 02/28/2019</p>
+                        <p class="mb-small">For more details <?php echo anchor_popup('https://tinyurl.com/y7xqu3ts', 'click here')?>
+                        --- More classes on ARRL EB Section <?php echo anchor_popup('education', 'here')?></p>
                     </div>
                     <div class="col-md-4 col-md-offset-4">                    
                     </div>

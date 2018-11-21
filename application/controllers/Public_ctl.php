@@ -56,7 +56,7 @@ class Public_ctl extends CI_Controller {
 		$this->form_validation->set_rules('name', 'name', 'callback_validate_msg');
 		if($this->form_validation->run()) {
 			$this->User_model->send_msg($this->msg_param);
-			$this->load->view('template/header_public_main');
+			$this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 			$data['title'] = 'Thank you!';
 			$data['msg'] = 'Your message has been sent. You may go to ' . anchor('public_ctl', 'home page') .
 			' Thank you!<br><br>';
@@ -64,7 +64,7 @@ class Public_ctl extends CI_Controller {
 			$this->load->view('template/footer');
 		}
 		else {			
-			$this->load->view('template/header_public_main');
+		    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 			$this->load->view('public/contact_view', $this->msg_param);
 			$this->load->view('template/footer');
 		}

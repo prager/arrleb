@@ -239,6 +239,11 @@ ul.list-style-none {
   color: #eeeeee;
   padding: 10px 0;
 }
+
+#top a{
+  color: #eeeeee;
+}
+
 #top p {
   margin: 0;
   font-size: 12px;
