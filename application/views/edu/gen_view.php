@@ -45,6 +45,7 @@
        	<img src="<?php echo base_url() ;?>/assets/img/op.png" alt="ham radio drawing" class="img-responsive" /></a>
        	</div>
        </div>
+       </div>
        <div class="row">
        	<div class="col-md-10 col-md-offset-1">
        		<table class="table table-striped table-responsive">

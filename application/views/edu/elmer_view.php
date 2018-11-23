@@ -3,7 +3,7 @@
  <div class="container">
   <div class="row">
   	<div class="col-md-12 text-center">
-  		<h3>Elmer</h3>
+  		<h3>What’s an Elmer?</h3>
   	</div>
   </div>
   <div class="row d-flex align-items-center flex-wrap">
@@ -29,11 +29,27 @@
        <div class="row">
        	<div class="col-md-6 col-md-offset-1">
        	<div class="vertical">
-       	<p>--- is coming ---</p>
+       	<p>As someone learning about Amateur Radio, you’ll hear the term “Elmer” and “Elmering” a lot!  A ham radio “Elmer” is someone who personally guides 
+       	and tutors a new ham, both before and after earning a license.  
+       	It doesn’t refer to anyone in particular, just the more experienced hams who help newcomers. 
+       	<br><br>
+       	Using the word “Elmer” to mean “mentor” is unique to ham radio.  Rick Lindquist, WW1ME traces the origin of the term to the March 1971 
+       	issue of QST magazine; the term appeared in a “How’s DX” column by Rod Newkirk, W9BRD.  Rod’s mentor was a ham named Elmer and Rod thought 
+       	every new ham should have an Elmer of their own.  The name stuck and since then, “Elmering” has meant “helping.”
+       	<br><br>
+       	Every ham has at least one Elmer at some point.  You will, too, and if someone refers to you as their “Elmer,” you can be proud.
+       	<br><br>
+       	Source:  Ham Radio License Manual, 4th edition
+       	<br><br>
        	</div>
        </div>
        <div class="col-md-4">
-       	
+       <div class="row">&nbsp;</div>
+       <div class="vertical">
+       	<div class="center-section"><a href="https://clipartxtras.com/download/910f3edf58df3ee72e77ef4b56ed88ada21c4176.html" 
+       	title="Image from clipartxtras.com" target="_blank" ><img src="<?php echo base_url() ;?>/assets/img/op2.gif" width="300" alt="ham radio drawing" /></a>
+       	</div>
+       	</div>
        </div>
        </div>
        <div class="row">&nbsp;</div>
