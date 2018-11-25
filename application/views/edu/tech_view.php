@@ -3,7 +3,7 @@
  <div class="container">
   <div class="row">
   	<div class="col-md-12 text-center">
-  		<h3>Technician Class License</h3>
+  		<h3>Technician License Course</h3>
   	</div>
   </div>
   <div class="row d-flex align-items-center flex-wrap">

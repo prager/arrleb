@@ -3,7 +3,7 @@
  <div class="container">
   <div class="row">
   	<div class="col-md-12 text-center">
-  		<h3>Ham Radio License Classes and Testing</h3>
+  		<h3>Ham Radio Testing</h3>
   	</div>
   </div>
   <div class="row d-flex align-items-center flex-wrap">
@@ -57,7 +57,7 @@
         			<?php }
         			else {?>
         			<tr>
-        				<td colspan="7">No testing on schedule</td>
+        				<td colspan="7">No courses or testing on schedule</td>
         			</tr>
         			<?php }?>
         		</tbody>        	

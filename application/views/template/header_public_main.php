@@ -91,13 +91,6 @@ _________________________________________________________ -->
 
                             <ul class="nav navbar-nav navbar-right">
                               <li class="active"><a href="javascript: void(0)">Home</a></li>
-                              <li class="dropdown">
-                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret">
-                                </b></a>
-                                <ul class="dropdown-menu">                                    
-                                	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
-                              	</ul>
-                              </li>
                               <li class="dropdown use-yamm yamm-fw">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education/Training<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -111,12 +104,11 @@ _________________________________________________________ -->
                                                         </ul>
                                                     </div>
                                                     <div class="col-sm-4">
-                                                        <h5>Ham Licensing</h5>
+                                                        <h5>Education Courses</h5>
                                                         <ul>
-                                                            <li><?php echo anchor('public_ctl/technician', 'Technician License Class')?></li>
-                                                            <li><?php echo anchor('public_ctl/general', 'General License Class')?></li>
-                                                            <li><?php echo anchor('public_ctl/extra', 'Extra License Class')?></li>
-                                                            <li><?php echo anchor('public_ctl/testing', 'License Testing'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/technician', 'Technician License Course')?></li>
+                                                            <li><?php echo anchor('public_ctl/general', 'General License Course')?></li>
+                                                            <li><?php echo anchor('public_ctl/extra', 'Extra License Course')?></li>
                                                             <li><?php echo anchor('public_ctl/inday', 'Ham in One Day'); ?></li>
                                                         </ul>
                                                     </div>
@@ -128,6 +120,7 @@ _________________________________________________________ -->
                                                             <li><?php echo anchor('public_ctl/emergency', 'Emergency Preparedness'); ?></li>
                                                             <li><?php echo anchor('public_ctl/auxiliary', 'Auxiliary'); ?></li>
                                                             <li><?php echo anchor('public_ctl/speakers', 'Speakers'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/testing', 'License Testing'); ?></li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -135,14 +128,37 @@ _________________________________________________________ -->
                                         </li>
                                     </ul>
                                 </li>
-                              <li><?php echo anchor('club-corner', 'Club Corner');?></li>
-                              <li class="dropdown">
-                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">
-                                </b></a>
-                                <ul class="dropdown-menu">
-                                    <li><?php echo anchor('files', 'Files Repository')?></li>
-                              	</ul>
-                              </li>
+                              <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Topics<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <h5>Misc Ham Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/corner', 'Club Corner'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/public_events', 'Public Service Events'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>ARES Resources</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/ares', 'ARES')?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>Tech Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/technical', 'Technical'); ?></li>
+                                                            <li><?php echo anchor('files', 'Files Repository'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
                               <li class="dropdown">
                               	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">About<b class="caret">
                                 </b></a>

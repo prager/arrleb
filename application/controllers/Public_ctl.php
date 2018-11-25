@@ -133,14 +133,26 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function emergency() {
+	    
+	    $retval = $this->Edu_model->get_aux();
+	    
+	    $data['cnt'] = $retval['cnt'];
+	    $data['tests'] = $retval['tests'];
+	    
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/emergency_view');
+	    $this->load->view('edu/emergency_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function onair() {
+	    
+	    $retval = $this->Edu_model->get_gota();
+	    
+	    $data['cnt'] = $retval['cnt'];
+	    $data['tests'] = $retval['tests'];
+	    
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/onair_view');
+	    $this->load->view('edu/onair_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	
@@ -151,8 +163,14 @@ class Public_ctl extends CI_Controller {
 	}
 	
 	public function auxiliary() {
+	    
+	    $retval = $this->Edu_model->get_aux();
+	    
+	    $data['cnt'] = $retval['cnt'];
+	    $data['tests'] = $retval['tests'];
+	    
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/aux_view');
+	    $this->load->view('edu/aux_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	

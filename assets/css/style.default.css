@@ -362,7 +362,7 @@ ul.list-style-none {
 }
 .navbar ul.dropdown-menu li a {
   position: relative;
-  color: #999999;
+  color: #666666;
   font-size: 12px;
   display: block;
   -webkit-transition: all 0.2s ease-out;
@@ -415,7 +415,7 @@ ul.list-style-none {
 }
 .navbar .yamm-content ul li a {
   position: relative;
-  color: #999999;
+  color: #666666;
   font-size: 12px;
   display: block;
   -webkit-transition: all 0.2s ease-out;
