@@ -94,6 +94,13 @@ class Public_ctl extends CI_Controller {
 	    $this->load->view('template/header_public_edu', array('logged' => $this->Login_model->is_logged()['logged']));
 		$this->load->view('public/edu_view', $data);
 		$this->load->view('template/footer_ver1');
+	}	
+	
+	public function edu_courses() {
+	    $this->load->view('template/head_only');
+	    $data['edu'] = $this->Edu_model->get_classes();
+	    $this->load->view('public/inc_iframe', $data);
+	    $this->load->view('template/footer_refonly');
 	}
 	
 	public function technician() {

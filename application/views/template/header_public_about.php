@@ -87,11 +87,6 @@ _________________________________________________________ -->
                             <ul class="nav navbar-nav navbar-right">
                               <li><a href="<?php echo base_url();?>">Home</a></li>
                               <li class="active"><a href="#">About</a></li>
-                              <li class="dropdown">
-                                <ul class="dropdown-menu">                                    
-                                	<li><?php echo anchor('public_ctl/public_events', 'Public Service Events')?></li>
-                              	</ul>
-                              </li>
                               <li class="dropdown use-yamm yamm-fw">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Education/Training<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
@@ -129,15 +124,38 @@ _________________________________________________________ -->
                                         </li>
                                     </ul>
                                 </li>
-                              <li><?php echo anchor(base_url() . 'index.php/club-corner', 'Club Corner');?></li>
+                              <li class="dropdown use-yamm yamm-fw">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Misc Topics<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="yamm-content">
+                                                <div class="row">
+                                                    <div class="col-sm-4">
+                                                        <h5>Misc Ham Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/corner', 'Club Corner'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/public_events', 'Public Service Events'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>ARES Resources</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/ares', 'ARES')?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>Tech Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('public_ctl/technical', 'Technical'); ?></li>
+                                                            <li><?php echo anchor('files', 'Files Repository'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
                               <li><?php echo anchor('Public_ctl/Team', 'Team');?></li>
-                              <li class="dropdown">
-                              	<a href="javascript: void(0)" class="dropdown-toggle" data-toggle="dropdown">Tools<b class="caret">
-                                </b></a>
-                                <ul class="dropdown-menu">
-                                    <li><?php echo anchor('files', 'Files Repository')?></li>
-                              	</ul>
-                              </li>
                             </ul>
 
                         </div>

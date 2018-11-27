@@ -70,8 +70,8 @@
                                 <i class="fa fa-question"></i>
                             </div>
                             <h3>Why Ham Radio?</h3>
-                            <p>Some of these reasons may be experimenting with radio waves,
-                             find good friends, to volunteer for emergency services, etc. You may find some answers in this 
+                            <p>Some of these reasons may be to find a new hobby to operate a radio transmitter, to be experimenting with radio waves,
+                             find good friends, to volunteer for emergency services, public service events, etc. You may find some answers in this 
                              inspiring article
                              <a href="https://www.popularmechanics.com/technology/gadgets/a14410/why-you-should-learn-to-love-th-ham-radio/">here</a> </p>
                         </div>
@@ -82,9 +82,10 @@
                                     <i class="fa fa-podcast"></i>
                                 </div>
                                 <h3>Get on the air</h3>
-                                <p>To get on the air with a ham radio may be easier than you think. No knowledge of morse code necessary. There are three Ham 
+                                <p>To get on the air with a ham radio may be easier than you think. No knowledge of morse code necessary. 
+                                There are three Ham 
                                 License categories:
-                                  Technician, General and Extra. Click <a href="http://www.arrl.org/ham-radio-licenses">here</a> for more info</p>
+                                  Technician, General and Extra. Ham clubs teach courses on this subject. Click <?php echo anchor('public_ctl/onair', 'here'); ?> for more info</p>
                             </div>
                         </div>
                         <div class="col-md-4">

@@ -25,7 +25,7 @@
 						</div>
 						<div class="col-md-2">
 							Category
-			          	<?php echo form_dropdown('category', array('none', 'Tech', 'Gen', 'Ext', 'GOTA', 'Em Prep', 'Aux'), $row['category'], 
+			          	<?php echo form_dropdown('category', array('none', 'Tech', 'Gen', 'Ext', 'GOTA', 'Em Prep', 'Aux', 'In-1-Day'), $row['category'], 
 			          			'class="form-control"'); ?>
 						</div>						
 					</div>

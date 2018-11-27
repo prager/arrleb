@@ -23,16 +23,16 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="heading">
+                            <div class="heading text-center">
                                 <h2>Who is responsible for ARRL East Bay Section?</h2>
                             </div>
 
-                            <p class="lead">The ARRL East Bay Section team members:</p>
+                            <p class="lead text-center">The ARRL East Bay Section team members:</p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-3 col-sm-3">
+                        <div class="col-md-3 col-sm-3 col-md-offset-3">
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a href="team-member.html">
@@ -72,53 +72,9 @@
                                     <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>-->
                                 </div>
                                 <div class="text">
-                                    <p>Jan has been a long time radio enthusiast since the times of Cold War when a short wave radio
-                                    was the only reliable source of information in certain parts of the world.
+                                    <p>Jan has been radio enthusiast since Cold War when a short wave radio
+                                    was the only source of information in certain parts of the world.
                                   </p>
-                                </div>
-                            </div>
-                            <!-- /.team-member -->
-                        </div>
-                        <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
-                            <div class="team-member">
-                                <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
-                                    </a>
-                                </div>
-                                <h3>Mathew Vurek, N4DLA</h3>
-                                <p class="role">Affiliated Club Coordinator</p>
-                                <div class="social">
-                                <p>----------------</p>
-                                    <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> -->
-                                </div>
-                                <div class="text">
-                                    <p>Mathew Vurek's short bio is coming soon.</p>
-                                </div>
-                            </div>
-                            <!-- /.team-member -->
-                        </div>
-                        <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
-                            <div class="team-member">
-                                <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/bart.png" alt="" class="img-responsive img-circle">
-                                    </a>
-                                </div>
-                                <h3>Bart Lee, K6VK</h3>
-                                <p class="role">Local Government Liaison</p>
-                                <div class="social">
-                                -------------
-                                   <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> --> 
-                                </div>
-                                <div class="text">
-                                    <p>Bart Lee's short bio is coming soon.</p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -190,7 +146,31 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-md-2 col-md-offset-3 col-sm-3" data-animate="fadeInDown">
+                        <div class="col-md-2 col-md-offset-1 col-sm-3" data-animate="fadeInDown">
+                            <div class="team-member" data-animate="fadeInDown">
+                                <div class="image">
+                                    <a href="team-member.html">
+                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                    </a>
+                                </div>
+                                <h3><a href="team-member.html">Mathew Vurek, N4DLA</a></h3>
+                                <p class="role">Affiliated Club Coordinator</p>
+                            </div>
+                            <!-- /.team-member -->
+                        </div>
+                        <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
+                            <div class="team-member" data-animate="fadeInDown">
+                                <div class="image">
+                                    <a href="team-member.html">
+                                        <img src="<?php echo base_url() ;?>/assets/img/bart.png" alt="" class="img-responsive img-circle">
+                                    </a>
+                                </div>
+                                <h3><a href="team-member.html">Bart Lee, K6VK</a></h3>
+                                <p class="role">Local Govt Liaison</p>
+                            </div>
+                            <!-- /.team-member -->
+                        </div>
+                        <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member" data-animate="fadeInDown">
                                 <div class="image">
                                     <a href="team-member.html">
@@ -236,4 +216,3 @@
 
             </div>
 
-        </div>

@@ -26,6 +26,32 @@
 
 <div id="content">
    <div class="container">
+   	   <div class="row">
+   	   	<div class="col-md-10 col-md-offset-1">
+       	   	<p>Amateur Radio may be a hobby, but it can also play a crucial role in providing communications during a disaster when other 
+       	   	means may not be available. The critical link in any major disaster is the flow of information. During such incidents, amateur 
+       	   	radio operators can be called upon for relaying crucial information to emergency management officials.</p>
+   	   	</div>   	   
+   	   </div>
+   	   <div class="row">
+   	   	<div class="col-md-6 col-md-offset-1">
+   	   	<p>Amateur Radio operators are located in many areas and, because they do not rely on any infrastructure, they are able to report what 
+   	   	is happening in their areas during emergency situations.  These reports can then be relayed to officials who can use it to determine what 
+   	   	actions may need to be taken. Amateur radio operators may also be assigned to report to a specific location to assist with communications at 
+   	   	a shelter, a hospital, or an Emergency Operations Center, to assist in communications as needed and to gather information.</p>
+   	   	<p>Various class sessions will be offered to help amateur radio operators understand and prepare to provide communications needed to 
+       	   	support an emergency incident. These classes will help insure that we can all send and received messages in the most efficient way 
+       	   	possible, learn how nets are organized and operated, and much more. To be a benefit to our served agencies we must be well trained and 
+       	   	practiced.</p>
+   	   	</div>
+   	   	<div class="col-md-4">
+       	<div class="center-section"><a href="https://clipartxtras.com/download/e9d3aa3719ce1a712a2359d2f69fb0fcdea92c0e.html" 
+       	title="Image from clipartxtras.com" target="_blank">
+       	<img src="<?php echo base_url() ;?>/assets/img/op.png" alt="ham radio drawing" class="img-responsive" /></a>
+       	</div>
+       </div>
+       </div>
+       <div class="row">&nbsp;</div>
        <div class="row">
        	<div class="col-md-10 col-md-offset-1">
        		<table class="table table-striped table-responsive">
