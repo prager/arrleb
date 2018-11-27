@@ -17,25 +17,6 @@ class User extends CI_Controller {
 	        $user['msg'] = $this->msg;
 	        $this->load->view('user/edit_user_view', $user);
 	        $this->load->view('template/footer_ver1');
-	        /* try{
-	            $crud = new grocery_CRUD();
-	            
-	            $crud->set_theme('datatables');
-	            $crud->set_table($tbl);
-	            $crud->set_subject('User');
-	            $crud->columns('username', 'email', 'street', 'city', 'state_cd', 'zip_cd');
-	            $crud->fields('username', 'email', 'street', 'city', 'state_cd', 'zip_cd');
-	            $crud->required_fields('username', 'email', 'street', 'city', 'state_cd', 'zip_cd');
-	            $crud->unset_add();
-	            $crud->unset_delete();	            
-	            
-	            $output = $crud->render();
-	            
-	            $this->_user_output($output);
-	            
-	        }catch(Exception $e){
-	            show_error($e->getMessage().' --- '.$e->getTraceAsString());
-	        }*/
 	    }
 	    else {
 	        $this->load->view('template/header_public_gen', array('logged' => FALSE));
@@ -63,6 +44,11 @@ class User extends CI_Controller {
 	    $param['zip_cd'] = $this->input->post('zip');
 	    $param['phone'] = $this->input->post('phone');
 	    $param['email'] = $this->input->post('email');
+	    $param['facebook'] = $this->input->post('facebook');
+	    $param['twitter'] = $this->input->post('twitter');
+	    $param['linkedin'] = $this->input->post('linkedin');
+	    $param['googleplus'] = $this->input->post('googleplus');
+	    $param['narrative'] = $this->input->post('narrative');
 	    
 	    $this->User_model->set_user($param);
 	    $this->msg = 'User data has been updated. Thank you!';

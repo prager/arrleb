@@ -141,7 +141,95 @@
 			<?php echo form_input($data);?>
 		</div>
 	</div>
+	
+	
 	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<?php $data = array(
+				    'name'          => 'facebook',
+					'id'            => 'facebook',
+			        'value'         =>  $facebook,
+			        'placeholder' => 'Facebook URL',
+			        'class'			=> 'form-control',
+					'maxlength'     => '35');?>
+			Facebook URL
+			<?php echo form_input($data);?>
+		</div>
+		<div class="col-md-4">
+			<?php $data = array(
+				'name'          => 'twitter',
+				'id'            => 'twitter',
+			    'value'         =>  $twitter,
+			    'placeholder' => 'Twitter URL',
+			    'class'			=> 'form-control',
+				'maxlength'     => '35');?>
+			Twitter URL
+			<?php echo form_input($data);?>
+		</div>
+	</div>
+	
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-4 col-md-offset-2">
+			<?php $data = array(
+				    'name'          => 'linkedin',
+					'id'            => 'linkedin',
+			        'value'         =>  $linkedin,
+			        'placeholder' => 'LinkedIn URL',
+			        'class'			=> 'form-control',
+					'maxlength'     => '35');?>
+			LinkedIn URL
+			<?php echo form_input($data);?>
+		</div>
+		<div class="col-md-4">
+			<?php $data = array(
+				'name'          => 'googleplus',
+				'id'            => 'googleplus',
+			    'value'         =>  $googleplus,
+			    'placeholder' => 'Google+ URL',
+			    'class'			=> 'form-control',
+				'maxlength'     => '35');?>
+			Google+ URL
+			<?php echo form_input($data);?>
+		</div>
+	</div>
+	<div class="row">&nbsp;</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+		
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          
+          <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h5 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" 
+                aria-expanded="false" aria-controls="collapseThree">
+                  Member Narrative
+                </a>
+              </h5>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+              <div class="panel-body">
+                <?php 
+                    $data = array(
+                        'name' => 'narrative',
+                        'id' => 'narrative',
+                        'value' => $narrative,
+                        'cols' => 150,
+                        'rows' => 10,
+                        'class' => 'form-control'
+                    );
+                echo form_textarea($data);
+                ?>
+			  </div>
+            </div>
+          </div>
+		</div>
+		
+		
+		</div>
+	</div>
 	<div class="row">&nbsp;</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">

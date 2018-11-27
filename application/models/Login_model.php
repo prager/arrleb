@@ -249,6 +249,26 @@ class Login_model extends CI_Model {
 	                'constraint' => '128',
 	                'default' => ''
 	            ),
+	            'facebook' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '128',
+	                'default' => ''
+	            ),
+	            'twitter' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '128',
+	                'default' => ''
+	            ),
+	            'linkedin' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '128',
+	                'default' => ''
+	            ),
+	            'googleplus' => array(
+	                'type' =>'VARCHAR',
+	                'constraint' => '128',
+	                'default' => ''
+	            ),
 	            'state_cd' => array(
 	                'type' =>'VARCHAR',
 	                'constraint' => '2',
@@ -257,6 +277,10 @@ class Login_model extends CI_Model {
 	            'zip_cd' => array(
 	                'type' =>'VARCHAR',
 	                'constraint' => '10',
+	                'default' => ''
+	            ), 
+	            'narrative' => array(
+	                'type' => 'TEXT',
 	                'default' => ''
 	            )
 	            

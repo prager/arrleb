@@ -10,7 +10,7 @@
                     <?php if(count($edu['classes']) > 0) {?>
                     <?php foreach($edu['classes'] as $row) {?>
                       <tr>
-                        <td style="color: black;"><?php echo anchor('Public_ctl/class_details/' . $row['id'], $row['course']); ?></td>
+                        <td style="color: black;"><?php echo anchor_popup('Public_ctl/class_details/' . $row['id'], $row['course']); ?></td>
                         <td><?php echo date("m/d", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
                       </tr>
                       <?php }?> 

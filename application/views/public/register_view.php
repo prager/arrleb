@@ -19,6 +19,7 @@
             <div class="row">
                     <div class="col-md-12">
                     <div class="box">
+                                        
                   <?php if($msg != '') {?>
                   <div class="row">
                   <div class="col-md-6 col-md-offset-3">
@@ -37,7 +38,7 @@
 			            	'placeholder' => 'First Name',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                        <label for="name-login">First Name</label>
+                        <label for="name-login">* First Name</label>
                         <?php echo form_input($data);?>
                     </div>
                     </div>
@@ -50,7 +51,7 @@
 			            	'placeholder' => 'First Name',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                        <label for="name-login">Last Name</label>
+                        <label for="name-login">* Last Name</label>
                         <?php echo form_input($data);?>
                       </div>
                     </div>
@@ -65,7 +66,7 @@
 			            	'placeholder' => 'Email',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                          <label for="name-login">Email</label>
+                          <label for="name-login">* Email</label>
                           <?php echo form_input($data);?>
                       </div>
                       </div>
@@ -93,7 +94,7 @@
 			            	'placeholder' => 'Phone Number',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                          <label for="name-login">Phone Number</label>
+                          <label for="name-login">* Phone Number</label>
                           <?php echo form_input($data);?>
                       </div>
                       </div>
@@ -108,7 +109,7 @@
 			            	'placeholder' => 'Street Address',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                          <label for="name-login">Street Address</label>
+                          <label for="name-login">* Street Address</label>
                           <?php echo form_input($data);?>
                       </div>
                       </div>
@@ -123,7 +124,7 @@
 			            	'placeholder' => 'City',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                          <label for="name-login">City</label>
+                          <label for="name-login">* City</label>
                           <?php echo form_input($data);?>
                       </div>
                       </div>
@@ -131,7 +132,7 @@
                   <div class="row">
                       <div class="col-md-3 col-md-offset-3">
                       <div class="form-group">
-                          <label for="name-login">State</label>
+                          <label for="name-login">* State</label>
                           <?php echo form_dropdown('state', $this->data_lib->get_states_array(), $state, 
 			          			'class="form-control"'); ?>
                       </div>
@@ -145,11 +146,78 @@
 			            	'placeholder' => 'Zip Code',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-                          <label for="name-login">Zip Code</label>
+                          <label for="name-login">* Zip Code</label>
                           <?php echo form_input($data);?>
                         </div>
                       </div>
                     </div>
+                    
+                    <div class="row">
+                    <div class="col-md-3 col-md-offset-3">
+                    <div class="form-group">
+                    	<?php $data = array(
+							'name'          => 'facebook',
+							'id'            => 'facebook',
+			            	'value'         =>  $facebook,
+			            	'placeholder' => 'Facebook URL',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
+                        <label for="name-login">Facebook URL</label>
+                        <?php echo form_input($data);?>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'twitter',
+							'id'            => 'twitter',
+			            	'value'         =>  $twitter,
+			            	'placeholder' => 'Twitter URL',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
+                        <label for="name-login">Twitter URL</label>
+                        <?php echo form_input($data);?>
+                      </div>
+                    </div>
+                  </div>
+                    
+                    
+                    <div class="row">
+                    <div class="col-md-3 col-md-offset-3">
+                    <div class="form-group">
+                    	<?php $data = array(
+							'name'          => 'linkedin',
+							'id'            => 'linkedin',
+                    	    'value'         =>  $linkedin,
+			            	'placeholder' => 'LinkedIn URL',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
+                        <label for="name-login">LinkedIn URL</label>
+                        <?php echo form_input($data);?>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="form-group">
+                      <?php $data = array(
+							'name'          => 'googleplus',
+							'id'            => 'googleplus',
+                          'value'         =>  $googleplus,
+			            	'placeholder' => 'Google+ URL',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
+                        <label for="name-login">Google+ URL</label>
+                        <?php echo form_input($data);?>
+                      </div>
+                    </div>
+                  </div>
+                    
+                    
+                    <div class="row">
+                      <div class="col-md-6 col-md-offset-3">
+                      <p class="small">(*) is required </p>
+                      </div>
+                  </div>
+                    
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                           <br>

@@ -242,6 +242,10 @@ class Public_ctl extends CI_Controller {
 	    $data['state'] = 'CA';
 	    $data['zip'] = '';
 	    $data['msg'] = '';
+	    $data['twitter'] = '';
+	    $data['facebook'] = '';
+	    $data['linkedin'] = '';
+	    $data['googleplus'] = '';
 	    $this->load->view('public/register_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
@@ -257,6 +261,10 @@ class Public_ctl extends CI_Controller {
 	    $param['zip_cd'] = $this->input->post('zip');
 	    $param['phone'] = $this->input->post('phone');	    
 	    $param['callsign'] = $this->input->post('callsign');
+	    $param['facebook'] = $this->input->post('facebook');
+	    $param['twitter'] = $this->input->post('twitter');
+	    $param['linkedin'] = $this->input->post('linkedin');
+	    $param['googleplus'] = $this->input->post('googleplus');
 	    
 	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
 	    

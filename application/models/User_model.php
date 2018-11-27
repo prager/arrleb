@@ -242,9 +242,25 @@ Thank you for your interest in ARRL EB Section!';
 	public function set_user($param) {
 	    $id = $param['id'];
 	    unset($param['id']);
+	    $narrative = $param['narrative'];
+	    unset($param['narrative']);
+	    
 	    $this->db->where('id_user', $id);
 	    $this->db->update('users', $param);
-	   
+        
+	    $tbl_name = 'user_' . $id . '_tbl';
+	    $tbl_col = 'id_' . $tbl_name;
+	    
+	    $this->db->select($tbl_col);
+	    $this->db->where('id_user', $id);
+	    
+	    $id_key = $this->db->get($tbl_name)->row()->$tbl_col;
+	    
+	    //$param['id_user'] = $id;
+	    unset($param['callsign']);
+	    $param['narrative'] = $narrative;
+	    $this->db->where('id_user', $id);
+	    $this->db->update($tbl_name, $param);
 	}
 	
 	public function get_cur_user() {
@@ -253,6 +269,12 @@ Thank you for your interest in ARRL EB Section!';
 	    $this->db->select('*');
 	    $this->db->where('id_user', $id);	    
 	    $user = $this->db->get('users')->row();
+	    
+	    $tbl_name = 'user_' . $id . '_tbl';
+	    
+	    $this->db->select('narrative');
+	    $this->db->where('id_user', $id);
+	    $narrative = $this->db->get($tbl_name)->row()->narrative;
 	    
 	    $user_arr = array(
 	        'id' => $user->id_user,
@@ -267,7 +289,12 @@ Thank you for your interest in ARRL EB Section!';
 	        'street' => $user->street,
 	        'city' => $user->city,
 	        'state' => $user->state_cd,
-	        'zip' => $user->zip_cd	        
+	        'zip' => $user->zip_cd,
+	        'facebook' => $user->facebook,
+	        'twitter' => $user->twitter,
+	        'linkedin' => $user->linkedin,
+	        'googleplus' => $user->googleplus,
+	        'narrative' => $narrative
 	    );
 	    
 	    return $user_arr;
