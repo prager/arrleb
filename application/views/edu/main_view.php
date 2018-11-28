@@ -2,9 +2,6 @@
 	
 	<div class="box">
     <div class="row">
-    	<div class="col-md-7">
-    	
-    	</div>
         <div class="col-md-12">
         	<table class="table table-striped table-responsive">
         		<thead>

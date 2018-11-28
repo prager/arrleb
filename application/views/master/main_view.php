@@ -26,6 +26,14 @@
 <p style="text-align: center;"><?php echo anchor('edu', 'Classes'); ?></p>
 </div>
 </div>
+<br>
+<div class="row">
+<div class="col-md-1 offset-col-md-3">&nbsp;</div>
+<div class="col-md-8">
+<p style="text-align: center;"><?php echo anchor('speaker', 'Speaker'); ?></p>
+</div>
+</div>
+
 <div class="row">
 
 <div class="col-md-4 col-md-offset-3">
