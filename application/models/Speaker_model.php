@@ -110,7 +110,7 @@ class Speaker_model extends CI_Model {
 	    $retarr['speakers'] = array();
 	    
 	    if($cnt > 0) {
-	        $this->db->select('id_user, fname, lname, callsign');
+	        $this->db->select('id_user, fname, lname, callsign, email, city, state_cd');
 	        $this->db->where('active', 1);
 	        $this->db->where('type_code', 3);
 	        $res = $this->db->get('users')->result();	        
@@ -120,7 +120,10 @@ class Speaker_model extends CI_Model {
 	                'id' => $row->id_user,
 	                'fname' => $row->fname,
 	                'lname' => $row->lname,
-	                'callsign' => $row->callsign
+	                'callsign' => $row->callsign,
+	                'email' => $row->email,
+	                'city' => $row->city,
+	                'state' => $row->state_cd
 	            );
 	            
 	            array_push($retarr['speakers'], $arr);

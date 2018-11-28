@@ -27,19 +27,54 @@
 <div id="content">
    <div class="container">
        <div class="row">
-       	<div class="col-md-6 col-md-offset-1">
+       	<div class="col-md-8 col-md-offset-2">
        	The ARRL East Bay Section is establishing a Speakers Bureau to provide knowledgeable and effective Amateur Radio Topical speakers who 
-       	are available to address amateur radio clubs and community groups. Please, click on the speaker's name to bring up his or her details
+       	are available to address amateur radio clubs and community groups. Please, click on the speaker's link below to bring up his or her details
        	and expertise to make potential speaking arrangements.<br><br>
        	Interested speakers, please, register with the ARRL Eeast Bay Section by clicking <?php echo anchor('register', 
        	    'here to bring up the registration page')?>
        	. Thank you!
        </div>
-       <div class="col-md-5">
-            <div class="embed-responsive embed-responsive-16by9">
-			<iframe class="embed-responsive-item" src="<?php echo base_url() ;?>/index.php/speaker/spk_list" style="height: 350px"></iframe>
-			</div>
        </div>
+       <div class="row">&nbsp;</div>
+       <div class="row">&nbsp;</div>
+       <div class="row">
+       	<div class="col-md-8 col-md-offset-2">
+			<table class="table table-striped table-responsive">
+        		<thead>
+        			<tr>
+        				<th>Name</th>
+        				<th>Callsign</th>
+        				<th>Location</th>
+        				<th>Email</th>
+        				<th>Details</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<?php if($cnt > 0)
+        		    foreach($speakers as $row) {?>
+        			<tr>
+        				<td><?php echo $row['fname'] . ' '. $row['lname'];?></td>
+        				<td><?php 
+        				if($row['callsign'] != '') {
+        				    echo $row['callsign']; 
+        				}
+        				else {
+        				    echo 'N/A';
+        				}?></td>
+        				<td><?php echo $row['city'] . ', ' .$row['state']; ?></td>
+        				<td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
+        				<td><?php echo anchor('speaker/show_speaker/' . $row['id'], 'View'); ?></td>        				
+        			</tr>
+        			<?php }
+        			else {?>
+        			<tr>
+        				<td colspan="5">No speakers listed</td>
+        			</tr>
+        			<?php }?>
+        		</tbody>        	
+        	</table>      
+       	</div>
        </div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>

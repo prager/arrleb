@@ -45,10 +45,12 @@
 							    echo 'Member didn\'t enter any narrative<br><br><br><br>';
 							}
 							else {
-							    echo $narrative2;
+							    echo nl2br($narrative2, FALSE);
 							}
 							if($cnt > 0) {
+							    
 							?>
+							<br><br>
                             <div class="heading">
                                 <h3><?php echo $fname; ?>'s Lectures</h3>
                             </div>
@@ -77,18 +79,38 @@
                             </div>
 
                             <div class="social">
-                                <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
+                            	<?php if($facebook != '') {?>
+                                <a href="<?php echo $facebook; ?>" class="external facebook" data-animate-hover="pulse">
+                                <i class="fa fa-facebook"></i></a>
+                                <?php }
+                                    if($googleplus != '') {?>
+                                <a href="<?php echo $googleplus; ?>" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                <?php }
+                                    if($twitter != '') {?>
+                                <a href="<?php echo $twitter; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                <?php }
+                                    if($linkedin != '') {?>
+                                <a href="<?php echo $linkedin?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-linkedin"></i></a>
+                                <?php }?>
+                                <a href="mailto:<?php echo $email; ?>" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>
                             </div>
-                            <br><br>
-                            <?php echo $street; ?><br>
-                            <?php echo $street; ?><br>
+                            	<a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
                         </div>
 
-                        <div class="col-md-4">&nbsp;</div>
-                        <div class="col-md-4">&nbsp;</div>
+                        <div class="col-md-4">
+							<div class="heading">
+                                <h3><?php echo $fname; ?>'s Address</h3>
+                            </div>
+                            	<?php echo $facebook;?>
+                            	<?php echo $street; ?><br>
+                            	<?php echo $city . ', ' . $state . ' ' . $zip; ?><br>
+						</div>
+                        <div class="col-md-4">
+							<div class="heading">
+                                <h3><?php echo $fname; ?>'s Phone</h3>
+                            </div>	
+                            <?php echo $phone; ?>					
+						</div>
                     </div>
                     
                 </section>

@@ -165,7 +165,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function speakers() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/speakers_view');
+	    $this->load->view('edu/speakers_view', $this->Speaker_model->get_speakers());
 	    $this->load->view('template/footer_ver1');
 	}
 	
