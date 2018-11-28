@@ -49,6 +49,7 @@ class User extends CI_Controller {
 	    $param['linkedin'] = $this->input->post('linkedin');
 	    $param['googleplus'] = $this->input->post('googleplus');
 	    $param['narrative'] = $this->input->post('narrative');
+	    $param['narrative2'] = $this->input->post('narrative2');
 	    
 	    $this->User_model->set_user($param);
 	    $this->msg = 'User data has been updated. Thank you!';

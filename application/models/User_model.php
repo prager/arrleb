@@ -243,7 +243,9 @@ Thank you for your interest in ARRL EB Section!';
 	    $id = $param['id'];
 	    unset($param['id']);
 	    $narrative = $param['narrative'];
+	    $narrative2 = $param['narrative2'];
 	    unset($param['narrative']);
+	    unset($param['narrative2']);
 	    
 	    $this->db->where('id_user', $id);
 	    $this->db->update('users', $param);
@@ -259,6 +261,7 @@ Thank you for your interest in ARRL EB Section!';
 	    //$param['id_user'] = $id;
 	    unset($param['callsign']);
 	    $param['narrative'] = $narrative;
+	    $param['narrative2'] = $narrative2;
 	    $this->db->where('id_user', $id);
 	    $this->db->update($tbl_name, $param);
 	}
@@ -272,9 +275,12 @@ Thank you for your interest in ARRL EB Section!';
 	    
 	    $tbl_name = 'user_' . $id . '_tbl';
 	    
-	    $this->db->select('narrative');
+	    $this->db->select('narrative, narrative2');
 	    $this->db->where('id_user', $id);
-	    $narrative = $this->db->get($tbl_name)->row()->narrative;
+	    
+	    $row = $this->db->get('user_' . $id . '_tbl')->row();
+	    $narrative = $row->narrative;
+	    $narrative2 = $row->narrative2;
 	    
 	    $user_arr = array(
 	        'id' => $user->id_user,
@@ -294,7 +300,8 @@ Thank you for your interest in ARRL EB Section!';
 	        'twitter' => $user->twitter,
 	        'linkedin' => $user->linkedin,
 	        'googleplus' => $user->googleplus,
-	        'narrative' => $narrative
+	        'narrative' => $narrative,
+	        'narrative2' => $narrative2
 	    );
 	    
 	    return $user_arr;

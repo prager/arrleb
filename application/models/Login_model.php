@@ -290,6 +290,10 @@ class Login_model extends CI_Model {
 	            'narrative' => array(
 	                'type' => 'TEXT',
 	                'default' => ''
+	            ),
+	            'narrative2' => array(
+	                'type' => 'TEXT',
+	                'default' => ''
 	            )
 	            
 	        );

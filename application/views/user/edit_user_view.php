@@ -205,7 +205,7 @@
               <h5 class="panel-title">
                 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" 
                 aria-expanded="false" aria-controls="collapseThree">
-                  Member Narrative
+                  Member Main Headline
                 </a>
               </h5>
             </div>
@@ -217,7 +217,7 @@
                         'id' => 'narrative',
                         'value' => $narrative,
                         'cols' => 150,
-                        'rows' => 10,
+                        'rows' => 7,
                         'class' => 'form-control'
                     );
                 echo form_textarea($data);
@@ -225,11 +225,39 @@
 			  </div>
             </div>
           </div>
+          
+           <div class="panel panel-default">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h4 class="panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" 
+                aria-controls="collapseTwo">
+                  Member Narrative
+                </a>
+              </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+              <div class="panel-body">
+         		<?php 
+                    $data = array(
+                        'name' => 'narrative2',
+                        'id' => 'narrative2',
+                        'value' => $narrative2,
+                        'cols' => 150,
+                        'rows' => 7,
+                        'class' => 'form-control'
+                    );
+                echo form_textarea($data);
+                ?>
+      		</div>
+    		</div>
+  			</div>
+          
 		</div>
-		
-		
 		</div>
 	</div>
+	
+	
+	
 	<div class="row">&nbsp;</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">

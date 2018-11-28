@@ -139,7 +139,7 @@ _________________________________________________________ -->
                                                     <div class="col-sm-4">
                                                         <h5>Misc Ham Topics</h5>
                                                         <ul>
-                                                            <li><?php echo anchor('public_ctl/corner', 'Club Corner'); ?></li>
+                                                            <li><?php echo anchor('club-corner', 'Club Corner'); ?></li>
                                                             <li><?php echo anchor('public_ctl/public_events', 'Public Service Events'); ?></li>
                                                         </ul>
                                                     </div>

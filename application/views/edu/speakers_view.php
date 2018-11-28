@@ -28,14 +28,12 @@
    <div class="container">
        <div class="row">
        	<div class="col-md-6 col-md-offset-1">
-       	<div class="vertical">
-       	<p>The ARRL East Bay Section is establishing a Speakers Bureau to provide knowledgeable and effective Amateur Radio Topical speakers who 
+       	The ARRL East Bay Section is establishing a Speakers Bureau to provide knowledgeable and effective Amateur Radio Topical speakers who 
        	are available to address amateur radio clubs and community groups. Please, click on the speaker's name to bring up his or her details
-       	and expertise to make potential speaking arrangements.</p>
-       	<p>Interested speakers, please, register with the ARRL Eeast Bay Section by clicking <?php echo anchor('register', 
+       	and expertise to make potential speaking arrangements.<br><br>
+       	Interested speakers, please, register with the ARRL Eeast Bay Section by clicking <?php echo anchor('register', 
        	    'here to bring up the registration page')?>
-       	. Thank you!</p>
-       	</div>
+       	. Thank you!
        </div>
        <div class="col-md-5">
             <div class="embed-responsive embed-responsive-16by9">
@@ -43,6 +41,10 @@
 			</div>
        </div>
        </div>
+       <div class="row">&nbsp;</div>
+       <div class="row">&nbsp;</div>
+       <div class="row">&nbsp;</div>
+       <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>

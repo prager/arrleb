@@ -152,24 +152,34 @@ class Speaker_model extends CI_Model {
 	    $retarr['state'] = $user_data->state_cd;
 	    $retarr['zip'] = $user_data->zip_cd;
 	    
-	    $this->db->select('narrative');
+	    $this->db->select('narrative, narrative2');
 	    $this->db->where('id_user', $id);
-	    $retarr['narrative'] = $this->db->get('user_' . $id . '_tbl')->row()->narrative;
+	    $row = $this->db->get('user_' . $id . '_tbl')->row();
+	    $retarr['narrative'] = $row->narrative;
+	    $retarr['narrative2'] = $row->narrative2;
 	    
-	    $this->db->select('*');
 	    $this->db->where('id_user', $id);
-	    $res = $this->db->get('speaker_topics')->result();
+	    $this->db->from('speaker_topics');
+	    $cnt = $this->db->count_all_results();
 	    
-	    $retarr['topics'] = array();	    
-	    foreach($res as $row) {
-	        $arr = array(
-	            'subject' => $row->topic_name,
-	            'text' => $row->topic_text,
-	            'ref' => $row->topic_ref,
-	            'location' => $row->location,
-	            'date' => $row->date
-	        );
-	        array_push($retarr['topics'], $arr);
+	    $retarr['cnt'] = $cnt;
+	    
+	    $retarr['topics'] = array();
+	    if($cnt > 0) {
+    	    $this->db->select('*');
+    	    $this->db->where('id_user', $id);
+    	    $res = $this->db->get('speaker_topics')->result();
+    	    	    
+        	    foreach($res as $row) {
+        	        $arr = array(
+        	            'subject' => $row->topic_name,
+        	            'text' => $row->topic_text,
+        	            'ref' => $row->topic_ref,
+        	            'location' => $row->location,
+        	            'date' => $row->date
+        	        );
+        	        array_push($retarr['topics'], $arr);
+        	    }
 	    }
 	    
 	    return $retarr;

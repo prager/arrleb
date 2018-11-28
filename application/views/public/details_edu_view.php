@@ -19,6 +19,8 @@
         
             <div id="customer-orders" class="col-md-12">
               <div class="box mt-0 mb-lg-0">
+              <div class="row">
+              <div class="col-md-12">
                 <h3><?php echo $class['course']; ?></h3>
                 <p class="text-muted lead">
                 Dates: <?php echo date("m/d/Y", $class['date_from']); ?> - <?php echo date("m/d/Y", $class['date_to']); ?><br><br>
@@ -27,7 +29,13 @@
                             echo money_format('%(#10n', $class['fee']);?><br><br>
                 Additional details - <?php echo $class['details_url']; ?>               
                 </p>
+                </div>
+                </div>
               </div>
+              <div class="row">&nbsp;</div>
+              <div class="row">&nbsp;</div>
+              <div class="row">&nbsp;</div>
+              <div class="row">&nbsp;</div>
             </div>
            <!-- <div class="col-md-3 mt-4 mt-md-0">-->
               <!-- CUSTOMER MENU -->
