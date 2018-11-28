@@ -56,7 +56,6 @@ class Login_model extends CI_Model {
 				}
 			}
 		}
-	
 		return $retval;
 	}
 
@@ -112,6 +111,15 @@ class Login_model extends CI_Model {
 			$retarr['header'] = 'template/header_public_gen';
 			$retarr['view'] = 'events/main_view';
 			$retarr['data']['logged'] = TRUE;
+		}
+		elseif($usr_data->type_code == 3) {
+		    $lectures = $this->Speaker_model->get_lectures();
+		    
+		    $retarr['data']['cnt'] = $lectures['cnt'];
+		    $retarr['data']['lectures'] = $lectures['lectures'];
+		    $retarr['header'] = 'template/header_public_gen';
+		    $retarr['view'] = 'speakers/main_view';
+		    $retarr['data']['logged'] = TRUE;
 		}
 		
 		elseif($usr_data->type_code == 99) {

@@ -58,4 +58,19 @@ class Speaker extends CI_Controller {
 	    }
 	}
 	
+	public function show_speaker() {
+	    
+	    $data = $this->Speaker_model->get_speaker($this->uri->segment(3, 0));
+	    
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('user/team_member_view', $data);
+	    $this->load->view('template/footer_ver1');
+	    
+	}
+	
+	public function spk_list() {
+	    $this->load->view('template/head_only');
+	    $this->load->view('speakers/inc_iframe', $this->Speaker_model->get_speakers());
+	    $this->load->view('template/footer_refonly');
+	}
 }

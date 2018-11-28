@@ -97,4 +97,85 @@ class Speaker_model extends CI_Model {
 	    
 	    return $string;
 	}
+	
+	public function get_speakers() {
+	    
+	    $this->db->where('active', 1);
+	    $this->db->where('type_code', 3);
+	    $this->db->from('users');
+	    $cnt = $this->db->count_all_results();
+	    
+	    $retarr = array();
+	    $retarr['cnt'] = $cnt;
+	    $retarr['speakers'] = array();
+	    
+	    if($cnt > 0) {
+	        $this->db->select('id_user, fname, lname, callsign');
+	        $this->db->where('active', 1);
+	        $this->db->where('type_code', 3);
+	        $res = $this->db->get('users')->result();	        
+	        
+	        foreach($res as $row) {
+	            $arr = array(
+	                'id' => $row->id_user,
+	                'fname' => $row->fname,
+	                'lname' => $row->lname,
+	                'callsign' => $row->callsign
+	            );
+	            
+	            array_push($retarr['speakers'], $arr);
+	        }
+	    }
+	    
+	    return $retarr;
+	    
+	}	
+	
+	public function get_speaker($id) {
+	    $this->db->select('*');
+	    $this->db->where('id_user', $id);
+	    $user_data = $this->db->get('users')->row();
+	    
+	    $retarr = array();
+	    
+	    $retarr['fname'] = $user_data->fname;
+	    $retarr['lname'] = $user_data->lname;
+	    $retarr['email'] = $user_data->email;
+	    $retarr['facebook'] = $user_data->facebook;
+	    $retarr['twitter'] = $user_data->twitter;
+	    $retarr['linkedin'] = $user_data->linkedin;
+	    $retarr['googleplus'] = $user_data->googleplus;
+	    $retarr['callsign'] = $user_data->callsign;
+	    $retarr['phone'] = $user_data->phone;
+	    $retarr['street'] = $user_data->street;
+	    $retarr['city'] = $user_data->city;
+	    $retarr['state'] = $user_data->state_cd;
+	    $retarr['zip'] = $user_data->zip_cd;
+	    
+	    $this->db->select('narrative');
+	    $this->db->where('id_user', $id);
+	    $retarr['narrative'] = $this->db->get('user_' . $id . '_tbl')->row()->narrative;
+	    
+	    $this->db->select('*');
+	    $this->db->where('id_user', $id);
+	    $res = $this->db->get('speaker_topics')->result();
+	    
+	    $retarr['topics'] = array();	    
+	    foreach($res as $row) {
+	        $arr = array(
+	            'subject' => $row->topic_name,
+	            'text' => $row->topic_text,
+	            'ref' => $row->topic_ref,
+	            'location' => $row->location,
+	            'date' => $row->date
+	        );
+	        array_push($retarr['topics'], $arr);
+	    }
+	    
+	    return $retarr;
+	}
+	
+	
+	
+	
 }

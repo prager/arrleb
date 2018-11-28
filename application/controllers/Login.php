@@ -41,7 +41,11 @@ class Login extends CI_Controller {
 	    }
 	    
 	    if($this->Login_model->get_cur_user()['level'] == 3) {
-	        $data['edu'] = $this->Edu_model->get_classes();
+	        
+	        $lectures = $this->Speaker_model->get_lectures();
+	        
+	        $data['cnt'] = $lectures['cnt'];
+	        $data['lectures'] = $lectures['lectures'];
 	        $data['msg'] = '';
 	        $this->load->view('speakers/main_view', $data);
 	    }
