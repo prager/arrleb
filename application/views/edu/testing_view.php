@@ -33,11 +33,9 @@
         		<thead>
         			<tr>
         				<th>Testing Event</th>
-        				<th style="width: 10%">Date From</th>
-        				<th style="width: 10%">Date To</th>
-        				<th style="width: 8%">Fee</th>
-        				<th>Status</th>
-        				<th style="width: 20%">Location</th>
+        				<th>Test Date</th>
+        				<th>Fee</th>
+        				<th>Location</th>
         				<th>View Details</th>
         			</tr>
         		</thead>
@@ -46,18 +44,16 @@
         		    foreach($tests as $row) {?>
         			<tr>
         				<td><strong><?php echo $row['course']; ?></strong></td>
-        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
         				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
         				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
                             echo money_format('%(#10n', $row['fee']);?></td>
-        				<td><?php echo $row['status']; ?></td>
         				<td class="elips1"><?php echo $row['location']; ?></td>
         				<td><?php echo anchor('Public_ctl/test_details/' . $row['id'], 'View'); ?></td>        				
         			</tr>
         			<?php }
         			else {?>
         			<tr>
-        				<td colspan="7">No courses or testing on schedule</td>
+        				<td colspan="5">No testing on schedule</td>
         			</tr>
         			<?php }?>
         		</tbody>        	

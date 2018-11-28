@@ -58,6 +58,37 @@ class Edu_model extends CI_Model {
 	    
 	    return $retarr;
 	}
+	
+	public function get_test($id) {
+	    $this->db->select('*');
+	    $this->db->where('id_education', $id);
+	    $res = $this->db->get('education')->row();
+	    
+	    $retarr = array();
+	    $retarr['id'] = $res->id_education;
+	    if($res->licensing == 1) {
+	       $retarr['course'] = 'Technician License Test';
+	    }
+	    elseif($res->licensing == 2) {
+	        $retarr['course'] = 'General License Test';
+	    }
+	    elseif($res->licensing == 3) {
+	        $retarr['course'] = 'Extra License Test';
+	    }
+	    $retarr['date_from'] = $res->date_from;
+	    $retarr['date_to'] = $res->date_to;
+	    $retarr['location'] = $res->location;
+	    $retarr['fee'] = $res->fee;
+	    
+	    $exploded = explode(' ', $res->details_url);
+	    $retarr['details_url'] = '';
+	    
+	    foreach ($exploded as $str) {
+	        $retarr['details_url'] .= $this->make_clickable_url($str) . ' ';
+	    }
+	    
+	    return $retarr;
+	}
     
 	public function edit_class($param) {
 	    $id = $param['id'];
@@ -119,9 +150,19 @@ class Edu_model extends CI_Model {
     	    $res = $this->db->get('education')->result();
     	    
     	    foreach($res as $row) {
+    	        $course = '';
+    	        if($row->licensing == 1) {
+    	            $course = 'Technician License Test';
+    	        }
+    	        elseif($row->licensing == 2) {
+    	            $course = 'General License Test';
+    	        }
+    	        elseif($row->licensing == 3){
+    	            $course = 'Extra License Test';
+    	        }
     	        $arr = array(
     	            'id' => $row->id_education,
-    	            'course' => $row->course,
+    	            'course' => $course,
     	            'date_from' => $row->date_from,
     	            'date_to' => $row->date_to,
     	            'fee' => $row->fee,
