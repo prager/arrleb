@@ -1,14 +1,12 @@
-
-<!-- Add Lecture Modal -->
-
-<div class="modal fade" id="addLecture" role="dialog">
+<!-- Edit Lecture Modal -->
+		  <div class="modal fade" id="addLecture" role="dialog">
 		    <div class="modal-dialog modal-lg">
 		
 		      <!-- Modal content-->
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-pencil"></span> Add Lecture</h4>
+		          <h4><span class="glyphicon glyphicon-pencil"></span> Add a Lecture</h4>
 		        </div>
 		        <div class="modal-body">
 		        <?php echo form_open('speaker/edit_lecture/0'); ?>
@@ -75,34 +73,19 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
 						
-						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                              <h5 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" 
-                                aria-expanded="false" aria-controls="collapseThree">
-                                  Lecture Summary
-                                </a>
-                              </h5>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                              <div class="panel-body">
-                                <?php 
+								<?php 
                                     $data = array(
                                         'name' => 'topic_text',
                                         'id' => 'topic_text',
                                         'value' => '',
                                         'cols' => 150,
-                                        'rows' => 12,
+                                        'rows' => 6,
                                         'class' => 'form-control'
                                     );
-                                echo form_textarea($data);
                                 ?>
-                			  </div>
-                            </div>
-                          </div>
-                		</div>
+                                Lecture Summary
+                                <?php echo form_textarea($data);
+                                ?>
 						
 						</div>
 					</div>
@@ -111,7 +94,7 @@
 					<div class="row">
 					<div class="col-md-4">&nbsp;</div>
 						<div class="col-md-4">
-			          	<?php echo form_submit('submit', 'Add Lecture', 'class="btn btn-primary btn-block"'); ?>
+			          	<?php echo form_submit('submit', 'Submit Lecture', 'class="btn btn-primary btn-block"'); ?>
 			          	</div>
 		          	</div>
 		          	<div class="row">&nbsp;</div>

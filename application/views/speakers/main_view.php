@@ -19,10 +19,13 @@
         			<tr>
         				<td><?php echo $row['topic_name']; ?></td>
         				<td class="elips1"><?php echo$row['location']; ?></td>
-        				<td><?php echo date("m/d/Y", $row['date']); ?></td>
+        				<td><?php 
+        				if($row['date'] > 32400) {
+        				    echo date("m/d/Y", $row['date']); 
+        				}?></td>
         				<td class="elips1"><?php echo $row['topic_ref']; ?></td>
         				<td>
-        					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a> 
+        					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a>
         					/    
         					<a href="#" data-toggle="modal" data-target="#deleteLecture<?php echo $row['id']; ?>">Delete Record</a>
         					<?php include 'inc_modal_edit_lecture.php'; ?> 

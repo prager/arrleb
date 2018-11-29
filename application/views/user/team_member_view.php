@@ -50,17 +50,19 @@
 							if($cnt > 0) {
 							    
 							?>
-							<br><br>
+							<br><br>							
+							<?php if($cnt > 0) {?>
                             <div class="heading">
                                 <h3><?php echo $fname; ?>'s Lectures</h3>
                             </div>
-
+							
                             <ul class="ul-icons">
                             <?php foreach($topics as $row) {?>
-                                <li><i class="fa fa-check"></i><?php echo $row['subject']; ?></li>
+                                <li><i class="fa fa-check"></i><?php echo anchor('speaker/show_lecture/' . $row['id_lecture'], $row['subject']); ?></li>
                             <?php }?>
                             </ul>
-                            <?php }?>
+                            <?php }
+							}?>
                         </div>
 
                         <div class="col-md-4">

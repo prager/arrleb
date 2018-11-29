@@ -8,7 +8,7 @@ class Speaker extends CI_Controller {
 	    $this->load_speaker('');
 	}
 	
-	public function load_speaker($msg) {
+	public function load_speaker() {
 	    if($this->check_speaker()) {
 	        
 	        $lectures = $this->Speaker_model->get_lectures();
@@ -16,7 +16,7 @@ class Speaker extends CI_Controller {
 	        $data['cnt'] = $lectures['cnt'];
 	        $data['lectures'] = $lectures['lectures'];
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
-	        $this->load->view('speakers/main_view', $data);
+	        $this->load->view('speakers/main_view', $this->Speaker_model->get_lectures());
 	        
 	    }
 	    else {
@@ -38,12 +38,13 @@ class Speaker extends CI_Controller {
 	    $param['topic_ref'] = $this->input->post('topic_ref');
 	    $param['location'] = $this->input->post('location');
 	    $this->Speaker_model->edit_lecture($param);
-	    $this->load_speaker('Lecture has been added/edited. Thank you!');
+	    //echo 'done';
+	    $this->load_speaker();
 	}
 	
 	public function delete_lecture() {
 	    $this->Speaker_model->delete_lecture($this->uri->segment(3, 0));
-	    $this->load_speaker('Class has been deleted. Thank you!');
+	    $this->load_speaker();
 	}
 	
 	private function check_speaker() {
@@ -72,5 +73,11 @@ class Speaker extends CI_Controller {
 	    $this->load->view('template/head_only');
 	    $this->load->view('speakers/inc_iframe', $this->Speaker_model->get_speakers());
 	    $this->load->view('template/footer_refonly');
+	}
+	
+	public function show_lecture() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('speakers/lecture_view', $this->Speaker_model->get_lecture($this->uri->segment(3, 0)));
+	    $this->load->view('template/footer_ver1');	    
 	}
 }

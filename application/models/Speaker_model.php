@@ -12,8 +12,10 @@ class Speaker_model extends CI_Model {
 	    $this->db->where('id_user', $id_user);
 	    $this->db->from('speaker_topics');
 	    $cnt = $this->db->count_all_results();
+	    
 	    $retarr['cnt'] = $cnt;
 	    $retarr['lectures'] = array();
+	    
 	    if($cnt > 0) {
 	        $this->db->select('*');
 	        $this->db->where('id_user', $id_user);
@@ -35,24 +37,32 @@ class Speaker_model extends CI_Model {
 	}
 	
 	public function get_lecture($id) {
+	    
 	    $this->db->select('*');
-	    $this->db->where('id_education', $id);
-	    $res = $this->db->get('education')->row();
+	    $this->db->where('id_speaker_topics', $id);
+	    $res = $this->db->get('speaker_topics')->row();
 	    
 	    $retarr = array();
-	    $retarr['id'] = $res->id_education;
-	    $retarr['course'] = $res->course;
-	    $retarr['date_from'] = $res->date_from;
-	    $retarr['date_to'] = $res->date_to;
+	    $retarr['id'] = $res->id_user;
+	    $retarr['topic_name'] = $res->topic_name;
+	    $retarr['topic_text'] = $res->topic_text;
+	    $retarr['date'] = $res->date;
 	    $retarr['location'] = $res->location;
-	    $retarr['fee'] = $res->fee;
-	    
-	    $exploded = explode(' ', $res->details_url);
-	    $retarr['details_url'] = '';
-	    
-	    foreach ($exploded as $str) {
-	       $retarr['details_url'] .= $this->make_clickable_url($str) . ' ';
+	    $retarr['topic_ref'] = '';
+	    if($res->topic_ref != '') {
+	        $exploded = explode(' ', $res->topic_ref);
+	        foreach ($exploded as $str) {
+	            $retarr['topic_ref'] .= $this->make_clickable_url($str) . ' ';
+	        }
 	    }
+	    
+	    $this->db->select('*');
+	    $this->db->where('id_user', $res->id_user);
+	    $res = $this->db->get('users')->row();
+	    
+	    $retarr['fname'] = $res->fname;
+	    $retarr['lname'] = $res->lname;
+	    
 	    
 	    return $retarr;
 	}
@@ -175,6 +185,7 @@ class Speaker_model extends CI_Model {
     	    	    
         	    foreach($res as $row) {
         	        $arr = array(
+        	            'id_lecture' => $row->id_speaker_topics,
         	            'subject' => $row->topic_name,
         	            'text' => $row->topic_text,
         	            'ref' => $row->topic_ref,

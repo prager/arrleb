@@ -367,4 +367,20 @@ class Public_ctl extends CI_Controller {
 	    $this->load->view('status/status_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
+	
+	public function ares() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $data['title'] = "Coming soon...";
+	    $data['msg'] = "ARES page is coming soon" . "<br><br>";
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function technical() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $data['title'] = "Coming soon...";
+	    $data['msg'] = "Technical page is coming soon" . "<br><br>";
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
 }

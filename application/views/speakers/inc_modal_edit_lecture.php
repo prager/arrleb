@@ -73,34 +73,19 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
 						
-						<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-          
-                          <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThree">
-                              <h5 class="panel-title">
-                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" 
-                                aria-expanded="false" aria-controls="collapseThree">
-                                  Lecture Summary
-                                </a>
-                              </h5>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                              <div class="panel-body">
-                                <?php 
+							<?php 
                                     $data = array(
                                         'name' => 'topic_text',
                                         'id' => 'topic_text',
                                         'value' => $row['topic_text'],
                                         'cols' => 150,
-                                        'rows' => 12,
+                                        'rows' => 6,
                                         'class' => 'form-control'
                                     );
-                                echo form_textarea($data);
                                 ?>
-                			  </div>
-                            </div>
-                          </div>
-                		</div>
+                                Lecture Summary
+                                <?php echo form_textarea($data);
+                                ?>
 						
 						</div>
 					</div>
