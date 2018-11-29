@@ -54,12 +54,15 @@
         	be clicked to enter the specific topics.</p> -->
         	<br><br>
         	</div>
-            <div class="col-md-5">
+            <div class="col-md-5 vertical">
             <div class="embed-responsive embed-responsive-16by9">
-			<iframe class="embed-responsive-item" src="<?php echo base_url() ;?>/index.php/public_ctl/edu_courses" style="height: 350px"></iframe>
+			<iframe class="embed-responsive-item" src="<?php echo base_url() ;?>index.php/public_ctl/edu_courses" ><br></iframe>
 			</div>
             </div>
             
             </div>
+            <br><br>
+            <br><br>
+            <br><br>
         </div>
       </div>
