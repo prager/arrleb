@@ -32,7 +32,7 @@
                     echo 'Location N/A<br><br>';
                 }
                 ?>                
-                Lecture Summary - <?php echo nl2br($topic_text, FALSE); ?>               
+                Lecture Summary<br><br><?php echo nl2br($topic_text, FALSE); ?>               
                 </p>
                 </div>
                 </div>                

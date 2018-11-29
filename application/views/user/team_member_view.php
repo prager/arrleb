@@ -77,7 +77,7 @@
 
                         <div class="col-md-4">
                             <div class="heading">
-                                <h3>Get in touch with <?php echo $fname; ?></h3>
+                                <h3>Get in touch</h3>
                             </div>
 
                             <div class="social">
