@@ -54,10 +54,29 @@
         	be clicked to enter the specific topics.</p> -->
         	<br><br>
         	</div>
-            <div class="col-md-5 vertical">
-            <div class="embed-responsive embed-responsive-16by9">
-			<iframe class="embed-responsive-item" src="<?php echo base_url() ;?>index.php/public_ctl/edu_courses" ><br></iframe>
-			</div>
+            <div class="col-md-5">
+            <table class="table table-responsive">
+        		<thead>
+        			<tr>
+        				<th>Course Name</th>
+        				<th>Dates</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<?php if($cnt > 0)
+        		    foreach($classes as $row) {?>
+        			<tr>
+        				<td><?php echo anchor('public_ctl/class_details/' . $row['id'], $row['course']); ?></td>
+        				<td><?php echo date("m/d", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td> 				
+        			</tr>
+        			<?php }
+        			else {?>
+        			<tr>
+        				<td colspan="2">No testing on schedule</td>
+        			</tr>
+        			<?php }?>
+        		</tbody>        	
+        	</table>
             </div>
             
             </div>
