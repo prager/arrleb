@@ -5,9 +5,7 @@ class Speaker_model extends CI_Model {
 		$this->load->database();
 	}
 	
-	public function get_lectures() {
-	    $retarr = array();
-	    $id_user = $this->Login_model->get_cur_user_id();
+	public function get_lectures($id_user) {
 	    
 	    $this->db->where('id_user', $id_user);
 	    $this->db->from('speaker_topics');
@@ -195,6 +193,8 @@ class Speaker_model extends CI_Model {
         	        array_push($retarr['topics'], $arr);
         	    }
 	    }
+	    
+	    $retarr['home_pg'] = anchor('public_ctl/speakers', 'Speakers');
 	    
 	    return $retarr;
 	}

@@ -56,4 +56,10 @@ class User extends CI_Controller {
 	    $this->edit_user();
 	}
 	
+	public function show_user() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $this->load->view('users/team_member_view', $this->User_model->get_member());
+	    $this->load->view('template/footer_ver1');
+	}
+	
 }

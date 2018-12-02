@@ -26,17 +26,22 @@
 
 <div id="content">
    <div class="container">
+   	   <div class="row">
+   	   	<div class="col-md-10 col-md-offset-1">
+   	   	Receiving one's amateur radio license is just the beginning of what can be a lifelong adventure. Whether your interests lie 
+   	   	mainly in emergency communications, public service or collecting new DX entities, Auxiliary classes can help hams reach their goals.<br><br>
+   	   	Topics to be covered include digital communications, portable operations and working DX.<br><br><br>
+   	   	</div>
+   	   </div>
        <div class="row">
        	<div class="col-md-10 col-md-offset-1">
        		<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
-        				<th>Course</th>
-        				<th style="width: 10%">Date From</th>
-        				<th style="width: 10%">Date To</th>
-        				<th style="width: 8%">Fee</th>
+        				<th style="width: 30%">Course</th>
+        				<th style="width: 30%">Dates</th>
+        				<th style="width: 10%">Fee</th>
         				<th>Status</th>
-        				<th style="width: 20%">Location</th>
         				<th>View Details</th>
         			</tr>
         		</thead>
@@ -45,12 +50,9 @@
         		    foreach($tests as $row) {?>
         			<tr>
         				<td><strong><?php echo $row['course']; ?></strong></td>
-        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
-        				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
-        				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
-                            echo money_format('%(#10n', $row['fee']);?></td>
+        				<td><?php echo date("m/d/Y", $row['date_from']) . ' - ' . date("m/d/Y", $row['date_to']); ?></td>
+        				<td><?php setlocale(LC_MONETARY, 'en_US.utf8'); echo money_format('%(#10n', $row['fee']);?></td>
         				<td><?php echo $row['status']; ?></td>
-        				<td class="elips1"><?php echo $row['location']; ?></td>
         				<td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>        				
         			</tr>
         			<?php }
@@ -63,6 +65,8 @@
         	</table>
        </div>
        </div>
+       <div class="row">&nbsp;</div>
+       <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>

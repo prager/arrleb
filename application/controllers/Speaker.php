@@ -11,12 +11,9 @@ class Speaker extends CI_Controller {
 	public function load_speaker() {
 	    if($this->check_speaker()) {
 	        
-	        $lectures = $this->Speaker_model->get_lectures();
-	        
-	        $data['cnt'] = $lectures['cnt'];
-	        $data['lectures'] = $lectures['lectures'];
+	        $id = $this->Login_model->get_cur_user_id();
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
-	        $this->load->view('speakers/main_view', $this->Speaker_model->get_lectures());
+	        $this->load->view('speakers/main_view', $this->Speaker_model->get_lectures($id));
 	        
 	    }
 	    else {
@@ -61,10 +58,8 @@ class Speaker extends CI_Controller {
 	
 	public function show_speaker() {
 	    
-	    $data = $this->Speaker_model->get_speaker($this->uri->segment(3, 0));
-	    $data['home_pg'] = anchor('public_ctl/speakers', 'Speakers');
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('user/team_member_view', $data);
+	    $this->load->view('user/team_member_view', $this->Speaker_model->get_speaker($this->uri->segment(3, 0)));
 	    $this->load->view('template/footer_ver1');
 	    
 	}

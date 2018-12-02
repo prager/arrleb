@@ -39,7 +39,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function team() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-		$this->load->view('public/team_view');
+	    $this->load->view('public/team_view', $this->User_model->get_staff());
 		$this->load->view('template/footer_ver1');
 	}
 	

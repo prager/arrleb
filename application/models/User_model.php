@@ -306,4 +306,60 @@ Thank you for your interest in ARRL EB Section!';
 	    
 	    return $user_arr;
 	}
+	
+	public function get_staff() {
+	    $this->db->select('*');
+	    $this->db->where('pos_code >', 0);
+	    $res = $this->db->get('users')->result();
+	    
+	    $retarr = array();
+	    
+	    foreach($res as $row) {
+	        $tbl_name = 'user_' . $row->id_user . '_tbl';
+	        
+	        if ($this->db->table_exists($tbl_name)) {
+	            $this->db->select('narrative');
+	            $narrative = $this->db->get($tbl_name)->row()->narrative;
+	        }
+	        else {
+	            $narrative = '';
+	        }
+	        
+	        $arr = array(
+	            'id_user' => $row->id_user,
+	            'fname' => $row->fname,
+	            'lname' => $row->lname,
+	            'callsign' => $row->callsign,
+	            'position' => $row->position,
+	            'narrative' => $narrative
+	        );
+	        
+	        array_push($retarr, $arr);	        
+	    }
+	    
+	    return $retarr;
+	}
+	
+	public function get_member($id) {
+	    
+	    $tbl_name = 'user_' . $id . '_tbl';
+	    if ($this->db->table_exists($tbl_name)) {
+	        
+	        $this->db->select('narrative, narrative2');
+	        $row = $this->db->get($tbl_name)->row();
+	        $narrative = $row->narrative;
+	        $narrative2 = $row->narrative2;
+	    }
+	    else {
+	        $narrative = '';
+	        $narrative2 = '';
+	    }
+	    
+	    
+	    
+	}
+	
+	
+	
+	
 }
