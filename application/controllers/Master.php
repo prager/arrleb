@@ -36,8 +36,8 @@ class Master extends CI_Controller {
     	        $crud->set_theme('datatables');
     	        $crud->set_table('users');
     	        $crud->set_subject('Users');
-    	        $crud->columns('type_code','role','authorized', 'active', 'username', 'fname', 'lname', 'position', 'pos_code');
-    	        $crud->fields('type_code', 'role','authorized', 'active', 'username', 'fname', 'lname', 'position', 'pos_code');
+    	        $crud->columns('type_code','role','authorized', 'active', 'username', 'fname', 'lname', 'position', 'pos_code', 'image_loc');
+    	        $crud->fields('type_code', 'role','authorized', 'active', 'username', 'fname', 'lname', 'position', 'pos_code', 'image_loc');
     	        $crud->required_fields('username');
     	        
     	        $output = $crud->render();

@@ -36,45 +36,67 @@
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/jim.jpg" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url(). $staff[0]['image_loc']; ?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3>Jim Siemons, W6LK</h3>
+                                <h3><?php echo anchor('user/show_user/' . $staff[0]['id_user'],
+                                    $staff[0]['fname'] . ' ' . $staff[0]['lname'] . ', ' . $staff[0]['callsign']); ?></h3>
                                 <p class="role">Section Manager</p>
                                 <div class="social">
-                                <p>-------------</p>
-                                    <!-- <a href="#" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a> -->
-                                </div>
+                            	<?php if($staff[0]['facebook'] != '') {?>
+                                <a href="<?php echo $staff[0]['facebook']; ?>" class="external facebook" data-animate-hover="pulse">
+                                <i class="fa fa-facebook"></i></a>
+                                <?php }
+                                if($staff[0]['googleplus'] != '') {?>
+                                <a href="<?php echo $staff[0]['googleplus']; ?>" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                <?php }
+                                if( $staff[0]['twitter'] != '') {?>
+                                <a href="<?php echo $staff[0]['twitter']; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                <?php }
+                                if($staff[0]['linkedin'] != '') {?>
+                                <a href="<?php echo $staff[0]['linkedin']; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-linkedin"></i></a>
+                                <?php }
+                                if(($staff[0]['linkedin'] == '') || ($staff[0]['facebook'] == '') || ($staff[0]['twitter'] == '')
+                                    || ($staff[0]['googleplus'] == '')) {
+                                    echo '--------------';
+                                }?>
+                            	</div>
                                 <div class="text">
-                                    <p>Jim provides awsome leadership to ARRL East Bay Section besides being extremely passionate about Ham Radio
-                                      hobby as a whole.</p>
+                                    <p><?php echo $staff[0]['narrative']; ?></p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
-                            <div class="team-member">
+                            <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/me.png" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url(). $staff[1]['image_loc']; ?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3>Jan Kulisek, KM6NFC</h3>
-                                <p class="role">Assistant Section Manager</p>
-
+                                <h3><?php echo anchor('user/show_user/' . $staff[1]['id_user'],
+                                    $staff[1]['fname'] . ' ' . $staff[1]['lname'] . ', ' . $staff[1]['callsign']); ?></h3>
+                                <p class="role">Section Manager</p>
                                 <div class="social">
-                                    <a href="https://www.facebook.com/jkulisek" class="external facebook" data-animate-hover="pulse"><i class="fa fa-facebook"></i></a>
-                                    <a href="https://plus.google.com/102144146559622259709" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
-                                    <!--<a href="#" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" class="email" data-animate-hover="pulse"><i class="fa fa-envelope"></i></a>-->
-                                </div>
+                            	<?php if($staff[1]['facebook'] != '') {?>
+                                <a href="<?php echo $staff[1]['facebook']; ?>" class="external facebook" data-animate-hover="pulse">
+                                <i class="fa fa-facebook"></i></a>
+                                <?php }
+                                if($staff[1]['googleplus'] != '') {?>
+                                <a href="<?php echo $staff[1]['googleplus']; ?>" class="external gplus" data-animate-hover="pulse"><i class="fa fa-google-plus"></i></a>
+                                <?php }
+                                if( $staff[1]['twitter'] != '') {?>
+                                <a href="<?php echo $staff[1]['twitter']; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-twitter"></i></a>
+                                <?php }
+                                if($staff[1]['linkedin'] != '') {?>
+                                <a href="<?php echo $staff[1]['linkedin']; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-linkedin"></i></a>
+                                <?php }
+                                else {
+                                    //echo '--------------';
+                                }?>
+                            	</div>
                                 <div class="text">
-                                    <p>Jan has been radio enthusiast since Cold War when a short wave radio
-                                    was the only source of information in certain parts of the world.
-                                  </p>
+                                    <p><?php echo $staff[1]['narrative']; ?></p>
                                 </div>
                             </div>
                             <!-- /.team-member -->
@@ -87,7 +109,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/misa.png" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() . $staff[2]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Misa Siemons, KJ6BUE</a></h3>
@@ -99,7 +121,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/scott.jpg" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() . $staff[3]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Scott Morse, KC6SKM</a></h3>
@@ -111,7 +133,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() . $staff[4]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Steve Hawes, WB6UZX</a></h3>
@@ -123,7 +145,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url(). $staff[5]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">Gary Gross, KE6QR</a></h3>
@@ -135,8 +157,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/dave.png" alt="" class="img-responsive img-circle">
-                                    </a>
+                                        <img src="<?php echo base_url(). $staff[6]['image_loc'] ;?>" alt="" class="img-responsive img-circle">                                    </a>
                                 </div>
                                 <h3><a href="team-member.html">Dave Piersall, N6ORB</a></h3>
                                 <p class="role">Contra Costa County</p>
@@ -198,7 +219,7 @@
                             <div class="team-member">
                                 <div class="image">
                                     <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/john.png" alt="" class="img-responsive img-circle">
+                                        <img src="<?php echo base_url() . $staff[11]['image_loc'] ; ?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
                                 <h3><a href="team-member.html">John Primus, AF6RJ</a></h3>

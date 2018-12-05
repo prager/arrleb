@@ -67,11 +67,11 @@
 
                         <div class="col-md-4">
                             <img class="img-responsive img-circle" alt="" 
-                            src="<?php echo base_url() ;?>/assets/img/team-member.gif">
+                            src="<?php echo base_url() . $image_loc ;?>">
                         </div>
                     </div>
                 </section>
-
+                
                 <section>
                     <div class="row">
 

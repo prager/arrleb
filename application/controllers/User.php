@@ -58,7 +58,10 @@ class User extends CI_Controller {
 	
 	public function show_user() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('users/team_member_view', $this->User_model->get_member());
+	    
+	    $data = $this->Speaker_model->get_speaker($this->uri->segment(3, 0));
+	    $data['home_pg'] = anchor('public_ctl/team', 'Team');
+	    $this->load->view('user/team_member_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	

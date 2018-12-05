@@ -26,6 +26,10 @@ class User_model extends CI_Model {
 		$user['city'] = $row->city;
 		$user['state'] = $row->state_cd;
 		$user['callsign'] = $row->callsign;
+		$user['facebook'] = $row->facebook;
+		$user['twitter'] = $row->twitter;
+		$user['googleplus'] = $row->googleplus;
+		$user['linkedin'] = $row->linkedin;
 		$user['authorized'] = $row->authorized;
 		$user['username'] = $username;
 		
@@ -309,10 +313,12 @@ Thank you for your interest in ARRL EB Section!';
 	
 	public function get_staff() {
 	    $this->db->select('*');
+	    $this->db->order_by('pos_code', 'ASC');
 	    $this->db->where('pos_code >', 0);
 	    $res = $this->db->get('users')->result();
 	    
 	    $retarr = array();
+	    $retarr['staff'] = array();
 	    
 	    foreach($res as $row) {
 	        $tbl_name = 'user_' . $row->id_user . '_tbl';
@@ -331,11 +337,22 @@ Thank you for your interest in ARRL EB Section!';
 	            'lname' => $row->lname,
 	            'callsign' => $row->callsign,
 	            'position' => $row->position,
-	            'narrative' => $narrative
+	            'pos_code' => $row->pos_code,
+	            'narrative' => $narrative,
+	            'image_loc' => $row->image_loc,
+	            'facebook' => $row->facebook,
+	            'twitter' => $row->twitter,
+	            'googleplus' => $row->googleplus,
+	            'linkedin' => $row->linkedin
 	        );
 	        
-	        array_push($retarr, $arr);	        
+	        array_push($retarr['staff'], $arr);	        
 	    }
+	    
+	    //echo '<br><br>staff arr:<br>';
+	    //foreach($retarr['staff'] as $row) {
+	       // echo $row['lname'] . ' - ' . $row['googleplus'] . '<br>';
+	    //}
 	    
 	    return $retarr;
 	}
@@ -355,6 +372,13 @@ Thank you for your interest in ARRL EB Section!';
 	        $narrative2 = '';
 	    }
 	    
+	    $this->db->select('*');
+	    $this->db->where('id_user', $id);
+	    $row = $this->db->get('users')->row();
+	    
+	    $retarr = array();
+	    
+//maybe not needed; identical to get_speaker
 	    
 	    
 	}

@@ -162,6 +162,14 @@ class Speaker_model extends CI_Model {
 	    $retarr['city'] = $user_data->city;
 	    $retarr['state'] = $user_data->state_cd;
 	    $retarr['zip'] = $user_data->zip_cd;
+	    $img = $user_data->image_loc;
+	    
+	    if($img != NULL) {
+	        $retarr['image_loc'] = $img;
+	    }
+	    else {
+	        $retarr['image_loc'] = '/assets/img/team-member.gif';
+	    }
 	    
 	    $this->db->select('narrative, narrative2');
 	    $this->db->where('id_user', $id);
