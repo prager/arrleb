@@ -35,7 +35,7 @@
                         <div class="col-md-3 col-sm-3 col-md-offset-3">
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[0]['id_user']; ?>">
                                         <img src="<?php echo base_url(). $staff[0]['image_loc']; ?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
@@ -70,7 +70,7 @@
                         <div class="col-md-3 col-sm-3" data-animate="fadeInUp">
                             <div class="team-member" data-animate="fadeInUp">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[1]['id_user']; ?>">
                                         <img src="<?php echo base_url(). $staff[1]['image_loc']; ?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
@@ -108,11 +108,11 @@
                         <div class="col-md-2 col-md-offset-1 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[2]['id_user']; ?>">
                                         <img src="<?php echo base_url() . $staff[2]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Misa Siemons, KJ6BUE</a></h3>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[2]['id_user']; ?>">Misa Siemons, KJ6BUE</a></h3>
                                 <p class="role">Public Information Coordinator</p>
                             </div>
                             <!-- /.team-member -->
@@ -120,11 +120,11 @@
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[3]['id_user']; ?>">
                                         <img src="<?php echo base_url() . $staff[3]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Scott Morse, KC6SKM</a></h3>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[3]['id_user']; ?>">Scott Morse, KC6SKM</a></h3>
                                 <p class="role">Section Emergency Coordinator</p>
                             </div>
                             <!-- /.team-member -->

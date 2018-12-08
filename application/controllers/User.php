@@ -11,7 +11,8 @@ class User extends CI_Controller {
 	
 	public function edit_user() {
 	    if($this->Login_model->is_logged()['logged']) {
-	        $tbl = $this->Login_model->check_table();
+	        $id = $this->Login_model->get_cur_user_id();
+	        $tbl = $this->Login_model->check_table($id);
 	        $user = $this->User_model->get_cur_user();
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	        $user['msg'] = $this->msg;
@@ -58,8 +59,9 @@ class User extends CI_Controller {
 	
 	public function show_user() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    
-	    $data = $this->Speaker_model->get_speaker($this->uri->segment(3, 0));
+	    $id = $this->uri->segment(3, 0);
+	    $this->Login_model->check_table($id);
+	    $data = $this->Speaker_model->get_speaker($id);
 	    $data['home_pg'] = anchor('public_ctl/team', 'Team');
 	    $this->load->view('user/team_member_view', $data);
 	    $this->load->view('template/footer_ver1');

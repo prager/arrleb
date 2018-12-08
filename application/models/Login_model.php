@@ -196,9 +196,7 @@ class Login_model extends CI_Model {
 		session_destroy();
 	}
 	
-	public function check_table() {	    
-	    
-	    $id = $this->get_cur_user()['id'];
+	public function check_table($id) {
 	    
 	    $tbl_name = 'user_' . $id . '_tbl';
 	    
