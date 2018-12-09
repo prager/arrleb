@@ -11,6 +11,20 @@
 		        <div class="modal-body">
 		        <?php echo form_open('edu/edit_class/'); ?>
 		            <div class="form-group">
+					<div class="row">
+						<div class="col-md-5 col-md-offset-1">
+						<?php $data = array(
+							'name'          => 'club',
+							'id'            => 'club',
+			            		'value'         =>  '',
+			            	'placeholder' => 'Club',
+			                'class'			=> 'form-control',
+							'maxlength'     => '35');?>
+						Club
+						<?php echo form_input($data);?>
+						</div>
+					</div>
+					<div class="row">&nbsp;</div>
 		            <div class="row">
 			            <div class="col-md-8 col-md-offset-1">
 			            <?php $data = array(

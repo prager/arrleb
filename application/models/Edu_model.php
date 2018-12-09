@@ -26,7 +26,8 @@ class Edu_model extends CI_Model {
 	                    'location' => $row->location,
 	                    'details' => $row->details_url,
 	                    'category' => $row->licensing,
-	                    'details_url' => $this->make_clickable_url($row->details_url)
+	                    'details_url' => $this->make_clickable_url($row->details_url),
+	                    'club' => $row->club
 	                );
 	                array_push($retarr['classes'], $arr);
 	            }
@@ -208,7 +209,8 @@ class Edu_model extends CI_Model {
 	                'fee' => $row->fee,
 	                'status' => $row->status,
 	                'location' => $row->location,
-	                'detail_url' => $row->details_url
+	                'detail_url' => $row->details_url,
+	                'club' => $row->club
 	            );
 	            array_push($tests, $arr);
 	        }
