@@ -227,7 +227,7 @@ class Edu_model extends CI_Model {
 	public function get_aux() {
 	    
 	    $this->db->from('education');
-	    $this->db->where('licensing > ', 4);
+	    $this->db->where('licensing', 6);
 	    $this->db->where('date_to >', time());
 	    $cnt = $this->db->count_all_results();
 	    
@@ -237,7 +237,47 @@ class Edu_model extends CI_Model {
 	    if($cnt > 0) {
 	        $this->db->select('*');
 	        $this->db->order_by('date_from', 'ASC');
-	        $this->db->where('licensing > ', 4);
+	        $this->db->where('licensing', 6);
+	        $this->db->where('date_to >', time());
+	        $res = $this->db->get('education')->result();
+	        
+	        foreach($res as $row) {
+	            $arr = array(
+	                'id' => $row->id_education,
+	                'course' => $row->course,
+	                'date_from' => $row->date_from,
+	                'date_to' => $row->date_to,
+	                'fee' => $row->fee,
+	                'status' => $row->status,
+	                'location' => $row->location,
+	                'detail_url' => $row->details_url
+	            );
+	            array_push($tests, $arr);
+	        }
+	        
+	        
+	    }
+	    
+	    $retval['tests'] = $tests;
+	    $retval['cnt'] = $cnt;
+	    
+	    return $retval;
+	}
+	
+	public function get_emer() {
+	    
+	    $this->db->from('education');
+	    $this->db->where('licensing', 5);
+	    $this->db->where('date_to >', time());
+	    $cnt = $this->db->count_all_results();
+	    
+	    $retval = array();
+	    $tests = array();
+	    
+	    if($cnt > 0) {
+	        $this->db->select('*');
+	        $this->db->order_by('date_from', 'ASC');
+	        $this->db->where('licensing', 5);
 	        $this->db->where('date_to >', time());
 	        $res = $this->db->get('education')->result();
 	        
