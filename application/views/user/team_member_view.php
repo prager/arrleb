@@ -103,7 +103,6 @@
 							<div class="heading">
                                 <h3><?php echo $fname; ?>'s Address</h3>
                             </div>
-                            	<?php echo $facebook;?>
                             	<?php echo $street; ?><br>
                             	<?php echo $city . ', ' . $state . ' ' . $zip; ?><br>
 						</div>

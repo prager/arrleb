@@ -116,8 +116,7 @@ class User_model extends CI_Model {
 	   	        $message .= 'You must do so within 72 hours otherwise you login information may be deactivated. 
 Thank you for your interest in ARRL EB Section!';
 	   	        
-	   	        mail($recipient, $subject, $message);
-	   	        
+	   	        mail($recipient, $subject, $message);	   	        
 	   	        
 	   	        
 	   	        $this->db->select('id_user');
@@ -319,6 +318,7 @@ Thank you for your interest in ARRL EB Section!';
 	    
 	    $retarr = array();
 	    $retarr['staff'] = array();
+	    //echo '<br><br>staff arr:<br>';
 	    
 	    foreach($res as $row) {
 	        $tbl_name = 'user_' . $row->id_user . '_tbl';
@@ -345,14 +345,10 @@ Thank you for your interest in ARRL EB Section!';
 	            'googleplus' => $row->googleplus,
 	            'linkedin' => $row->linkedin
 	        );
-	        
+	        //echo $arr['lname'] . ' - ' . $row->image_loc;
 	        array_push($retarr['staff'], $arr);	        
 	    }
 	    
-	    //echo '<br><br>staff arr:<br>';
-	    //foreach($retarr['staff'] as $row) {
-	       // echo $row['lname'] . ' - ' . $row['googleplus'] . '<br>';
-	    //}
 	    
 	    return $retarr;
 	}

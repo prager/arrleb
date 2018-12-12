@@ -157,11 +157,20 @@ class Speaker_model extends CI_Model {
 	    $retarr['linkedin'] = $user_data->linkedin;
 	    $retarr['googleplus'] = $user_data->googleplus;
 	    $retarr['callsign'] = $user_data->callsign;
-	    $retarr['phone'] = $user_data->phone;
-	    $retarr['street'] = $user_data->street;
-	    $retarr['city'] = $user_data->city;
-	    $retarr['state'] = $user_data->state_cd;
-	    $retarr['zip'] = $user_data->zip_cd;
+	    if($this->Login_model->is_logged()['logged']) {
+    	    $retarr['phone'] = $user_data->phone;
+    	    $retarr['street'] = $user_data->street;
+    	    $retarr['city'] = $user_data->city;
+    	    $retarr['state'] = $user_data->state_cd;
+    	    $retarr['zip'] = $user_data->zip_cd;
+	    }
+	    else {
+	        $retarr['phone'] = 'Register to view';
+	        $retarr['street'] = 'Register to view';
+	        $retarr['city'] = '';
+	        $retarr['state'] = '';
+	        $retarr['zip'] = '';
+	    }
 	    $img = $user_data->image_loc;
 	    
 	    if($img != NULL) {

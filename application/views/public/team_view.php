@@ -1,3 +1,5 @@
+<?php //echo base_url(). $staff[0]['image_loc']; ?>
+
 <div id="heading-breadcrumbs">
             <div class="container">
                 <div class="row">
@@ -112,8 +114,9 @@
                                         <img src="<?php echo base_url() . $staff[2]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[2]['id_user']; ?>">Misa Siemons, KJ6BUE</a></h3>
-                                <p class="role">Public Information Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[2]['id_user']; ?>">
+                                <?php echo $staff[2]['fname'] . ' ' . $staff[2]['lname'] . ' ' . $staff[2]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[2]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
@@ -124,43 +127,48 @@
                                         <img src="<?php echo base_url() . $staff[3]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[3]['id_user']; ?>">Scott Morse, KC6SKM</a></h3>
-                                <p class="role">Section Emergency Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[3]['id_user']; ?>">
+                                <?php echo $staff[3]['fname'] . ' ' . $staff[3]['lname'] . ' ' . $staff[3]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[3]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[4]['id_user']; ?>">
                                         <img src="<?php echo base_url() . $staff[4]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Steve Hawes, WB6UZX</a></h3>
-                                <p class="role">Section Net Manager</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[4]['id_user']; ?>">
+                                <?php echo $staff[4]['fname'] . ' ' . $staff[4]['lname'] . ' ' . $staff[4]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[4]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url(). $staff[5]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[5]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[5]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Gary Gross, KE6QR</a></h3>
-                                <p class="role">Official Relay Station</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[5]['id_user']; ?>">
+                                <?php echo $staff[5]['fname'] . ' ' . $staff[5]['lname'] . ' ' . $staff[5]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[5]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url(). $staff[6]['image_loc'] ;?>" alt="" class="img-responsive img-circle">                                    </a>
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[6]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[6]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
+                                    </a>
                                 </div>
-                                <h3><a href="team-member.html">Dave Piersall, N6ORB</a></h3>
-                                <p class="role">Contra Costa County</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[6]['id_user']; ?>">
+                                <?php echo $staff[6]['fname'] . ' ' . $staff[6]['lname'] . ' ' . $staff[6]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[6]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
@@ -170,60 +178,65 @@
                         <div class="col-md-2 col-md-offset-1 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member" data-animate="fadeInDown">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[7]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[7]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Mathew Vurek, N4DLA</a></h3>
-                                <p class="role">Affiliated Club Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[7]['id_user']; ?>">
+                                <?php echo $staff[7]['fname'] . ' ' . $staff[7]['lname'] . ' ' . $staff[7]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[7]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member" data-animate="fadeInDown">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/bart.png" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[8]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[8]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Bart Lee, K6VK</a></h3>
-                                <p class="role">Local Govt Liaison</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[8]['id_user']; ?>">
+                                <?php echo $staff[8]['fname'] . ' ' . $staff[8]['lname'] . ' ' . $staff[8]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[8]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member" data-animate="fadeInDown">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[9]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[9]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Jim Tittle, K6SOE</a></h3>
-                                <p class="role">Official Observer Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[9]['id_user']; ?>">
+                                <?php echo $staff[9]['fname'] . ' ' . $staff[9]['lname'] . ' ' . $staff[9]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[9]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() ;?>/assets/img/team-member.gif" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[10]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[10]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">Kristen McIntyre K6WX</a></h3>
-                                <p class="role">Technical Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[10]['id_user']; ?>">
+                                <?php echo $staff[10]['fname'] . ' ' . $staff[10]['lname'] . ' ' . $staff[10]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[10]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
                         <div class="col-md-2 col-sm-3" data-animate="fadeInDown">
                             <div class="team-member">
                                 <div class="image">
-                                    <a href="team-member.html">
-                                        <img src="<?php echo base_url() . $staff[11]['image_loc'] ; ?>" alt="" class="img-responsive img-circle">
+                                    <a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[11]['id_user']; ?>">
+                                        <img src="<?php echo base_url() . $staff[11]['image_loc'] ;?>" alt="" class="img-responsive img-circle">
                                     </a>
                                 </div>
-                                <h3><a href="team-member.html">John Primus, AF6RJ</a></h3>
-                                <p class="role">Education Coordinator</p>
+                                <h3><a href="<?php echo base_url() . 'index.php/user/show_user/' . $staff[11]['id_user']; ?>">
+                                <?php echo $staff[11]['fname'] . ' ' . $staff[11]['lname'] . ' ' . $staff[11]['callsign']?></a></h3>
+                                <p class="role"><?php echo $staff[11]['position']?></p>
                             </div>
                             <!-- /.team-member -->
                         </div>
