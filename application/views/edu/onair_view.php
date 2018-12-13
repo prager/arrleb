@@ -56,7 +56,6 @@
         				<th style="width: 10%">Date From</th>
         				<th style="width: 10%">Date To</th>
         				<th style="width: 8%">Fee</th>
-        				<th>Status</th>
         				<th style="width: 20%">Location</th>
         				<th>View Details</th>
         			</tr>
@@ -70,7 +69,6 @@
         				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
         				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
                             echo money_format('%(#10n', $row['fee']);?></td>
-        				<td><?php echo $row['status']; ?></td>
         				<td class="elips1"><?php echo $row['location']; ?></td>
         				<td><?php echo anchor('Public_ctl/class_details/' . $row['id'], 'View'); ?></td>        				
         			</tr>

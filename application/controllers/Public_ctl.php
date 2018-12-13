@@ -199,8 +199,14 @@ class Public_ctl extends CI_Controller {
 	}	
 	
 	public function inday() {
+	    
+	    $retval = $this->Edu_model->get_inday();
+	    
+	    $data['cnt'] = $retval['cnt'];
+	    $data['inday'] = $retval['inday'];
+	    
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/inday_view');
+	    $this->load->view('edu/inday_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
 	
