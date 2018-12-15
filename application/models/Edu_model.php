@@ -79,7 +79,8 @@ class Edu_model extends CI_Model {
 	    $retarr['date_from'] = $res->date_from;
 	    $retarr['date_to'] = $res->date_to;
 	    $retarr['location'] = $res->location;
-	    $retarr['fee'] = $res->fee;
+	    //$retarr['fee'] = $res->fee;
+	    $retarr['fee'] = 15;
 	    
 	    $exploded = explode(' ', $res->details_url);
 	    $retarr['details_url'] = '';
@@ -166,7 +167,8 @@ class Edu_model extends CI_Model {
     	            'course' => $course,
     	            'date_from' => $row->date_from,
     	            'date_to' => $row->date_to,
-    	            'fee' => $row->fee,
+    	            'fee' => 15,
+    	            //'fee' => $row->fee,
     	            'status' => $row->status,
     	            'location' => $row->location,
     	            'detail_url' => $row->details_url
@@ -369,6 +371,7 @@ class Edu_model extends CI_Model {
 	                'date_from' => $row->date_from,
 	                'date_to' => $row->date_to,
 	                'fee' => $row->fee,
+	                'fee' => 15,
 	                'status' => $row->status,
 	                'location' => $row->location,
 	                'detail_url' => $row->details_url
