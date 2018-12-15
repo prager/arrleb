@@ -48,7 +48,7 @@
        		<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
-        				<th>GOTA Course</th>
+        				<th>Ham In-One-Day</th>
         				<th style="width: 10%">Date</th>
         				<th style="width: 8%">Fee</th>
         				<th style="width: 20%">Location</th>

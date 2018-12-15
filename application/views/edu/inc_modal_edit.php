@@ -19,7 +19,7 @@
 			            		'value'         =>  $row['club'],
 			            	'placeholder' => 'Club',
 			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
+							'maxlength'     => '128');?>
 						Club
 						<?php echo form_input($data);?>
 						</div>
