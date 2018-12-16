@@ -12,7 +12,7 @@ class Club extends CI_Controller {
 	    if($this->check_club()) {
 	        
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
-	        $this->load->view('speakers/main_view', $this->Club_model->get_clubs());
+	        $this->load->view('clubs/main_view', $this->Club_model->get_clubs());
 	        
 	    }
 	    else {

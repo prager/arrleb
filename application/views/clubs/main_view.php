@@ -6,33 +6,35 @@
         	<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
-        				<th>Course</th>
-        				<th style="width: 8%">Date From</th>
-        				<th style="width: 8%">Date To</th>
-        				<th>Fee</th>
-        				<th>Status</th>
-        				<th>Location</th>
-        				<th>URL</th>
+        				<th>Name</th>
+        				<th>Link</th>
+        				<th>Narrative</th>
+        				<th>Active</th>
         				<th>Edit</th>
         			</tr>
         		</thead>
         		<tbody>
-        		<?php if($edu['cnt'] > 0)
-        		    foreach($edu['classes'] as $row) {?>
+        		<?php if($cnt > 0)
+        		    foreach($clubs as $row) {?>
         			<tr>
-        				<td><strong><?php echo $row['course']; ?></strong></td>
-        				<td><?php echo date("m/d/Y", $row['date_from']); ?></td>
-        				<td><?php echo date("m/d/Y", $row['date_to']); ?></td>
-        				<td><?php setlocale(LC_MONETARY, 'en_US.utf8');
-                            echo money_format('%(#10n', $row['fee']);?></td>
-        				<td><?php echo $row['status']; ?></td>
-        				<td class="elips1"><?php echo $row['location']; ?></td>
-        				<td class="elips2"><?php echo $row['details_url']; ?></td>
+        				<td><?php echo $row['name']; ?></td>
+        				<td><?php echo $row['link']; ?></td>
+        				<td class="elips1"><?php echo $row['narrative']; ?></td>
+        				<td>
+        					<?php 
+        					if($row['active'] == 0) {
+        					    echo 'Not Active';
+        					}
+        					else {
+        					    echo 'Active';
+        					}
+        				    ?>
+        				</td>
         				<td>
         					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a> 
         					/    
-        					<a href="#" data-toggle="modal" data-target="#deleteClass<?php echo $row['id']; ?>">Delete Class</a>
-        					<?php include 'inc_delete_class.php'; ?>
+        					<a href="#" data-toggle="modal" data-target="#deleteClub<?php echo $row['id']; ?>">Delete Club</a>
+        					<?php include 'inc_delete_club.php'; ?>
         					<?php include 'inc_modal_edit.php'; ?>     				
         				</td>
         			</tr>
@@ -45,7 +47,7 @@
     <div class="row">
     	<div class="col-md-10 col-md-offset-1">
     		<br>
-    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Class</a>
+    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Club</a>
     		<?php include 'inc_modal_add.php'; ?>
     	</div>
     </div>
