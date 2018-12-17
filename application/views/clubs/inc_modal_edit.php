@@ -6,130 +6,79 @@
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-pencil"></span> Edit Class</h4>
+		          <h4><span class="glyphicon glyphicon-copy"></span> Edit Club</h4>
 		        </div>
 		        <div class="modal-body">
-		        <?php echo form_open('edu/edit_class/' .  $row['id']); ?>
+		        <?php echo form_open('club/edit_club/' . $row['id']); ?>
 		            <div class="form-group">
 					<div class="row">
-						<div class="col-md-5 col-md-offset-1">
+						<div class="col-md-3 col-md-offset-1">
 						<?php $data = array(
-							'name'          => 'club',
-							'id'            => 'club',
-			            		'value'         =>  $row['club'],
-			            	'placeholder' => 'Club',
+							'name'          => 'name',
+							'id'            => 'name',
+			            		'value'         =>  $row['name'],
+			            	'placeholder' => 'Club Name',
 			                'class'			=> 'form-control',
-							'maxlength'     => '128');?>
-						Club
+							'maxlength'     => '64');?>
+						Club Short Name
 						<?php echo form_input($data);?>
+						</div>
+						<div class="col-md-3">
+						<?php $data = array(
+							'name'          => 'link',
+							'id'            => 'link',
+			            		'value'         =>  $row['link'],
+			            	'placeholder' => 'Club URL',
+			                'class'			=> 'form-control',
+							'maxlength'     => '64');?>
+						Club URL
+						<?php echo form_input($data);?>
+						</div>
+						<div class="col-md-3">
+						Active
+			          	<?php echo form_dropdown('active', array('No', 'Yes'), $row['active'], 'class="form-control"'); ?>
 						</div>
 					</div>
 					<div class="row">&nbsp;</div>
 		            <div class="row">
-			            <div class="col-md-8 col-md-offset-1">
+			            <div class="col-md-9 col-md-offset-1">
 			            <?php $data = array(
-							'name'          => 'course',
-							'id'            => 'fname',
-			            		'value'         =>  $row['course'],
-			            	'placeholder' => 'Course',
+							'name'          => 'long_name',
+							'id'            => 'long_name',
+			            		'value'         =>  $row['long_name'],
+			            	'placeholder' => 'Class',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-						Course
+						Club Long Name
 						<?php echo form_input($data);?>
-						</div>
-						<div class="col-md-2">
-							Category
-			          	<?php echo form_dropdown('category', array('none', 'Tech', 'Gen', 'Ext', 'GOTA', 'Em Prep', 'Aux', 'In-1-Day'), $row['category'], 
-			          			'class="form-control"'); ?>
-						</div>						
+						</div>				
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-5 col-md-offset-1">
-						<?php $data = array(
-							'name'          => 'date_from',
-							'id'            => 'date_from',
-						    'value'         =>  date("Y-m-d", $row['date_from']),
-						    'type' => 'date',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Date From
-						<?php echo form_input($data);?>
-						</div>
-						<div class="col-md-5">
-						<?php $data = array(
-							'name'          => 'date_to',
-							'id'            => 'date_to',
-						    'value'         =>  date("Y-m-d", $row['date_to']),
-						    'type' => 'date',
-			            	'placeholder' => 'To',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Date To
-						<?php echo form_input($data);?>
-						</div>	
-					</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">
-						<div class="col-md-5 col-md-offset-1">
-						<?php $data = array(
-							'name'          => 'fee',
-							'id'            => 'fee',
-			            		'value'         =>  '$' . $row['fee'],
-			            	'placeholder' => 'Fee',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Fee
-						<?php echo form_input($data);?>
-						</div>
-						<div class="col-md-5">
-						<?php $data = array(
-							'name'          => 'status',
-							'id'            => 'status',
-			            		'value'         =>  $row['status'],
-			            	'placeholder' => 'status',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Status
-						<?php echo form_input($data);?>
-						</div>
-					</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-						<?php $data = array(
-							'name'          => 'location',
-							'id'            => 'location',
-			            		'value'         =>  $row['location'],
-			            	'placeholder' => 'status',
-			                'class'			=> 'form-control',
-							'maxlength'     => '512');?>
-						Location
-						<?php echo form_input($data);?>
-						</div>
-					</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
-						<?php $data = array(
-							'name'          => 'details_url',
-							'id'            => 'details_url',
-			            		'value'         =>  $row['details'],
-			            	'placeholder' => 'status',
-			                'class'			=> 'form-control',
-							'maxlength'     => '512');?>
-						URL References
-						<?php echo form_input($data);?>
-						</div>
+			            <div class="col-md-9 col-md-offset-1">
+			            Club Narrative
+    						<?php 
+                            $data = array(
+                            'name' => 'narrative',
+                            'id' => 'narrative',
+                            'value' => $row['narrative'],
+                            'cols' => 65,
+                            'rows' => 7,
+                            'class' => 'form-control'
+                            );
+                            echo form_textarea($data);
+                            ?>	
+                        </div>
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
 					<div class="col-md-4">&nbsp;</div>
-						<div class="col-md-4">
+						<div class="col-md-3">
 			          	<?php echo form_submit('submit', 'Submit Changes', 'class="btn btn-primary btn-block"'); ?>
 			          	</div>
 		          	</div>
+					<div class="row">&nbsp;</div>
 		          	<div class="row">&nbsp;</div>
 		        <div class="modal-footer">
 		         <p><a href="#" data-dismiss="modal">Cancel</a></p>

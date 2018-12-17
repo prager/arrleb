@@ -9,7 +9,7 @@
 		          <h4><span class="glyphicon glyphicon-copy"></span> Add Club</h4>
 		        </div>
 		        <div class="modal-body">
-		        <?php echo form_open('edu/edit_class/'); ?>
+		        <?php echo form_open('club/edit_club/0'); ?>
 		            <div class="form-group">
 					<div class="row">
 						<div class="col-md-3 col-md-offset-1">
@@ -34,14 +34,14 @@
 						Club URL
 						<?php echo form_input($data);?>
 						</div>
-						<div class="col-md-2">
+						<div class="col-md-3">
 						Active
-			          	<?php echo form_dropdown('category', array('No', 'Yes'), 0, 'class="form-control"'); ?>
+			          	<?php echo form_dropdown('active', array('No', 'Yes'), 0, 'class="form-control"'); ?>
 						</div>
 					</div>
 					<div class="row">&nbsp;</div>
 		            <div class="row">
-			            <div class="col-md-8 col-md-offset-1">
+			            <div class="col-md-9 col-md-offset-1">
 			            <?php $data = array(
 							'name'          => 'long_name',
 							'id'            => 'long_name',
@@ -55,14 +55,14 @@
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-			            <div class="col-md-8 col-md-offset-1">
+			            <div class="col-md-9 col-md-offset-1">
 			            Club Narrative
     						<?php 
                             $data = array(
                             'name' => 'narrative',
                             'id' => 'narrative',
                             'value' => '',
-                            'cols' => 65,
+                            'cols' => 75,
                             'rows' => 7,
                             'class' => 'form-control'
                             );
@@ -70,6 +70,13 @@
                             ?>	
                         </div>
 					</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="col-md-3 col-md-offset-4">
+			          	<?php echo form_submit('submit', 'Add Club', 'class="btn btn-primary btn-block"'); ?>
+			          	</div>
+		          	</div>
 					<div class="row">&nbsp;</div>
 		          	<div class="row">&nbsp;</div>
 		        <div class="modal-footer">

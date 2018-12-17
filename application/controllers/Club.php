@@ -32,8 +32,8 @@ class Club extends CI_Controller {
 	    $param['long_name'] = $this->input->post('long_name');
 	    $param['link'] = $this->input->post('link');
 	    $param['narrative'] = $this->input->post('narrative');
+	    $param['active'] = $this->input->post('active');
 	    $this->Club_model->edit_club($param);
-	    //echo 'done';
 	    $this->load_clubs();
 	}
 	

@@ -80,8 +80,9 @@ class Club_model extends CI_Model {
 	                'id' => $row->id_clubs,
 	                'name' => $row->name,
 	                'long_name' => $row->long_name,
-	                'link' => $this->make_clickable_url($row->link),
-	                'narrative' => $row->narrative
+	                'link' => $row->link,
+	                'narrative' => $row->narrative, 
+	                'active' => $row->active
 	            );
 	            
 	            array_push($retarr['clubs'], $arr);
