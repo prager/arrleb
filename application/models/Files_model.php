@@ -24,7 +24,10 @@ class Files_model extends CI_Model {
 	public function get_files() {
 	    $retarr = array();
 	    if($this->Login_model->is_logged()['logged']) {
-	       $retarr['private'] = scandir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id());
+	        if(!is_dir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id())) {
+	            mkdir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id());
+	        }
+	        $retarr['private'] = scandir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id());
 	    }
 	    else {
 	        $retarr['private'] = NULL;

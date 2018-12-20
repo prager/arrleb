@@ -14,6 +14,14 @@ class Public_ctl extends CI_Controller {
 	    $this->load_home();
 	}
 	
+	public function load_err() {
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
+	    $data['title'] = 'Error';
+	    $data['msg'] = 'Currently the webmaster is working on clearing an error. Please, be patient. Thank you! <br><br>';
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
 	public function load_home() {
 	    $this->load->view('template/header_public_main', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $this->load->view('public/main_view');
@@ -230,7 +238,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function club_corner() {
 	    $this->load->view('template/header_public_corner', array('logged' => $this->Login_model->is_logged()['logged']));
-		$this->load->view('public/corner_view');
+		$this->load->view('public/corner_view', $this->Club_model->get_clubs());
 		$this->load->view('template/footer_ver1');
 	}
 	

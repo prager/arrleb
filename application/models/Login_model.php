@@ -113,7 +113,8 @@ class Login_model extends CI_Model {
 			$retarr['data']['logged'] = TRUE;
 		}
 		elseif($usr_data->type_code == 3) {
-		    $lectures = $this->Speaker_model->get_lectures();
+		    
+		    $lectures = $this->Speaker_model->get_lectures($this->Login_model->get_cur_user_id());
 		    
 		    $retarr['data']['cnt'] = $lectures['cnt'];
 		    $retarr['data']['lectures'] = $lectures['lectures'];
