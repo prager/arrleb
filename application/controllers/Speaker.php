@@ -12,6 +12,7 @@ class Speaker extends CI_Controller {
 	    if($this->check_speaker()) {
 	        
 	        $id = $this->Login_model->get_cur_user_id();
+	        $this->Login_model->check_table($id);
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	        $this->load->view('speakers/main_view', $this->Speaker_model->get_lectures($id));
 	        
@@ -60,6 +61,7 @@ class Speaker extends CI_Controller {
 	    
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $this->load->view('user/team_member_view', $this->Speaker_model->get_speaker($this->uri->segment(3, 0)));
+	    //echo '<br><br> There is an error. Please, be patient, working on it!<br><br>';
 	    $this->load->view('template/footer_ver1');
 	    
 	}

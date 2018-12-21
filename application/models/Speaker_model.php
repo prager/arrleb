@@ -180,6 +180,8 @@ class Speaker_model extends CI_Model {
 	        $retarr['image_loc'] = '/assets/img/team-member.gif';
 	    }
 	    
+	    $this->Login_model->check_table($id);
+	    
 	    $this->db->select('narrative, narrative2');
 	    $this->db->where('id_user', $id);
 	    $row = $this->db->get('user_' . $id . '_tbl')->row();
