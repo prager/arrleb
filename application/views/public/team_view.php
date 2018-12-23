@@ -43,7 +43,7 @@
                                 </div>
                                 <h3><?php echo anchor('user/show_user/' . $staff[0]['id_user'],
                                     $staff[0]['fname'] . ' ' . $staff[0]['lname'] . ', ' . $staff[0]['callsign']); ?></h3>
-                                <p class="role">Section Manager</p>
+                                <p class="role"><?php echo $staff[0]['position']?></p>
                                 <div class="social">
                             	<?php if($staff[0]['facebook'] != '') {?>
                                 <a href="<?php echo $staff[0]['facebook']; ?>" class="external facebook" data-animate-hover="pulse">
@@ -78,7 +78,7 @@
                                 </div>
                                 <h3><?php echo anchor('user/show_user/' . $staff[1]['id_user'],
                                     $staff[1]['fname'] . ' ' . $staff[1]['lname'] . ', ' . $staff[1]['callsign']); ?></h3>
-                                <p class="role">Section Manager</p>
+                                <p class="role">Assitant Section Manager</p>
                                 <div class="social">
                             	<?php if($staff[1]['facebook'] != '') {?>
                                 <a href="<?php echo $staff[1]['facebook']; ?>" class="external facebook" data-animate-hover="pulse">
