@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Public_ctl';
 $route['public-events'] = 'Public_ctl/public_events';
 $route['home'] = 'Public_ctl/load_home';
+$route['benefits'] = 'Public_ctl/membership_benefits';
 $route['team'] = 'Public_ctl/team';
 $route['about'] = 'Public_ctl/about';
 $route['testing'] = 'Public_ctl/testing';

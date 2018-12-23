@@ -167,6 +167,7 @@ _________________________________________________________ -->
                                 <ul class="dropdown-menu">
                                     <li><?php echo anchor('about', 'About ARRL EB Section')?></li>
                                     <li><?php echo anchor('team', 'Team')?></li>
+                                    <li><?php echo anchor('contact', 'Contact')?></li>
                               	</ul>
                               </li>
                             </ul>
