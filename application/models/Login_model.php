@@ -123,6 +123,15 @@ class Login_model extends CI_Model {
 		    $retarr['data']['logged'] = TRUE;
 		}
 		
+		elseif($usr_data->type_code == 4) {
+		    
+		    $retarr['header'] = 'template/header_public_gen';
+		    $retarr['view'] = 'user/edit_user_view';
+		    $retarr['data'] = $this->User_model->get_cur_user();
+		    $retarr['data']['msg'] = '';
+		    $retarr['data']['logged'] = TRUE;
+		}
+		
 		elseif($usr_data->type_code == 99) {
 		    
 		    $retarr['header'] = 'template/header_private';

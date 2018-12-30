@@ -50,6 +50,11 @@ class Login extends CI_Controller {
 	        $this->load->view('speakers/main_view', $data);
 	    }
 	    
+	    if($this->Login_model->get_cur_user()['level'] == 4) {
+	        
+	        redirect(base_url(). 'index.php/user');
+	    }
+	    
 	    $this->load->view('template/footer_ver1');
 	}
 	
