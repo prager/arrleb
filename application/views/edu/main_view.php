@@ -17,7 +17,7 @@
         			</tr>
         		</thead>
         		<tbody>
-        		<?php if($edu['cnt'] > 0)
+        		<?php if($edu['cnt'] > 0) {
         		    foreach($edu['classes'] as $row) {?>
         			<tr>
         				<td><strong><?php echo $row['course']; ?></strong></td>
@@ -36,7 +36,8 @@
         					<?php include 'inc_modal_edit.php'; ?>     				
         				</td>
         			</tr>
-        			<?php }?>
+        			<?php }
+                    }?>
         		</tbody>        	
         	</table>
         </div>    

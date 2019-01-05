@@ -312,44 +312,47 @@ Thank you for your interest in ARRL EB Section!';
 	
 	public function get_staff() {
 	    $this->db->select('*');
-	    $this->db->order_by('pos_code', 'ASC');
-	    $this->db->where('pos_code >', 0);
-	    $res = $this->db->get('users')->result();
-	    
+	    $this->db->order_by('id_staff', 'ASC');
+	    $staff = $this->db->get('staff')->result();
+	    	    
 	    $retarr = array();
 	    $retarr['staff'] = array();
-	    //echo '<br><br>staff arr:<br>';
 	    
-	    foreach($res as $row) {
-	        $tbl_name = 'user_' . $row->id_user . '_tbl';
-	        
-	        if ($this->db->table_exists($tbl_name)) {
-	            $this->db->select('narrative');
-	            $narrative = $this->db->get($tbl_name)->row()->narrative;
-	        }
-	        else {
-	            $narrative = '';
-	        }
-	        
-	        $arr = array(
-	            'id_user' => $row->id_user,
-	            'fname' => $row->fname,
-	            'lname' => $row->lname,
-	            'callsign' => $row->callsign,
-	            'position' => $row->position,
-	            'pos_code' => $row->pos_code,
-	            'narrative' => $narrative,
-	            'image_loc' => $row->image_loc,
-	            'facebook' => $row->facebook,
-	            'twitter' => $row->twitter,
-	            'googleplus' => $row->googleplus,
-	            'linkedin' => $row->linkedin
-	        );
-	        //echo $arr['lname'] . ' - ' . $row->image_loc;
-	        array_push($retarr['staff'], $arr);	        
+	    foreach ($staff as $row) {
+    	    $this->db->select('*');
+    	    $this->db->where('id_user', $row->id_user);
+    	    $member = $this->db->get('users')->row();
+    	    
+    	    $tbl_name = 'user_' . $member->id_user . '_tbl';
+    	    
+    	    if ($this->db->table_exists($tbl_name)) {
+    	        $this->db->select('narrative');
+    	        $narrative = $this->db->get($tbl_name)->row()->narrative;
+    	    }
+    	    else {
+    	        $narrative = '';
+    	    }
+    	    
+    	    $arr = array(
+    	        'id_user' => $member->id_user,
+    	        'fname' => $member->fname,
+    	        'lname' => $member->lname,
+    	        'callsign' => $member->callsign,
+    	        'position' => $member->position,
+    	        'pos_code' => $member->pos_code,
+    	        'narrative' => $narrative,
+    	        'image_loc' => $member->image_loc,
+    	        'facebook' => $member->facebook,
+    	        'twitter' => $member->twitter,
+    	        'googleplus' => $member->googleplus,
+    	        'linkedin' => $member->linkedin
+    	    );
+    	    //echo $arr['lname'] . ' - ' . $row->image_loc;
+    	    array_push($retarr['staff'], $arr);
 	    }
 	    
-	    
+	    //echo '<br><br>staff arr:<br>';
+	    	    
 	    return $retarr;
 	}
 	
@@ -379,7 +382,42 @@ Thank you for your interest in ARRL EB Section!';
 	    
 	}
 	
-	
-	
+	public function get_staff_positions() {
+	    $this->db->select('*');
+	    $positions = $this->db->get('staff')->result();
+	    
+	    $retarr = array();
+	    $retarr['positions'] = array();
+	    foreach($positions as $row) {
+	        
+	        $this->db->select('fname, lname, callsign');
+	        $this->db->where('id_user', $row->id_user);
+	        $member = $this->db->get('users')->row();
+	        
+	        $arr = array(
+	            'id_staff' => $row->id_staff,
+	            'id_user' => $row->id_user,
+	            'pos_name' => $row->position_name,
+	            'fname' => $member->fname,
+	            'lname' => $member->lname,
+	            'callsign' => $member->callsign
+	        );
+	        
+	        array_push($retarr['positions'], $arr);
+	    }
+	    
+	    $retarr['users'] = array();
+	    
+	    $this->db->select('*');
+	    $users = $this->db->get('users')->result();
+	    
+	    foreach ($users as $row) {
+	        $retarr[$row->id_user]['users']['id_user'] = $row->id_user;
+	        $retarr[$row->id_user]['users']['fname'] = $row->fname;
+	        $retarr[$row->id_user]['users']['lname'] = $row->lname;
+	    }
+	    
+	    return $retarr;
+	}	
 	
 }
