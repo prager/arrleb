@@ -338,7 +338,7 @@ Thank you for your interest in ARRL EB Section!';
     	        'fname' => $member->fname,
     	        'lname' => $member->lname,
     	        'callsign' => $member->callsign,
-    	        'position' => $member->position,
+    	        'position' => $row->position_name,
     	        'pos_code' => $member->pos_code,
     	        'narrative' => $narrative,
     	        'image_loc' => $member->image_loc,
@@ -425,7 +425,15 @@ Thank you for your interest in ARRL EB Section!';
 	    $retarr['users'] = $this->fill_users_arr($temp_arr);
 	    
 	    return $retarr;
-	}	
+	}
+	
+	public function edit_staff($param) {
+	    $id = $param['id_staff'];
+	    unset($param['id_staff']);
+	    
+	    $this->db->where('id_staff', $id);
+	    $this->db->update('staff', $param);
+	}
 	
 	private function fill_users_arr($arr) {
 	    

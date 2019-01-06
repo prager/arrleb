@@ -31,19 +31,16 @@ class Staff extends CI_Controller {
 	
 	public function edit_staff() {
 	    $param = array();
-	    $param['id'] = $this->uri->segment(3, 0);
-	    $param['name'] = $this->input->post('name');
-	    $param['long_name'] = $this->input->post('long_name');
-	    $param['link'] = $this->input->post('link');
-	    $param['narrative'] = $this->input->post('narrative');
-	    $param['active'] = $this->input->post('active');
+	    $param['id_staff'] = $this->uri->segment(3, 0);
+	    $param['position_name'] = $this->input->post('pos_name');
+	    $param['id_user'] = $this->input->post('user');
 	    $this->User_model->edit_staff($param);
-	    $this->load_clubs();
+	    $this->load_staff();
 	}
 	
 	public function delete_staff() {
 	    $this->User_model->delete_staff($this->uri->segment(3, 0));
-	    $this->load_clubs();
+	    $this->load_staff();
 	}
 	
 	private function check_staff() {

@@ -34,14 +34,14 @@
     </div>
     
 	<?php echo form_close(); ?>
-    <div class="row">
+     <div class="row">
     	<div class="col-md-8 col-md-offset-2">
-    		<br>
-    		<a href="#" data-toggle="modal" data-target="#addPos" class="btn btn-primary" role="button">Add Staff Position</a>
-    		<?php include 'inc_modal_add.php'; ?>
+    		<!--<br>
+    		<a href="#" data-toggle="modal" data-target="#addPos" class="btn btn-primary" role="button">Add Staff Position</a> --> 
+    		<?php //include 'inc_modal_add.php'; ?>
     	</div>
     </div>
-    </div>    
+    </div>   
 	<div class="row">
     	<div class="col-md-8 col-md-offset-2">
     		<p><?php echo anchor('user', 'Edit Your Personal Info', 'class="btn btn"'); ?></p>

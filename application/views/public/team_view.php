@@ -78,7 +78,7 @@
                                 </div>
                                 <h3><?php echo anchor('user/show_user/' . $staff[1]['id_user'],
                                     $staff[1]['fname'] . ' ' . $staff[1]['lname'] . ', ' . $staff[1]['callsign']); ?></h3>
-                                <p class="role">Assitant Section Manager</p>
+                                <p class="role"><?php echo $staff[1]['position']; ?></p>
                                 <div class="social">
                             	<?php if($staff[1]['facebook'] != '') {?>
                                 <a href="<?php echo $staff[1]['facebook']; ?>" class="external facebook" data-animate-hover="pulse">
@@ -94,7 +94,7 @@
                                 <a href="<?php echo $staff[1]['linkedin']; ?>" class="external twitter" data-animate-hover="pulse"><i class="fa fa-linkedin"></i></a>
                                 <?php }
                                 else {
-                                    //echo '--------------';
+                                    echo '--------------';
                                 }?>
                             	</div>
                                 <div class="text">
