@@ -46,7 +46,7 @@ class Club extends CI_Controller {
 	    
 	    $level = $this->Login_model->get_cur_user()['level'];
 	    
-	    if(($level == 1) || ($level == 99)) {
+	    if(($level == 5) || ($level == 99)) {
 	        return TRUE;
 	    }
 	    else {

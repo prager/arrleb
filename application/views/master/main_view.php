@@ -1,64 +1,38 @@
 <div class="container text-center">
 <br><br>
 <hr />
-<br><br><br>
+<br><br>
+
 <div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('master/user_management', 'User Management'); ?></p>
-</div>
-</div><br>
-<div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('master/user_types', 'User Types'); ?></p>
-</div>
-</div><br>
-<div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('user', 'Edit Account Info'); ?></p>
+<div class="col-md-6 col-md-offset-3 heading">
+<h3>Admin Features Available</h3>
 </div>
 </div>
+
 <br>
 <div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('club', 'Clubs'); ?></p>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('edu', 'Classes'); ?></p>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('speaker', 'Speaker'); ?></p>
-</div>
-</div>
-<br>
-<div class="row">
-<div class="col-md-1 offset-col-md-3">&nbsp;</div>
-<div class="col-md-8">
-<p style="text-align: center;"><?php echo anchor('staff', 'Staff'); ?></p>
+<div class="col-md-10 col-md-offset-1">
+
+<ol class="breadcrumb">
+  <li><?php echo anchor('master/user_management', 'User Management'); ?></li>
+  <li><?php echo anchor('master/user_types', 'User Types'); ?></li>
+  <li><?php echo anchor('club', 'Clubs'); ?></li>
+  <li><?php echo anchor('edu', 'Classes'); ?></li>
+  <li><?php echo anchor('speaker', 'Speaker'); ?></li>
+  <li><?php echo anchor('staff', 'Staff'); ?></li>
+</ol>
 </div>
 </div>
 
 <div class="row">
-
-<div class="col-md-4 col-md-offset-3">
-    <p><?php 
-        //echo anchor('files', 'Files');
-    ?></p>
+<div class="col-md-8 col-md-offset-2">
+<ol class="breadcrumb">
+	<li><?php echo anchor('user', 'Edit Your Personal Info', 'class="btn btn"'); ?></li>
+	<li><?php echo anchor('public_ctl/reset_password', 'Reset Your Password', 'class="btn btn"'); ?></li>
+</ol>
 </div>
-
 </div>
-<br><br><br>
+<br>
 <hr />
 <br><br><br>
 </div>

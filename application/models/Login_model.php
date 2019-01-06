@@ -132,6 +132,17 @@ class Login_model extends CI_Model {
 		    $retarr['data']['logged'] = TRUE;
 		}
 		
+		elseif($usr_data->type_code == 5) {
+		    
+		    $retarr['header'] = 'template/header_public_gen';
+		    $retarr['view'] = 'clubs/main_view';
+		    $arr = $this->Club_model->get_clubs();
+		    $retarr['data']['cnt'] = $arr['cnt'];
+		    $retarr['data']['clubs'] = $arr['clubs'];
+		    $retarr['data']['msg'] = '';
+		    $retarr['data']['logged'] = TRUE;
+		}
+		
 		elseif($usr_data->type_code == 99) {
 		    
 		    $retarr['header'] = 'template/header_private';
