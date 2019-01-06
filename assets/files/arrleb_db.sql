@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db744827846.db.1and1.com
--- Generation Time: Dec 16, 2018 at 12:15 AM
+-- Generation Time: Jan 06, 2019 at 05:11 AM
 -- Server version: 5.5.60-0+deb7u1-log
 -- PHP Version: 7.0.33-0+deb9u1
 
@@ -26,19 +26,15 @@ SET time_zone = "+00:00";
 -- Table structure for table `ci_sessions`
 --
 
-DROP TABLE IF EXISTS `ci_sessions`;
-CREATE TABLE IF NOT EXISTS `ci_sessions` (
-  `id_sessions` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `ci_sessions` (
+  `id_sessions` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `session_id` varchar(128) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
   `ip_address` varchar(42) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
   `logged` tinyint(4) NOT NULL DEFAULT '0',
   `date_logged_in` int(11) NOT NULL DEFAULT '0',
-  `date_logged_out` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_sessions`),
-  KEY `id_user` (`id_user`),
-  KEY `id_user_2` (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=168 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `date_logged_out` int(11) NOT NULL DEFAULT '0'
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `ci_sessions`
@@ -203,7 +199,16 @@ INSERT INTO `ci_sessions` (`id_sessions`, `id_user`, `session_id`, `ip_address`,
 (164, 1, '629716cc4a369fef60ab06fedf9bee04ebb8a123', '76.14.106.9', 0, 1544510285, 1544515133),
 (165, 1, 'c4ab93253223be59780a98f3a14e60e32997960f', '76.14.106.9', 0, 1544515294, 1544515438),
 (166, 1, '02dadaa75d8845a060148b6509d74a63c7878748', '76.14.106.9', 0, 1544762945, 1544765731),
-(167, 1, '966c6f858f64e50a8b76657d4d62c60cde3533a6', '76.14.106.9', 1, 1544906620, 0);
+(167, 1, '966c6f858f64e50a8b76657d4d62c60cde3533a6', '76.14.106.9', 0, 1544906620, 0),
+(168, 1, '8c7b12648aa1db758e18fc31a440106f347ece9d', '76.14.106.9', 0, 1545281602, 0),
+(169, 1, '3090da153586d8ee05a9b6f274de25623f0076e3', '76.14.106.9', 0, 1545351907, 1545351929),
+(170, 1, 'eea6667999667365a5297a08d86bd2bcf1154f29', '76.14.106.9', 0, 1545535453, 0),
+(171, 1, '05038651dc732a3de7166f2d58a999299e8d6a68', '76.14.106.9', 0, 1546202101, 0),
+(172, 1, '1c928c0b8df071c1e1b7303ed9ab53cc2040202d', '76.14.106.9', 0, 1546210227, 1546210252),
+(173, 1, 'ee66a32c536c4b510cd71dab4bf47ee3dfc4cabe', '76.14.106.9', 0, 1546645045, 0),
+(174, 1, '3027d698921ce4116f095fac946a2956d9161652', '76.14.106.9', 0, 1546737125, 1546739362),
+(175, 1, 'ace18e662e7b0baccaca825aea6c16eb4d9d30d3', '76.14.106.9', 0, 1546750056, 0),
+(176, 1, '6b57f331151f4d7a357096236d556c0c17d004d7', '76.14.106.9', 1, 1546750623, 0);
 
 -- --------------------------------------------------------
 
@@ -211,16 +216,45 @@ INSERT INTO `ci_sessions` (`id_sessions`, `id_user`, `session_id`, `ip_address`,
 -- Table structure for table `clubs`
 --
 
-DROP TABLE IF EXISTS `clubs`;
-CREATE TABLE IF NOT EXISTS `clubs` (
-  `id_clubs` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `clubs` (
+  `id_clubs` int(11) NOT NULL,
   `name` varchar(28) COLLATE utf8_bin NOT NULL,
   `long_name` varchar(128) COLLATE utf8_bin NOT NULL,
   `link` varchar(128) COLLATE utf8_bin NOT NULL,
   `narrative` text COLLATE utf8_bin NOT NULL,
-  `active` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_clubs`)
+  `active` tinyint(4) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `clubs`
+--
+
+INSERT INTO `clubs` (`id_clubs`, `name`, `long_name`, `link`, `narrative`, `active`) VALUES
+(1, 'ACSCT', 'Alameda County Sheriff’s Communications Team', 'https://www.alamedacountysheriff.org/cws_communications.php', '', 1),
+(2, 'BARC', 'Benicia Amateur Radio Club', 'http://beniciaarc.com/wp/', 'partners with the Benicia Fire Department and the Solano County Sheriff’s Office.', 1),
+(3, 'CCCC', 'Contra Costa Communications Club', '', 'Located at Denny’s the corner of San Pablo Ave and Potrero Ave (11344 San Pablo Ave) El Cerrito, CA. For membership information, email Barbara, KD6OKJ at robar19@napanet.net', 1),
+(4, 'DARC', 'Delta ARC', 'http://deltaarc.org/', 'meets at 1900 hours local on the last Thursday of each month at the Pittsburg Environmental Center, 2581 Harbor St, Pittsburg, CA', 1),
+(5, 'EBARC', 'EBARC', '', 'meetings held on the 2nd Friday of the month at 1930 hours at the Community Room of the El Sobrante Library, 4191 Appian Way, El Sobrante, CA', 1),
+(6, 'FCV', 'Fremont Communications Volunteers', 'http://www.fremontares.org/', 'meets on the third Thursday of each month, except December, at 1930 hours in the Administrative Training Room at the City of Fremont Fire Administration Building B, 3300 Capitol, Fremont, CA', 1),
+(7, 'HRC', 'Hayward Radio Club', 'http://www.qsl.net/k6eag/index2.html', 'meets on the 3rd Friday of every month, 1930 hours local, at 1401 West Winton Ave, Hayward, CA, behind Hayward Fire Station #6', 1),
+(8, 'KARO-ECHO', 'Kensington Amateur Radio Operators & El Cerrito Ham Operator', 'https://www.karoecho.net/', 'organization serving the El Cerrito and Kensington Community ', 1),
+(9, 'LARIC', 'Lamorinda Amateur Radio Interest Group', 'https://www.facebook.com/K6ORI/', 'meets on the air Wednesdays at 1930 hours local, on 147.540 FM simplex, and in person 3rd Wednesday, 1900 hours, Sarge Littlehale Room, Orinda City building. LARIG holds a no-host coffee meeting at 0930 at Caffe Teatro, Orinda (downstairs from the library) on Tuesdays. ', 1),
+(10, 'LARK', 'Livermore Amateur Radio Klub', 'http://www.livermoreark.org/', 'club meetings are normally held on the 3rd Saturday of the month at 0930 hours local at the Livermore City Council Chambers 3575 Pacific Ave, Livermore, CA', 1),
+(11, 'MARC', 'Martinez Amateur Radio Club', 'http://www.mdarc.org/', 'meets on the second Saturday of the month, 0900-1100, at 604 Ferry St., Martinez, CA', 1),
+(12, 'MDARC', 'Mt Diablo Amateur Radio Club', 'http://mdarc.org', 'meetings are held on the 3rd Friday of the month at 1930 hours local at Our Savior’s Lutheran Church 1035 Carol Lane Lafayette, CA (map). VE test sessions are held before each month’s meeting at 1800 hours local', 1),
+(13, 'NCV', 'Newark Communication Volunteers', '', 'meets the 2nd Thursday of the month, 1900-2000 local time, at Fire Station #1, Thornton and Ash, Newark, CA', 1),
+(14, 'NALCO', 'Northern Alameda County', 'http://nalco-ares-races.org/', 'ARES/RACES meetings are the first Thursday of each month, 1930 local time, at Berkeley’s Training Center / Alternate Emergency Operations Center just west of Berkeley Fire Department’s Station #6, Cedar Street between 8th and 9th (enter on Cedar Street) \r\nFor NALCO web page', 1),
+(15, 'NBARA', 'North Bay Amateur Radio Association', 'http://www.nbara.org/', 'meetings take place monthly on the fourth Monday of the month at 1900 hours (this varies during November and December). The meeting place is located at Building 46, Railroad Avenue and 8th Street on Mare Island, across from Alden Park (<a href=\"https://www.google.com/maps/search/8th+%26+railroad,+vallejo,+ca/@38.098395,-122.270665,16z?hl=en\" target=\"_blank\">see map</a>). Use the repeater on 145.310 PL 88.5 for directions to the meeting. The club also holds an informal Breakfast meeting at 0730 hours on the first Saturday of each Month at Denny’s located near the intersection of Highway 37 and Highway 29 (Sonoma Blvd), 4355 Sonoma Boulevard Vallejo, CA (map). All club members and their guests are encouraged to attend. ', 1),
+(16, 'ORCA', 'Oakland Radio Communication Association', '', 'meets on the 1st Saturdays 0900 hours at Fire Station 1, 16th and MLK in Oakland.', 1),
+(17, 'ROVARC', 'Red Oak Victory Amateur Radio Club', 'http://www.qsl.net/redoakarc', 'meets on the first Saturday of the month on board the SS Red Oak Victory. The location of the Museum Ship – SS Red Oak Victory is: At the south end of Canal Street, Berth 6A of the graving docks in Richmond, CA. Directions: Take Highway 580 to Point Richmond, exit at Canal St. and head south. In about 1/2 mile Canal, Street ends at a security checkpoint for a large parking area used for off loading newly imported cars from Japan. Just before this checkpoint you bear to the right and follow the road around the car lot, out toward the water to Berth 6A. ', 1),
+(18, 'SLRC', 'San Leandro Radio Club', '', 'meets at Nick’s Family Restaurant, 14660 Washington Ave., San Leandro, on the 2nd Sunday of the month, 0700 local time.', 1),
+(19, 'SARS', 'The Silverado Amateur Radio Society', 'http://napasars.net/', 'meets the second Tuesday each month (except for the month of December), 1900 hours local time, at 2383 Napa Vallejo Highway Just south of the Kennedy Park Golf Course. ', 1),
+(20, 'SBARA', 'South Bay Amateur Radio Association', '', 'now meets on the second Friday of every month (with possible exceptions in June and December), 1930 hours local, at Hurricane Electric, 760 Mission Court, Fremont, CA 94539.', 1),
+(21, 'TRC', 'Trilogy Radio Club', '', 'meetings are every Tuesday 1000-1100 local at the Trilogy’s Vista Club House in Rio Vista. Contact John Zwier, KG6RTZ, at (707) 374-5436 for more information.', 1),
+(22, 'HARC', 'USS Hornet Amateur Radio Club', 'http://www.hornet-arc.us/index.html', 'meets the second Saturday of the month at 1300 local, on board the USS Hornet, 1301 Ferry Point, Alameda, CA. Visitors should come on board at the Security (Exit) gangway and ask at Security for the meeting location. Send inquiries to ko6no@comcast.net. ', 1),
+(23, 'ORCA', 'Oakland Radio Communication Association', 'https://www.ww6or.com/', 'meets on the 1st Saturdays 0900 hours at Fire Station 1, 16th and MLK in Oakland.', 1),
+(24, 'VVRC', 'Vaca Valley Radio Club', 'http://w6vvr.net/', 'meetings are at the Elmira Fire Station 6080 A St., Elmira on the Second Thursday of the month. General membership meeting at 1930. The June and December are special meetings and are usually held at a different time and/or place. See the club web site, w6vvr.net for more information. Radio nets are held every Tuesday at 2000 on the W6VVR repeater 145.470 MHz PL 127.3 Hz offset is minus 600 kHz. Club\'s e-mail: <a href = \"mailto: w6vvc@w6vvr.net\">w6vvc@w6vvr.net</a>', 1),
+(25, 'W6BB ARC', 'W6BB Amateur Radio Club at the University of California', 'https://www.w6bb.org/', 'meetings are announced on the website. Normally monthly meetings are held during Fall and Spring semesters. We’re in the process of rebuilding. U.C. students, staff, faculty as well as alumni, retired and emeritus are invited to join. ', 1);
 
 -- --------------------------------------------------------
 
@@ -228,9 +262,8 @@ CREATE TABLE IF NOT EXISTS `clubs` (
 -- Table structure for table `education`
 --
 
-DROP TABLE IF EXISTS `education`;
-CREATE TABLE IF NOT EXISTS `education` (
-  `id_education` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `education` (
+  `id_education` int(11) NOT NULL,
   `course` varchar(128) COLLATE utf8_bin NOT NULL,
   `club` varchar(128) COLLATE utf8_bin DEFAULT NULL,
   `date_from` int(11) NOT NULL,
@@ -239,9 +272,8 @@ CREATE TABLE IF NOT EXISTS `education` (
   `status` varchar(32) COLLATE utf8_bin NOT NULL,
   `location` varchar(1024) COLLATE utf8_bin NOT NULL,
   `details_url` varchar(512) COLLATE utf8_bin DEFAULT NULL,
-  `licensing` tinyint(4) DEFAULT '0',
-  PRIMARY KEY (`id_education`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `licensing` tinyint(4) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `education`
@@ -272,9 +304,8 @@ INSERT INTO `education` (`id_education`, `course`, `club`, `date_from`, `date_to
 -- Table structure for table `new_user`
 --
 
-DROP TABLE IF EXISTS `new_user`;
-CREATE TABLE IF NOT EXISTS `new_user` (
-  `id_new_user` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `new_user` (
+  `id_new_user` int(11) NOT NULL,
   `id_team` int(11) NOT NULL,
   `id_league` int(11) NOT NULL,
   `id_division` int(11) NOT NULL,
@@ -295,9 +326,8 @@ CREATE TABLE IF NOT EXISTS `new_user` (
   `category` tinyint(4) NOT NULL,
   `team_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
   `league_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
-  `division_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
-  PRIMARY KEY (`id_new_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `division_name` varchar(128) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `new_user`
@@ -323,7 +353,10 @@ INSERT INTO `new_user` (`id_new_user`, `id_team`, `id_league`, `id_division`, `r
 (17, 0, 0, 0, 0, 'Dave', 'Piersall', '2178 Westward Pl', 'Martinez', 'CA', '94553', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N6ORB', 0, NULL, NULL, NULL),
 (18, 0, 0, 0, 0, 'Matt', 'Vurek', 'Box 617', 'Orinda', 'CA', '94563', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N4DLA', 0, NULL, NULL, NULL),
 (19, 0, 0, 0, 0, 'Bart', 'Lee', '388 Market Street 900', 'San Francisco', 'CA', '94511', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6VK', 0, NULL, NULL, NULL),
-(20, 0, 0, 0, 0, 'Jim', 'Tittle', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6SOE', 0, NULL, NULL, NULL);
+(20, 0, 0, 0, 0, 'Jim', 'Tittle', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6SOE', 0, NULL, NULL, NULL),
+(21, 0, 0, 0, 0, 'Michael', 'Warren', '1985 Oakridge Ln', 'Pittsburg', 'CA', '94565', '9254399553', 'mwarren260@comcast.net', 'https://www.facebook.com/Michael.and.Marilyn.Warren', 'https://twitter.com/mwarren2', 'https://www.linkedin.com/in/michaelwarren260/', '', 'W6MEW', 0, NULL, NULL, NULL),
+(22, 0, 0, 0, 0, 'Gary', 'Benecke', '6856Balsam Way', 'Oakland', 'CA', '94611', '510-655-5808', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', 0, NULL, NULL, NULL),
+(23, 0, 0, 0, 0, 'Nafomamed', 'Nafomamed', 'Живу в Москве', 'Живу в Москве', 'AZ', '151343', '89176754849', 'mosk.cross@gmailu.ru', '', '', '', '', 'Nafomamed', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -331,16 +364,14 @@ INSERT INTO `new_user` (`id_new_user`, `id_team`, `id_league`, `id_division`, `r
 -- Table structure for table `repository`
 --
 
-DROP TABLE IF EXISTS `repository`;
-CREATE TABLE IF NOT EXISTS `repository` (
-  `id_repository` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `repository` (
+  `id_repository` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `path` varchar(512) COLLATE utf8_bin NOT NULL,
   `description` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
   `name` varchar(512) COLLATE utf8_bin NOT NULL,
-  `private_file` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_repository`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `private_file` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `repository`
@@ -356,8 +387,7 @@ INSERT INTO `repository` (`id_repository`, `id_user`, `path`, `description`, `na
 -- Table structure for table `speaker_topics`
 --
 
-DROP TABLE IF EXISTS `speaker_topics`;
-CREATE TABLE IF NOT EXISTS `speaker_topics` (
+CREATE TABLE `speaker_topics` (
   `id_speaker_topics` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `topic_name` varchar(512) COLLATE utf8_bin DEFAULT NULL,
@@ -379,12 +409,41 @@ INSERT INTO `speaker_topics` (`id_speaker_topics`, `id_user`, `topic_name`, `top
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `staff`
+--
+
+CREATE TABLE `staff` (
+  `id_staff` int(11) NOT NULL,
+  `id_user` int(11) DEFAULT NULL,
+  `position_name` varchar(128) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`id_staff`, `id_user`, `position_name`) VALUES
+(1, 9, 'Section Manager'),
+(2, 1, 'Assistant Section Manager'),
+(4, 15, 'Public Information Coordinator'),
+(5, 14, 'Section Emergency Coordinator'),
+(6, 16, 'Section Net Manager'),
+(7, 17, 'Official Relay Station'),
+(8, 18, 'Contra Costa County'),
+(9, 19, 'Affiliated Club Coordinator'),
+(10, 20, 'Local Government Liaison'),
+(11, 21, 'Official Observer Coordinator'),
+(12, 12, 'Technical Coordinator'),
+(13, 11, 'Education Coordinator');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id_user` int(11) NOT NULL,
   `type_code` tinyint(4) NOT NULL,
   `role` varchar(12) COLLATE latin1_general_ci DEFAULT NULL,
   `pass` varchar(512) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -409,28 +468,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `position` varchar(512) COLLATE latin1_general_ci DEFAULT NULL,
   `pos_code` tinyint(4) DEFAULT '0',
   `image_loc` varchar(512) COLLATE latin1_general_ci NOT NULL DEFAULT '/assets/img/team-member.gif',
-  PRIMARY KEY (`id_user`),
-  KEY `id_user_types` (`type_code`),
-  KEY `id_user_types_2` (`type_code`)
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `profile` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id_user`, `type_code`, `role`, `pass`, `username`, `fname`, `lname`, `email`, `facebook`, `twitter`, `linkedin`, `googleplus`, `callsign`, `phone`, `street`, `city`, `state_cd`, `zip_cd`, `authorized`, `verifystr`, `email_key`, `active`, `position`, `pos_code`, `image_loc`) VALUES
-(1, 99, 'MST', '$2y$12$OTeRu3bWj4Ll8QWqcdUyzeHv47wLEuBetjPGgdMTyAkFFEwkijiGS', 'hacq', 'Jan', 'Kulisek', 'jan@jlkconsulting.info', 'https://www.facebook.com/jkulisek', 'https://twitter.com/JanKulisek', 'https://www.linkedin.com/in/jan-kul%C3%ADsek-13066b44/', 'https://plus.google.com/u/0/102144146559622259709', 'KM6NFC', '8889997777', '123 Street St.', 'Chicago', 'AL', '99447', 1, 'http://localhost/mdarc/index.php/public_ctl/confirm_reg/573f016b853c92b03f51adf9', '573f016b853c92b03f51adf9', 1, 'Assistant Manager', 2, 'assets/img/me.png'),
-(17, 0, NULL, NULL, NULL, 'Gary', 'Gross', 'ke6qr@COMCAST.NET', '', '', '', '', 'KE6QR', 'N/A', '111 Dryden Dr', 'Vallejo', 'CA', '94591', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/97d0ec9263f7a987080a0706', '97d0ec9263f7a987080a0706', 1, 'Official Relay Station', 6, '/assets/img/team-member.gif'),
-(14, 0, NULL, '$2y$12$yJZ1edJXbvaMMe9yugZ29ecumeGNZ3bhxfk6oIiFWCgxEQnUk/c2m', 'kc6skm', 'Scott', 'Morse', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 'N/A', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9c5584dfe7a6193f03fd0908', '9c5584dfe7a6193f03fd0908', 0, 'Section Emergency Coordinator', 4, '/assets/img/scott.jpg'),
-(9, 1, 'EDU', '$2y$12$rHZYGSSMQ.o1FxXFt8lOdeepZiqbtP/5ko/7yM6NyTB1D/viwX1c6', 'w6lk', 'Jim', 'Siemons', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk', '925-330-0049', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/d4b345b7a44acf5b5057b1ba', 'd4b345b7a44acf5b5057b1ba', 1, 'Section Manager', 1, '\r\nassets/img/jim.jpg'),
-(11, 1, 'EDU', '$2y$12$BlROAX6.ylZWcGadkzTg/uKZ.nvmibaYuA0x6WKoyJHovoqzAIaRW', 'af6rj', 'John', 'Primus', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', '9258257670', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/261426a4ed4e92a35bb591f4', '261426a4ed4e92a35bb591f4', 1, 'Education Coordinator', 12, '/assets/img/john.png'),
-(12, 3, 'SPK', '$2y$12$oMmCMpRJxsBlheQY9/sAj.HtcqEy3/hVJF0DxXCHfLCc.otb/9Fku', 'k6wx', 'Kristen', 'McIntyre', 'kristen@arrleb.org', '', '', '', '', 'K6WX', '(510) 703-4942', '40711 Witherspoon Ter', 'Fremont', 'CA', '94538-3513', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/853b85059868c400224ee27a', '853b85059868c400224ee27a', 1, 'Technical Coordinator', 11, '/assets/img/team-member.gif'),
-(16, 0, NULL, NULL, NULL, 'Steve', 'Hawes', 'shawes@arrleb.org', '', '', '', '', 'WB6UZX', 'N/A', '1255 Cornell Avenue', 'Berkeley', 'CA', '94706', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/cb312c13dcc6e31dce8abd00', 'cb312c13dcc6e31dce8abd00', 1, 'Section Net Manager', 5, '/assets/img/team-member.gif'),
-(15, 1, 'EDU', '$2y$12$7YfiZ6qtI9HAjfxlwGRQ/eKXcbWtaCOTZL.R0owWtBwrQiD9CbOI.', 'KJ6BUE2018EB', 'MISA', 'SIEMONS', 'MISA@SIEMONS.COM', '', '', '', '', 'KJ6BUE', '(925) 876-6611', '2308 LOMOND LANE', 'WALNUT CREEK', 'CA', '94598', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/aa009f1474697ee061d0f4ad', 'aa009f1474697ee061d0f4ad', 1, 'Public Information Coordinator', 3, '/assets/img/misa.png'),
-(18, 0, NULL, NULL, NULL, 'Dave', 'Piersall', 'dfp@pacbell.net', '', '', '', '', 'N6ORB', 'N/A', '2178 Westward Pl', 'Martinez', 'CA', '94553', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/389ee49fef46ec85094c6878', '389ee49fef46ec85094c6878', 1, 'Contra Costa County', 7, '/assets/img/dave.png'),
-(19, 0, NULL, NULL, NULL, 'Matt', 'Vurek', 'n4dla_cs245@yahoo.com', '', '', '', '', 'N4DLA', 'N/A', 'Box 617', 'Orinda', 'CA', '94563', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/3f73fa2b7042501a7ce0912c', '3f73fa2b7042501a7ce0912c', 1, 'Affiliated Club Coordinator', 8, '/assets/img/team-member.gif'),
-(20, 0, NULL, NULL, NULL, 'Bart', 'Lee', 'Bart.Lee.K6VK@gmail.com', '', '', '', '', 'K6VK', 'N/A', '388 Market Street 900', 'San Francisco', 'CA', '94511', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/c950538f1cc099ce605f428a', 'c950538f1cc099ce605f428a', 1, 'Local Govt Liaison', 9, '/assets/img/bart.png'),
-(21, 0, NULL, NULL, NULL, 'Jim', 'Tittle', 'K6SOE@ARRL.NET', '', '', '', '', 'K6SOE', 'N/A', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9e838816edcb1a4e9fa061fd', '9e838816edcb1a4e9fa061fd', 1, 'Official Observer Coordinator', 10, '/assets/img/team-member.gif');
+INSERT INTO `users` (`id_user`, `type_code`, `role`, `pass`, `username`, `fname`, `lname`, `email`, `facebook`, `twitter`, `linkedin`, `googleplus`, `callsign`, `phone`, `street`, `city`, `state_cd`, `zip_cd`, `authorized`, `verifystr`, `email_key`, `active`, `position`, `pos_code`, `image_loc`, `profile`) VALUES
+(1, 99, 'MST', '$2y$12$OTeRu3bWj4Ll8QWqcdUyzeHv47wLEuBetjPGgdMTyAkFFEwkijiGS', 'hacq', 'Jan', 'Kulisek', 'jkulisek.us@gmail.com', 'https://www.facebook.com/jkulisek', 'https://twitter.com/JanKulisek', 'https://www.linkedin.com/in/jan-kul%C3%ADsek-13066b44/', 'https://plus.google.com/u/0/102144146559622259709', 'KM6NFC', '925-286-7331', '2930 Hilltop Rd', 'Concord', 'CA', '94520', 1, 'http://localhost/mdarc/index.php/public_ctl/confirm_reg/573f016b853c92b03f51adf9', '573f016b853c92b03f51adf9', 1, 'Assistant Section Manager', 2, 'assets/img/me.png', NULL),
+(17, 0, NULL, NULL, NULL, 'Gary', 'Gross', 'ke6qr@COMCAST.NET', '', '', '', '', 'KE6QR', 'N/A', '111 Dryden Dr', 'Vallejo', 'CA', '94591', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/97d0ec9263f7a987080a0706', '97d0ec9263f7a987080a0706', 1, 'Official Relay Station', 6, '/assets/img/team-member.gif', NULL),
+(14, 0, NULL, '$2y$12$yJZ1edJXbvaMMe9yugZ29ecumeGNZ3bhxfk6oIiFWCgxEQnUk/c2m', 'kc6skm', 'Scott', 'Morse', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 'N/A', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9c5584dfe7a6193f03fd0908', '9c5584dfe7a6193f03fd0908', 0, 'Section Emergency Coordinator', 4, '/assets/img/scott.jpg', NULL),
+(9, 1, 'EDU', '$2y$12$rHZYGSSMQ.o1FxXFt8lOdeepZiqbtP/5ko/7yM6NyTB1D/viwX1c6', 'w6lk', 'Jim', 'Siemons', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk', '925-330-0049', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/d4b345b7a44acf5b5057b1ba', 'd4b345b7a44acf5b5057b1ba', 1, 'Section Manager', 1, '\r\nassets/img/jim.jpg', NULL),
+(11, 1, 'EDU', '$2y$12$BlROAX6.ylZWcGadkzTg/uKZ.nvmibaYuA0x6WKoyJHovoqzAIaRW', 'af6rj', 'John', 'Primus', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', '9258257670', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/261426a4ed4e92a35bb591f4', '261426a4ed4e92a35bb591f4', 1, 'Education Coordinator', 12, '/assets/img/john.png', NULL),
+(12, 3, 'SPK', '$2y$12$oMmCMpRJxsBlheQY9/sAj.HtcqEy3/hVJF0DxXCHfLCc.otb/9Fku', 'k6wx', 'Kristen', 'McIntyre', 'kristen@arrleb.org', '', '', '', '', 'K6WX', '(510) 703-4942', '40711 Witherspoon Ter', 'Fremont', 'CA', '94538-3513', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/853b85059868c400224ee27a', '853b85059868c400224ee27a', 1, 'Technical Coordinator', 11, '/assets/img/team-member.gif', NULL),
+(16, 0, NULL, NULL, NULL, 'Steve', 'Hawes', 'shawes@arrleb.org', '', '', '', '', 'WB6UZX', 'N/A', '1255 Cornell Avenue', 'Berkeley', 'CA', '94706', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/cb312c13dcc6e31dce8abd00', 'cb312c13dcc6e31dce8abd00', 1, 'Section Net Manager', 5, '/assets/img/team-member.gif', NULL),
+(15, 1, 'EDU', '$2y$12$7YfiZ6qtI9HAjfxlwGRQ/eKXcbWtaCOTZL.R0owWtBwrQiD9CbOI.', 'KJ6BUE2018EB', 'MISA', 'SIEMONS', 'MISA@SIEMONS.COM', '', '', '', '', 'KJ6BUE', '(925) 876-6611', '2308 LOMOND LANE', 'WALNUT CREEK', 'CA', '94598', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/aa009f1474697ee061d0f4ad', 'aa009f1474697ee061d0f4ad', 1, 'Public Information Coordinator', 3, '/assets/img/misa.png', NULL),
+(18, 0, NULL, NULL, NULL, 'Dave', 'Piersall', 'dfp@pacbell.net', '', '', '', '', 'N6ORB', 'N/A', '2178 Westward Pl', 'Martinez', 'CA', '94553', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/389ee49fef46ec85094c6878', '389ee49fef46ec85094c6878', 1, 'Contra Costa County', 7, '/assets/img/dave.png', NULL),
+(19, 5, 'CLB', NULL, NULL, 'Matt', 'Vurek', 'n4dla_cs245@yahoo.com', '', '', '', '', 'N4DLA', 'N/A', 'Box 617', 'Orinda', 'CA', '94563', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/3f73fa2b7042501a7ce0912c', '3f73fa2b7042501a7ce0912c', 1, 'Affiliated Club Coordinator', 8, '/assets/img/team-member.gif', NULL),
+(20, 0, NULL, NULL, NULL, 'Bart', 'Lee', 'Bart.Lee.K6VK@gmail.com', '', '', '', '', 'K6VK', 'N/A', '388 Market Street 900', 'San Francisco', 'CA', '94511', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/c950538f1cc099ce605f428a', 'c950538f1cc099ce605f428a', 1, 'Local Govt Liaison', 9, '/assets/img/bart.png', NULL),
+(21, 0, NULL, NULL, NULL, 'Jim', 'Tittle', 'K6SOE@ARRL.NET', '', '', '', '', 'K6SOE', 'N/A', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9e838816edcb1a4e9fa061fd', '9e838816edcb1a4e9fa061fd', 1, 'Official Observer Coordinator', 10, '/assets/img/team-member.gif', NULL),
+(22, 4, 'GEN', '$2y$12$CUiCW4dK7uen.Vt1xHMHsuO.AXtTD5DKAYgorm6WaiSviQodiLrgu', 'W6MEW', 'Michael', 'Warren', 'mwarren260@comcast.net', 'https://www.facebook.com/Michael.and.Marilyn.Warren', 'https://twitter.com/mwarren2', 'https://www.linkedin.com/in/michaelwarren260/', '', 'W6MEW', '9254399553', '1985 Oakridge Ln', 'Pittsburg', 'CA', '94565', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/35e21c46c8011ae67bd67306', '35e21c46c8011ae67bd67306', 1, NULL, 0, '/assets/img/team-member.gif', NULL),
+(23, 0, NULL, '$2y$12$Slxokj/JKZSsUITcIOiPXeoKM6oX9uk8UKbagJZciaanRGv/Ex1wG', 'brylla', 'Gary', 'Benecke', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', '510-655-5808', '6856Balsam Way', 'Oakland', 'CA', '94611', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/2d424699243d17d2cd30fb2f', '2d424699243d17d2cd30fb2f', 0, NULL, 0, '/assets/img/team-member.gif', NULL);
 
 -- --------------------------------------------------------
 
@@ -438,9 +497,8 @@ INSERT INTO `users` (`id_user`, `type_code`, `role`, `pass`, `username`, `fname`
 -- Table structure for table `user_0_tbl`
 --
 
-DROP TABLE IF EXISTS `user_0_tbl`;
-CREATE TABLE IF NOT EXISTS `user_0_tbl` (
-  `id_user_0_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_0_tbl` (
+  `id_user_0_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -456,8 +514,7 @@ CREATE TABLE IF NOT EXISTS `user_0_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_0_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -466,9 +523,8 @@ CREATE TABLE IF NOT EXISTS `user_0_tbl` (
 -- Table structure for table `user_1_tbl`
 --
 
-DROP TABLE IF EXISTS `user_1_tbl`;
-CREATE TABLE IF NOT EXISTS `user_1_tbl` (
-  `id_user_1_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_1_tbl` (
+  `id_user_1_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -484,16 +540,15 @@ CREATE TABLE IF NOT EXISTS `user_1_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text,
-  PRIMARY KEY (`id_user_1_tbl`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_1_tbl`
 --
 
 INSERT INTO `user_1_tbl` (`id_user_1_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `state_cd`, `zip_cd`, `facebook`, `twitter`, `linkedin`, `googleplus`, `narrative`, `narrative2`) VALUES
-(1, 1, 'Craig', 'Topper', 'hacq', 'topper@spearheads.com', '8889997777', '123 Street St.', 'Chicago', 'AL', '99447', '', '', '', '', 'Jan has been radio enthusiast since Cold War when a short wave radio was the only source of information in certain parts of the world.', '');
+(1, 1, 'Jan', 'Kulisek', 'hacq', 'jkulisek.us@gmail.com', '925-286-7331', '2930 Hilltop Rd', 'Concord', 'CA', '94520', 'https://www.facebook.com/jkulisek', 'https://twitter.com/JanKulisek', 'https://www.linkedin.com/in/jan-kul%C3%ADsek-13066b44/', 'https://plus.google.com/u/0/102144146559622259709', 'Jan has been radio enthusiast since Cold War when a short wave radio was the only source of information in certain parts of the world.', '');
 
 -- --------------------------------------------------------
 
@@ -501,9 +556,8 @@ INSERT INTO `user_1_tbl` (`id_user_1_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_4_tbl`
 --
 
-DROP TABLE IF EXISTS `user_4_tbl`;
-CREATE TABLE IF NOT EXISTS `user_4_tbl` (
-  `id_user_4_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_4_tbl` (
+  `id_user_4_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -519,9 +573,8 @@ CREATE TABLE IF NOT EXISTS `user_4_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text,
-  PRIMARY KEY (`id_user_4_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_4_tbl`
@@ -536,9 +589,8 @@ INSERT INTO `user_4_tbl` (`id_user_4_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_5_tbl`
 --
 
-DROP TABLE IF EXISTS `user_5_tbl`;
-CREATE TABLE IF NOT EXISTS `user_5_tbl` (
-  `id_user_5_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_5_tbl` (
+  `id_user_5_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -554,9 +606,8 @@ CREATE TABLE IF NOT EXISTS `user_5_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text,
-  PRIMARY KEY (`id_user_5_tbl`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_5_tbl`
@@ -571,9 +622,8 @@ INSERT INTO `user_5_tbl` (`id_user_5_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_9_tbl`
 --
 
-DROP TABLE IF EXISTS `user_9_tbl`;
-CREATE TABLE IF NOT EXISTS `user_9_tbl` (
-  `id_user_9_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_9_tbl` (
+  `id_user_9_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -589,9 +639,8 @@ CREATE TABLE IF NOT EXISTS `user_9_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text,
-  PRIMARY KEY (`id_user_9_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_9_tbl`
@@ -606,9 +655,8 @@ INSERT INTO `user_9_tbl` (`id_user_9_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_11_tbl`
 --
 
-DROP TABLE IF EXISTS `user_11_tbl`;
-CREATE TABLE IF NOT EXISTS `user_11_tbl` (
-  `id_user_11_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_11_tbl` (
+  `id_user_11_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -624,9 +672,8 @@ CREATE TABLE IF NOT EXISTS `user_11_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text,
-  PRIMARY KEY (`id_user_11_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_11_tbl`
@@ -641,9 +688,8 @@ INSERT INTO `user_11_tbl` (`id_user_11_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_12_tbl`
 --
 
-DROP TABLE IF EXISTS `user_12_tbl`;
-CREATE TABLE IF NOT EXISTS `user_12_tbl` (
-  `id_user_12_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_12_tbl` (
+  `id_user_12_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -659,9 +705,8 @@ CREATE TABLE IF NOT EXISTS `user_12_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_12_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_12_tbl`
@@ -676,9 +721,8 @@ INSERT INTO `user_12_tbl` (`id_user_12_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_14_tbl`
 --
 
-DROP TABLE IF EXISTS `user_14_tbl`;
-CREATE TABLE IF NOT EXISTS `user_14_tbl` (
-  `id_user_14_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_14_tbl` (
+  `id_user_14_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -694,9 +738,8 @@ CREATE TABLE IF NOT EXISTS `user_14_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_14_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_14_tbl`
@@ -711,9 +754,8 @@ INSERT INTO `user_14_tbl` (`id_user_14_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_15_tbl`
 --
 
-DROP TABLE IF EXISTS `user_15_tbl`;
-CREATE TABLE IF NOT EXISTS `user_15_tbl` (
-  `id_user_15_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_15_tbl` (
+  `id_user_15_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -729,9 +771,8 @@ CREATE TABLE IF NOT EXISTS `user_15_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_15_tbl`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_15_tbl`
@@ -746,9 +787,8 @@ INSERT INTO `user_15_tbl` (`id_user_15_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_16_tbl`
 --
 
-DROP TABLE IF EXISTS `user_16_tbl`;
-CREATE TABLE IF NOT EXISTS `user_16_tbl` (
-  `id_user_16_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_16_tbl` (
+  `id_user_16_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -764,8 +804,7 @@ CREATE TABLE IF NOT EXISTS `user_16_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_16_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -774,9 +813,8 @@ CREATE TABLE IF NOT EXISTS `user_16_tbl` (
 -- Table structure for table `user_17_tbl`
 --
 
-DROP TABLE IF EXISTS `user_17_tbl`;
-CREATE TABLE IF NOT EXISTS `user_17_tbl` (
-  `id_user_17_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_17_tbl` (
+  `id_user_17_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -792,8 +830,7 @@ CREATE TABLE IF NOT EXISTS `user_17_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_17_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -802,9 +839,8 @@ CREATE TABLE IF NOT EXISTS `user_17_tbl` (
 -- Table structure for table `user_18_tbl`
 --
 
-DROP TABLE IF EXISTS `user_18_tbl`;
-CREATE TABLE IF NOT EXISTS `user_18_tbl` (
-  `id_user_18_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_18_tbl` (
+  `id_user_18_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -820,8 +856,7 @@ CREATE TABLE IF NOT EXISTS `user_18_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_18_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -830,9 +865,8 @@ CREATE TABLE IF NOT EXISTS `user_18_tbl` (
 -- Table structure for table `user_19_tbl`
 --
 
-DROP TABLE IF EXISTS `user_19_tbl`;
-CREATE TABLE IF NOT EXISTS `user_19_tbl` (
-  `id_user_19_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_19_tbl` (
+  `id_user_19_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -848,8 +882,7 @@ CREATE TABLE IF NOT EXISTS `user_19_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_19_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -858,9 +891,8 @@ CREATE TABLE IF NOT EXISTS `user_19_tbl` (
 -- Table structure for table `user_20_tbl`
 --
 
-DROP TABLE IF EXISTS `user_20_tbl`;
-CREATE TABLE IF NOT EXISTS `user_20_tbl` (
-  `id_user_20_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_20_tbl` (
+  `id_user_20_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -876,8 +908,7 @@ CREATE TABLE IF NOT EXISTS `user_20_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_20_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -886,9 +917,8 @@ CREATE TABLE IF NOT EXISTS `user_20_tbl` (
 -- Table structure for table `user_21_tbl`
 --
 
-DROP TABLE IF EXISTS `user_21_tbl`;
-CREATE TABLE IF NOT EXISTS `user_21_tbl` (
-  `id_user_21_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_21_tbl` (
+  `id_user_21_tbl` int(11) UNSIGNED NOT NULL,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -904,9 +934,41 @@ CREATE TABLE IF NOT EXISTS `user_21_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL,
-  PRIMARY KEY (`id_user_21_tbl`)
+  `narrative2` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_22_tbl`
+--
+
+CREATE TABLE `user_22_tbl` (
+  `id_user_22_tbl` int(11) UNSIGNED NOT NULL,
+  `id_user` int(11) UNSIGNED NOT NULL,
+  `fname` varchar(100) NOT NULL DEFAULT '',
+  `lname` varchar(100) NOT NULL DEFAULT '',
+  `username` varchar(32) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(32) NOT NULL DEFAULT '',
+  `street` varchar(100) NOT NULL DEFAULT '',
+  `city` varchar(128) NOT NULL DEFAULT '',
+  `facebook` varchar(128) NOT NULL DEFAULT '',
+  `twitter` varchar(128) NOT NULL DEFAULT '',
+  `linkedin` varchar(128) NOT NULL DEFAULT '',
+  `googleplus` varchar(128) NOT NULL DEFAULT '',
+  `state_cd` varchar(2) NOT NULL DEFAULT '',
+  `zip_cd` varchar(10) NOT NULL DEFAULT '',
+  `narrative` text NOT NULL,
+  `narrative2` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_22_tbl`
+--
+
+INSERT INTO `user_22_tbl` (`id_user_22_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `facebook`, `twitter`, `linkedin`, `googleplus`, `state_cd`, `zip_cd`, `narrative`, `narrative2`) VALUES
+(1, 22, 'Michael', 'Warren', 'W6MEW', 'mwarren260@comcast.net', '9254399553', '1985 Oakridge Ln', 'Pittsburg', '', '', '', '', 'CA', '94565', '', '');
 
 -- --------------------------------------------------------
 
@@ -914,14 +976,12 @@ CREATE TABLE IF NOT EXISTS `user_21_tbl` (
 -- Table structure for table `user_types`
 --
 
-DROP TABLE IF EXISTS `user_types`;
-CREATE TABLE IF NOT EXISTS `user_types` (
-  `id_user_types` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user_types` (
+  `id_user_types` int(11) NOT NULL,
   `type_code` tinyint(4) NOT NULL,
   `description` varchar(32) COLLATE utf8_bin NOT NULL,
-  `code_str` varchar(4) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id_user_types`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `code_str` varchar(4) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `user_types`
@@ -932,8 +992,286 @@ INSERT INTO `user_types` (`id_user_types`, `type_code`, `description`, `code_str
 (2, 1, 'education', 'EDU'),
 (3, 2, 'events', 'EVS'),
 (4, 0, 'Not Set', 'NON'),
-(5, 3, 'speaker', 'SPK');
+(5, 3, 'speaker', 'SPK'),
+(6, 4, 'general', 'GEN'),
+(7, 5, 'Club Admin', 'CLB');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id_sessions`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_user_2` (`id_user`);
+
+--
+-- Indexes for table `clubs`
+--
+ALTER TABLE `clubs`
+  ADD PRIMARY KEY (`id_clubs`);
+
+--
+-- Indexes for table `education`
+--
+ALTER TABLE `education`
+  ADD PRIMARY KEY (`id_education`);
+
+--
+-- Indexes for table `new_user`
+--
+ALTER TABLE `new_user`
+  ADD PRIMARY KEY (`id_new_user`);
+
+--
+-- Indexes for table `repository`
+--
+ALTER TABLE `repository`
+  ADD PRIMARY KEY (`id_repository`);
+
+--
+-- Indexes for table `staff`
+--
+ALTER TABLE `staff`
+  ADD PRIMARY KEY (`id_staff`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_user`),
+  ADD KEY `id_user_types` (`type_code`),
+  ADD KEY `id_user_types_2` (`type_code`);
+
+--
+-- Indexes for table `user_0_tbl`
+--
+ALTER TABLE `user_0_tbl`
+  ADD PRIMARY KEY (`id_user_0_tbl`);
+
+--
+-- Indexes for table `user_1_tbl`
+--
+ALTER TABLE `user_1_tbl`
+  ADD PRIMARY KEY (`id_user_1_tbl`);
+
+--
+-- Indexes for table `user_4_tbl`
+--
+ALTER TABLE `user_4_tbl`
+  ADD PRIMARY KEY (`id_user_4_tbl`);
+
+--
+-- Indexes for table `user_5_tbl`
+--
+ALTER TABLE `user_5_tbl`
+  ADD PRIMARY KEY (`id_user_5_tbl`);
+
+--
+-- Indexes for table `user_9_tbl`
+--
+ALTER TABLE `user_9_tbl`
+  ADD PRIMARY KEY (`id_user_9_tbl`);
+
+--
+-- Indexes for table `user_11_tbl`
+--
+ALTER TABLE `user_11_tbl`
+  ADD PRIMARY KEY (`id_user_11_tbl`);
+
+--
+-- Indexes for table `user_12_tbl`
+--
+ALTER TABLE `user_12_tbl`
+  ADD PRIMARY KEY (`id_user_12_tbl`);
+
+--
+-- Indexes for table `user_14_tbl`
+--
+ALTER TABLE `user_14_tbl`
+  ADD PRIMARY KEY (`id_user_14_tbl`);
+
+--
+-- Indexes for table `user_15_tbl`
+--
+ALTER TABLE `user_15_tbl`
+  ADD PRIMARY KEY (`id_user_15_tbl`);
+
+--
+-- Indexes for table `user_16_tbl`
+--
+ALTER TABLE `user_16_tbl`
+  ADD PRIMARY KEY (`id_user_16_tbl`);
+
+--
+-- Indexes for table `user_17_tbl`
+--
+ALTER TABLE `user_17_tbl`
+  ADD PRIMARY KEY (`id_user_17_tbl`);
+
+--
+-- Indexes for table `user_18_tbl`
+--
+ALTER TABLE `user_18_tbl`
+  ADD PRIMARY KEY (`id_user_18_tbl`);
+
+--
+-- Indexes for table `user_19_tbl`
+--
+ALTER TABLE `user_19_tbl`
+  ADD PRIMARY KEY (`id_user_19_tbl`);
+
+--
+-- Indexes for table `user_20_tbl`
+--
+ALTER TABLE `user_20_tbl`
+  ADD PRIMARY KEY (`id_user_20_tbl`);
+
+--
+-- Indexes for table `user_21_tbl`
+--
+ALTER TABLE `user_21_tbl`
+  ADD PRIMARY KEY (`id_user_21_tbl`);
+
+--
+-- Indexes for table `user_22_tbl`
+--
+ALTER TABLE `user_22_tbl`
+  ADD PRIMARY KEY (`id_user_22_tbl`);
+
+--
+-- Indexes for table `user_types`
+--
+ALTER TABLE `user_types`
+  ADD PRIMARY KEY (`id_user_types`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  MODIFY `id_sessions` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
+--
+-- AUTO_INCREMENT for table `clubs`
+--
+ALTER TABLE `clubs`
+  MODIFY `id_clubs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `education`
+--
+ALTER TABLE `education`
+  MODIFY `id_education` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `new_user`
+--
+ALTER TABLE `new_user`
+  MODIFY `id_new_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+--
+-- AUTO_INCREMENT for table `repository`
+--
+ALTER TABLE `repository`
+  MODIFY `id_repository` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `staff`
+--
+ALTER TABLE `staff`
+  MODIFY `id_staff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+--
+-- AUTO_INCREMENT for table `user_0_tbl`
+--
+ALTER TABLE `user_0_tbl`
+  MODIFY `id_user_0_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_1_tbl`
+--
+ALTER TABLE `user_1_tbl`
+  MODIFY `id_user_1_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_4_tbl`
+--
+ALTER TABLE `user_4_tbl`
+  MODIFY `id_user_4_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_5_tbl`
+--
+ALTER TABLE `user_5_tbl`
+  MODIFY `id_user_5_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_9_tbl`
+--
+ALTER TABLE `user_9_tbl`
+  MODIFY `id_user_9_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_11_tbl`
+--
+ALTER TABLE `user_11_tbl`
+  MODIFY `id_user_11_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_12_tbl`
+--
+ALTER TABLE `user_12_tbl`
+  MODIFY `id_user_12_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_14_tbl`
+--
+ALTER TABLE `user_14_tbl`
+  MODIFY `id_user_14_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_15_tbl`
+--
+ALTER TABLE `user_15_tbl`
+  MODIFY `id_user_15_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_16_tbl`
+--
+ALTER TABLE `user_16_tbl`
+  MODIFY `id_user_16_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_17_tbl`
+--
+ALTER TABLE `user_17_tbl`
+  MODIFY `id_user_17_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_18_tbl`
+--
+ALTER TABLE `user_18_tbl`
+  MODIFY `id_user_18_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_19_tbl`
+--
+ALTER TABLE `user_19_tbl`
+  MODIFY `id_user_19_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_20_tbl`
+--
+ALTER TABLE `user_20_tbl`
+  MODIFY `id_user_20_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `user_21_tbl`
+--
+ALTER TABLE `user_21_tbl`
+  MODIFY `id_user_21_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_22_tbl`
+--
+ALTER TABLE `user_22_tbl`
+  MODIFY `id_user_22_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `user_types`
+--
+ALTER TABLE `user_types`
+  MODIFY `id_user_types` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
