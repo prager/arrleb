@@ -2,15 +2,14 @@
 	
 	<div class="box">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
         	<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
         				<th>Position</th>
         				<th>Name</th>
         				<th>Callsign</th>
-        				<th>Select User</th>
-        				<th>Edit / Delete</th>
+        				<th>Edit</th>
         			</tr>
         		</thead>
         		<tbody>
@@ -20,13 +19,12 @@
         				<td><?php echo $row['pos_name']; ?></td>
         				<td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
         				<td><?php echo $row['callsign']; ?></td>
-        				<td><?php echo form_dropdown('user', $users, $row['id_user'], 'class="form-control"');?></td>
         				<td>
-        					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id_user']; ?>">Edit Position</a> 
-        					/    
-        					<a href="#" data-toggle="modal" data-target="#deleteClass<?php echo $row['id_user']; ?>">Delete Position</a>
-        					<?php include 'inc_delete_class.php'; ?>
-        					<?php include 'inc_modal_edit.php'; ?>     				
+        					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id_staff']; ?>">Edit </a> 
+        					<!-- /    
+        					<a href="#" data-toggle="modal" data-target="#deletePos<?php echo $row['id_staff']; ?>">Delete </a> --> 
+        					<?php include 'inc_delete_pos.php'; ?>
+        					<?php include 'inc_edit_pos.php'; ?>   				
         				</td>
         			</tr>
         			<?php }?>
@@ -37,20 +35,20 @@
     
 	<?php echo form_close(); ?>
     <div class="row">
-    	<div class="col-md-10 col-md-offset-1">
+    	<div class="col-md-8 col-md-offset-2">
     		<br>
-    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Staff Position</a>
+    		<a href="#" data-toggle="modal" data-target="#addPos" class="btn btn-primary" role="button">Add Staff Position</a>
     		<?php include 'inc_modal_add.php'; ?>
     	</div>
     </div>
     </div>    
 	<div class="row">
-    	<div class="col-md-10">
+    	<div class="col-md-8 col-md-offset-2">
     		<p><?php echo anchor('user', 'Edit Your Personal Info', 'class="btn btn"'); ?></p>
     	</div>
 	</div>  
 	<div class="row">
-    	<div class="col-md-10">
+    	<div class="col-md-8 col-md-offset-2">
     		<p><?php echo anchor('public_ctl/reset_password', 'Reset Your Password', 'class="btn btn"'); ?></p>
     	</div>
 	</div>

@@ -384,6 +384,7 @@ Thank you for your interest in ARRL EB Section!';
 	
 	public function get_staff_positions() {
 	    $this->db->select('*');
+	    $this->db->order_by('id_staff', 'ASC');
 	    $positions = $this->db->get('staff')->result();
 	    
 	    $retarr = array();
@@ -405,19 +406,35 @@ Thank you for your interest in ARRL EB Section!';
 	        
 	        array_push($retarr['positions'], $arr);
 	    }
-	    
-	    $retarr['users'] = array();
-	    
+	    	    
 	    $this->db->select('*');
 	    $users = $this->db->get('users')->result();
 	    
+	    $temp_arr = array();
 	    foreach ($users as $row) {
-	        $retarr[$row->id_user]['users']['id_user'] = $row->id_user;
-	        $retarr[$row->id_user]['users']['fname'] = $row->fname;
-	        $retarr[$row->id_user]['users']['lname'] = $row->lname;
+	        
+	        $usr_arr = array(
+	            'id_user' => $row->id_user,
+	            'lname' => $row->lname,
+	            'fname' => $row->fname
+	        );
+	        
+	        array_push($temp_arr, $usr_arr);
 	    }
+	    
+	    $retarr['users'] = $this->fill_users_arr($temp_arr);
 	    
 	    return $retarr;
 	}	
+	
+	private function fill_users_arr($arr) {
+	    
+	    $retarr = array();
+	    for ($i=0; $i<count($arr); $i++) {	        	        
+	        $retarr[$arr[$i]['id_user']] = $arr[$i]['fname'] . ' ' .  $arr[$i]['lname'];
+	    }
+	    
+	    return $retarr;
+	}
 	
 }
