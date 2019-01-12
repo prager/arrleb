@@ -435,6 +435,12 @@ Thank you for your interest in ARRL EB Section!';
 	    $this->db->update('staff', $param);
 	}
 	
+	public function get_all_users() {
+	    $this->db->select('fname, lname, id_user, callsign');
+	    
+	    return $this->db->get('users')->result();
+	}
+	
 	private function fill_users_arr($arr) {
 	    
 	    $retarr = array();

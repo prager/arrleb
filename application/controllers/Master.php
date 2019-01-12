@@ -90,6 +90,14 @@ class Master extends CI_Controller {
 	   }
 	}
 	
+	public function set_user_profile() {
+	    
+	}
+	
+	public function load_user_profile() {
+	    
+	}
+	
 	private function _types_output($output=NULL) {
 	    $this->load->view('master/types_view.php', $output);
 	}
