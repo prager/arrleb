@@ -148,7 +148,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function emergency() {
 	    
-	    $retval = $this->Edu_model->get_emer();
+	    $retval = $this->Edu_model->get_aux();
 	    
 	    $data['cnt'] = $retval['cnt'];
 	    $data['tests'] = $retval['tests'];
