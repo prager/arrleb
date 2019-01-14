@@ -91,7 +91,9 @@ class Master extends CI_Controller {
 	}
 	
 	public function set_user_profile() {
-	    
+	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	    $this->load->view('user/set_profiles_view', $this->User_model->get_all_users());
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function load_user_profile() {

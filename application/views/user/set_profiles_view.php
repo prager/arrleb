@@ -15,7 +15,7 @@
         		<tbody>
         		    <?php foreach($users as $row) {?>
         			<tr>
-        				<td><strong><?php echo $row->fname; ?></strong></td>
+        				<td><?php echo $row->fname; ?></td>
         				<td><?php echo $row->lname; ?></td>
         				<td><?php echo $row->callsign; ?></td>
         				<td>
@@ -28,25 +28,7 @@
         	</table>
         </div>    
     </div>
-    
-    <div class="row">
-    	<div class="col-md-10 col-md-offset-1">
-    		<br>
-    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Class</a>
-    		<?php include 'inc_modal_add.php'; ?>
-    	</div>
     </div>
-    </div>    
-	<div class="row">
-    	<div class="col-md-10">
-    		<p><?php echo anchor('user', 'Edit Your Personal Info', 'class="btn btn"'); ?></p>
-    	</div>
-	</div>  
-	<div class="row">
-    	<div class="col-md-10">
-    		<p><?php echo anchor('public_ctl/reset_password', 'Reset Your Password', 'class="btn btn"'); ?></p>
-    	</div>
-	</div>
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
 </div>

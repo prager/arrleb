@@ -20,6 +20,7 @@
   <li><?php echo anchor('edu', 'Classes'); ?></li>
   <li><?php echo anchor('speaker', 'Speaker'); ?></li>
   <li><?php echo anchor('staff', 'Staff'); ?></li>
+  <li><?php echo anchor('master/set_user_profile', 'Set User Profile'); ?></li>
 </ol>
 </div>
 </div>

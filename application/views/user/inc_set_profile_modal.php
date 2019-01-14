@@ -1,5 +1,5 @@
-<div class="modal fade" id="setProfile<?php echo $i; ?>" role="dialog">
-		    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="setProfile<?php echo $row->id_user; ?>" role="dialog">
+		    <div class="modal-dialog">
 		
 		      <!-- Modal content-->
 		      <div class="modal-content">
