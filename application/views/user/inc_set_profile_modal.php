@@ -1,4 +1,4 @@
-<div class="modal fade" id="setProfile<?php echo $row->id_user; ?>" role="dialog">
+<div class="modal fade" id="setProfile<?php echo $row['id_user']; ?>" role="dialog">
 		    <div class="modal-dialog">
 		
 		      <!-- Modal content-->
@@ -8,11 +8,11 @@
 		          <h4><span class="glyphicon glyphicon-pencil"></span>Set User Profile</h4>
 		        </div>
 		        <div class="modal-body">
-		        <?php echo form_open('master/load_user_profile/' .  $row->id_user) ?>
+		        <?php echo form_open('master/load_user_profile/' .  $row['id_user']) ?>
 		            <div class="form-group">
 		            <div class="row">
 			            <div class="col-md-8">
-							<?php echo $row->fname . ' ' . $row->lname; ?>
+							<?php echo $row['fname'] . ' ' . $row['lname']; ?>
 						</div>
 					</div>
 					<div class="row">&nbsp;</div>

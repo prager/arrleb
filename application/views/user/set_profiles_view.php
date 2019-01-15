@@ -15,11 +15,11 @@
         		<tbody>
         		    <?php foreach($users as $row) {?>
         			<tr>
-        				<td><?php echo $row->fname; ?></td>
-        				<td><?php echo $row->lname; ?></td>
-        				<td><?php echo $row->callsign; ?></td>
+        				<td><?php echo $row['fname']; ?></td>
+        				<td><?php echo $row['lname']; ?></td>
+        				<td><?php echo $row['callsign']; ?></td>
         				<td>
-        					<a href="#" data-toggle="modal" data-target="#setProfile<?php echo $row->id_user; ?>">Set Profile</a> 
+        					<a href="#" data-toggle="modal" data-target="#setProfile<?php echo $row['id_user']; ?>">Set Profile</a> 
         					<?php include 'inc_set_profile_modal.php'; ?>
         				</td>
         			</tr>

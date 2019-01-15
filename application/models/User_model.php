@@ -436,9 +436,31 @@ Thank you for your interest in ARRL EB Section!';
 	}
 	
 	public function get_all_users() {
-	    $this->db->select('fname, lname, id_user, callsign');
+	    $this->db->select('fname, lname, id_user, callsign, profile');
 	    $retval = array();
-	    $retval['users'] = $this->db->get('users')->result();
+	    $retval['users'] = array();
+	    
+	    $users = $this->db->get('users')->result();
+	    
+	    /*
+	     * profile str: edu-events-notset-speaker-club-elmer
+	     * num values: 1-2-3-5-6
+	     */
+	    
+	    foreach($users as $row) {
+	        $profile_arr = array();
+	        $user = array(
+	            'id_user' => $row->id_user,
+	            'fname' => $row->fname,
+	            'lname' => $row->lname,
+	            'callsign' => $row->callsign,
+	            'profile_arr' => explode('-', $row->profile)
+	        );
+	        
+	        array_push($retval['users'], $user);
+	    }
+	    
+	    
 	    return $retval;
 	}
 	
