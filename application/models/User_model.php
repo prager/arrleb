@@ -454,7 +454,7 @@ Thank you for your interest in ARRL EB Section!';
 	            'fname' => $row->fname,
 	            'lname' => $row->lname,
 	            'callsign' => $row->callsign,
-	            'profile_arr' => explode('-', $row->profile)
+	            'profile_str' => $row->profile
 	        );
 	        
 	        array_push($retval['users'], $user);

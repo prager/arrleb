@@ -2,12 +2,11 @@
 	
 	<div class="box">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
         	<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
-        				<th>First Name</th>
-        				<th>Last Name</th>
+        				<th>Name</th>
         				<th>Call Sign</th>
         				<th>Set Profile</th>
         			</tr>
@@ -15,8 +14,7 @@
         		<tbody>
         		    <?php foreach($users as $row) {?>
         			<tr>
-        				<td><?php echo $row['fname']; ?></td>
-        				<td><?php echo $row['lname']; ?></td>
+        				<td><?php echo $row['fname'] . ' ' . $row['lname']; ?></td>
         				<td><?php echo $row['callsign']; ?></td>
         				<td>
         					<a href="#" data-toggle="modal" data-target="#setProfile<?php echo $row['id_user']; ?>">Set Profile</a> 
