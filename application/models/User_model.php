@@ -464,6 +464,38 @@ Thank you for your interest in ARRL EB Section!';
 	    return $retval;
 	}
 	
+	public function set_user_profile($param) {
+	    $profile_str = NULL;
+	    
+	    if($param['mst'] == 'accept') {
+	        $profile_str .= '99-';
+	    }
+	    
+	    if($param['edu'] == 'accept') {
+	        $profile_str .= '1-';
+	    }
+	    
+	    if($param['events'] == 'accept') {
+	        $profile_str .= '2-';
+	    }
+	    
+	    if($param['clb'] == 'accept') {
+	        $profile_str .= '5-';
+	    }
+	    
+	    if($param['spk'] == 'accept') {
+	        $profile_str .= '3-';
+	    }
+	    
+	    if($param['elm'] == 'accept') {
+	        $profile_str .= '6-';
+	    }
+	    
+	    $this->db->where('id_user', $param['id']);
+	    $this->db->update('users', array('profile' => $profile_str));
+	    
+	}
+	
 	private function fill_users_arr($arr) {
 	    
 	    $retarr = array();

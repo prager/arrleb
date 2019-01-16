@@ -97,7 +97,19 @@ class Master extends CI_Controller {
 	}
 	
 	public function load_user_profile() {
+	    $param = array();
+	    $param['id'] = $this->uri->segment(3, 0);	    
+	    $param['edu'] = $this->input->post('edu');
+	    $param['events'] = $this->input->post('events');
+	    $param['clb'] = $this->input->post('clb');
+	    $param['spk'] = $this->input->post('spk');
+	    $param['elm'] = $this->input->post('elm');
+	    $param['mst'] = $this->input->post('mst');
+	    $this->User_model->set_user_profile($param);
 	    
+	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	    $this->load->view('user/set_profiles_view', $this->User_model->get_all_users());
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	private function _types_output($output=NULL) {

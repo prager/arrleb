@@ -64,6 +64,28 @@
 						<div class="col-md-1">												
 						<?php
 					   
+	                   if(is_numeric(strpos($row['profile_str'], "5"))) {
+						    $checked = TRUE;
+						}
+						else {
+						    $checked = FALSE;
+						}
+						
+						$data = array(
+						    'name'          => 'clb',
+						    'id'            => 'clb',
+						    'value'         => 'accept',
+						    'checked'       => $checked,
+						    'style'         => 'margin:10px'
+						);
+						?>
+						Clb
+						<?php echo form_checkbox($data); ?>
+						</div>
+						
+						<div class="col-md-1">												
+						<?php
+					   
 	                   if(is_numeric(strpos($row['profile_str'], "3"))) {
 						    $checked = TRUE;
 						}
@@ -82,6 +104,51 @@
 						Spk
 						<?php echo form_checkbox($data); ?>
 						</div>
+						
+						<div class="col-md-1">												
+						<?php
+					   
+	                   if(is_numeric(strpos($row['profile_str'], "6"))) {
+						    $checked = TRUE;
+						}
+						else {
+						    $checked = FALSE;
+						}
+						
+						$data = array(
+						    'name'          => 'elm',
+						    'id'            => 'elm',
+						    'value'         => 'accept',
+						    'checked'       => $checked,
+						    'style'         => 'margin:10px'
+						);
+						?>
+						Elm
+						<?php echo form_checkbox($data); ?>
+						</div>
+						
+						<div class="col-md-1">												
+						<?php
+					   
+	                   if(is_numeric(strpos($row['profile_str'], "99"))) {
+						    $checked = TRUE;
+						}
+						else {
+						    $checked = FALSE;
+						}
+						
+						$data = array(
+						    'name'          => 'mst',
+						    'id'            => 'mst',
+						    'value'         => 'accept',
+						    'checked'       => $checked,
+						    'style'         => 'margin:10px'
+						);
+						?>
+						Mst
+						<?php echo form_checkbox($data); ?>
+						</div>
+						
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">&nbsp;</div>
