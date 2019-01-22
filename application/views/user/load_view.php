@@ -8,62 +8,59 @@
 <h3>Admin Features Available</h3>
 </div>
 </div>
-
-<br>
 <div class="row">
 <div class="col-md-10 col-md-offset-1">
 
+<?php if(strlen($user['profile']>0)) {?>
 <ol class="breadcrumb">
-  <li>
-  	<?php 
-  	if(is_numeric(strpos($user['profile_str'], "99"))) {
-  	    echo anchor('master/user_management', 'User Management');
-  	} 
-    ?>
+	<?php 
+  	if(is_numeric(strpos($user['profile'], "99"))) {?>
+  <li>  	
+  	    <?php echo anchor('master/user_management', 'User Management'); ?>
   </li>
+  	<?php } 
+  
+  if(is_numeric(strpos($user['profile'], "99"))) { ?>
   <li>
-  	<?php 
-  	if(is_numeric(strpos($user['profile_str'], "99"))) {
-  	     echo anchor('master/user_types', 'User Types'); 
-  	}
-  	?>
+  	    <?php  echo anchor('master/user_types', 'User Types'); ?>
   </li>
+  	<?php }
+  	
+  if((is_numeric(strpos($user['profile'], "99"))) || (is_numeric(strpos($user['profile'], "5")))) {?>
+  <li>      
+         <?php  echo anchor('club', 'Clubs'); ?>
+  </li>
+   <?php    }
+   
+   if((is_numeric(strpos($user['profile'], "99"))) || (is_numeric(strpos($user['profile'], "1")))) {?>   
+  <li> 
+          <?php echo anchor('edu', 'Classes');?>
+  </li>
+   <?php    }
+   
+   if(is_numeric(strpos($user['profile'], "99"))) {?>
+  <li> 
+         <?php  echo anchor('staff', 'Staff');?>
+  </li>
+   <?php    }
+  
+   if((is_numeric(strpos($user['profile'], "99"))) || (is_numeric(strpos($user['profile'], "3")))) {?>
   <li>
-      <?php 
-      if((is_numeric(strpos($user['profile_str'], "99"))) || (is_numeric(strpos($user['profile_str'], "5")))) {
-          echo anchor('club', 'Clubs');
-      }
-      ?>
+          <?php  echo anchor('speaker', 'Speaker'); ?>
   </li>
+  <?php     }
+   
+  if(is_numeric(strpos($user['profile'], "99"))) { ?>
   <li>
-      <?php 
-      if((is_numeric(strpos($user['profile_str'], "99"))) || (is_numeric(strpos($user['profile_str'], "1")))) {
-          echo anchor('edu', 'Classes');
-      }
-      ?>
+        <?php  echo anchor('master/set_user_profile', 'Set User Profile'); ?>
   </li>
-  <li>
-      <?php 
-      if(is_numeric(strpos($user['profile_str'], "99"))) {
-          echo anchor('staff', 'Staff');
-      }
-      ?>
-  </li>
-  <li>
-      <?php 
-      if((is_numeric(strpos($user['profile_str'], "99"))) || (is_numeric(strpos($user['profile_str'], "3")))) {
-          echo anchor('speaker', 'Speaker');
-      }
-      ?>
-  </li>
-  <li>
-      <?php 
-      if(is_numeric(strpos($user['profile_str'], "99"))) {
-          echo anchor('master/set_user_profile', 'Set User Profile');
-      }
-      ?>
-  </li>
+  <?php  } ?>
 </ol>
+<?php }
+    else {
+        //echo '<span style="color: red;">There are no items in user profile</span>';  
+    }
+?>
 </div>
 </div>
 

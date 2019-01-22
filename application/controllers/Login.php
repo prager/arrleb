@@ -30,7 +30,7 @@ class Login extends CI_Controller {
 	public function load_user() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    
-	    if($this->Login_model->get_cur_user()['level'] == 99) {
+	  /*  if($this->Login_model->get_cur_user()['level'] == 99) {
 	        $this->load->view('master/main_view');
 	    } 
 	    
@@ -58,7 +58,11 @@ class Login extends CI_Controller {
 	    if($this->Login_model->get_cur_user()['level'] == 4) {
 	        
 	        redirect(base_url(). 'index.php/user');
-	    }
+	    }*/
+	    
+	    $data['user'] = $this->User_model->get_cur_user();
+	    
+	    $this->load->view('user/load_view', $data);
 	    
 	    $this->load->view('template/footer_ver1');
 	}

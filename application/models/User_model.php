@@ -32,6 +32,7 @@ class User_model extends CI_Model {
 		$user['linkedin'] = $row->linkedin;
 		$user['authorized'] = $row->authorized;
 		$user['username'] = $username;
+		$user['profile'] = $row->profile;
 		
 //get user attributes from logins table
 		$this->db->select('description');
@@ -304,7 +305,8 @@ Thank you for your interest in ARRL EB Section!';
 	        'linkedin' => $user->linkedin,
 	        'googleplus' => $user->googleplus,
 	        'narrative' => $narrative,
-	        'narrative2' => $narrative2
+	        'narrative2' => $narrative2,
+	        'profile' => $user->profile
 	    );
 	    
 	    return $user_arr;
