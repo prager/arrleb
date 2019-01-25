@@ -73,6 +73,7 @@ class Club_model extends CI_Model {
 	    
 	    if($cnt > 0) {
 	        $this->db->select('*');
+	        $this->db->order_by('name', 'ASC');
 	        $res = $this->db->get('clubs')->result();	        
 	        
 	        foreach($res as $row) {

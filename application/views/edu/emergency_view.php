@@ -40,7 +40,7 @@
    	   	actions may need to be taken. Amateur radio operators may also be assigned to report to a specific location to assist with communications at 
    	   	a shelter, a hospital, or an Emergency Operations Center, to assist in communications as needed and to gather information.</p>
    	   	<p>Various class sessions will be offered to help amateur radio operators understand and prepare to provide communications needed to 
-       	   	support an emergency incident. These classes will help insure that we can all send and received messages in the most efficient way 
+       	   	support an emergency incident. These classes will help insure that we can all send and receive messages in the most efficient way 
        	   	possible, learn how nets are organized and operated, and much more. To be a benefit to our served agencies we must be well trained and 
        	   	practiced.</p>
    	   	</div>
