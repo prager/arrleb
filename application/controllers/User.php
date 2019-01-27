@@ -67,4 +67,14 @@ class User extends CI_Controller {
 	    $this->load->view('template/footer_ver1');
 	}
 	
+	public function show_elmer() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $id = $this->uri->segment(3, 0);
+	    $this->Login_model->check_table($id);
+	    $data = $this->Speaker_model->get_speaker($id);
+	    $data['home_pg'] = anchor('elmers', 'Elmers');
+	    $this->load->view('user/team_member_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
 }

@@ -438,7 +438,7 @@ Thank you for your interest in ARRL EB Section!';
 	}
 	
 	public function get_all_users() {
-	    $this->db->select('fname, lname, id_user, callsign, profile');
+	    $this->db->select('*');
 	    $retval = array();
 	    $retval['users'] = array();
 	    
@@ -456,7 +456,8 @@ Thank you for your interest in ARRL EB Section!';
 	            'fname' => $row->fname,
 	            'lname' => $row->lname,
 	            'callsign' => $row->callsign,
-	            'profile_str' => $row->profile
+	            'profile_str' => $row->profile,
+	            'email' => $row->email
 	        );
 	        
 	        array_push($retval['users'], $user);
@@ -508,4 +509,26 @@ Thank you for your interest in ARRL EB Section!';
 	    return $retarr;
 	}
 	
+	public function get_elmers() {
+	    $users = $this->get_all_users()['users'];
+	    
+	    /*
+	     * profile str: edu-events-notset-speaker-club-elmer
+	     * num values: 1-2-3-5-6
+	     */
+	    
+	    $retarr = array();
+	    $retarr['elmers'] = array();
+	    
+	    foreach ($users as $row) {
+	        if(is_numeric(strpos($row['profile_str'], "6"))) {
+	            array_push($retarr['elmers'], $row);
+	        }
+	    }
+	    
+	    $retarr['cnt'] = count($retarr['elmers']);
+	    
+	    return $retarr;
+	    
+	}
 }

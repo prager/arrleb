@@ -190,7 +190,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function elmer() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $this->load->view('edu/elmer_view');
+	    $this->load->view('edu/elmer_view', $this->User_model->get_elmers());
 	    $this->load->view('template/footer_ver1');
 	}
 	

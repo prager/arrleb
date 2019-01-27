@@ -53,6 +53,42 @@
        </div>
        </div>
        <div class="row">&nbsp;</div>
+       <div class="row">
+       	<div class="col-md-10 col-md-offset-1">
+			<table class="table table-striped table-responsive">
+        		<thead>
+        			<tr>
+        				<th>Name</th>
+        				<th>Callsign</th>
+        				<th>Email</th>
+        				<th>Details</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        		<?php if($cnt > 0)
+        		    foreach($elmers as $row) {?>
+        			<tr>
+        				<td><?php echo $row['fname'] . ' '. $row['lname'];?></td>
+        				<td><?php 
+        				if($row['callsign'] != '') {
+        				    echo $row['callsign']; 
+        				}
+        				else {
+        				    echo 'N/A';
+        				}?></td>
+        				<td><a href="mailto:<?php echo $row['email']; ?>"><?php echo $row['email']; ?></a></td>
+        				<td><?php echo anchor('user/show_elmer/' . $row['id_user'], 'View'); ?></td>        				
+        			</tr>
+        			<?php }
+        			else {?>
+        			<tr>
+        				<td colspan="4">No elmers listed</td>
+        			</tr>
+        			<?php }?>
+        		</tbody>        	
+        	</table>      
+       	</div>
+       </div>
        <div class="row">&nbsp;</div>
        <div class="row">&nbsp;</div>
  </div>
