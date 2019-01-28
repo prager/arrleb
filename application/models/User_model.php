@@ -92,6 +92,10 @@ class User_model extends CI_Model {
 	        
 	        $this->db->insert('new_user', $param);
 	        
+	        $this->db->select('id_new_user');
+	        $this->db->order_by('id_new_user', 'DESC');
+	        $id_new_user = $this->db->get('new_user', 1, 0)->row()->id_new_user;
+	        
 	        $rand_str = bin2hex(openssl_random_pseudo_bytes(12));
 	        
 	        $param['verifystr'] = base_url() . 'index.php/public_ctl/confirm_reg/' . $rand_str;
@@ -124,6 +128,9 @@ Thank you for your interest in ARRL EB Section!';
 	   	        $this->db->where('email', $param['email']);
 	   	        
 	   	        $param['id_user'] = $this->db->get('users')->row()->id_user;
+	   	        
+	   	        $this->db->where('id_new_user', $id_new_user);
+	   	        $this->db->update('new_user', array('id_user' => $param['id_user']));
 	   	        
 	    }
 	    else {
