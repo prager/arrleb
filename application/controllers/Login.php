@@ -31,35 +31,7 @@ class Login extends CI_Controller {
 	public function load_user() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    
-	  /*  if($this->Login_model->get_cur_user()['level'] == 99) {
-	        $this->load->view('master/main_view');
-	    } 
-	    
-	    if($this->Login_model->get_cur_user()['level'] == 1) {
-	        $data['edu'] = $this->Edu_model->get_classes();
-	        $data['msg'] = '';
-	        $this->load->view('edu/main_view', $data);
-	    }
-	    
-	    if($this->Login_model->get_cur_user()['level'] == 3) {
-	        
-	        $lectures = $this->Speaker_model->get_lectures($this->Login_model->get_cur_user_id());
-	        
-	        $data['cnt'] = $lectures['cnt'];
-	        $data['lectures'] = $lectures['lectures'];
-	        $data['msg'] = '';
-	        $this->load->view('speakers/main_view', $data);
-	    }
-	    
-	    if($this->Login_model->get_cur_user()['level'] == 5) {
-	        
-	        redirect(base_url(). 'index.php/club');
-	    }
-	    
-	    if($this->Login_model->get_cur_user()['level'] == 4) {
-	        
-	        redirect(base_url(). 'index.php/user');
-	    }*/
+	    $this->Login_model->check_table($this->Login_model->get_cur_user_id());
 	    
 	    $data['user'] = $this->User_model->get_cur_user();
 	    

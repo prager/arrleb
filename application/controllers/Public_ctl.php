@@ -320,7 +320,7 @@ class Public_ctl extends CI_Controller {
 	
 	public function set_user_login() {
 	    $param['id_user'] = $this->uri->segment(3, 0);
-	    $param['username'] = $this->input->post('uname');
+	    $param['username'] = strtolower($this->input->post('uname'));
 	    $param['pass1'] = $this->input->post('pass1');
 	    $param['pass2'] = $this->input->post('pass2');
 	    
@@ -361,7 +361,7 @@ class Public_ctl extends CI_Controller {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    
 	    if($retarr['flag']) {
-	        $data['title'] = "Password Reset for user " . $retarr['username'] . "!";
+	        $data['title'] = "Password Reset for user with email " . $param['email'] . "!";
 	        $data['msg'] = 'Your password has been reset. Thank you!<br><br>';
 	    }
 	    else {

@@ -35,8 +35,8 @@ class Login_model extends CI_Model {
 		}
 		$this->db->select('username');
 		$this->db->where('username', $data['user']);
-		$query = $this->db->get('users');
-		if(count($query->result()) == 1) {
+		$query = $this->db->get('users')->row();
+		if(count($query) == 1) {
 			$this->db->select('pass');
 			$this->db->where('username', $data['user']);
 			$query = $this->db->get('users');
@@ -48,6 +48,7 @@ class Login_model extends CI_Model {
 					$user = $this->user_model->get_user($data['user']);
 					$user['session_id'] = session_id();
 					$this->set_logged($user);
+					$this->check_table($user['id']);
 					$_SESSION['user'] = $user;
 					$_SESSION['id_user'] = $user['id'];
 					$_SESSION['logged'] = TRUE;

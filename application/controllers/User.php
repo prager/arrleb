@@ -77,4 +77,7 @@ class User extends CI_Controller {
 	    $this->load->view('template/footer_ver1');
 	}
 	
+	function set_username() {
+	    
+	}
 }

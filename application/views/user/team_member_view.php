@@ -104,7 +104,7 @@
                                 <h3><?php echo $fname; ?>'s Address</h3>
                             </div>
                             	<?php echo $street; ?><br>
-                            	<?php echo $city . ', ' . $state . ' ' . $zip; ?><br>
+                            	<?php echo $city . ' ' . $state . ' ' . $zip; ?><br>
 						</div>
                         <div class="col-md-4">
 							<div class="heading">
