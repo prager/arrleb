@@ -32,7 +32,12 @@
                     echo 'Location N/A<br><br>';
                 }
                 ?>                
-                Lecture Summary<br><br><?php echo nl2br($topic_text, FALSE); ?>               
+                Lecture Summary<br><br><?php 
+                if(strlen($topic_text) > 0)
+                    echo nl2br($topic_text, FALSE);
+                else 
+                    echo 'N/A';
+                    ?>               
                 </p>
                 </div>
                 </div>                
