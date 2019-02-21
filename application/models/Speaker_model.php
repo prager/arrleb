@@ -108,36 +108,27 @@ class Speaker_model extends CI_Model {
 	
 	public function get_speakers() {
 	    
-	    $this->db->where('active', 1);
-	    $this->db->where('type_code', 3);
-	    $this->db->from('users');
-	    $cnt = $this->db->count_all_results();
-	    
 	    $retarr = array();
-	    $retarr['cnt'] = $cnt;
+	    $retarr['cnt'] = 0;
 	    $retarr['speakers'] = array();
 	    
-	    if($cnt > 0) {
-	        $this->db->select('id_user, fname, lname, callsign, email, city, state_cd');
-	        $this->db->where('active', 1);
-	        $this->db->where('type_code', 3);
-	        $res = $this->db->get('users')->result();	        
-	        
-	        foreach($res as $row) {
-	            $arr = array(
-	                'id' => $row->id_user,
-	                'fname' => $row->fname,
-	                'lname' => $row->lname,
-	                'callsign' => $row->callsign,
-	                'email' => $row->email,
-	                'city' => $row->city,
-	                'state' => $row->state_cd
-	            );
-	            
-	            array_push($retarr['speakers'], $arr);
-	        }
-	    }
-	    
+    	$this->db->select('*');
+    	$users = $this->db->get('users')->result();
+    	foreach($users as $user) {
+    	    if(is_numeric(strpos($user->profile, "3"))) {
+    	        $arr = array(
+    	            'id' => $user->id_user,
+    	            'fname' => $user->fname,
+    	            'lname' => $user->lname,
+    	            'callsign' => $user->callsign,
+    	            'email' => $user->email,
+    	            'city' => $user->city,
+    	            'state' => $user->state_cd
+    	        );
+    	        array_push($retarr['speakers'], $arr);
+    	        $retarr['cnt']++;
+    	    }
+    	}
 	    return $retarr;
 	    
 	}	
