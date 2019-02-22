@@ -16,7 +16,7 @@
 	<?php 
   	if(is_numeric(strpos($user['profile'], "99"))) {?>
   <li>  	
-  	    <?php echo anchor('master/user_management', 'User Management'); ?>
+  	    <?php echo anchor('master/users', 'User Management'); ?>
   </li>
   	<?php } 
   

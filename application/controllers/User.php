@@ -13,7 +13,7 @@ class User extends CI_Controller {
 	    if($this->Login_model->is_logged()['logged']) {
 	        $id = $this->Login_model->get_cur_user_id();
 	        $tbl = $this->Login_model->check_table($id);
-	        $user = $this->User_model->get_cur_user();
+	        $user = $this->User_model->get_cur_user($id);
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	        $user['msg'] = $this->msg;
 	        $this->load->view('user/edit_user_view', $user);

@@ -14,7 +14,7 @@
 <div class="col-md-10 col-md-offset-1">
 
 <ol class="breadcrumb">
-  <li><?php echo anchor('master/user_management', 'User Management'); ?></li>
+  <li><?php echo anchor('master/users', 'User Management'); ?></li>
   <li><?php echo anchor('master/user_types', 'User Types'); ?></li>
   <li><?php echo anchor('club', 'Clubs'); ?></li>
   <li><?php echo anchor('edu', 'Classes'); ?></li>

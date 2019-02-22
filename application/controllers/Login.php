@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 	    
 	    $this->Login_model->check_table($this->Login_model->get_cur_user_id());
 	    
-	    $data['user'] = $this->User_model->get_cur_user();
+	    $data['user'] = $this->User_model->get_cur_user($this->Login_model->get_cur_user_id());
 	    
 	    $this->load->view('user/load_view', $data);
 	    

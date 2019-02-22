@@ -21,11 +21,11 @@ class Master extends CI_Controller {
 	}
 	
 	public function users() {
-	    $crud = new grocery_CRUD();
-	    $crud->set_table('users');
-	    $output = $this->grocery_crud->render();
+	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	    
-	    $this->_example_output($output);
+	    $this->load->view('master/display_users_view', $this->User_model->get_all_users());
+	    
+	    $this->load->view('template/footer_ver1');
 	}
 	
 	public function user_management() {
@@ -109,6 +109,52 @@ class Master extends CI_Controller {
 	    
 	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
 	    $this->load->view('user/set_profiles_view', $this->User_model->get_all_users());
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function delete_user() {
+	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	    
+	    $this->User_model->delete_user($this->uri->segment(3, 0));
+	    
+	    $this->load->view('master/display_users_view', $this->User_model->get_all_users());
+	    
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function edit_user() {
+	   $id = $this->uri->segment(3, 0);
+	   $this->Login_model->check_table($id);
+	   $user = $this->User_model->get_cur_user($id);
+	   $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	   $user['msg'] = '';
+	   $this->load->view('user/edit_user_view', $user);
+	   $this->load->view('template/footer_ver1');
+	}
+	
+	public function new_user() {
+	    $this->load->view('template/header_public_gen', array('logged' => TRUE));
+	    
+	    $param['id'] = 0;
+	    $param['username'] = '';
+	    $param['callsign'] = '';
+	    $param['fname'] = '';
+	    $param['lname'] = '';
+	    $param['street'] = '';
+	    $param['city'] = '';
+	    $param['state'] = '';
+	    $param['zip'] = '';
+	    $param['phone'] = '';
+	    $param['email'] = '';
+	    $param['facebook'] = '';
+	    $param['twitter'] = '';
+	    $param['linkedin'] = '';
+	    $param['googleplus'] = '';
+	    $param['narrative'] = '';
+	    $param['narrative2'] = '';
+	    $param['msg'] = '';
+	    
+	    $this->load->view('master/edit_user_view', $param);
 	    $this->load->view('template/footer_ver1');
 	}
 	

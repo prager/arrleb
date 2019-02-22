@@ -251,16 +251,33 @@ Thank you for your interest in ARRL EB Section!';
 	}
 	
 	public function set_user($param) {
-	    $id = $param['id'];
-	    unset($param['id']);
-	    $narrative = $param['narrative'];
-	    $narrative2 = $param['narrative2'];
-	    unset($param['narrative']);
-	    unset($param['narrative2']);
-	    
-	    $this->db->where('id_user', $id);
-	    $this->db->update('users', $param);
-        
+	    if($param['id'] > 0) {
+    	    $id = $param['id'];
+    	    unset($param['id']);
+    	    $narrative = $param['narrative'];
+    	    $narrative2 = $param['narrative2'];
+    	    unset($param['narrative']);
+    	    unset($param['narrative2']);
+    	    
+    	    $this->db->where('id_user', $id);
+    	    $this->db->update('users', $param);            
+    	    
+	    }
+	    else {
+	        $narrative = $param['narrative'];
+	        $narrative2 = $param['narrative2'];
+	        unset($param['narrative']);
+	        unset($param['narrative2']);
+	        unset($param['id']);
+	        
+	        $this->db->insert('users', $param);
+	        
+	        $this->db->select('id_user');
+	        $this->db->order_by('id_user', 'DESC');
+	        $id = $this->db->get('users')->row()->id_user;
+	        
+	        $this->Login_model->check_table($id);
+	    }
 	    $tbl_name = 'user_' . $id . '_tbl';
 	    $tbl_col = 'id_' . $tbl_name;
 	    
@@ -275,10 +292,10 @@ Thank you for your interest in ARRL EB Section!';
 	    $param['narrative2'] = $narrative2;
 	    $this->db->where('id_user', $id);
 	    $this->db->update($tbl_name, $param);
+	    
 	}
 	
-	public function get_cur_user() {
-	    $id = $this->Login_model->get_cur_user_id();
+	public function get_cur_user($id) {
 	    
 	    $this->db->select('*');
 	    $this->db->where('id_user', $id);	    
@@ -457,9 +474,9 @@ Thank you for your interest in ARRL EB Section!';
 	     */
 	    
 	    foreach($users as $row) {
-	        $profile_arr = array();
 	        $user = array(
 	            'id_user' => $row->id_user,
+	            'id' => $row->id_user,
 	            'fname' => $row->fname,
 	            'lname' => $row->lname,
 	            'callsign' => $row->callsign,
@@ -468,8 +485,8 @@ Thank you for your interest in ARRL EB Section!';
 	        );
 	        
 	        array_push($retval['users'], $user);
-	    }
-	    
+	    }	    
+	    $retval['cnt'] = count($retval['users']);
 	    
 	    return $retval;
 	}
@@ -537,5 +554,10 @@ Thank you for your interest in ARRL EB Section!';
 	    
 	    return $retarr;
 	    
+	}
+	
+	public function delete_user($id) {
+	    $this->db->where('id_user', $id);
+	    $this->db->delete('users');
 	}
 }
