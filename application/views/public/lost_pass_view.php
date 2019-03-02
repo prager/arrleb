@@ -61,7 +61,8 @@
 							'maxlength'     => '75');?>
 						Confirm Password
 						<?php echo form_password($data);?>
-						<small>Lost your username? Click <?php echo anchor('Publi_ctl/lost_username', 'here'); ?></small>
+						<small>Lost your username? Click <a href="#" data-toggle="modal" data-target="#lostUsername">here</a></small>
+						<?php include 'inc_lost_username_modal.php'; ?>
         					</div>
                         </div>
                     </div>					

@@ -405,4 +405,14 @@ class Public_ctl extends CI_Controller {
 	    $this->load->view('public/benefits_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
+	
+	public function lost_username() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $email = strtolower($this->input->post('email'));
+	    $this->User_model->lost_username($email);
+	    $data['title'] = 'Lost Username';
+	    $data['msg'] = 'Username was emailed to ' . $email . '<br><br>';
+	    $this->load->view('status/status_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
 }

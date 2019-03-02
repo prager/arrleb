@@ -560,4 +560,8 @@ Thank you for your interest in ARRL EB Section!';
 	    $this->db->where('id_user', $id);
 	    $this->db->delete('users');
 	}
+	
+	public function lost_username($email) {
+	    
+	}
 }
