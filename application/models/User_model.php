@@ -562,6 +562,23 @@ Thank you for your interest in ARRL EB Section!';
 	}
 	
 	public function lost_username($email) {
+	    $retval = TRUE;
 	    
+	    $this->db->where('email', $email);
+	    $this->db->from('users');
+	    
+	    if($this->db->count_all_results() == 0) {
+	        $retval = FALSE;
+	    }
+	    else {	        
+	        $this->db->select('username');
+	        $this->db->where('email', $email);
+	        $username = $this->db->get('users')->row()->username;
+	        
+	        $message = "Your username for ARRL EB Section web portal is: " . $username . "\n\n";
+	        mail($email, 'Your Username for ARRL EB Section', $message);
+	    }
+	    
+	    return $retval;	    
 	}
 }

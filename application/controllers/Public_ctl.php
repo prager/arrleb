@@ -409,9 +409,14 @@ class Public_ctl extends CI_Controller {
 	public function lost_username() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $email = strtolower($this->input->post('email'));
-	    $this->User_model->lost_username($email);
+	    
 	    $data['title'] = 'Lost Username';
-	    $data['msg'] = 'Username was emailed to ' . $email . '<br><br>';
+	    if($this->User_model->lost_username($email)) {
+	       $data['msg'] = 'Username was emailed to ' . $email . '<br><br>';
+	    }
+	    else {
+	        $data['msg'] = 'Email ' . $email . ' is not listed in database. No action was taken.<br><br>';
+	    }
 	    $this->load->view('status/status_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
