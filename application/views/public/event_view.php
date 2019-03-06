@@ -1,8 +1,9 @@
+<div id="content">
 <div class="container">
 	
 	<div class="box">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
         	<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
@@ -65,5 +66,6 @@
 	</div>
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
+</div>
 </div>
 <!-- Footer -->
