@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db744827846.db.1and1.com
--- Generation Time: Jan 06, 2019 at 05:11 AM
+-- Generation Time: Mar 06, 2019 at 10:07 PM
 -- Server version: 5.5.60-0+deb7u1-log
--- PHP Version: 7.0.33-0+deb9u1
+-- PHP Version: 7.0.33-0+deb9u2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -26,15 +26,19 @@ SET time_zone = "+00:00";
 -- Table structure for table `ci_sessions`
 --
 
-CREATE TABLE `ci_sessions` (
-  `id_sessions` int(11) NOT NULL,
+DROP TABLE IF EXISTS `ci_sessions`;
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id_sessions` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `session_id` varchar(128) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
   `ip_address` varchar(42) COLLATE latin1_general_ci NOT NULL DEFAULT '0',
   `logged` tinyint(4) NOT NULL DEFAULT '0',
   `date_logged_in` int(11) NOT NULL DEFAULT '0',
-  `date_logged_out` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `date_logged_out` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_sessions`),
+  KEY `id_user` (`id_user`),
+  KEY `id_user_2` (`id_user`)
+) ENGINE=MyISAM AUTO_INCREMENT=239 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `ci_sessions`
@@ -194,7 +198,7 @@ INSERT INTO `ci_sessions` (`id_sessions`, `id_user`, `session_id`, `ip_address`,
 (159, 1, 'bf689e761c0806053b56b6db5d8a7b27fbafb460', '76.14.106.9', 0, 1544424908, 1544425184),
 (160, 1, '5a22434c94eca2f552345ebe437cd4bcf153cd32', '76.14.106.9', 0, 1544425192, 0),
 (161, 14, '54a9bdd40491ea4c7acb443be20d31ea6f172f3f', '2605:e000:100d:4674:3dcc:df0e:d17d:7611', 0, 1544467050, 0),
-(162, 14, '54a9bdd40491ea4c7acb443be20d31ea6f172f3f', '2605:e000:100d:4674:3dcc:df0e:d17d:7611', 1, 1544467253, 0),
+(162, 14, '54a9bdd40491ea4c7acb443be20d31ea6f172f3f', '2605:e000:100d:4674:3dcc:df0e:d17d:7611', 0, 1544467253, 0),
 (163, 1, 'd3545e8d6b3a7fd4352c1a213125bf464a3e92c9', '76.14.106.9', 0, 1544505928, 1544510268),
 (164, 1, '629716cc4a369fef60ab06fedf9bee04ebb8a123', '76.14.106.9', 0, 1544510285, 1544515133),
 (165, 1, 'c4ab93253223be59780a98f3a14e60e32997960f', '76.14.106.9', 0, 1544515294, 1544515438),
@@ -208,7 +212,69 @@ INSERT INTO `ci_sessions` (`id_sessions`, `id_user`, `session_id`, `ip_address`,
 (173, 1, 'ee66a32c536c4b510cd71dab4bf47ee3dfc4cabe', '76.14.106.9', 0, 1546645045, 0),
 (174, 1, '3027d698921ce4116f095fac946a2956d9161652', '76.14.106.9', 0, 1546737125, 1546739362),
 (175, 1, 'ace18e662e7b0baccaca825aea6c16eb4d9d30d3', '76.14.106.9', 0, 1546750056, 0),
-(176, 1, '6b57f331151f4d7a357096236d556c0c17d004d7', '76.14.106.9', 1, 1546750623, 0);
+(176, 1, '6b57f331151f4d7a357096236d556c0c17d004d7', '76.14.106.9', 0, 1546750623, 0),
+(177, 1, '618b3ef2ee2ee52760fb63620d40fbaac3db24cd', '76.14.106.9', 0, 1547495364, 1547496468),
+(178, 1, '3cc13e80d7d84f1dee7358681b10dc7797b9b716', '76.14.106.9', 0, 1547496504, 1547499534),
+(179, 1, 'ff22fe96834681c6d15e23b90c427d2bca730400', '76.14.106.9', 0, 1547776259, 0),
+(180, 1, 'daa075fc4faba197d1a7cb490d26cf20205ca08c', '76.14.106.9', 0, 1548194813, 1548195190),
+(181, 1, '4f4670920b32ea64f4255e58bcaa45d352f08395', '76.14.106.9', 0, 1548195193, 1548195350),
+(182, 1, '0c73f5f378122f415569ad2ab828d16a51ffed2f', '76.14.106.9', 0, 1548195354, 1548196847),
+(183, 1, '16c9caf503d666e0e172d0189e483f7ed679054d', '76.14.106.9', 0, 1548198312, 1548199504),
+(184, 1, '8b100d035fa541685b6198fd737bcf2dcf602ec3', '76.14.106.9', 0, 1548202293, 1548207249),
+(185, 1, '8d310b6324dd4411ac1e2117b3866d764960cdf8', '76.14.106.9', 0, 1549602626, 0),
+(186, 1, '95bedd1bdcc495fee80edbba39b80d9d119141f6', '76.14.106.9', 0, 1549775330, 1549775766),
+(187, 1, '6e585fc1af58982f1fce33a06d8167ae14b1f4c2', '76.14.106.9', 0, 1549924377, 1549924679),
+(188, 1, 'f1d05e452203b1e140a2bf663f22e7f5091ccfe8', '76.14.106.9', 0, 1550195574, 1550195721),
+(189, 1, 'a7c42945c9f8b9341b5320bfdcde095f84790cf2', '76.14.106.9', 0, 1550196086, 1550196088),
+(190, 1, '328f3bb3299945145e91da1816f1c332c1f6d4ca', '76.14.106.9', 0, 1550196213, 1550196222),
+(191, 1, '551be3a336882aa979b3688b53b571f2ab71205c', '76.14.106.9', 0, 1550198853, 1550198864),
+(192, 33, 'fe54c0e4c16d3fa8fea913b2be8ab73eb46305b2', '76.14.106.9', 0, 1550198926, 0),
+(193, 33, 'fe54c0e4c16d3fa8fea913b2be8ab73eb46305b2', '76.14.106.9', 0, 1550199005, 0),
+(194, 33, 'fe54c0e4c16d3fa8fea913b2be8ab73eb46305b2', '76.14.106.9', 0, 1550199028, 1550199082),
+(195, 1, 'a1c432dd41ae5c5afdc34cf9a498c4fce37d0341', '76.14.106.9', 0, 1550199086, 1550199089),
+(196, 33, 'b01d3739e1d5f6e3d74c9400a0218444e50c8079', '76.14.106.9', 0, 1550199104, 1550199207),
+(197, 33, '6cdb99777eb59f9d10c44f17640fc4da47187826', '76.14.106.9', 0, 1550199252, 1550199280),
+(198, 1, '0c689c885497a4ee7358ed11815079a5ad926e7a', '76.14.106.9', 0, 1550199283, 1550199296),
+(199, 33, 'fb28a4eba896ea47c3dde7f3897228bbfe00504c', '76.14.106.9', 0, 1550199306, 1550199365),
+(200, 33, '07882bee10f9e573377e7124585ab1da3feea96f', '76.14.106.9', 0, 1550199375, 1550199663),
+(201, 1, 'f4fc806ec667103cd6528553b2339e303061bb8f', '76.14.106.9', 0, 1550199667, 1550199672),
+(202, 33, 'a2a65584e7b9886d2ca25b0be62ebb1cd934d6f0', '76.14.106.9', 0, 1550199684, 0),
+(203, 33, 'a2a65584e7b9886d2ca25b0be62ebb1cd934d6f0', '76.14.106.9', 0, 1550199900, 1550199911),
+(204, 1, '4314eeab81908d8adf4d770012e36bf0bfde6bb2', '76.14.106.9', 0, 1550199918, 1550199926),
+(205, 33, '18a50d2f23f24e25c8c2878e01eaca07a7d7bf7d', '76.14.106.9', 0, 1550200258, 1550200326),
+(206, 33, '2e08c25e7956eb13df4fd41967345bf7fe4bccb3', '76.14.106.9', 0, 1550200336, 1550200380),
+(207, 1, '7f617f19207f2caac668754096042e1bae03c65f', '76.14.106.9', 0, 1550200383, 1550200394),
+(208, 33, '7d91c51a21b783a8b3820ee7245001382f8afbb1', '76.14.106.9', 0, 1550200410, 1550200446),
+(209, 33, '19adbd36135716075efed506afec64ebc343f1c2', '76.14.106.9', 0, 1550200458, 1550200498),
+(210, 33, '50c3627f1d4309f66904d57ecee2a33d6be41a5e', '76.14.106.9', 0, 1550200507, 1550200677),
+(211, 33, '3a14dc99d0508feb260fae4c3b7eb93671128475', '76.14.106.9', 0, 1550200686, 1550200973),
+(212, 1, 'd8cd949a725fd60549081c062cf532fc3ae8f3a5', '76.14.106.9', 0, 1550201086, 1550201088),
+(213, 33, '39b2293f52a2262da157ab3d42a715ed1e165332', '76.14.106.9', 0, 1550201112, 1550201181),
+(214, 1, 'fe4477c43eeeef15e0e2c69383408ed8915dde50', '76.14.106.9', 0, 1550201186, 1550201458),
+(215, 1, 'f6479f09b8a5c702a15f2997333c80a5709c63be', '76.14.106.9', 0, 1550201462, 1550201599),
+(216, 1, 'd57d3c382c41605c2e59910e23d3a00245359e9f', '76.14.106.9', 0, 1550202021, 1550202033),
+(217, 34, '4b78c98fa47e571167d6f45db303a04a93ddf479', '76.14.106.9', 0, 1550202077, 1550202118),
+(218, 33, '338277e67348d34d60cfd57c528cebb091f6de48', '76.14.106.9', 0, 1550202128, 1550202142),
+(219, 34, '4a404f1cddd1c3f3c67fc7f6ce1dcdc7aa47af60', '76.14.106.9', 0, 1550202204, 1550202253),
+(220, 34, 'b84174cd045408628c38207505203b7fe1ec6f73', '76.14.106.9', 0, 1550202263, 1550202341),
+(221, 33, '3f2a5abddfaea91e31b12e1c88e2c0ca23df2e8e', '76.14.106.9', 0, 1550214695, 1550214901),
+(222, 34, 'b090e487c0fce0deeac4ce2eeaf8b5cdc739f7f2', '76.14.106.9', 0, 1550214927, 1550214974),
+(223, 34, '7eb6c24ebbaf80bea17c2aa8557e930b8b469275', '76.14.106.9', 0, 1550215009, 1550215089),
+(224, 33, '009751a7080f216bde86ed0431225faf52ae47d7', '76.14.106.9', 0, 1550215181, 1550216261),
+(225, 12, '5084ca283512b22f378703e9e1d1306ffa7a263e', '76.14.106.9', 0, 1550216356, 1550216518),
+(226, 34, '3d7a242f6360aeddcf95e0349ca46847fed81f86', '76.14.106.9', 0, 1550216536, 1550216677),
+(227, 33, '4936639f51534ecb1e1ccbfe6e78454a71c42b75', '76.14.106.9', 0, 1550216693, 1550216833),
+(228, 1, '9a5116822ad6813c1c3bd0478a7c442b7cde3ae7', '76.14.106.9', 0, 1550286137, 1550286515),
+(229, 1, 'fd7cc2052f78c04ba611a987e4efa3ae8625a486', '76.14.106.9', 0, 1550730484, 1550730526),
+(230, 1, 'dc03067255e6b4a71ed4d3cceaa4bc09db2ea92b', '76.14.106.9', 0, 1550731487, 1550731544),
+(231, 14, '64ec6bb88e5e0a44dcd41b9a14cac1c87ca07406', '76.14.106.9', 0, 1550731612, 1550731807),
+(232, 1, 'a237cb34448e85753bead59dd1289d799f1774db', '76.14.106.9', 0, 1550731844, 1550731868),
+(233, 14, '6f7af015d7b63576b2f13b3cf419dbf6f17a9944', '76.14.106.9', 1, 1550731892, 0),
+(234, 1, 'd9a4efd59f63c8bc5f67e20a7b6bff3792c2bf85', '76.14.106.9', 0, 1550820258, 1550820331),
+(235, 1, '56857211f9d5641b021d13cd30a891566fbbe73d', '76.14.106.9', 0, 1551165921, 1551166266),
+(236, 35, '15610a0e81c195dbaa80661a904f1f9bc69d5682', '76.14.106.9', 0, 1551166558, 1551166670),
+(237, 1, '6f97270a67256cb8942d045227facd61a6bf8af6', '76.14.106.9', 0, 1551577884, 1551577912),
+(238, 1, 'f6073bd7d9c011ef211a43dc020c000839191d9a', '76.14.106.9', 0, 1551901978, 1551903376);
 
 -- --------------------------------------------------------
 
@@ -216,14 +282,16 @@ INSERT INTO `ci_sessions` (`id_sessions`, `id_user`, `session_id`, `ip_address`,
 -- Table structure for table `clubs`
 --
 
-CREATE TABLE `clubs` (
-  `id_clubs` int(11) NOT NULL,
+DROP TABLE IF EXISTS `clubs`;
+CREATE TABLE IF NOT EXISTS `clubs` (
+  `id_clubs` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(28) COLLATE utf8_bin NOT NULL,
   `long_name` varchar(128) COLLATE utf8_bin NOT NULL,
   `link` varchar(128) COLLATE utf8_bin NOT NULL,
   `narrative` text COLLATE utf8_bin NOT NULL,
-  `active` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `active` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_clubs`)
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `clubs`
@@ -233,19 +301,18 @@ INSERT INTO `clubs` (`id_clubs`, `name`, `long_name`, `link`, `narrative`, `acti
 (1, 'ACSCT', 'Alameda County Sheriff’s Communications Team', 'https://www.alamedacountysheriff.org/cws_communications.php', '', 1),
 (2, 'BARC', 'Benicia Amateur Radio Club', 'http://beniciaarc.com/wp/', 'partners with the Benicia Fire Department and the Solano County Sheriff’s Office.', 1),
 (3, 'CCCC', 'Contra Costa Communications Club', '', 'Located at Denny’s the corner of San Pablo Ave and Potrero Ave (11344 San Pablo Ave) El Cerrito, CA. For membership information, email Barbara, KD6OKJ at robar19@napanet.net', 1),
-(4, 'DARC', 'Delta ARC', 'http://deltaarc.org/', 'meets at 1900 hours local on the last Thursday of each month at the Pittsburg Environmental Center, 2581 Harbor St, Pittsburg, CA', 1),
-(5, 'EBARC', 'EBARC', '', 'meetings held on the 2nd Friday of the month at 1930 hours at the Community Room of the El Sobrante Library, 4191 Appian Way, El Sobrante, CA', 1),
+(4, 'DARC', 'Delta Amateur Radio Club', 'http://www.darc.club/', 'meets at 1900 hours local on the last Thursday of each month. The location is Croskey Real Estate, 745 Railroad Ave., Pittsburg CA 94565.', 1),
+(5, 'EBARC', 'East Bay Amateur Radio Club', '', 'meetings held on the 2nd Friday of the month at 1930 hours at the Community Room of the El Sobrante Library, 4191 Appian Way, El Sobrante, CA', 1),
 (6, 'FCV', 'Fremont Communications Volunteers', 'http://www.fremontares.org/', 'meets on the third Thursday of each month, except December, at 1930 hours in the Administrative Training Room at the City of Fremont Fire Administration Building B, 3300 Capitol, Fremont, CA', 1),
 (7, 'HRC', 'Hayward Radio Club', 'http://www.qsl.net/k6eag/index2.html', 'meets on the 3rd Friday of every month, 1930 hours local, at 1401 West Winton Ave, Hayward, CA, behind Hayward Fire Station #6', 1),
 (8, 'KARO-ECHO', 'Kensington Amateur Radio Operators & El Cerrito Ham Operator', 'https://www.karoecho.net/', 'organization serving the El Cerrito and Kensington Community ', 1),
-(9, 'LARIC', 'Lamorinda Amateur Radio Interest Group', 'https://www.facebook.com/K6ORI/', 'meets on the air Wednesdays at 1930 hours local, on 147.540 FM simplex, and in person 3rd Wednesday, 1900 hours, Sarge Littlehale Room, Orinda City building. LARIG holds a no-host coffee meeting at 0930 at Caffe Teatro, Orinda (downstairs from the library) on Tuesdays. ', 1),
+(9, 'LARIG', 'Lamorinda Amateur Radio Interest Group', 'https://www.facebook.com/K6ORI/', 'meets on the air Wednesdays at 1930 hours local, on 147.540 FM simplex, and in person 3rd Wednesday, 1900 hours, Sarge Littlehale Room, Orinda City building. LARIG holds a no-host coffee meeting at 0930 at Caffe Teatro, Orinda (downstairs from the library) on Tuesdays. ', 1),
 (10, 'LARK', 'Livermore Amateur Radio Klub', 'http://www.livermoreark.org/', 'club meetings are normally held on the 3rd Saturday of the month at 0930 hours local at the Livermore City Council Chambers 3575 Pacific Ave, Livermore, CA', 1),
 (11, 'MARC', 'Martinez Amateur Radio Club', 'http://www.mdarc.org/', 'meets on the second Saturday of the month, 0900-1100, at 604 Ferry St., Martinez, CA', 1),
-(12, 'MDARC', 'Mt Diablo Amateur Radio Club', 'http://mdarc.org', 'meetings are held on the 3rd Friday of the month at 1930 hours local at Our Savior’s Lutheran Church 1035 Carol Lane Lafayette, CA (map). VE test sessions are held before each month’s meeting at 1800 hours local', 1),
+(12, 'MDARC', 'Mt Diablo Amateur Radio Club', 'http://mdarc.org', 'meetings are held on the 3rd Friday of the month at 1930 hours local at Our Savior’s Lutheran Church 1035 Carol Lane Lafayette, CA (<a href=\"https://goo.gl/maps/hUZvWRrSYXC2\" target=\"_blank\">map</a>). License testing sessions are held before each month’s meeting at 1800 hours local', 1),
 (13, 'NCV', 'Newark Communication Volunteers', '', 'meets the 2nd Thursday of the month, 1900-2000 local time, at Fire Station #1, Thornton and Ash, Newark, CA', 1),
 (14, 'NALCO', 'Northern Alameda County', 'http://nalco-ares-races.org/', 'ARES/RACES meetings are the first Thursday of each month, 1930 local time, at Berkeley’s Training Center / Alternate Emergency Operations Center just west of Berkeley Fire Department’s Station #6, Cedar Street between 8th and 9th (enter on Cedar Street) \r\nFor NALCO web page', 1),
-(15, 'NBARA', 'North Bay Amateur Radio Association', 'http://www.nbara.org/', 'meetings take place monthly on the fourth Monday of the month at 1900 hours (this varies during November and December). The meeting place is located at Building 46, Railroad Avenue and 8th Street on Mare Island, across from Alden Park (<a href=\"https://www.google.com/maps/search/8th+%26+railroad,+vallejo,+ca/@38.098395,-122.270665,16z?hl=en\" target=\"_blank\">see map</a>). Use the repeater on 145.310 PL 88.5 for directions to the meeting. The club also holds an informal Breakfast meeting at 0730 hours on the first Saturday of each Month at Denny’s located near the intersection of Highway 37 and Highway 29 (Sonoma Blvd), 4355 Sonoma Boulevard Vallejo, CA (map). All club members and their guests are encouraged to attend. ', 1),
-(16, 'ORCA', 'Oakland Radio Communication Association', '', 'meets on the 1st Saturdays 0900 hours at Fire Station 1, 16th and MLK in Oakland.', 1),
+(15, 'NBARA', 'North Bay Amateur Radio Association', 'http://www.nbara.org/', 'meetings take place monthly on the fourth Monday of the month at 1900 hours (this varies during November and December). The meeting place is located at ACCERT Training Center, 225 James RD. American Canyon. Use the repeater on 145.310 PL 88.5 for directions to the meeting. The club also holds an informal Breakfast meeting at 0730 hours on the first Saturday of each Month at Denny’s located near the intersection of Highway 37 and Highway 29 (Sonoma Blvd), 4355 Sonoma Boulevard Vallejo, CA (map). All club members and their guests are encouraged to attend. ', 1),
 (17, 'ROVARC', 'Red Oak Victory Amateur Radio Club', 'http://www.qsl.net/redoakarc', 'meets on the first Saturday of the month on board the SS Red Oak Victory. The location of the Museum Ship – SS Red Oak Victory is: At the south end of Canal Street, Berth 6A of the graving docks in Richmond, CA. Directions: Take Highway 580 to Point Richmond, exit at Canal St. and head south. In about 1/2 mile Canal, Street ends at a security checkpoint for a large parking area used for off loading newly imported cars from Japan. Just before this checkpoint you bear to the right and follow the road around the car lot, out toward the water to Berth 6A. ', 1),
 (18, 'SLRC', 'San Leandro Radio Club', '', 'meets at Nick’s Family Restaurant, 14660 Washington Ave., San Leandro, on the 2nd Sunday of the month, 0700 local time.', 1),
 (19, 'SARS', 'The Silverado Amateur Radio Society', 'http://napasars.net/', 'meets the second Tuesday each month (except for the month of December), 1900 hours local time, at 2383 Napa Vallejo Highway Just south of the Kennedy Park Golf Course. ', 1),
@@ -262,8 +329,9 @@ INSERT INTO `clubs` (`id_clubs`, `name`, `long_name`, `link`, `narrative`, `acti
 -- Table structure for table `education`
 --
 
-CREATE TABLE `education` (
-  `id_education` int(11) NOT NULL,
+DROP TABLE IF EXISTS `education`;
+CREATE TABLE IF NOT EXISTS `education` (
+  `id_education` int(11) NOT NULL AUTO_INCREMENT,
   `course` varchar(128) COLLATE utf8_bin NOT NULL,
   `club` varchar(128) COLLATE utf8_bin DEFAULT NULL,
   `date_from` int(11) NOT NULL,
@@ -272,8 +340,9 @@ CREATE TABLE `education` (
   `status` varchar(32) COLLATE utf8_bin NOT NULL,
   `location` varchar(1024) COLLATE utf8_bin NOT NULL,
   `details_url` varchar(512) COLLATE utf8_bin DEFAULT NULL,
-  `licensing` tinyint(4) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `licensing` tinyint(4) DEFAULT '0',
+  PRIMARY KEY (`id_education`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `education`
@@ -287,16 +356,37 @@ INSERT INTO `education` (`id_education`, `course`, `club`, `date_from`, `date_to
 (20, 'One-Day Technician License Class + Testing', NULL, 1540051200, 1540051200, '15', 'Open', 'PACIFICON 2018:  San Ramon Marriott 2600 Bishop Drive San Ramon  CA  94583', 'Class: https://tinyurl.com/y9ybrm3z and Exams: https://tinyurl.com/ybctm9w8', 0),
 (22, 'Ham Radio License Exam', NULL, 1542387605, 1542387605, '15', 'Open', 'MDARC Meeting Location at Our Savior\'s Lutheran Church  1035 Carol Lane  Lafayette CA', 'https://tinyurl.com/ybvm6ev8  More details: http://www.mdarc.org/activities/license-testing', 0),
 (24, 'Class Name: Example Class', NULL, 1516024800, 1516111200, '15', 'Open', 'MDARC Meeting Location at Our Savior\'s Lutheran Church  1035 Carol Lane  Lafayette CA', 'https://tinyurl.com/ybvm6ev8 ; More details: http://www.mdarc.org/activities/license-testing', 0),
-(26, 'Technician License Course ', 'MDARC http://mdarc.org', 1547128800, 1551967200, '25', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- Course flyer: https://tinyurl.com/y7xqu3ts -- Testing on the last day of the course -- Test only fee: $15.00', 1),
-(27, 'General License Course ', 'MDARC http://mdarc.org', 1553778000, 1559221200, '25', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- Flyer: https://tinyurl.com/y7xqu3ts -- Testing on the last day of the course -- Test only fee: $15.00', 2),
-(28, 'Technician License Course ', 'MDARC http://mdarc.org', 1565874000, 1572786000, '25', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- Testing on the last day of the course -- Test only fee: $15.00', 1),
+(26, 'Technician License Course ', 'MDARC http://mdarc.org', 1547128800, 1551967200, '10', 'In Progress', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Course flyer: https://tinyurl.com/y7xqu3ts -- Registration at: https://tinyurl.com/y9nxk9p5  -- Testing on the last day of the course -- Test fee: $15.00', 1),
+(27, 'General License Course ', 'MDARC http://mdarc.org', 1553778000, 1559826000, '10', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Course flyer: https://tinyurl.com/y7lkbhd8 -- Registration at: https://tinyurl.com/y9nxk9p5 -- Testing on the last day of the course -- Test fee: $15.00', 2),
+(28, 'Technician License Course ', 'MDARC http://mdarc.org', 1565874000, 1570712400, '10', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- Testing on the last day of the course -- Test fee: $15.00', 1),
 (29, 'Get On The Air - HT', NULL, 1552568400, 1553173200, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Course fee TBD. Two sessions on 03/14/2019 and 03/21/2019, registration and more info at: https://tinyurl.com/y9nxk9p5', 4),
 (30, 'Get On The Air - HF Communications', NULL, 1560430800, 1560430800, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 --- One course session on 06/18/2019 --- Course fee TBD', 4),
-(31, 'Emergency Preparedness or Auxiliary Tng', 'MDARC http://mdarc.org', 1561035600, 1561640400, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time -- Two sessions on 06/20/2019 and 06/27/2019', 6),
-(32, 'Emergency Preparedness or Auxiliary Tng', '', 1564664400, 1565269200, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time -- Two sessions on 08/01/2019 and 08/08/2019', 6),
-(33, 'Emergency Preparedness or Auxiliary Tng', '', 1572526800, 1572526800, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time -- one session on 10/31/2019', 6),
+(31, 'Emergency Preparedness or Auxiliary Tng', 'MDARC http://mdarc.org', 1561035600, 1561035600, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time', 6),
+(32, 'Emergency Preparedness or Auxiliary Tng', '', 1564664400, 1564664400, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time', 6),
 (34, 'Get On The Air - HT', NULL, 1571317200, 1571922000, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 --- Fee TBD --- Two sessions on 10/17/2019 and 10/24/2019', 4),
-(35, 'Ham In-One-Day Course', 'Benicia ARC  http://www.beniciaarc.com', 1549116000, 1549116000, '30', 'Open', 'Benicia Senior Center, 1201 East 2nd Street, Benicia, CA', 'The course fee includes exam fee. For more information click on this URL: http://km6nfc-files.arrleb.org/ham-flyer.pdf', 7);
+(35, 'Ham In-One-Day Course', 'Benicia ARC  http://www.beniciaarc.com', 1549116000, 1549116000, '30', 'Open', 'Benicia Senior Center, 1201 East 2nd Street, Benicia, CA', 'The course fee includes exam fee. For more information click on this URL: http://km6nfc-files.arrleb.org/ham-flyer.pdf', 7),
+(36, 'Emergency Preparedness or Auxiliary Tng', 'MDARC http://mdarc.org', 1561640400, 1561640400, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time', 6),
+(37, 'Emergency Preparedness or Auxiliary Tng', 'MDARC http://mdarc.org', 1565269200, 1565269200, '0', 'Open', 'Trinity Lutheran Church, 2317 Buena Vista Ave.  Walnut Creek, CA 94597', 'Registration at: https://tinyurl.com/y9nxk9p5 -- No fee at this time', 6),
+(38, 'Technician License Course ', 'East Bay Amateur Radio Club (EBARC)', 1554296400, 1560344400, '0', 'Open', 'Arlington Park Clubhouse, 1120 Arlington Blvd, El Cerrito', 'register at http://www.ko6no.com/ ;  FCC examinations and license applications will be administered at the final class session by the EBARC Volunteer Examiners for a fee of $15.00; more details: http://tinyurl.com/y4nzgzv3', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id_events` int(11) NOT NULL AUTO_INCREMENT,
+  `id_club` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(512) COLLATE utf8_bin NOT NULL,
+  `date` int(11) NOT NULL DEFAULT '0',
+  `day` varchar(4) COLLATE utf8_bin NOT NULL,
+  `coordinator` varchar(512) COLLATE utf8_bin NOT NULL,
+  `location` varchar(512) COLLATE utf8_bin NOT NULL,
+  `web` varchar(512) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_events`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -304,12 +394,10 @@ INSERT INTO `education` (`id_education`, `course`, `club`, `date_from`, `date_to
 -- Table structure for table `new_user`
 --
 
-CREATE TABLE `new_user` (
-  `id_new_user` int(11) NOT NULL,
-  `id_team` int(11) NOT NULL,
-  `id_league` int(11) NOT NULL,
-  `id_division` int(11) NOT NULL,
-  `role` tinyint(4) NOT NULL,
+DROP TABLE IF EXISTS `new_user`;
+CREATE TABLE IF NOT EXISTS `new_user` (
+  `id_new_user` int(11) NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) DEFAULT NULL,
   `fname` varchar(64) COLLATE utf8_bin NOT NULL,
   `lname` varchar(64) COLLATE utf8_bin NOT NULL,
   `street` varchar(64) COLLATE utf8_bin NOT NULL,
@@ -323,40 +411,44 @@ CREATE TABLE `new_user` (
   `linkedin` varchar(128) COLLATE utf8_bin DEFAULT NULL,
   `googleplus` varchar(128) COLLATE utf8_bin DEFAULT NULL,
   `callsign` varchar(12) COLLATE utf8_bin DEFAULT 'none',
-  `category` tinyint(4) NOT NULL,
-  `team_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
-  `league_name` varchar(128) COLLATE utf8_bin DEFAULT NULL,
-  `division_name` varchar(128) COLLATE utf8_bin DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `authorized` tinyint(4) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_new_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `new_user`
 --
 
-INSERT INTO `new_user` (`id_new_user`, `id_team`, `id_league`, `id_division`, `role`, `fname`, `lname`, `street`, `city`, `state_cd`, `zip_cd`, `phone`, `email`, `facebook`, `twitter`, `linkedin`, `googleplus`, `callsign`, `category`, `team_name`, `league_name`, `division_name`) VALUES
-(1, 0, 0, 0, 0, 'John', 'Doe', '123 Street St.', 'San Francisco', 'CA', '94108', '8889997777', 'doe@spearheads.com', NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL),
-(2, 0, 0, 0, 0, 'John', 'Doe', '123 Street St.', 'San Francisco', 'CA', '94108', '8889997777', 'doe@spearheads.com', NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL),
-(3, 0, 0, 0, 0, 'John', 'Doe', '123 Street St.', 'San Francisco', 'CA', '94108', '8889997777', 'doe@spearheads.com', NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL),
-(4, 0, 0, 0, 0, 'Tad', 'Sammer', '888 Sabre Street', 'Sabre Town', 'KS', '99447', '8889997777', 'sammer@sabers.com', NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL),
-(5, 0, 0, 0, 0, 'kontaxhbg', 'kontaxhbg', 'Hunhurst\r\n', 'North Rivester\r\n', 'TX', '153112', '81471721219', 'railwetonney2010@hotmail.com', NULL, NULL, NULL, NULL, 'moranzbem', 0, NULL, NULL, NULL),
-(6, 0, 0, 0, 0, 'Joe', 'Madden', '123 street', 'City', 'CA', '99999', '123-323-2334', 'jkulisek.us@gmail.com', NULL, NULL, NULL, NULL, '', 0, NULL, NULL, NULL),
-(7, 0, 0, 0, 0, 'John', 'Primus', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', '(925) 825-7670', 'af6rj@arrl.net', NULL, NULL, NULL, NULL, 'AF6RJ', 0, NULL, NULL, NULL),
-(8, 0, 0, 0, 0, 'Jim', 'Siemons', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', '925-330-0049', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk@arrl.or', 0, NULL, NULL, NULL),
-(9, 0, 0, 0, 0, 'potucstrvt', 'potucstrvt', 'Springage\r\n', 'Sterlingville\r\n', 'OR', '153223', '84459281855', 'morlicafentich2010@outlook.com', NULL, NULL, NULL, NULL, 'brvntyrsfy', 0, NULL, NULL, NULL),
-(10, 0, 0, 0, 0, 'John', 'Primus', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', '9258257670', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', 0, NULL, NULL, NULL),
-(11, 0, 0, 0, 0, 'Kristen', 'McIntyre', 'N/A', 'Fremont', 'CA', 'N/A', 'N/A', 'leho1@email.com', '', '', '', '', 'K6WX', 0, NULL, NULL, NULL),
-(12, 0, 0, 0, 0, 'Misa', 'Siemons', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598', 'N/A', 'misa@siemons.com', '', '', '', '', 'W6LK', 0, NULL, NULL, NULL),
-(13, 0, 0, 0, 0, 'Scott', 'Morse', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 'N/A', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 0, NULL, NULL, NULL),
-(14, 0, 0, 0, 0, 'MISA', 'SIEMONS', '2308 LOMOND LANE', 'WALNUT CREEK', 'CA', '94598', '(925) 876-6611', 'MISA@SIEMONS.COM', '', '', '', '', 'KJ6BUE', 0, NULL, NULL, NULL),
-(15, 0, 0, 0, 0, 'Steve', 'Hawes', '1255 Cornell Avenue', 'Berkeley', 'CA', '94706', 'N/A', 'jan@kulisek.org', '', '', '', '', '', 0, NULL, NULL, NULL),
-(16, 0, 0, 0, 0, 'Gary', 'Gross', '111 Dryden Dr', 'Vallejo', 'CA', '94591', 'N/A', 'jan@kulisek.org', '', '', '', '', 'KE6QR', 0, NULL, NULL, NULL),
-(17, 0, 0, 0, 0, 'Dave', 'Piersall', '2178 Westward Pl', 'Martinez', 'CA', '94553', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N6ORB', 0, NULL, NULL, NULL),
-(18, 0, 0, 0, 0, 'Matt', 'Vurek', 'Box 617', 'Orinda', 'CA', '94563', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N4DLA', 0, NULL, NULL, NULL),
-(19, 0, 0, 0, 0, 'Bart', 'Lee', '388 Market Street 900', 'San Francisco', 'CA', '94511', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6VK', 0, NULL, NULL, NULL),
-(20, 0, 0, 0, 0, 'Jim', 'Tittle', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6SOE', 0, NULL, NULL, NULL),
-(21, 0, 0, 0, 0, 'Michael', 'Warren', '1985 Oakridge Ln', 'Pittsburg', 'CA', '94565', '9254399553', 'mwarren260@comcast.net', 'https://www.facebook.com/Michael.and.Marilyn.Warren', 'https://twitter.com/mwarren2', 'https://www.linkedin.com/in/michaelwarren260/', '', 'W6MEW', 0, NULL, NULL, NULL),
-(22, 0, 0, 0, 0, 'Gary', 'Benecke', '6856Balsam Way', 'Oakland', 'CA', '94611', '510-655-5808', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', 0, NULL, NULL, NULL),
-(23, 0, 0, 0, 0, 'Nafomamed', 'Nafomamed', 'Живу в Москве', 'Живу в Москве', 'AZ', '151343', '89176754849', 'mosk.cross@gmailu.ru', '', '', '', '', 'Nafomamed', 0, NULL, NULL, NULL);
+INSERT INTO `new_user` (`id_new_user`, `id_user`, `fname`, `lname`, `street`, `city`, `state_cd`, `zip_cd`, `phone`, `email`, `facebook`, `twitter`, `linkedin`, `googleplus`, `callsign`, `authorized`) VALUES
+(6, NULL, 'Joe', 'Madden', '123 street', 'City', 'CA', '99999', '123-323-2334', 'jkulisek.us@gmail.com', NULL, NULL, NULL, NULL, '', 0),
+(7, NULL, 'John', 'Primus', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', '(925) 825-7670', 'af6rj@arrl.net', NULL, NULL, NULL, NULL, 'AF6RJ', 0),
+(8, NULL, 'Jim', 'Siemons', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', '925-330-0049', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk@arrl.or', 0),
+(9, NULL, 'potucstrvt', 'potucstrvt', 'Springage\r\n', 'Sterlingville\r\n', 'OR', '153223', '84459281855', 'morlicafentich2010@outlook.com', NULL, NULL, NULL, NULL, 'brvntyrsfy', 0),
+(10, NULL, 'John', 'Primus', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', '9258257670', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', 0),
+(11, NULL, 'Kristen', 'McIntyre', 'N/A', 'Fremont', 'CA', 'N/A', 'N/A', 'leho1@email.com', '', '', '', '', 'K6WX', 0),
+(12, NULL, 'Misa', 'Siemons', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598', 'N/A', 'misa@siemons.com', '', '', '', '', 'W6LK', 0),
+(13, NULL, 'Scott', 'Morse', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 'N/A', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 0),
+(14, NULL, 'MISA', 'SIEMONS', '2308 LOMOND LANE', 'WALNUT CREEK', 'CA', '94598', '(925) 876-6611', 'MISA@SIEMONS.COM', '', '', '', '', 'KJ6BUE', 0),
+(15, NULL, 'Steve', 'Hawes', '1255 Cornell Avenue', 'Berkeley', 'CA', '94706', 'N/A', 'jan@kulisek.org', '', '', '', '', '', 0),
+(16, NULL, 'Gary', 'Gross', '111 Dryden Dr', 'Vallejo', 'CA', '94591', 'N/A', 'jan@kulisek.org', '', '', '', '', 'KE6QR', 0),
+(17, NULL, 'Dave', 'Piersall', '2178 Westward Pl', 'Martinez', 'CA', '94553', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N6ORB', 0),
+(18, NULL, 'Matt', 'Vurek', 'Box 617', 'Orinda', 'CA', '94563', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'N4DLA', 0),
+(19, NULL, 'Bart', 'Lee', '388 Market Street 900', 'San Francisco', 'CA', '94511', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6VK', 0),
+(20, NULL, 'Jim', 'Tittle', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 'N/A', 'jan@jlkconsulting.info', '', '', '', '', 'K6SOE', 0),
+(21, NULL, 'Michael', 'Warren', '1985 Oakridge Ln', 'Pittsburg', 'CA', '94565', '9254399553', 'mwarren260@comcast.net', 'https://www.facebook.com/Michael.and.Marilyn.Warren', 'https://twitter.com/mwarren2', 'https://www.linkedin.com/in/michaelwarren260/', '', 'W6MEW', 0),
+(22, NULL, 'Gary', 'Benecke', '6856Balsam Way', 'Oakland', 'CA', '94611', '510-655-5808', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', 0),
+(23, NULL, 'Nafomamed', 'Nafomamed', 'Живу в Москве', 'Живу в Москве', 'AZ', '151343', '89176754849', 'mosk.cross@gmailu.ru', '', '', '', '', 'Nafomamed', 0),
+(24, NULL, 'cjxzsgotmde', 'cjxzsgotmde', 'doLwAFKBbu', 'New York', 'CA', '39989', '76248456124', 'fdvabu@vaaref.com', 'dLDthIIuXeinXek', 'ayYnnTZUpSLnErnFF', 'http://sgnpqzadgiqu.com/', 'AtNRRFZhkDFoQrHet', 'iLwnncVLlHUi', 0),
+(25, NULL, 'Bill', 'Goldsby', '1241 Simmons St', 'Antioch', 'CA', '94509', '9253397812', 'bill.goldsby@outlook.com', 'https://www.facebook.com/bill.goldsby', 'https://twitter.com/GoldsbyBill', '', '', 'KI6HCA', 0),
+(26, NULL, 'mtfyxss', 'mtfyxss', 'BlErHqDMWmmOUgn', 'New York', 'CA', '60742', '86532471976', 'jxtjgu@ydkwps.com', 'JehlTtsaIUmxXbNl', 'pbeDkohbENFe', 'http://gnfroukeksxl.com/', 'AzZHAcJPDnpnNQnWN', 'JvUBnmhzPyEQ', 0),
+(27, NULL, 'David', 'Sneed', '957 Hunt St. #4', 'St. Helena', 'CA', '94574', '707-494-0809', 'ki6sze@arrl.org', '', '', '', '', 'KI6SZE', 0),
+(28, NULL, 'David', 'Nelson', '342 N. West St.', 'Vacaville', 'CA', '95688', '7074709178', 'nellyis@sbcglobal.net', '', '', '', '', 'AD6EN', 0),
+(29, NULL, 'Michelle', 'Paquette', '1315 Alma Ave, #234', 'Walnut Creek ', 'CA', '94596', '7075678118', 'paquette.mj@gmail.com', '', '', 'https://www.linkedin.com/in/michellejeanpaquette', '', 'AA6MP', 0),
+(30, NULL, 'Bart', 'Lee', '388 Market St. c/o SLK Ste 1300,', 'Sn Francisco', 'CA', '94111', '415 902 7168', 'brt.lee.K6VK@gmail.com', '', '', 'https://www.linkedin.com/in/bartlee', '', 'K6VK', 0),
+(31, NULL, 'Chris', 'Tate', '2463 Del Mar Ct', 'Discovery Bay', 'CA', '94505', '9252867331', 'jkulisek.us2@gmail.com', '', '', '', '', '', 0),
+(32, NULL, 'Chris', 'Tate', '2463 Del Mar Ct', 'Discovery Bay', 'CA', '94505', '9252867331', 'jkulisek.us@gmail.com2', '', '', '', '', 'N6WM', 0),
+(33, 34, 'Michelle', 'Paquette', '1315 Alma Ave Apt 234', 'Walnut Creek', 'CA', '94596', '(707)567-8118', 'bogus_email@garb.xxx', '', '', '', '', 'AA6MP', 0),
+(34, 36, 'edwin', 'garcia', '22868 5th st', 'hayward', 'CA', '94541', '5103144725', 'eagarcia1701@gmail.com', 'https://www.facebook.com/profile.php?id=1574845140', '', '', '', 'kk6zly', 0);
 
 -- --------------------------------------------------------
 
@@ -364,14 +456,16 @@ INSERT INTO `new_user` (`id_new_user`, `id_team`, `id_league`, `id_division`, `r
 -- Table structure for table `repository`
 --
 
-CREATE TABLE `repository` (
-  `id_repository` int(11) NOT NULL,
+DROP TABLE IF EXISTS `repository`;
+CREATE TABLE IF NOT EXISTS `repository` (
+  `id_repository` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `path` varchar(512) COLLATE utf8_bin NOT NULL,
   `description` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
   `name` varchar(512) COLLATE utf8_bin NOT NULL,
-  `private_file` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `private_file` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_repository`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `repository`
@@ -379,7 +473,9 @@ CREATE TABLE `repository` (
 
 INSERT INTO `repository` (`id_repository`, `id_user`, `path`, `description`, `name`, `private_file`) VALUES
 (5, 1, '././assets/uploads/uploads_private/uploads_1', NULL, 'tech-flyer.pdf', 1),
-(6, 1, '././assets/uploads/uploads_public', NULL, 'ham-flyer.pdf', 0);
+(6, 1, '././assets/uploads/uploads_public', NULL, 'ham-flyer.pdf', 0),
+(7, 1, '././assets/uploads/uploads_public', NULL, 'gen-flier.pdf', 0),
+(8, 1, '././assets/uploads/uploads_private/uploads_1', NULL, 'Tech_License_Class_Apr_3rd.pdf', 1);
 
 -- --------------------------------------------------------
 
@@ -387,24 +483,39 @@ INSERT INTO `repository` (`id_repository`, `id_user`, `path`, `description`, `na
 -- Table structure for table `speaker_topics`
 --
 
-CREATE TABLE `speaker_topics` (
-  `id_speaker_topics` int(11) NOT NULL,
+DROP TABLE IF EXISTS `speaker_topics`;
+CREATE TABLE IF NOT EXISTS `speaker_topics` (
+  `id_speaker_topics` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) NOT NULL,
   `topic_name` varchar(512) COLLATE utf8_bin DEFAULT NULL,
   `topic_text` text COLLATE utf8_bin,
   `topic_ref` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
   `location` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
-  `date` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `date` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id_speaker_topics`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `speaker_topics`
 --
 
 INSERT INTO `speaker_topics` (`id_speaker_topics`, `id_user`, `topic_name`, `topic_text`, `topic_ref`, `location`, `date`) VALUES
-(0, 12, 'Why does Ham Radio work “when all else fails”?', 'Most other communication systems are built on the principle of centralized control and centralized infrastructure.  Amateur Radio, by comparison, lacks centralized control, organization, or structure and yet often outperforms commercial systems which are specifically designed to work during a disaster.  This talk will explore the notion that it is the lack of central organization which makes our radio service well suited to perform in circumstances where order has been replaced by chaos.  A new area of research has been gaining popularity recently that investigates the dynamics of decentralized complex systems.  This research when applied to Amateur Radio can help us to understand why our radios continue to work when other systems fail.', '', '', 32400),
-(0, 12, 'A Wire In The Air – what matters most', 'The magic of radio happens when we couple RF into the fabric of spacetime.  We do that with an antenna.  These devices are simultaneously simple and complex.  It’s easy to get lost in the theory or fooled by the latest anecdote.  Let’s look at what’s important in antenna choice and design.  There are things that matter more than others, and it’s never perfect.  And a bit of theory will guide us.  Radiation resistance, loss, pattern gain, terrain, polarization, coupling, loading – they all play a role.  Join me to find out what happens and what matters when we put a wire in the air.', '', '', 32400),
-(0, 12, 'Again, Again!  Why do some modes work better?', 'Ever wonder why CW works better than SSB, and SSB better than FM?  For that matter, why is PSK-31 pretty good, but modes like JT-65 and Olivia even better?  It turns out that there are reasons for this founded in Information Theory, which began with a study of Morse Code. We’ll look at spectral power densities, information theory, the Shannon-Harley theorem, noise cliffs, coding theory, maximum likelihood decoding, convolutional coding, self-synchronizing codes, and more.  We’ll even take a look at Fisher information and its relation to physics. Join me and explore why some modes work better, not just in how we experience them, but how they are impacted by their relationship to information theory.', '', '', 32400);
+(1, 12, 'Why does Ham Radio work “when all else fails”?', 'Most other communication systems are built on the principle of centralized control and centralized infrastructure.  Amateur Radio, by comparison, lacks centralized control, organization, or structure and yet often outperforms commercial systems which are specifically designed to work during a disaster.  This talk will explore the notion that it is the lack of central organization which makes our radio service well suited to perform in circumstances where order has been replaced by chaos.  A new area of research has been gaining popularity recently that investigates the dynamics of decentralized complex systems.  This research when applied to Amateur Radio can help us to understand why our radios continue to work when other systems fail.', '', '', 32400),
+(2, 12, 'A Wire In The Air – what matters most', 'The magic of radio happens when we couple RF into the fabric of spacetime.  We do that with an antenna.  These devices are simultaneously simple and complex.  It’s easy to get lost in the theory or fooled by the latest anecdote.  Let’s look at what’s important in antenna choice and design.  There are things that matter more than others, and it’s never perfect.  And a bit of theory will guide us.  Radiation resistance, loss, pattern gain, terrain, polarization, coupling, loading – they all play a role.  Join me to find out what happens and what matters when we put a wire in the air.', '', '', 32400),
+(3, 12, 'Again, Again!  Why do some modes work better?', 'Ever wonder why CW works better than SSB, and SSB better than FM?  For that matter, why is PSK-31 pretty good, but modes like JT-65 and Olivia even better?  It turns out that there are reasons for this founded in Information Theory, which began with a study of Morse Code. We’ll look at spectral power densities, information theory, the Shannon-Harley theorem, noise cliffs, coding theory, maximum likelihood decoding, convolutional coding, self-synchronizing codes, and more.  We’ll even take a look at Fisher information and its relation to physics. Join me and explore why some modes work better, not just in how we experience them, but how they are impacted by their relationship to information theory.', '', '', 32400),
+(4, 34, 'Care and Feeding of Ancient Electronics', 'Restoring old equipment to a usable state. The talk covers basic testing, replacement of too-old parts, mechanical and cabinet restoration.  A Heathkit SB-301 from 1967 is restored.', '', '', 32400),
+(5, 34, 'Antenna Theory', 'Basics of what makes an antenna work, from simple dipoles to directional antennas.  A Yagi antenna is built and the effects of elements are demonstrated.', '', '', 32400),
+(6, 34, 'Compact Antennas - Theory and Practice', 'Theory behind making a compact antenna, including examples and issues.  A couple of “magic” compact antennas are explained and their secrets revealed!', '', '', 32400),
+(7, 34, 'More Compact Antennas - Ham Sticks', 'Theory behind making a compact antenna, including examples and issues, focusing on the popular and inexpensive ‘haystack’ style antennas.  Both a vertical with counterpoise and a dipole are examined.  Some tips and tricks for using the antennas are discussed.', '', '', 32400),
+(8, 34, 'Small Loop Antennas', 'The theory behind compact loop antennas is examined.  Usage and quirks of a popular magnetic loop antenna are explored.', '', '', 32400),
+(10, 33, 'Anything contest related including interantional travel for contesting.', '', '', '', 32400),
+(11, 33, 'Anything DXCC related', '', '', '', 32400),
+(12, 33, 'VP6D Dxpedition', '', '', '', 32400),
+(13, 14, 'Range of Subjects', 'I would welcome a chance to talk to any group about our Section and ARES as well as the new ARES Connect program in use for volunteers involved in ARES activities.  I can also discuss my experiences during several events including a fiber optical cable cut that knocked out all phone, cell and Internet service to several cities in South Santa Clara County.  Super bowl 50 in Santa Clara, Training programs, Packet radio and more.', '', '', 50400),
+(14, 35, 'The Camp Fire, Phones, Fires and Failures', 'Alan will cover communications failures during the Camp Fire, and offer suggestions on how residents can mitigate similar disasters in their communities.', '', '', 32400),
+(15, 35, 'Community Radio Watch', 'Alan will detail how a Community Radio Watch program using simple FRS and GMRS radios can help enhance neighborhood safety and how Hams can help facilitate implementation of these programs.', '', '', 32400),
+(16, 35, 'Completely Remote Radio Operations', 'Utilizing a computer, a satellite Internet connection and solar electrical power, Alan will demonstrate completely independent and remote operations of a base station from virtually anywhere in North America.', '', '', 32400),
+(17, 35, 'Cross-band Repeater Mode', 'Utilizing a 50-watt Icom Mobile station and virtually any dual-band HT, Alan demonstrates the setup and operation of Cross-band Repeater Mode, enabling high-power, \"roaming\" operations from an HT. ', '', '', 32400);
 
 -- --------------------------------------------------------
 
@@ -412,11 +523,13 @@ INSERT INTO `speaker_topics` (`id_speaker_topics`, `id_user`, `topic_name`, `top
 -- Table structure for table `staff`
 --
 
-CREATE TABLE `staff` (
-  `id_staff` int(11) NOT NULL,
+DROP TABLE IF EXISTS `staff`;
+CREATE TABLE IF NOT EXISTS `staff` (
+  `id_staff` int(11) NOT NULL AUTO_INCREMENT,
   `id_user` int(11) DEFAULT NULL,
-  `position_name` varchar(128) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `position_name` varchar(128) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_staff`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `staff`
@@ -442,8 +555,9 @@ INSERT INTO `staff` (`id_staff`, `id_user`, `position_name`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id_user` int(11) NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id_user` int(11) NOT NULL AUTO_INCREMENT,
   `type_code` tinyint(4) NOT NULL,
   `role` varchar(12) COLLATE latin1_general_ci DEFAULT NULL,
   `pass` varchar(512) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
@@ -468,28 +582,40 @@ CREATE TABLE `users` (
   `position` varchar(512) COLLATE latin1_general_ci DEFAULT NULL,
   `pos_code` tinyint(4) DEFAULT '0',
   `image_loc` varchar(512) COLLATE latin1_general_ci NOT NULL DEFAULT '/assets/img/team-member.gif',
-  `profile` varchar(64) COLLATE latin1_general_ci DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+  `profile` varchar(64) COLLATE latin1_general_ci DEFAULT NULL,
+  PRIMARY KEY (`id_user`),
+  KEY `id_user_types` (`type_code`),
+  KEY `id_user_types_2` (`type_code`)
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id_user`, `type_code`, `role`, `pass`, `username`, `fname`, `lname`, `email`, `facebook`, `twitter`, `linkedin`, `googleplus`, `callsign`, `phone`, `street`, `city`, `state_cd`, `zip_cd`, `authorized`, `verifystr`, `email_key`, `active`, `position`, `pos_code`, `image_loc`, `profile`) VALUES
-(1, 99, 'MST', '$2y$12$OTeRu3bWj4Ll8QWqcdUyzeHv47wLEuBetjPGgdMTyAkFFEwkijiGS', 'hacq', 'Jan', 'Kulisek', 'jkulisek.us@gmail.com', 'https://www.facebook.com/jkulisek', 'https://twitter.com/JanKulisek', 'https://www.linkedin.com/in/jan-kul%C3%ADsek-13066b44/', 'https://plus.google.com/u/0/102144146559622259709', 'KM6NFC', '925-286-7331', '2930 Hilltop Rd', 'Concord', 'CA', '94520', 1, 'http://localhost/mdarc/index.php/public_ctl/confirm_reg/573f016b853c92b03f51adf9', '573f016b853c92b03f51adf9', 1, 'Assistant Section Manager', 2, 'assets/img/me.png', NULL),
+(1, 99, 'MST', '$2y$12$iKWvOgo6Te61E3MXlHUtB.RhthaSJe21xcHNcfBLLQHZJVCPBvN4q', 'hacq', 'Jan', 'Kulisek', 'jkulisek.us@gmail.com', 'https://www.facebook.com/jkulisek', 'https://twitter.com/JanKulisek', 'https://www.linkedin.com/in/jan-kul%C3%ADsek-13066b44/', 'https://plus.google.com/u/0/102144146559622259709', 'KM6NFC', '925-286-7331', '2930 Hilltop Rd', 'Concord', 'CA', '94520', 1, 'http://localhost/mdarc/index.php/public_ctl/confirm_reg/573f016b853c92b03f51adf9', '573f016b853c92b03f51adf9', 1, 'Assistant Section Manager', 2, 'assets/img/me.png', '99-'),
 (17, 0, NULL, NULL, NULL, 'Gary', 'Gross', 'ke6qr@COMCAST.NET', '', '', '', '', 'KE6QR', 'N/A', '111 Dryden Dr', 'Vallejo', 'CA', '94591', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/97d0ec9263f7a987080a0706', '97d0ec9263f7a987080a0706', 1, 'Official Relay Station', 6, '/assets/img/team-member.gif', NULL),
-(14, 0, NULL, '$2y$12$yJZ1edJXbvaMMe9yugZ29ecumeGNZ3bhxfk6oIiFWCgxEQnUk/c2m', 'kc6skm', 'Scott', 'Morse', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 'N/A', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9c5584dfe7a6193f03fd0908', '9c5584dfe7a6193f03fd0908', 0, 'Section Emergency Coordinator', 4, '/assets/img/scott.jpg', NULL),
-(9, 1, 'EDU', '$2y$12$rHZYGSSMQ.o1FxXFt8lOdeepZiqbtP/5ko/7yM6NyTB1D/viwX1c6', 'w6lk', 'Jim', 'Siemons', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk', '925-330-0049', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/d4b345b7a44acf5b5057b1ba', 'd4b345b7a44acf5b5057b1ba', 1, 'Section Manager', 1, '\r\nassets/img/jim.jpg', NULL),
-(11, 1, 'EDU', '$2y$12$BlROAX6.ylZWcGadkzTg/uKZ.nvmibaYuA0x6WKoyJHovoqzAIaRW', 'af6rj', 'John', 'Primus', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', '9258257670', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/261426a4ed4e92a35bb591f4', '261426a4ed4e92a35bb591f4', 1, 'Education Coordinator', 12, '/assets/img/john.png', NULL),
-(12, 3, 'SPK', '$2y$12$oMmCMpRJxsBlheQY9/sAj.HtcqEy3/hVJF0DxXCHfLCc.otb/9Fku', 'k6wx', 'Kristen', 'McIntyre', 'kristen@arrleb.org', '', '', '', '', 'K6WX', '(510) 703-4942', '40711 Witherspoon Ter', 'Fremont', 'CA', '94538-3513', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/853b85059868c400224ee27a', '853b85059868c400224ee27a', 1, 'Technical Coordinator', 11, '/assets/img/team-member.gif', NULL),
+(14, 3, NULL, '$2y$12$4ignCOkL8LRdnfnb8zwQDO2IihVyI.7gfGMYNQmlLs4QyepkPiPHq', 'kc6skm', 'Scott', 'Morse', 'kc6skm@gmail.com', '', '', '', '', 'KC6SKM', 'N/A', '1728 Veneto Lane', 'Brentwood', 'CA', '94513', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9c5584dfe7a6193f03fd0908', '9c5584dfe7a6193f03fd0908', 1, 'Section Emergency Coordinator', 4, '/assets/img/scott.jpg', '3-'),
+(9, 1, 'EDU', '$2y$12$rHZYGSSMQ.o1FxXFt8lOdeepZiqbtP/5ko/7yM6NyTB1D/viwX1c6', 'w6lk', 'Jim', 'Siemons', 'w6lk@arrl.org', NULL, NULL, NULL, NULL, 'w6lk', '925-330-0049', '2308 Lomond Ln', 'Walnut Creek', 'CA', '94598-3705', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/d4b345b7a44acf5b5057b1ba', 'd4b345b7a44acf5b5057b1ba', 1, 'Section Manager', 1, '\r\nassets/img/jim.jpg', '1-2-5-'),
+(11, 1, 'EDU', '$2y$12$BlROAX6.ylZWcGadkzTg/uKZ.nvmibaYuA0x6WKoyJHovoqzAIaRW', 'af6rj', 'John', 'Primus', 'primus@astound.net', NULL, NULL, NULL, NULL, 'AF6RJ', '9258257670', '1307 Saddlehill Ln', 'Concord', 'CA', '94521-3515', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/261426a4ed4e92a35bb591f4', '261426a4ed4e92a35bb591f4', 1, 'Education Coordinator', 12, '/assets/img/john.png', '1-'),
+(12, 3, 'SPK', '$2y$12$isslCw.6Sz/eI.EuZhWwpO4vXopvWlKlFibwqzqG6j/4gMr2dDAp2', 'k6wx', 'Kristen', 'McIntyre', 'kristen@arrleb.org', '', '', '', '', 'K6WX', '(510) 703-4942', '40711 Witherspoon Ter', 'Fremont', 'CA', '94538-3513', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/853b85059868c400224ee27a', '853b85059868c400224ee27a', 1, 'Technical Coordinator', 11, '/assets/img/team-member.gif', '3-'),
 (16, 0, NULL, NULL, NULL, 'Steve', 'Hawes', 'shawes@arrleb.org', '', '', '', '', 'WB6UZX', 'N/A', '1255 Cornell Avenue', 'Berkeley', 'CA', '94706', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/cb312c13dcc6e31dce8abd00', 'cb312c13dcc6e31dce8abd00', 1, 'Section Net Manager', 5, '/assets/img/team-member.gif', NULL),
 (15, 1, 'EDU', '$2y$12$7YfiZ6qtI9HAjfxlwGRQ/eKXcbWtaCOTZL.R0owWtBwrQiD9CbOI.', 'KJ6BUE2018EB', 'MISA', 'SIEMONS', 'MISA@SIEMONS.COM', '', '', '', '', 'KJ6BUE', '(925) 876-6611', '2308 LOMOND LANE', 'WALNUT CREEK', 'CA', '94598', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/aa009f1474697ee061d0f4ad', 'aa009f1474697ee061d0f4ad', 1, 'Public Information Coordinator', 3, '/assets/img/misa.png', NULL),
 (18, 0, NULL, NULL, NULL, 'Dave', 'Piersall', 'dfp@pacbell.net', '', '', '', '', 'N6ORB', 'N/A', '2178 Westward Pl', 'Martinez', 'CA', '94553', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/389ee49fef46ec85094c6878', '389ee49fef46ec85094c6878', 1, 'Contra Costa County', 7, '/assets/img/dave.png', NULL),
-(19, 5, 'CLB', NULL, NULL, 'Matt', 'Vurek', 'n4dla_cs245@yahoo.com', '', '', '', '', 'N4DLA', 'N/A', 'Box 617', 'Orinda', 'CA', '94563', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/3f73fa2b7042501a7ce0912c', '3f73fa2b7042501a7ce0912c', 1, 'Affiliated Club Coordinator', 8, '/assets/img/team-member.gif', NULL),
+(19, 5, 'CLB', NULL, NULL, 'Matt', 'Vurek', 'n4dla_cs245@yahoo.com', '', '', '', '', 'N4DLA', 'N/A', 'Box 617', 'Orinda', 'CA', '94563', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/3f73fa2b7042501a7ce0912c', '3f73fa2b7042501a7ce0912c', 1, 'Affiliated Club Coordinator', 8, '/assets/img/team-member.gif', '5-'),
 (20, 0, NULL, NULL, NULL, 'Bart', 'Lee', 'Bart.Lee.K6VK@gmail.com', '', '', '', '', 'K6VK', 'N/A', '388 Market Street 900', 'San Francisco', 'CA', '94511', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/c950538f1cc099ce605f428a', 'c950538f1cc099ce605f428a', 1, 'Local Govt Liaison', 9, '/assets/img/bart.png', NULL),
 (21, 0, NULL, NULL, NULL, 'Jim', 'Tittle', 'K6SOE@ARRL.NET', '', '', '', '', 'K6SOE', 'N/A', '178 Thomas Way', 'Pittsburg', 'CA', '94565', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/9e838816edcb1a4e9fa061fd', '9e838816edcb1a4e9fa061fd', 1, 'Official Observer Coordinator', 10, '/assets/img/team-member.gif', NULL),
 (22, 4, 'GEN', '$2y$12$CUiCW4dK7uen.Vt1xHMHsuO.AXtTD5DKAYgorm6WaiSviQodiLrgu', 'W6MEW', 'Michael', 'Warren', 'mwarren260@comcast.net', 'https://www.facebook.com/Michael.and.Marilyn.Warren', 'https://twitter.com/mwarren2', 'https://www.linkedin.com/in/michaelwarren260/', '', 'W6MEW', '9254399553', '1985 Oakridge Ln', 'Pittsburg', 'CA', '94565', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/35e21c46c8011ae67bd67306', '35e21c46c8011ae67bd67306', 1, NULL, 0, '/assets/img/team-member.gif', NULL),
-(23, 0, NULL, '$2y$12$Slxokj/JKZSsUITcIOiPXeoKM6oX9uk8UKbagJZciaanRGv/Ex1wG', 'brylla', 'Gary', 'Benecke', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', '510-655-5808', '6856Balsam Way', 'Oakland', 'CA', '94611', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/2d424699243d17d2cd30fb2f', '2d424699243d17d2cd30fb2f', 0, NULL, 0, '/assets/img/team-member.gif', NULL);
+(23, 0, NULL, '$2y$12$Slxokj/JKZSsUITcIOiPXeoKM6oX9uk8UKbagJZciaanRGv/Ex1wG', 'brylla', 'Gary', 'Benecke', 'garybenecke68@gmail.com', '', '', '', '', 'KM6MVV', '510-655-5808', '6856Balsam Way', 'Oakland', 'CA', '94611', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/2d424699243d17d2cd30fb2f', '2d424699243d17d2cd30fb2f', 0, NULL, 0, '/assets/img/team-member.gif', NULL),
+(28, 0, NULL, NULL, NULL, 'David', 'Sneed', 'ki6sze@arrl.org', '', '', '', '', 'KI6SZE', '707-494-0809', '957 Hunt St. #4', 'St. Helena', 'CA', '94574', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/68c07fbefa839426ebf4bcb4', '68c07fbefa839426ebf4bcb4', 1, NULL, 0, '/assets/img/team-member.gif', NULL),
+(29, 0, NULL, '$2y$12$qxm6mFTY8qokTDT6RBJA/OHBc10ZSZ0r23lQjYMG6PtCl8lAkseES', 'AAD6EN', 'David', 'Nelson', 'nellyis@sbcglobal.net', '', '', '', '', 'AD6EN', '7074709178', '342 N. West St.', 'Vacaville', 'CA', '95688', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/640abfd15aa335bf07d527b7', '640abfd15aa335bf07d527b7', 0, NULL, 0, '/assets/img/team-member.gif', NULL),
+(26, 0, NULL, NULL, NULL, 'Bill', 'Goldsby', 'bill.goldsby@outlook.com', 'https://www.facebook.com/bill.goldsby', 'https://twitter.com/GoldsbyBill', '', '', 'KI6HCA', '9253397812', '1241 Simmons St', 'Antioch', 'CA', '94509', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/3e0c83a411a85ae2ca83f4d0', '3e0c83a411a85ae2ca83f4d0', 1, NULL, 0, '/assets/img/team-member.gif', NULL),
+(30, 0, NULL, '$2y$12$PpNRoVmUjhmxPOck8MhKGO39Z3IEq9zmG3xQLWJc.hKX5aWtmbMpS', 'AA6MP', 'Michelle', 'Paquette', 'paquette.mj@gmail.com', '', '', 'https://www.linkedin.com/in/michellejeanpaquette', '', 'AA6MP', '7075678118', '1315 Alma Ave, #234', 'Walnut Creek ', 'CA', '94596', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/7fd33096c70e46e3e6b64507', '7fd33096c70e46e3e6b64507', 0, NULL, 0, '/assets/img/team-member.gif', NULL),
+(31, 0, NULL, NULL, NULL, 'Bart', 'Lee', 'brt.lee.K6VK@gmail.com', '', '', 'https://www.linkedin.com/in/bartlee', '', 'K6VK', '415 902 7168', '388 Market St. c/o SLK Ste 1300,', 'Sn Francisco', 'CA', '94111', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/5502e068013d1297bd1863ea', '5502e068013d1297bd1863ea', 1, NULL, 0, '/assets/img/team-member.gif', NULL),
+(33, 3, 'SPK', '$2y$12$y3.SBs9P/p0r23dKTq5v7.GwZNcRIyrE3u9oyHyXYLzzFKy7WBFYK', 'n6wm', 'Chris', 'Tate', 'n6wm@largeradio.org', '', '', '', '', 'N6WM', '9252867331', '2463 Del Mar Ct', 'Discovery Bay', 'CA', '94505', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/123bcbb5b8469b48f5593a5c', '123bcbb5b8469b48f5593a5c', 1, NULL, 0, '/assets/img/team-member.gif', '3-'),
+(36, 0, NULL, '$2y$12$a7PI3QTzabY.yxGzHrofRewH455YJNJg4DEHQ56qxFV8P7x1XknwW', 'kk6zly', 'edwin', 'garcia', 'eagarcia1701@gmail.com', 'https://www.facebook.com/profile.php?id=1574845140', '', '', '', 'kk6zly', '5103144725', '22868 5th st', 'hayward', 'CA', '94541', 0, 'http://arrleb.org/index.php/public_ctl/confirm_reg/c8eadb03e1225692265a03d0', 'c8eadb03e1225692265a03d0', 0, NULL, 0, '/assets/img/team-member.gif', NULL),
+(34, 3, 'SPK', '$2y$12$kPH2pyr0l1L23u7D7EZHx.klHHV92HJhlJ0DRVwtLALQ55RZOPpuS', 'aa6mp', 'Michelle', 'Paquette', 'paquette.mj@gmail.com', '', '', '', '', 'AA6MP', '(707)567-8118', '1315 Alma Ave Apt 234', 'Walnut Creek', 'CA', '94596', 1, 'http://arrleb.org/index.php/public_ctl/confirm_reg/0c3bdbd4cab30e2190fa00aa', '0c3bdbd4cab30e2190fa00aa', 1, NULL, 0, '/assets/img/team-member.gif', '3-'),
+(35, 3, 'SPK', '$2y$12$re97Vp/Ea1l289A.87XymeNWjAWefkduCjc.ZXZEJLFEBY.CI3tBq', 'w6wn', 'Alan', 'Thompson', 'alan@w6wn.com', '', '', '', '', 'W6WN', '(530) 317 8430', '2711 Mosquito Road', 'Placerville', 'CA', '95667', 1, NULL, NULL, 1, NULL, 0, '/assets/img/team-member.gif', '3-');
 
 -- --------------------------------------------------------
 
@@ -497,8 +623,9 @@ INSERT INTO `users` (`id_user`, `type_code`, `role`, `pass`, `username`, `fname`
 -- Table structure for table `user_0_tbl`
 --
 
-CREATE TABLE `user_0_tbl` (
-  `id_user_0_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_0_tbl`;
+CREATE TABLE IF NOT EXISTS `user_0_tbl` (
+  `id_user_0_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -514,7 +641,8 @@ CREATE TABLE `user_0_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_0_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -523,8 +651,9 @@ CREATE TABLE `user_0_tbl` (
 -- Table structure for table `user_1_tbl`
 --
 
-CREATE TABLE `user_1_tbl` (
-  `id_user_1_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_1_tbl`;
+CREATE TABLE IF NOT EXISTS `user_1_tbl` (
+  `id_user_1_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -540,8 +669,9 @@ CREATE TABLE `user_1_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `narrative2` text,
+  PRIMARY KEY (`id_user_1_tbl`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_1_tbl`
@@ -556,8 +686,9 @@ INSERT INTO `user_1_tbl` (`id_user_1_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_4_tbl`
 --
 
-CREATE TABLE `user_4_tbl` (
-  `id_user_4_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_4_tbl`;
+CREATE TABLE IF NOT EXISTS `user_4_tbl` (
+  `id_user_4_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -573,8 +704,9 @@ CREATE TABLE `user_4_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text,
+  PRIMARY KEY (`id_user_4_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_4_tbl`
@@ -589,8 +721,9 @@ INSERT INTO `user_4_tbl` (`id_user_4_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_5_tbl`
 --
 
-CREATE TABLE `user_5_tbl` (
-  `id_user_5_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_5_tbl`;
+CREATE TABLE IF NOT EXISTS `user_5_tbl` (
+  `id_user_5_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -606,8 +739,9 @@ CREATE TABLE `user_5_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `narrative2` text,
+  PRIMARY KEY (`id_user_5_tbl`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_5_tbl`
@@ -622,8 +756,9 @@ INSERT INTO `user_5_tbl` (`id_user_5_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_9_tbl`
 --
 
-CREATE TABLE `user_9_tbl` (
-  `id_user_9_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_9_tbl`;
+CREATE TABLE IF NOT EXISTS `user_9_tbl` (
+  `id_user_9_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -639,8 +774,9 @@ CREATE TABLE `user_9_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text,
+  PRIMARY KEY (`id_user_9_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_9_tbl`
@@ -655,8 +791,9 @@ INSERT INTO `user_9_tbl` (`id_user_9_tbl`, `id_user`, `fname`, `lname`, `usernam
 -- Table structure for table `user_11_tbl`
 --
 
-CREATE TABLE `user_11_tbl` (
-  `id_user_11_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_11_tbl`;
+CREATE TABLE IF NOT EXISTS `user_11_tbl` (
+  `id_user_11_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -672,8 +809,9 @@ CREATE TABLE `user_11_tbl` (
   `linkedin` varchar(128) DEFAULT NULL,
   `googleplus` varchar(128) DEFAULT NULL,
   `narrative` text,
-  `narrative2` text
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text,
+  PRIMARY KEY (`id_user_11_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_11_tbl`
@@ -688,8 +826,9 @@ INSERT INTO `user_11_tbl` (`id_user_11_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_12_tbl`
 --
 
-CREATE TABLE `user_12_tbl` (
-  `id_user_12_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_12_tbl`;
+CREATE TABLE IF NOT EXISTS `user_12_tbl` (
+  `id_user_12_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -705,8 +844,9 @@ CREATE TABLE `user_12_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_12_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_12_tbl`
@@ -721,8 +861,9 @@ INSERT INTO `user_12_tbl` (`id_user_12_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_14_tbl`
 --
 
-CREATE TABLE `user_14_tbl` (
-  `id_user_14_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_14_tbl`;
+CREATE TABLE IF NOT EXISTS `user_14_tbl` (
+  `id_user_14_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -738,15 +879,16 @@ CREATE TABLE `user_14_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_14_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_14_tbl`
 --
 
 INSERT INTO `user_14_tbl` (`id_user_14_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `facebook`, `twitter`, `linkedin`, `googleplus`, `state_cd`, `zip_cd`, `narrative`, `narrative2`) VALUES
-(1, 14, 'Scott', 'Morse', 'kc6skm', 'kc6skm@gmail.com', 'N/A', '1728 Veneto Lane', 'Brentwood', '', '', '', '', 'CA', '94513', '', '');
+(1, 14, 'Scott', 'Morse', 'kc6skm', 'kc6skm@gmail.com', 'N/A', '1728 Veneto Lane', 'Brentwood', '', '', '', '', 'CA', '94513', 'Scott Morse first became interested in HAM radio in the mid 60’s while in college and was president of the College of San Mateo Radio club where he assisted in setting up the club station just after the college had relocated to its present location.  Most of the equipment was handmade or was military surplus.  Years later I became licensed again and active in emergency communications.', 'I served about 10 years as either an assistant or later as the Chief Radio Officer, DEC, and ACS officer for Santa Clara County Office of Emergency services.  Some of the things accomplished in Santa Clara County were the development of an excellent training program as well as a method to type mutual aid responders.  Also, the development and deployment of a very robust Packet radio system serving the entire county and beyond.  I also served as the Section Emergency Coordinator (SEC) for the Santa Clara Valley section covering San Mateo, Santa Clara, Santa Crus, San Benito and Monterey counties.\r\n\r\nI am currently a member of the Contra Costa County Sheriff’s Communications Unit (COMU). I am the current East Bay section SEC serving Alameda, Contra Costa, Napa and Solano counties.');
 
 -- --------------------------------------------------------
 
@@ -754,8 +896,9 @@ INSERT INTO `user_14_tbl` (`id_user_14_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_15_tbl`
 --
 
-CREATE TABLE `user_15_tbl` (
-  `id_user_15_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_15_tbl`;
+CREATE TABLE IF NOT EXISTS `user_15_tbl` (
+  `id_user_15_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -771,8 +914,9 @@ CREATE TABLE `user_15_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_15_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_15_tbl`
@@ -787,8 +931,9 @@ INSERT INTO `user_15_tbl` (`id_user_15_tbl`, `id_user`, `fname`, `lname`, `usern
 -- Table structure for table `user_16_tbl`
 --
 
-CREATE TABLE `user_16_tbl` (
-  `id_user_16_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_16_tbl`;
+CREATE TABLE IF NOT EXISTS `user_16_tbl` (
+  `id_user_16_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -804,7 +949,8 @@ CREATE TABLE `user_16_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_16_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -813,8 +959,9 @@ CREATE TABLE `user_16_tbl` (
 -- Table structure for table `user_17_tbl`
 --
 
-CREATE TABLE `user_17_tbl` (
-  `id_user_17_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_17_tbl`;
+CREATE TABLE IF NOT EXISTS `user_17_tbl` (
+  `id_user_17_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -830,7 +977,8 @@ CREATE TABLE `user_17_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_17_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -839,8 +987,9 @@ CREATE TABLE `user_17_tbl` (
 -- Table structure for table `user_18_tbl`
 --
 
-CREATE TABLE `user_18_tbl` (
-  `id_user_18_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_18_tbl`;
+CREATE TABLE IF NOT EXISTS `user_18_tbl` (
+  `id_user_18_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -856,7 +1005,8 @@ CREATE TABLE `user_18_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_18_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -865,8 +1015,9 @@ CREATE TABLE `user_18_tbl` (
 -- Table structure for table `user_19_tbl`
 --
 
-CREATE TABLE `user_19_tbl` (
-  `id_user_19_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_19_tbl`;
+CREATE TABLE IF NOT EXISTS `user_19_tbl` (
+  `id_user_19_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -882,7 +1033,8 @@ CREATE TABLE `user_19_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_19_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -891,8 +1043,9 @@ CREATE TABLE `user_19_tbl` (
 -- Table structure for table `user_20_tbl`
 --
 
-CREATE TABLE `user_20_tbl` (
-  `id_user_20_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_20_tbl`;
+CREATE TABLE IF NOT EXISTS `user_20_tbl` (
+  `id_user_20_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -908,7 +1061,8 @@ CREATE TABLE `user_20_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_20_tbl`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -917,8 +1071,9 @@ CREATE TABLE `user_20_tbl` (
 -- Table structure for table `user_21_tbl`
 --
 
-CREATE TABLE `user_21_tbl` (
-  `id_user_21_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_21_tbl`;
+CREATE TABLE IF NOT EXISTS `user_21_tbl` (
+  `id_user_21_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -934,8 +1089,9 @@ CREATE TABLE `user_21_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_21_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -943,8 +1099,9 @@ CREATE TABLE `user_21_tbl` (
 -- Table structure for table `user_22_tbl`
 --
 
-CREATE TABLE `user_22_tbl` (
-  `id_user_22_tbl` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `user_22_tbl`;
+CREATE TABLE IF NOT EXISTS `user_22_tbl` (
+  `id_user_22_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int(11) UNSIGNED NOT NULL,
   `fname` varchar(100) NOT NULL DEFAULT '',
   `lname` varchar(100) NOT NULL DEFAULT '',
@@ -960,8 +1117,9 @@ CREATE TABLE `user_22_tbl` (
   `state_cd` varchar(2) NOT NULL DEFAULT '',
   `zip_cd` varchar(10) NOT NULL DEFAULT '',
   `narrative` text NOT NULL,
-  `narrative2` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_22_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user_22_tbl`
@@ -973,15 +1131,122 @@ INSERT INTO `user_22_tbl` (`id_user_22_tbl`, `id_user`, `fname`, `lname`, `usern
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_33_tbl`
+--
+
+DROP TABLE IF EXISTS `user_33_tbl`;
+CREATE TABLE IF NOT EXISTS `user_33_tbl` (
+  `id_user_33_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) UNSIGNED NOT NULL,
+  `fname` varchar(100) NOT NULL DEFAULT '',
+  `lname` varchar(100) NOT NULL DEFAULT '',
+  `username` varchar(32) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(32) NOT NULL DEFAULT '',
+  `street` varchar(100) NOT NULL DEFAULT '',
+  `city` varchar(128) NOT NULL DEFAULT '',
+  `facebook` varchar(128) NOT NULL DEFAULT '',
+  `twitter` varchar(128) NOT NULL DEFAULT '',
+  `linkedin` varchar(128) NOT NULL DEFAULT '',
+  `googleplus` varchar(128) NOT NULL DEFAULT '',
+  `state_cd` varchar(2) NOT NULL DEFAULT '',
+  `zip_cd` varchar(10) NOT NULL DEFAULT '',
+  `narrative` text NOT NULL,
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_33_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_33_tbl`
+--
+
+INSERT INTO `user_33_tbl` (`id_user_33_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `facebook`, `twitter`, `linkedin`, `googleplus`, `state_cd`, `zip_cd`, `narrative`, `narrative2`) VALUES
+(1, 33, 'Chris', 'Tate', 'n6wm', 'jkulisek.us@gmail.com2', '9252867331', '2463 Del Mar Ct', 'Discovery Bay', '', '', '', '', 'CA', '94505', 'Chris Tate, N6WM is an avid and well known Contester, Dxpeditioneer and amateur radio author.  Chris has won or placed top 10 with numerous contest titles at the Division, National and International level. In addition to contesting, Chris is an enthusiastic operator and DXer and has earned DXCC on 8 bands, Challenge, 5Bwas +160m along with many other operating awards, including being awarded Top tester by Flex Radio systems in 2016 at the Dayton Hamvention. ', 'Chris has served in a number of leadership roles, including past Board member, Vice President/Contest Chair, and President of the Northern California Contest Club, Past Contest Chairman of the California QSO party, Past Contest manager for the NCJ NA Sprint SSB and is a current Assistant Section Manager for DX and contesting for the ARRL East Bay section.  Memberships include: the NCCC, NCDXC, PL-259 contest club (3 consecutive small club Sweepstakes gavels), CWOPS (#688) and is a regular contributor to the Northern California DX Foundation.  \r\n\r\nChris writes articles as a contributing author for QST, including the annual writeup for the ARRL DX SSB contest, and was recently profiled in National Contest Journal.\r\n\r\nIn addition, Chris is an experienced station manager and tower climber with extensive station building and computer experience.  He is a founding member of the winning K6LRG hilltop contest station and serves as the lead technical manager and is a regular team operator at Radio Oakley owned by CQ Contest Hall of fame operator N6RO.\r\n\r\nChris travels regularly and also holds the Call ZF2CT for operations in the Cayman Islands, most recently in July 2016 and Sept 2017.  He was a team member of the very successful VP6D ducie island 2018 dx-pedition that icluded travel to French Polynesia(FO), Pitcairn Island(VP6) and of course Ducie(VP6-D)');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_34_tbl`
+--
+
+DROP TABLE IF EXISTS `user_34_tbl`;
+CREATE TABLE IF NOT EXISTS `user_34_tbl` (
+  `id_user_34_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) UNSIGNED NOT NULL,
+  `fname` varchar(100) NOT NULL DEFAULT '',
+  `lname` varchar(100) NOT NULL DEFAULT '',
+  `username` varchar(32) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(32) NOT NULL DEFAULT '',
+  `street` varchar(100) NOT NULL DEFAULT '',
+  `city` varchar(128) NOT NULL DEFAULT '',
+  `facebook` varchar(128) NOT NULL DEFAULT '',
+  `twitter` varchar(128) NOT NULL DEFAULT '',
+  `linkedin` varchar(128) NOT NULL DEFAULT '',
+  `googleplus` varchar(128) NOT NULL DEFAULT '',
+  `state_cd` varchar(2) NOT NULL DEFAULT '',
+  `zip_cd` varchar(10) NOT NULL DEFAULT '',
+  `narrative` text NOT NULL,
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_34_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_34_tbl`
+--
+
+INSERT INTO `user_34_tbl` (`id_user_34_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `facebook`, `twitter`, `linkedin`, `googleplus`, `state_cd`, `zip_cd`, `narrative`, `narrative2`) VALUES
+(1, 34, 'Michelle', 'Paquette', 'aa6mp', 'paquette.mj@gmail.com', '(707)567-8118', '1315 Alma Ave Apt 234', 'Walnut Creek', '', '', '', '', 'CA', '94596', 'Michelle Paquette, AA6MP has worked in fields from nuclear power plant operations to systems software and software engineering, as both an engineer and an instructor. As an engineer she holds 19 patents for inventions used by hundreds of millions of people every day, in Apple\'s Macs, iPads, and iPhones.', 'As an instructor she has trained people in such varied areas as nuclear power plant operations, programming of in-circuit test systems and factory robots.  Michelle is a past president of the Benicia Amateur Radio Club, and an instructor in Mt Diablo Amateur Radio Club’s license classes, as well as a speaker and trainer in a number of other programs in the region. When not teaching she is often found baking, restoring old vacuum tube equipment or tinkering with compact antennas.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_35_tbl`
+--
+
+DROP TABLE IF EXISTS `user_35_tbl`;
+CREATE TABLE IF NOT EXISTS `user_35_tbl` (
+  `id_user_35_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int(11) UNSIGNED NOT NULL,
+  `fname` varchar(100) NOT NULL DEFAULT '',
+  `lname` varchar(100) NOT NULL DEFAULT '',
+  `username` varchar(32) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `phone` varchar(32) NOT NULL DEFAULT '',
+  `street` varchar(100) NOT NULL DEFAULT '',
+  `city` varchar(128) NOT NULL DEFAULT '',
+  `facebook` varchar(128) NOT NULL DEFAULT '',
+  `twitter` varchar(128) NOT NULL DEFAULT '',
+  `linkedin` varchar(128) NOT NULL DEFAULT '',
+  `googleplus` varchar(128) NOT NULL DEFAULT '',
+  `state_cd` varchar(2) NOT NULL DEFAULT '',
+  `zip_cd` varchar(10) NOT NULL DEFAULT '',
+  `narrative` text NOT NULL,
+  `narrative2` text NOT NULL,
+  PRIMARY KEY (`id_user_35_tbl`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `user_35_tbl`
+--
+
+INSERT INTO `user_35_tbl` (`id_user_35_tbl`, `id_user`, `fname`, `lname`, `username`, `email`, `phone`, `street`, `city`, `facebook`, `twitter`, `linkedin`, `googleplus`, `state_cd`, `zip_cd`, `narrative`, `narrative2`) VALUES
+(1, 35, 'Alan', 'Thompson', 'w6wn', 'alan@w6wn.com', '(530) 317 8430', '2711 Mosquito Road', 'Placerville', '', '', '', '', 'CA', '95667', 'Alan first became a Ham at age 11. At the time, he was the 2nd youngest Ham Radio Operator in the US. But, like many of us, he let his license lapse as career and family interests intervened. He\'s had a varied professional career as a Field Technician, Manager and Entrepreneur in the satellite communications industry for over 35 years. He is also a member of Toast Masters International, and has given 100s of training presentations across the US throughout his career.', 'Alan is currently the Owner and Chief Field Engineer for El Dorado Networks in El Dorado County, and is responsible for installing and maintaining commercial satellite Internet and video systems in the Western US and Mexico. Recent projects include work for <strong>Facebook, Intelsat, Merrill Lynch</strong> and <strong>Bank of America</strong>. His satellite Internet skills were called upon as part of a four-person Disaster Recovery Team that helped restore cell phone services in Butte County just after the Camp Fire destroyed Paradise and Magalia.\r\n\r\nAlan regained his Amateur Radio license in 2017 after passing all three license exams at one sitting. His principle radio interest is in becoming a Volunteer Examiner, Trainer and Coach, supporting ARES and CERT efforts, and promoting Neighborhood Radio programs to help enhance Community Safety and save lives. He is currently engaged in giving several public presentations before local Amateur Radio Clubs and civic organizations on the communications failures that occurred during the 2018 Camp Fire, and offering practical solutions on how neighborhoods can help their families stay safer in the event of disasters.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user_types`
 --
 
-CREATE TABLE `user_types` (
-  `id_user_types` int(11) NOT NULL,
+DROP TABLE IF EXISTS `user_types`;
+CREATE TABLE IF NOT EXISTS `user_types` (
+  `id_user_types` int(11) NOT NULL AUTO_INCREMENT,
   `type_code` tinyint(4) NOT NULL,
   `description` varchar(32) COLLATE utf8_bin NOT NULL,
-  `code_str` varchar(4) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+  `code_str` varchar(4) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id_user_types`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `user_types`
@@ -994,284 +1259,9 @@ INSERT INTO `user_types` (`id_user_types`, `type_code`, `description`, `code_str
 (4, 0, 'Not Set', 'NON'),
 (5, 3, 'speaker', 'SPK'),
 (6, 4, 'general', 'GEN'),
-(7, 5, 'Club Admin', 'CLB');
+(7, 5, 'Club Admin', 'CLB'),
+(8, 6, 'elmer', 'ELM');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `ci_sessions`
---
-ALTER TABLE `ci_sessions`
-  ADD PRIMARY KEY (`id_sessions`),
-  ADD KEY `id_user` (`id_user`),
-  ADD KEY `id_user_2` (`id_user`);
-
---
--- Indexes for table `clubs`
---
-ALTER TABLE `clubs`
-  ADD PRIMARY KEY (`id_clubs`);
-
---
--- Indexes for table `education`
---
-ALTER TABLE `education`
-  ADD PRIMARY KEY (`id_education`);
-
---
--- Indexes for table `new_user`
---
-ALTER TABLE `new_user`
-  ADD PRIMARY KEY (`id_new_user`);
-
---
--- Indexes for table `repository`
---
-ALTER TABLE `repository`
-  ADD PRIMARY KEY (`id_repository`);
-
---
--- Indexes for table `staff`
---
-ALTER TABLE `staff`
-  ADD PRIMARY KEY (`id_staff`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id_user`),
-  ADD KEY `id_user_types` (`type_code`),
-  ADD KEY `id_user_types_2` (`type_code`);
-
---
--- Indexes for table `user_0_tbl`
---
-ALTER TABLE `user_0_tbl`
-  ADD PRIMARY KEY (`id_user_0_tbl`);
-
---
--- Indexes for table `user_1_tbl`
---
-ALTER TABLE `user_1_tbl`
-  ADD PRIMARY KEY (`id_user_1_tbl`);
-
---
--- Indexes for table `user_4_tbl`
---
-ALTER TABLE `user_4_tbl`
-  ADD PRIMARY KEY (`id_user_4_tbl`);
-
---
--- Indexes for table `user_5_tbl`
---
-ALTER TABLE `user_5_tbl`
-  ADD PRIMARY KEY (`id_user_5_tbl`);
-
---
--- Indexes for table `user_9_tbl`
---
-ALTER TABLE `user_9_tbl`
-  ADD PRIMARY KEY (`id_user_9_tbl`);
-
---
--- Indexes for table `user_11_tbl`
---
-ALTER TABLE `user_11_tbl`
-  ADD PRIMARY KEY (`id_user_11_tbl`);
-
---
--- Indexes for table `user_12_tbl`
---
-ALTER TABLE `user_12_tbl`
-  ADD PRIMARY KEY (`id_user_12_tbl`);
-
---
--- Indexes for table `user_14_tbl`
---
-ALTER TABLE `user_14_tbl`
-  ADD PRIMARY KEY (`id_user_14_tbl`);
-
---
--- Indexes for table `user_15_tbl`
---
-ALTER TABLE `user_15_tbl`
-  ADD PRIMARY KEY (`id_user_15_tbl`);
-
---
--- Indexes for table `user_16_tbl`
---
-ALTER TABLE `user_16_tbl`
-  ADD PRIMARY KEY (`id_user_16_tbl`);
-
---
--- Indexes for table `user_17_tbl`
---
-ALTER TABLE `user_17_tbl`
-  ADD PRIMARY KEY (`id_user_17_tbl`);
-
---
--- Indexes for table `user_18_tbl`
---
-ALTER TABLE `user_18_tbl`
-  ADD PRIMARY KEY (`id_user_18_tbl`);
-
---
--- Indexes for table `user_19_tbl`
---
-ALTER TABLE `user_19_tbl`
-  ADD PRIMARY KEY (`id_user_19_tbl`);
-
---
--- Indexes for table `user_20_tbl`
---
-ALTER TABLE `user_20_tbl`
-  ADD PRIMARY KEY (`id_user_20_tbl`);
-
---
--- Indexes for table `user_21_tbl`
---
-ALTER TABLE `user_21_tbl`
-  ADD PRIMARY KEY (`id_user_21_tbl`);
-
---
--- Indexes for table `user_22_tbl`
---
-ALTER TABLE `user_22_tbl`
-  ADD PRIMARY KEY (`id_user_22_tbl`);
-
---
--- Indexes for table `user_types`
---
-ALTER TABLE `user_types`
-  ADD PRIMARY KEY (`id_user_types`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `ci_sessions`
---
-ALTER TABLE `ci_sessions`
-  MODIFY `id_sessions` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=177;
---
--- AUTO_INCREMENT for table `clubs`
---
-ALTER TABLE `clubs`
-  MODIFY `id_clubs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT for table `education`
---
-ALTER TABLE `education`
-  MODIFY `id_education` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
---
--- AUTO_INCREMENT for table `new_user`
---
-ALTER TABLE `new_user`
-  MODIFY `id_new_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
---
--- AUTO_INCREMENT for table `repository`
---
-ALTER TABLE `repository`
-  MODIFY `id_repository` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT for table `staff`
---
-ALTER TABLE `staff`
-  MODIFY `id_staff` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
---
--- AUTO_INCREMENT for table `user_0_tbl`
---
-ALTER TABLE `user_0_tbl`
-  MODIFY `id_user_0_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_1_tbl`
---
-ALTER TABLE `user_1_tbl`
-  MODIFY `id_user_1_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_4_tbl`
---
-ALTER TABLE `user_4_tbl`
-  MODIFY `id_user_4_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_5_tbl`
---
-ALTER TABLE `user_5_tbl`
-  MODIFY `id_user_5_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_9_tbl`
---
-ALTER TABLE `user_9_tbl`
-  MODIFY `id_user_9_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_11_tbl`
---
-ALTER TABLE `user_11_tbl`
-  MODIFY `id_user_11_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_12_tbl`
---
-ALTER TABLE `user_12_tbl`
-  MODIFY `id_user_12_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_14_tbl`
---
-ALTER TABLE `user_14_tbl`
-  MODIFY `id_user_14_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_15_tbl`
---
-ALTER TABLE `user_15_tbl`
-  MODIFY `id_user_15_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_16_tbl`
---
-ALTER TABLE `user_16_tbl`
-  MODIFY `id_user_16_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_17_tbl`
---
-ALTER TABLE `user_17_tbl`
-  MODIFY `id_user_17_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_18_tbl`
---
-ALTER TABLE `user_18_tbl`
-  MODIFY `id_user_18_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_19_tbl`
---
-ALTER TABLE `user_19_tbl`
-  MODIFY `id_user_19_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_20_tbl`
---
-ALTER TABLE `user_20_tbl`
-  MODIFY `id_user_20_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `user_21_tbl`
---
-ALTER TABLE `user_21_tbl`
-  MODIFY `id_user_21_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_22_tbl`
---
-ALTER TABLE `user_22_tbl`
-  MODIFY `id_user_22_tbl` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `user_types`
---
-ALTER TABLE `user_types`
-  MODIFY `id_user_types` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
