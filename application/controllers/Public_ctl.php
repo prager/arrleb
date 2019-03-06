@@ -227,6 +227,15 @@ class Public_ctl extends CI_Controller {
 		$this->load->view('template/footer_ver1');
 	}
 	
+	public function event_details() {
+	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
+	    $data['event'] = $this->Events_model->get_event($this->uri->segment(3, 0));
+	    $data['home'] = 'public_ctl/public_events';
+	    $data['cur'] = 'Public Service Events';
+	    $this->load->view('public/details_event_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
 	public function test_details() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
 	    $data['class'] = $this->Edu_model->get_test($this->uri->segment(3, 0));

@@ -1,8 +1,9 @@
+<div id="content">
 <div class="container">
 	
 	<div class="box">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
         	<table class="table table-striped table-responsive">
         		<thead>
         			<tr>
@@ -53,7 +54,7 @@
     <div class="row">
     	<div class="col-md-10 col-md-offset-1">
     		<br>
-    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Event</a>
+    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Class</a>
     		<?php include 'inc_modal_add.php'; ?>
     	</div>
     </div>
@@ -65,5 +66,6 @@
 	</div>
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
+</div>
 </div>
 <!-- Footer -->
