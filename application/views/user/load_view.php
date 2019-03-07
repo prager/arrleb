@@ -49,6 +49,12 @@
           <?php  echo anchor('speaker', 'Speaker'); ?>
   </li>
   <?php     }
+  
+   if((is_numeric(strpos($user['profile'], "99"))) || (is_numeric(strpos($user['profile'], "2")))) {?>
+  <li>
+          <?php  echo anchor('events', 'Events'); ?>
+  </li>
+  <?php     }
    
   if(is_numeric(strpos($user['profile'], "99"))) { ?>
   <li>

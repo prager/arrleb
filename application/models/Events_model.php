@@ -84,13 +84,14 @@ class Events_model extends CI_Model {
 	                'id' => $row->id_events,
 	                'name' => $row->name,
 	                'date' => $row->date,
+	                'club' => $row->club_name,
 	                'day' => $row->day,
 	                'coordinator' => $row->coordinator, 
 	                'location' => $row->location,
-	                'web' => $this->make_clickable_url($res->web)
+	                'web' => $this->make_clickable_url($row->web)
 	            );
 	            
-	            array_push($retarr['clubs'], $arr);
+	            array_push($retarr['events'], $arr);
 	        }
 	    }
 	    

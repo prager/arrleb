@@ -9,7 +9,7 @@
 		          <h4><span class="glyphicon glyphicon-copy"></span> Add Class</h4>
 		        </div>
 		        <div class="modal-body">
-		        <?php echo form_open('edu/edit_class/'); ?>
+		        <?php echo form_open('events/edit_event/'); ?>
 		            <div class="form-group">
 					<div class="row">
 						<div class="col-md-5 col-md-offset-1">

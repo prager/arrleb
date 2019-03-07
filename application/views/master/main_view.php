@@ -21,6 +21,7 @@
   <li><?php echo anchor('speaker', 'Speaker'); ?></li>
   <li><?php echo anchor('staff', 'Staff'); ?></li>
   <li><?php echo anchor('master/set_user_profile', 'Set User Profile'); ?></li>
+  <li><?php echo anchor('events', 'Events'); ?></li>
 </ol>
 </div>
 </div>

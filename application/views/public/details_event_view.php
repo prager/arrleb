@@ -26,7 +26,7 @@
                 Date: <?php echo date("m/d/Y", $event['date']); ?><br><br>
                 Location: <?php echo $event['location']; ?> <br><br>
                 Coordinator: <?php $event['coordinator'];?><br><br>
-                Additional details - <?php echo $event['details_url']; ?>               
+                Additional details - <?php echo $event['web']; ?>               
                 </p>
                 </div>
                 </div>

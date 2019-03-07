@@ -1,80 +1,62 @@
 <!-- Edit Class Modal -->
-		  <div class="modal fade" id="addClass" role="dialog">
+		  <div class="modal fade" id="addEvent" role="dialog">
 		    <div class="modal-dialog modal-lg">
 		
 		      <!-- Modal content-->
 		      <div class="modal-content">
 		        <div class="modal-header">
 		          <button type="button" class="close" data-dismiss="modal">×</button>
-		          <h4><span class="glyphicon glyphicon-copy"></span> Add Class</h4>
+		          <h4><span class="glyphicon glyphicon-copy"></span> Add Event</h4>
 		        </div>
 		        <div class="modal-body">
-		        <?php echo form_open('edu/edit_class/'); ?>
+		        <?php echo form_open('events/edit_event/'); ?>
 		            <div class="form-group">
 		            <div class="row">
 			            <div class="col-md-10 col-md-offset-1">
 			            <?php $data = array(
-							'name'          => 'course',
-							'id'            => 'course',
+							'name'          => 'club',
+							'id'            => 'club',
 			            		'value'         =>  '',
-			            	'placeholder' => 'Class',
+			            	'placeholder' => 'Club Name',
 			                'class'			=> 'form-control',
 							'maxlength'     => '75');?>
-						Class
+						Club Name
 						<?php echo form_input($data);?>
 						</div>						
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
-						<div class="col-md-5 col-md-offset-1">
+						<div class="col-md-10 col-md-offset-1">
 						<?php $data = array(
-							'name'          => 'date_from',
-							'id'            => 'date_from',
+							'name'          => 'name',
+							'id'            => 'name',
+						    'value'         =>  '',
+			            	'placeholder' => 'Event Name',
+			                'class'			=> 'form-control',
+							'maxlength'     => '35');?>
+						Event Name
+						<?php echo form_input($data);?>
+						</div>						
+					</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-1">
+						<?php $data = array(
+							'name'          => 'date',
+							'id'            => 'date',
 						    'value'         =>  '',
 						    'type' => 'date',
 			            	'placeholder' => 'mm/dd/yyyy',
 			                'class'			=> 'form-control',
 							'maxlength'     => '35');?>
-						Date From
+						Event Date
 						<?php echo form_input($data);?>
 						</div>
-						<div class="col-md-5">
-						<?php $data = array(
-							'name'          => 'date_to',
-							'id'            => 'date_to',
-			            		'value'         =>  '',
-						    'type' => 'date',
-						    'placeholder' => 'mm/dd/yyyy',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Date To
-						<?php echo form_input($data);?>
+						<div class="col-md-4">
+							Day
+			          	<?php echo form_dropdown('day', array('Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 
+			          	    'Thursday', 'Friday'), 0, 'class="form-control"'); ?>
 						</div>	
-					</div>
-					<div class="row">&nbsp;</div>
-					<div class="row">
-						<div class="col-md-5 col-md-offset-1">
-						<?php $data = array(
-							'name'          => 'fee',
-							'id'            => 'fee',
-			            		'value'         =>  '$',
-			            	'placeholder' => 'Fee',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Fee $
-						<?php echo form_input($data);?>
-						</div>
-						<div class="col-md-5">
-						<?php $data = array(
-							'name'          => 'status',
-							'id'            => 'status',
-			            		'value'         =>  '',
-			            	'placeholder' => 'status',
-			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
-						Status
-						<?php echo form_input($data);?>
-						</div>
 					</div>
 					<div class="row">&nbsp;</div>
 					<div class="row">
@@ -94,13 +76,27 @@
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
 						<?php $data = array(
-							'name'          => 'details_url',
-							'id'            => 'details_url',
+							'name'          => 'coordinator',
+							'id'            => 'coordinator',
+			            		'value'         =>  '',
+			            	'placeholder' => 'Coordinator',
+			                'class'			=> 'form-control',
+							'maxlength'     => '512');?>
+						Web Reference
+						<?php echo form_input($data);?>
+						</div>
+					</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+						<?php $data = array(
+							'name'          => 'web',
+							'id'            => 'web',
 			            		'value'         =>  '',
 			            	'placeholder' => 'url',
 			                'class'			=> 'form-control',
 							'maxlength'     => '512');?>
-						URL
+						Web Reference
 						<?php echo form_input($data);?>
 						</div>
 					</div>

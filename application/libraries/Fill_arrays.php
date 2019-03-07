@@ -1,6 +1,23 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Fill_arrays {
+    
+    public function get_day($key) {
+        return $this->days()[$key];
+    }
+    
+    public function days() {
+        $retarr = array(
+            '0' => 'Sat',
+            '1' => 'Sun',
+            '2' => 'Mon',
+            '3' => 'Tue',
+            '4' => 'Wed',
+            '5' => 'Thu',
+            '6' => 'Fri');
+        
+        return $retarr;
+    }
 
 	public function innings() {
 		$retarr = array(

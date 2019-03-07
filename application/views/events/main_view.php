@@ -17,10 +17,10 @@
         			</tr>
         		</thead>
         		<tbody>
-        		<?php if($edu['cnt'] > 0)
-        		    foreach($edu['events'] as $row) {?>
+        		<?php if($cnt > 0)
+        		    foreach($events as $row) {?>
         			<tr>
-        				<td><strong><?php echo $row['event']; ?></strong></td>
+        				<td><strong><?php echo $row['name']; ?></strong></td>
         				<td>
             				<?php 
                 				if($row['date'] != 0) {
@@ -35,11 +35,11 @@
         				<td><?php echo $row['club']; ?></td>
         				<td><?php echo $row['coordinator']; ?></td>
         				<td class="elips1"><?php echo $row['location']; ?></td>
-        				<td class="elips2"><?php echo $row['details_url']; ?></td>
+        				<td class="elips2"><?php echo $row['web']; ?></td>
         				<td>
         					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a> 
         					/    
-        					<a href="#" data-toggle="modal" data-target="#deleteClass<?php echo $row['id']; ?>">Delete Class</a>
+        					<a href="#" data-toggle="modal" data-target="#deleteEvent<?php echo $row['id']; ?>">Delete Event</a>
         					<?php include 'inc_delete_event.php'; ?>
         					<?php include 'inc_modal_edit.php'; ?>     				
         				</td>
@@ -53,7 +53,7 @@
     <div class="row">
     	<div class="col-md-10 col-md-offset-1">
     		<br>
-    		<a href="#" data-toggle="modal" data-target="#addClass" class="btn btn-primary" role="button">Add Event</a>
+    		<a href="#" data-toggle="modal" data-target="#addEvent" class="btn btn-primary" role="button">Add Event</a>
     		<?php include 'inc_modal_add.php'; ?>
     	</div>
     </div>

@@ -384,9 +384,10 @@ class Public_ctl extends CI_Controller {
 	
 	public function public_events() {
 	    $this->load->view('template/header_public_gen', array('logged' => $this->Login_model->is_logged()['logged']));
-	    $data['title'] = "Coming soon...";
-	    $data['msg'] = "Public Service Events page is coming soon" . "<br><br>";
-	    $this->load->view('status/status_view', $data);
+	    //$data['title'] = "Coming soon...";
+	    //$data['msg'] = "Public Service Events page is coming soon" . "<br><br>";
+	    //$this->load->view('status/status_view', $data);
+	    $this->load->view('public/events_view', $this->Events_model->get_events());
 	    $this->load->view('template/footer_ver1');
 	}
 	
