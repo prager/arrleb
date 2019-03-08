@@ -8,7 +8,7 @@
       	</div>
       </div>
 	<div class="row">
-       	<div class="col-md-10 col-md-offset-1">
+       	<div class="col-md-6 col-md-offset-1">
        	<div class="vertical">
        	<p>Beginning in early spring each year and continuing into early winter many ham radio operators 
        	become involved in doing radio team communications to support various public service events. The events include long distance 
@@ -19,8 +19,15 @@
        	Meals on Wheels, and Save Mt. Diablo.
 		<br>
        	</div>
+       </div> 
+       <div class="col-md-1">&nbsp;</div>      
+       <div class="col-md-3"><br>
+       	<div class="align-bottom">
+       	<img src="http://files.arrleb.org/event.png" alt="event" class="img-rounded" />
+       	</div>
        </div>
     </div>
+    <div class="row">&nbsp;</div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
         	<table class="table table-striped table-responsive">
