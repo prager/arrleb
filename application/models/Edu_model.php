@@ -13,6 +13,7 @@ class Edu_model extends CI_Model {
 	    $retarr['classes'] = array();
 	    if($cnt > 0) {
 	        $this->db->select('*');
+	        $this->db->order_by('date_from', 'ASC');
 	        $res = $this->db->get('education')->result();
 	        foreach($res as $row) {
 	            if($row->date_to > time()) {
@@ -29,7 +30,7 @@ class Edu_model extends CI_Model {
 	                    'details_url' => $this->make_clickable_url($row->details_url),
 	                    'club' => $row->club
 	                );
-	                array_push($retarr['classes'], $arr);
+	                   array_push($retarr['classes'], $arr);
 	            }
 	        }
 	    }

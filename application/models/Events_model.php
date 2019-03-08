@@ -13,9 +13,9 @@ class Events_model extends CI_Model {
 	    $res = $this->db->get('events')->row();
 	    
 	    $retarr = array();
-	    $retarr['id'] = $res->id_event;
-	    $retarr['name'] = $res->name;
-	    $retarr['club'] = $this->Club_model->get_club($res->id_club)['name'];
+	    $retarr['id'] = $res->id_events;
+	    $retarr['name'] = $this->make_clickable_url($res->name);
+	    $retarr['club'] = $this->make_clickable_url($res->club_name);
 	    $retarr['date'] = $res->date;
 	    $retarr['day'] = $res->day;
 	    $retarr['coordinator'] = $res->coordinator;
@@ -84,11 +84,11 @@ class Events_model extends CI_Model {
 	                'id' => $row->id_events,
 	                'name' => $row->name,
 	                'date' => $row->date,
-	                'club' => $row->club_name,
+	                'club' => $this->make_clickable_url($row->club_name),
 	                'day' => $row->day,
 	                'coordinator' => $row->coordinator, 
 	                'location' => $row->location,
-	                'web' => $this->make_clickable_url($row->web)
+	                'web' => $row->web
 	            );
 	            
 	            array_push($retarr['events'], $arr);

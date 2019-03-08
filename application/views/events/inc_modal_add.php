@@ -104,7 +104,7 @@
 					<div class="row">&nbsp;</div>
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
-			          	<?php echo form_submit('submit', 'Add New Class', 'class="btn btn-primary btn-block"'); ?>
+			          	<?php echo form_submit('submit', 'Add New Event', 'class="btn btn-primary btn-block"'); ?>
 			          	</div>
 		          	</div>
 		          	<div class="row">&nbsp;</div>

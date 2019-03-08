@@ -2,6 +2,23 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Fill_arrays {
     
+    public function get_day_num($key) {
+        return $this->day_nums()[$key];
+    }
+    
+    public function day_nums() {
+        $retarr = array(
+            'Sat' => 0,
+            'Sun' => 1,
+            'Mon' => 2,
+            'Tue' => 3,
+            'Wed' => 4,
+            'Thu' => 5,
+            'Fri' => 6);
+        
+        return $retarr;
+    }
+    
     public function get_day($key) {
         return $this->days()[$key];
     }

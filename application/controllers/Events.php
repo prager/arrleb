@@ -41,7 +41,7 @@ class Events extends CI_Controller {
 	}
 	
 	public function delete_event() {
-	    $this->Club_model->delete_event($this->uri->segment(3, 0));
+	    $this->Events_model->delete_event($this->uri->segment(3, 0));
 	    $this->load_events();
 	}
 	
