@@ -37,6 +37,7 @@ class Events extends CI_Controller {
 	    $param['web'] = $this->input->post('web');
 	    $param['location'] = $this->input->post('location');
 	    $this->Events_model->edit_event($param);
+	    
 	    $this->load_events();
 	}
 	

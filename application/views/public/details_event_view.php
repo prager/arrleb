@@ -25,7 +25,7 @@
                 <p class="text-muted lead">
                 Date: <?php echo date("m/d/Y", $event['date']); ?><br><br>Ham Club: <?php echo $event['club']; ?><br><br>
                 Location: <?php echo $event['location']; ?> <br><br>
-                Coordinator: <?php echo $event['coordinator'];?><br><br>
+                Radio Coordinator: <?php echo $event['coordinator'];?><br><br>
                 Additional details - <?php echo $event['web']; ?>               
                 </p>
                 </div>

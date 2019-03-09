@@ -33,7 +33,7 @@
 						    'value'         =>  $row['name'],
 			            	'placeholder' => 'Event Name',
 			                'class'			=> 'form-control',
-							'maxlength'     => '35');?>
+							'maxlength'     => '128');?>
 						Event Name
 						<?php echo form_input($data);?>
 						</div>						
@@ -82,7 +82,7 @@
 			            	'placeholder' => 'Coordinator',
 			                'class'			=> 'form-control',
 							'maxlength'     => '512');?>
-						Web Reference
+						Radio Coordinator
 						<?php echo form_input($data);?>
 						</div>
 					</div>

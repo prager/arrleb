@@ -76,7 +76,7 @@ class Events_model extends CI_Model {
 	    
 	    if($cnt > 0) {
 	        $this->db->select('*');
-	        $this->db->order_by('id_events', 'ASC');
+	        $this->db->order_by('date', 'ASC');
 	        $res = $this->db->get('events')->result();	        
 	        
 	        foreach($res as $row) {
