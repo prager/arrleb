@@ -9,6 +9,8 @@
 	<div class="col-md-4 col-md-offset-4">
 	
        <h3>Private Files Upload / Download</h3>
+       <a href="#" data-toggle="modal" data-target="#saveFile">New Directory</a>
+       <?php include 'inc_save_file.php'; ?>
        <p class="text-center"><?php echo $error['error'] ;?></p>
     <?php       
              
