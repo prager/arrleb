@@ -57,7 +57,9 @@ for($i=2; $i < count($files_private); $i++) {
 <div class="col-md-4 col-md-offset-4">
 <h3>Public Files Repository</h3>
 <?php 
-for($i=2; $i < count($files_public); $i++) {
+
+
+/*for($i=2; $i < count($files_public); $i++) {
     if($private) { 
         $url_str = base_url() . 'index.php/files/download_file/' . $i;
         ?>
@@ -75,7 +77,10 @@ for($i=2; $i < count($files_public); $i++) {
 if((count($files_public)) == 2) {
     echo 'There are no files in repository.';
 }
-echo '<br>';
+echo '<br>';*/
+
+$this->Files_model->listFolderFiles($public_dir);
+
 if($private) {
 ?>
 </div>

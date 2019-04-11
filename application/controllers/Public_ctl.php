@@ -114,6 +114,21 @@ class Public_ctl extends CI_Controller {
 	    
 	    $retval = $this->Edu_model->get_tech();
 	    
+	    $this->load->library('ftp');
+	    
+	    $config['hostname'] = 'home117019790.1and1-data.host';
+	    $config['username'] = 'u37435071-tech';
+	    $config['password'] = 'password';
+	    $config['debug']        = TRUE;
+	    
+	    $this->ftp->connect($config);
+	    
+	    $list = $this->ftp->list_files('/');
+	    
+	    print_r($list);
+	    
+	    $this->ftp->close();
+	    
 	    $data['tests'] = $retval['tests'];
 	    $data['cnt'] = $retval['cnt'];
 	    

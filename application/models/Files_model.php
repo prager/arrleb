@@ -27,11 +27,14 @@ class Files_model extends CI_Model {
 	        if(!is_dir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id())) {
 	            mkdir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id());
 	        }
+	        $retarr['private_dir'] = '././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id();
 	        $retarr['private'] = scandir('././assets/uploads/uploads_private/uploads_' . $this->Login_model->get_cur_user_id());
 	    }
 	    else {
+	        $retarr['private_dir'] = NULL;
 	        $retarr['private'] = NULL;
 	    }
+	    $retarr['public_dir'] = '././assets/uploads/uploads_public/';
 	    $retarr['public'] = scandir('././assets/uploads/uploads_public/');
 	    return $retarr;
 	}
@@ -107,5 +110,22 @@ class Files_model extends CI_Model {
 	            $this->db->insert('repository', $data);
 	        }
 	    }
+	}
+	
+	function listFolderFiles($dir) {
+	    echo '<ul>';
+	    $fileFolderList = $dir;
+	    foreach($fileFolderList as $fileFolder){
+	        if($fileFolder != '.' && $fileFolder != '..'){
+	            if(!is_dir($dir.'/'.$fileFolder)){
+	                echo '<li>'. anchor(base_url().ltrim($dir.'/'.$fileFolder,'./').$fileFolder, $fileFolder);
+	            } else {
+	                echo '<li>'.$fileFolder;
+	            }
+	            if(is_dir($dir.'/'.$fileFolder)) $this->listFolderFiles($dir.'/'.$fileFolder);
+	            echo '</li>';
+	        }
+	    }
+	    echo '</ul>';
 	}
 }

@@ -94,6 +94,8 @@ class Files extends CI_Controller {
 	    $files = $this->Files_model->get_files();
 	    $data['files_private'] = $files['private'];
 	    $data['files_public'] = $files['public'];
+	    $data['private_dir'] = $files['private_dir'];
+	    $data['public_dir'] = $files['public_dir'];
 	    $this->load->view('files/files_view', $data);
 	    $this->load->view('template/footer_ver1');
 	}
