@@ -23,7 +23,6 @@
     		    </div>
     		    
     		    <div id="collps" class="panel-collapse collapse out">
-    		    <div class="panel-body">
     		    <div class="row text-center">
 				<div class="col-md-10 col-md-offset-1">
 			            <?php $data = array(
@@ -38,8 +37,22 @@
 						<br><br>
 						</div>	
 		    	</div> 
-		    	</div>
-		    	</div>		    	
+		    	</div>	
+		    	
+		    	<div class="row">
+		    		<div class="col-md-10 col-md-offset-1">
+			            <?php $data = array(
+							'name'          => 'filedesc',
+							'id'            => 'filedesc',
+			            		'value'         =>  '',
+			            	'placeholder' => 'File Description',
+			                'class'			=> 'form-control',
+							'maxlength'     => '75');?>
+						File Description
+						<?php echo form_input($data);?>
+						<br><br>
+					</div>
+		    	</div>	    	
 		   
     		   <div class="modal-footer">
             	<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

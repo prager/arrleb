@@ -9,8 +9,6 @@
 	<div class="col-md-4 col-md-offset-4">
 	
        <h3>Private Files Upload / Download</h3>
-       <a href="#" data-toggle="modal" data-target="#saveFile">New Directory</a>
-       <?php include 'inc_save_file.php'; ?>
        <p class="text-center"><?php echo $error['error'] ;?></p>
     <?php       
              
@@ -20,7 +18,9 @@
     
     <input type="file" name="userfile" />
     
-    <br /><br />
+    <br />
+       <a href="#" data-toggle="modal" data-target="#saveFile">Add Description or (optional) Directory</a>
+       <?php include 'inc_save_file.php'; ?>
     
     <input type="submit" value=" Upload File" class="form-control" />
     <?php echo form_close(); ?>
@@ -59,7 +59,7 @@ for($i=2; $i < count($files_private); $i++) {
 <?php 
 
 
-/*for($i=2; $i < count($files_public); $i++) {
+for($i=2; $i < count($files_public); $i++) {
     if($private) { 
         $url_str = base_url() . 'index.php/files/download_file/' . $i;
         ?>
@@ -77,9 +77,9 @@ for($i=2; $i < count($files_private); $i++) {
 if((count($files_public)) == 2) {
     echo 'There are no files in repository.';
 }
-echo '<br>';*/
+echo '<br>';
 
-$this->Files_model->listFolderFiles($public_dir);
+//echo anchor('ftp://home117019790.1and1-data.host/', 'Technician License Files');
 
 if($private) {
 ?>

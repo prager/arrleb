@@ -52,6 +52,8 @@ class Files extends CI_Controller {
 	    $config['max_size']             = 10000;
 	    $config['allowed_types']        = '*';
 	    
+	    
+	    
 	    $this->load->library('upload', $config);
 	    $this->load->helper('directory');
 	    
@@ -68,6 +70,8 @@ class Files extends CI_Controller {
 	    }
 	    else
 	    {
+	        $data['description'] = $this->input->post('filedesc');
+	        $data['newdir'] = $this->input->post('newdir');	        
 	        $data['error'] = NULL;
 	        $data['private'] = TRUE;
 	        $files = $this->Files_model->get_files();
