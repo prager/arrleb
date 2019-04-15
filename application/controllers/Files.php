@@ -47,12 +47,14 @@ class Files extends CI_Controller {
 	
 	public function do_private_upload() {
 	    $path = $this->Files_model->get_dir();
+	    $new_dir = $this->input->post('newdir');
+	    if($new_dir != '') {
+	        $path = $this->Files_model->make_dir_priv($path, $new_dir);
+	    }	    
 	    $config['upload_path']          = $path;
 	    //$config['allowed_types']        = 'pdf|docx|pptx|odt';
 	    $config['max_size']             = 10000;
-	    $config['allowed_types']        = '*';
-	    
-	    
+	    $config['allowed_types']        = '*';  
 	    
 	    $this->load->library('upload', $config);
 	    $this->load->helper('directory');
@@ -71,7 +73,7 @@ class Files extends CI_Controller {
 	    else
 	    {
 	        $data['description'] = $this->input->post('filedesc');
-	        $data['newdir'] = $this->input->post('newdir');	        
+	        $data['newdir'] = $this->input->post('newdir');	
 	        $data['error'] = NULL;
 	        $data['private'] = TRUE;
 	        $files = $this->Files_model->get_files();

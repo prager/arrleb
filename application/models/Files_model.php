@@ -9,8 +9,9 @@ class Files_model extends CI_Model {
 	    
 	}
 	
-	public function create_dir($path) {
-	    
+	public function make_dir_priv($path, $dir_name) {
+	    mkdir($path . '/' . $dir_name, 0777, TRUE);
+	    return $path . '/' . $dir_name;
 	}
 	
 	public function del_dir($path) {
