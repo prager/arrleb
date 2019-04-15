@@ -18,9 +18,15 @@ class Events_model extends CI_Model {
 	    $retarr['club'] = $this->make_clickable_url($res->club_name);
 	    $retarr['date'] = $res->date;
 	    $retarr['day'] = $res->day;
-	    $retarr['coordinator'] = $res->coordinator;
+	    $retarr['coordinator'] = $this->make_clickable_url($res->coordinator);
 	    $retarr['location'] = $res->location;
-	    $retarr['web'] = $this->make_clickable_url($res->web);
+	    
+	    $exploded = explode(' ', $res->web);
+	    $retarr['web'] = '';
+	    
+	    foreach ($exploded as $str) {
+	        $retarr['web'] .= $this->make_clickable_url($str) . ' ';
+	    }
 	    	    
 	    return $retarr;
 	}
@@ -80,18 +86,54 @@ class Events_model extends CI_Model {
 	        $res = $this->db->get('events')->result();	        
 	        
 	        foreach($res as $row) {
-	            $arr = array(
-	                'id' => $row->id_events,
-	                'name' => $row->name,
-	                'date' => $row->date,
-	                'club' => $this->make_clickable_url($row->club_name),
-	                'day' => $row->day,
-	                'coordinator' => $row->coordinator, 
-	                'location' => $row->location,
-	                'web' => $row->web
-	            );
-	            
-	            array_push($retarr['events'], $arr);
+	            if($row->date > time()) {
+    	            $arr = array(
+    	                'id' => $row->id_events,
+    	                'name' => $row->name,
+    	                'date' => $row->date,
+    	                'club' => $this->make_clickable_url($row->club_name),
+    	                'day' => $row->day,
+    	                'coordinator' => $row->coordinator, 
+    	                'location' => $row->location,
+    	                'web' => $row->web
+    	            );
+    	            
+    	            array_push($retarr['events'], $arr);
+    	        }
+	        }
+	    }
+	    
+	    return $retarr;
+	    
+	}
+	
+	public function get_all_events() {
+	    
+	    $this->db->from('events');
+	    $cnt = $this->db->count_all_results();
+	    
+	    $retarr = array();
+	    $retarr['cnt'] = $cnt;
+	    $retarr['events'] = array();
+	    
+	    if($cnt > 0) {
+	        $this->db->select('*');
+	        $this->db->order_by('date', 'ASC');
+	        $res = $this->db->get('events')->result();
+	        
+	        foreach($res as $row) {
+	                $arr = array(
+	                    'id' => $row->id_events,
+	                    'name' => $row->name,
+	                    'date' => $row->date,
+	                    'club' => $this->make_clickable_url($row->club_name),
+	                    'day' => $row->day,
+	                    'coordinator' => $row->coordinator,
+	                    'location' => $row->location,
+	                    'web' => $row->web
+	                );
+	                
+	                array_push($retarr['events'], $arr);
 	        }
 	    }
 	    

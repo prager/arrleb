@@ -17,6 +17,10 @@
        	The locations include beautiful scenic areas such as nearby regional and wilderness areas, municipal trails and parks around East Bay region. 
        	Some of the agencies and causes that ham radio operators helped are: Children's Hospital of Oakland, the MS Society, the March of Dimes, 
        	Meals on Wheels, and Save Mt. Diablo.
+       	<br><br>
+       	For what a ham radio operator should pack for a public service events and some additional ideas see this document: 
+       	<?php echo anchor_popup('http://km6nfc-files.arrleb.org/guidlines.pdf', 
+       	    'GUIDELINES FOR PROVIDING COMMUNICATIONS SUPPORT FOR PUBLIC SERVICE EVENTS');?>
 		<br>
        	</div>
        </div> 
@@ -36,8 +40,7 @@
         				<th>Event</th>
         				<th style="width: 8%">Date</th>
         				<th>Day</th>
-        				<th>Ham Club</th>
-        				<th>Location</th>
+        				<th>Coordinator</th>
         				<th>Details</th>
         			</tr>
         		</thead>
@@ -58,7 +61,6 @@
         				</td>
         				<td><?php echo $row['day']; ?></td>
         				<td><?php echo $row['club']; ?></td>
-        				<td class="elips1"><?php echo $row['location']; ?></td>
         				<td><?php echo anchor('public_ctl/event_details/' . $row['id'], 'View Event'); ?></td>
         			</tr>
         			<?php }
@@ -73,10 +75,6 @@
         	</table>
         </div>    
     </div>
-    <div class="row">&nbsp;</div>
-    <div class="row">&nbsp;</div>
-    <div class="row">&nbsp;</div>
-    <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
     <div class="row">&nbsp;</div>
 </div>

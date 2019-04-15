@@ -12,7 +12,7 @@ class Events extends CI_Controller {
 	    if($this->check_events()) {
 	        
 	        $this->load->view('template/header_public_gen', array('logged' => TRUE));
-	        $this->load->view('events/main_view', $this->Events_model->get_events());
+	        $this->load->view('events/main_view', $this->Events_model->get_all_events());
 	        
 	    }
 	    else {

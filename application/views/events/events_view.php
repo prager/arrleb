@@ -12,7 +12,6 @@
         				<th>Day</th>
         				<th>Ham Club</th>
         				<th>Coordinator</th>
-        				<th>Location</th>
         				<th>URL</th>
         				<th>Edit</th>
         			</tr>
@@ -35,7 +34,6 @@
         				<td><?php echo $row['day']; ?></td>
         				<td><?php echo $row['club']; ?></td>
         				<td><?php echo $row['coordinator']; ?></td>
-        				<td class="elips1"><?php echo $row['location']; ?></td>
         				<td class="elips2"><?php echo $row['details_url']; ?></td>
         				<td>
         					<a href="#" data-toggle="modal" data-target="#editData<?php echo $row['id']; ?>">Edit </a> 
