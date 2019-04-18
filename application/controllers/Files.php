@@ -99,7 +99,11 @@ class Files extends CI_Controller {
 	    $data['error'] = NULL;
 	    $files = $this->Files_model->get_files();
 	    $data['files_private'] = $files['private'];
-	    $data['files_public'] = $files['public'];
+	    //$data['files_public'] = $files['public'];
+	    $files_dir = $this->Files_model->list_files($files['public_dir']);
+	    $data['files_public'] = $files_dir['files'];
+	    $data['dirs'] = $files_dir['dirs'];
+	    $data['home_dir'] = $files_dir['home_dir'];
 	    $data['private_dir'] = $files['private_dir'];
 	    $data['public_dir'] = $files['public_dir'];
 	    $this->load->view('files/files_view', $data);
@@ -127,5 +131,33 @@ class Files extends CI_Controller {
 	public function delete_file() {
 	    $this->Files_model->delete_file($this->uri->segment(3, 0), $this->uri->segment(4, 0));
 	    $this->load_dir();
+	}
+	
+	public function get_dir() {	
+	    $dir = $this->uri->segment(3, 0);
+	    $dir = str_replace('~', '/', $dir);
+	    $dir .= '/';
+	    $files_dir = $this->Files_model->list_files('././assets/uploads/uploads_public/' . $dir);
+	    $data['files_public'] = $files_dir['files'];
+	    $data['dirs'] = $files_dir['dirs'];
+	    $data['home_dir'] = $files_dir['home_dir'];
+	    $files = $this->Files_model->get_files();	    
+	    $data['files_private'] = $files['private'];
+	    $data['error'] = NULL;
+	    $data['private_dir'] = $files['private_dir'];
+	    $data['public_dir'] = $files['public_dir'];
+	    $data['private'] = FALSE;
+	    $this->load->view('template/header_public_gen', array('logged' => FALSE));
+	    $this->load->view('files/files_view', $data);
+	    $this->load->view('template/footer_ver1');
+	}
+	
+	public function download_pub() {
+	    
+	    $file = $this->uri->segment(3, 0);
+	    $file = str_replace('~', '/', $file);
+	    $file  = '././assets/uploads/uploads_public' . $file;
+	    $this->Files_model->download_pub($file);
+	    //redirect(base_url() . 'index.php/files');
 	}
 }

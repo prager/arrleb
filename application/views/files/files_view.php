@@ -56,35 +56,30 @@ for($i=2; $i < count($files_private); $i++) {
 <div class="row text-center">
 <div class="col-md-4 col-md-offset-4">
 <h3>Public Files Repository</h3>
+</div></div>
+<div class="row">
+<div class="col-md-5 col-md-offset-5">
 <?php 
-
-
-for($i=2; $i < count($files_public); $i++) {
-    if($private) { 
-        $url_str = base_url() . 'index.php/files/download_file/' . $i;
-        ?>
-        <a href="<?php echo $url_str; ?>"><?php echo $files_public[$i]; ?></a>
-        &nbsp;/&nbsp;
-        <a href="#" data-toggle="modal" data-target="#deleteFilePublic<?php echo $i; ?>">Delete File</a>
-        <br>------------------------------------<br>
-        <?php include 'inc_delete_file_public.php'; ?>
-<?php  }
-    else {
-        echo anchor('files/download_file/' . $i, $files_public[$i]). '<br>-------------------------------<br>';
-    }
-    
+echo 'Current directory:<br>' . $home_dir . '<br>';
+foreach($dirs as $dir) {
+    $strdir = str_replace('/', '~', $home_dir);
+    $strdir = substr($strdir, 1, strlen($strdir)-1);
+    echo anchor('files/get_dir/'. $strdir . $dir, $dir) . '<br>';    
 }
-if((count($files_public)) == 2) {
-    echo 'There are no files in repository.';
+
+foreach($files_public as $file) {
+    $strdir = str_replace('/', '~', $home_dir);
+    echo anchor('files/download_pub/' . $strdir . $file, $file) . '<br>';
 }
-echo '<br>';
 
-//echo anchor('ftp://home117019790.1and1-data.host/', 'Technician License Files');
-
-if($private) {
+if((count($dirs) == 0) && (count($files_public) == 0)) {
+    echo '<br><br>There are no files in the selected directory ';
+}
 ?>
 </div>
-</div>
+<?php 
+if($private) {
+?>
 
 	<div class="row text-center">
 	<div class="col-md-4 col-md-offset-4">

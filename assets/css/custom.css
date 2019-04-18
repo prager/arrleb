@@ -230,4 +230,7 @@ a.socialIcon:hover, .socialHoverClass {
   > .active.right {
     top: 100%;
   }
+	#test_email {
+    display: none;
+	}
 }

@@ -113,20 +113,66 @@ class Files_model extends CI_Model {
 	    }
 	}
 	
-	function listFolderFiles($dir) {
-	    echo '<ul>';
-	    $fileFolderList = $dir;
-	    foreach($fileFolderList as $fileFolder){
-	        if($fileFolder != '.' && $fileFolder != '..'){
-	            if(!is_dir($dir.'/'.$fileFolder)){
-	                echo '<li>'. anchor(base_url().ltrim($dir.'/'.$fileFolder,'./').$fileFolder, $fileFolder);
-	            } else {
-	                echo '<li>'.$fileFolder;
+	public function get_dir_public($dir) {	    
+	    $cdir = scandir($dir);
+	    $retstr = '';
+	    foreach ($cdir as $key => $value)
+	    {
+	        if (!in_array($value,array(".","..")))
+	        {	 
+	            $retstr .= '<br>';
+	            if (is_dir($dir . DIRECTORY_SEPARATOR . $value))
+	            {	               
+	                $retstr .= $value . $this->get_dir_public($dir . DIRECTORY_SEPARATOR . $value);
+	                
 	            }
-	            if(is_dir($dir.'/'.$fileFolder)) $this->listFolderFiles($dir.'/'.$fileFolder);
-	            echo '</li>';
+	            else
+	            {	                
+	                $retstr .= $value;
+	            }
 	        }
 	    }
-	    echo '</ul>';
+	    
+	    return $retstr;
+	}
+	
+	public function list_files($dir) {
+	    $cdir = scandir($dir);
+	    $retarr = array();
+	    $filearr = array();
+	    $start_pos = strlen('././assets/uploads/uploads_public/')-1;
+	    $retarr['home_dir'] = substr($dir, $start_pos, strlen($dir)-1 );
+	    $link = substr($dir, 2);
+	    $files = array();
+	    $dirs = array();
+	    //$retarr['home_dir'] = $dir;
+	    $flag = TRUE; 
+	    foreach ($cdir as $key => $value) {
+	        if (!in_array($value,array(".",".."))) { 
+	        
+    	        if(is_dir($dir . DIRECTORY_SEPARATOR . $value)) {
+    	            array_push($dirs, $value);
+    	        }
+	        }
+	    }
+	    
+	    foreach ($cdir as $key => $value) {	        
+	        if (!in_array($value,array(".",".."))) {
+    	        if(!is_dir($dir . DIRECTORY_SEPARATOR . $value)) {
+    	            array_push($filearr, $value);
+    	        }
+	        }
+	    }
+	    
+	    $retarr['files'] = $filearr;
+	    $retarr['dirs'] = $dirs;
+	    
+	    return $retarr;
+	}
+	
+	public function download_pub($file) {
+	    
+	    force_download($file, NULL);
+	    
 	}
 }
