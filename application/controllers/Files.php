@@ -101,8 +101,8 @@ class Files extends CI_Controller {
 	    $data['files_private'] = $files['private'];
 	    //$data['files_public'] = $files['public'];
 	    $files_dir = $this->Files_model->list_files($files['public_dir']);
-	    echo 'dir: ' . $files_dir['dir'] . '<br>';
-	    echo 'strlen: ' . strlen($files_dir['dir']);
+	    //echo 'dir: ' . $files_dir['dir'] . '<br>';
+	    //echo 'strlen: ' . strlen($files_dir['dir']);
 	    //$data['files_link'] = $files_dir['files_link'];
 	    $data['cur_dir'] = $files_dir['cur_dir'];
 	    $data['prev_link'] = $files_dir['prev_link'];
@@ -144,9 +144,9 @@ class Files extends CI_Controller {
 	    $dir = str_replace('~', '/', $dir);
 	    $dir .= '/';
 	    $files_dir = $this->Files_model->list_files('././assets/uploads/uploads_public/' . $dir);
-	    echo 'dir: ' . $files_dir['dir'] . '<br>';
-	    echo 'strlen: ' . strlen($files_dir['dir']) . '<br>';
-	    echo 'cur dir: ' . $files_dir['cur_dir'];
+	    //echo 'dir: ' . $files_dir['dir'] . '<br>';
+	    //echo 'strlen: ' . strlen($files_dir['dir']) . '<br>';
+	    //echo 'cur dir: ' . $files_dir['cur_dir'];
 	    $data['link'] = $files_dir['link'];
 	    $data['prev_link'] = $files_dir['prev_link'];
 	    //$data['files_link'] = $files_dir['files_link'];
@@ -170,7 +170,7 @@ class Files extends CI_Controller {
 	    $file = $this->uri->segment(3, 0);
 	    $file = str_replace('~', '/', $file);
 	    $file  = '././assets/uploads/uploads_public/' . $file;
-	    echo 'file: ' . $file;
+	    //echo 'file: ' . $file;
 	    $this->Files_model->download_pub($file);
 	    //redirect(base_url() . 'index.php/files');
 	}

@@ -154,10 +154,10 @@ class Files_model extends CI_Model {
 	    $l_dirs = array();
 	    $l_dirs = explode('/', $retarr['cur_dir']);
 	    
-	    echo '<br>ldirs: ';
+	    //echo '<br>ldirs: ';
 	    $cnt = 0;
 	    foreach($l_dirs as $el) {
-	        echo $el . '<br>';
+	        //echo $el . '<br>';
 	        $cnt++;
 	    }
 	    $popping = $l_dirs;

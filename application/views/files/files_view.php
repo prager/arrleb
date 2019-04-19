@@ -62,18 +62,19 @@ for($i=2; $i < count($files_private); $i++) {
 <?php 
 
 
-echo 'Directories:<br>&nbsp; &nbsp; &nbsp;' . $home . $cur_dir . '<br>';
+echo 'Directories:<br>&nbsp; &nbsp; <span class="fa fa-folder-open-o"></span> &nbsp;' . $home . $cur_dir . '<br>';
 if($prev_link != '') {
-    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/get_dir/'. $prev_link, '..') . '<br>';
+    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/get_dir/'. $prev_link, ' ', 'class="fa fa fa-chevron-up"') . '<br>';
 }
 foreach($dirs as $dir) {
     
-    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/get_dir/'. $link . $dir, $dir) . '<br>';
+    echo '&nbsp; &nbsp; <span class="fa fa-folder-o"></span> &nbsp;' 
+	    . anchor('files/get_dir/'. $link . $dir, $dir) . '<br>';
 }
 
 if(count($files_public) == 0) {
     
-    $files_dir = '<br>There are no files in the current directory ';
+    $files_dir = '<br>&nbsp; &nbsp; <span class="fa fa fa-file-o"></span> &nbsp; There are no files in the current directory ';
 }
 else {
     //$files_dir = '<br><br>Files in the current directory:<br>';
@@ -82,7 +83,8 @@ else {
 echo $files_dir;
 foreach($files_public as $file) {
     //$strdir = str_replace('/', '~', $home_dir);
-    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/download_pub/' . $link . $file, $file) . '<br>';
+    echo '&nbsp; &nbsp; <span class="fa fa fa-file-o"></span> &nbsp;'
+           . anchor('files/download_pub/' . $link . $file, $file) . '<br>';
 }
 ?>
 </div>
