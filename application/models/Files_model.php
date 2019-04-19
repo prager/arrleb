@@ -139,14 +139,46 @@ class Files_model extends CI_Model {
 	public function list_files($dir) {
 	    $cdir = scandir($dir);
 	    $retarr = array();
-	    $filearr = array();
-	    $start_pos = strlen('././assets/uploads/uploads_public/')-1;
-	    $retarr['home_dir'] = substr($dir, $start_pos, strlen($dir)-1 );
-	    $link = substr($dir, 2);
-	    $files = array();
+	    $retarr['home'] = anchor('files', 'Home') . '/';
+	    $retarr['dir'] = $dir;
+	    if(strlen($dir) > 34) {
+	        $retarr['cur_dir'] = substr($dir, 34, strlen($dir)-1-34);
+	        $retarr['link'] = str_replace('/', '~', $retarr['cur_dir']) . '~';
+	        //$retarr['link'] = $retarr['cur_dir'];
+	    }
+	    else {
+	        $retarr['cur_dir'] = '';
+	        $retarr['link'] = '';
+	    }
+	    
+	    $l_dirs = array();
+	    $l_dirs = explode('/', $retarr['cur_dir']);
+	    
+	    echo '<br>ldirs: ';
+	    $cnt = 0;
+	    foreach($l_dirs as $el) {
+	        echo $el . '<br>';
+	        $cnt++;
+	    }
+	    $popping = $l_dirs;
+	    
+	    $retarr['cur_dir_txt'] = array_pop($popping);
+	    
+	    $retarr['prev_link'] = '';
+	    
+	    $revarr = array_reverse($popping);
+	    while(count($revarr)>0) {
+	        $retarr['prev_link'] .= array_pop($revarr) .'~'; 
+	    }
+	    
+	    if(strlen($retarr['prev_link']) > 0) {
+	       $retarr['prev_link'] = substr($retarr['prev_link'], 0, strlen($retarr['prev_link'])-1);
+	    }
+	    else {
+	        $retarr['prev_link'] = NULL;
+	    }
+	    	    
 	    $dirs = array();
-	    //$retarr['home_dir'] = $dir;
-	    $flag = TRUE; 
 	    foreach ($cdir as $key => $value) {
 	        if (!in_array($value,array(".",".."))) { 
 	        
@@ -156,6 +188,7 @@ class Files_model extends CI_Model {
 	        }
 	    }
 	    
+	    $filearr = array();
 	    foreach ($cdir as $key => $value) {	        
 	        if (!in_array($value,array(".",".."))) {
     	        if(!is_dir($dir . DIRECTORY_SEPARATOR . $value)) {
@@ -166,7 +199,6 @@ class Files_model extends CI_Model {
 	    
 	    $retarr['files'] = $filearr;
 	    $retarr['dirs'] = $dirs;
-	    
 	    return $retarr;
 	}
 	

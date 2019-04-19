@@ -53,27 +53,36 @@ for($i=2; $i < count($files_private); $i++) {
 
 <?php }?>
 <div class="row">&nbsp;</div>
-<div class="row text-center">
-<div class="col-md-4 col-md-offset-4">
+<div class="row">
+<div class="col-md-10 col-md-offset-1">
 <h3>Public Files Repository</h3>
 </div></div>
 <div class="row">
-<div class="col-md-5 col-md-offset-5">
+<div class="col-md-10 col-md-offset-1">
 <?php 
-echo 'Current directory:<br>' . $home_dir . '<br>';
+
+
+echo 'Directories:<br>&nbsp; &nbsp; &nbsp;' . $home . $cur_dir . '<br>';
+if($prev_link != '') {
+    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/get_dir/'. $prev_link, '..') . '<br>';
+}
 foreach($dirs as $dir) {
-    $strdir = str_replace('/', '~', $home_dir);
-    $strdir = substr($strdir, 1, strlen($strdir)-1);
-    echo anchor('files/get_dir/'. $strdir . $dir, $dir) . '<br>';    
+    
+    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/get_dir/'. $link . $dir, $dir) . '<br>';
 }
 
+if(count($files_public) == 0) {
+    
+    $files_dir = '<br>There are no files in the current directory ';
+}
+else {
+    //$files_dir = '<br><br>Files in the current directory:<br>';
+    $files_dir = '<hr>Files:<br>';
+}
+echo $files_dir;
 foreach($files_public as $file) {
-    $strdir = str_replace('/', '~', $home_dir);
-    echo anchor('files/download_pub/' . $strdir . $file, $file) . '<br>';
-}
-
-if((count($dirs) == 0) && (count($files_public) == 0)) {
-    echo '<br><br>There are no files in the selected directory ';
+    //$strdir = str_replace('/', '~', $home_dir);
+    echo '&nbsp; &nbsp; &nbsp;' . anchor('files/download_pub/' . $link . $file, $file) . '<br>';
 }
 ?>
 </div>
