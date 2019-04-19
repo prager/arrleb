@@ -86,12 +86,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Next Selected Event: </h3>
-                        <h2 class="text-uppercase">General License Course </h2> 
+                        <h2 class="text-uppercase">Get On The Air - HF Communications Course</h2> 
                            <p class="lead mb-small">
                            By MDARC (Mount Diablo Amateur Radio Club)</p> 
-                           <p>Dates: 03/28/2019 - 06/06/2019</p>
-                        <p class="mb-small">For more details <?php echo anchor_popup('https://tinyurl.com/y7xqu3ts', 'click here')?>
-                        --- More classes on ARRL EB Section <?php echo anchor_popup('education', 'here')?></p>
+                           <p>Date: 06/13/2019</p>
+                        <p class="mb-small">For more details <?php echo anchor_popup('http://www.mdarc.org/activities/education/Classes', 
+                            'click here')?>
+                        --- More classes listed here <?php echo anchor_popup('education', 'here')?></p>
                     </div>
                     <div class="col-md-4 col-md-offset-4">                    
                     </div>

@@ -56,7 +56,7 @@ _________________________________________________________ -->
 
                 </div>
                 <div class="col-md-4">
-                	<p class="text-center">Site designed and hosted by 
+                	<p class="text-center">Site hosted by 
                 	<?php echo anchor_popup('http://jlkconsulting.info', 'JLK Consulting'); ?></p>
                 </div>
                 <div class="col-md-4">

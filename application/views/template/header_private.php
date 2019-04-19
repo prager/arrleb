@@ -156,13 +156,6 @@ _________________________________________________________ -->
                                             <div class="yamm-content">
                                                 <div class="row">
                                                     <div class="col-sm-4">
-                                                        <h5>Misc Ham Topics</h5>
-                                                        <ul>
-                                                            <li><?php echo anchor('club-corner', 'Club Corner'); ?></li>
-                                                            <li><?php echo anchor('public_ctl/public_events', 'Public Service Events'); ?></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-sm-4">
                                                         <h5>ARES Resources</h5>
                                                         <ul>
                                                             <li><?php echo anchor('public_ctl/ares', 'ARES')?></li>
@@ -173,6 +166,14 @@ _________________________________________________________ -->
                                                         <ul>
                                                             <li><?php echo anchor('public_ctl/technical', 'Technical'); ?></li>
                                                             <li><?php echo anchor('files', 'Files Repository'); ?></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5>Misc Ham Topics</h5>
+                                                        <ul>
+                                                            <li><?php echo anchor('club-corner', 'Club Corner'); ?></li>
+                                                            <li><?php echo anchor('public_ctl/public_events', 'Public Service Events'); ?></li>
+                                                            <li><?php echo anchor_popup('http://www.pacificon.org/', 'Pacificon'); ?></li>
                                                         </ul>
                                                     </div>
                                                 </div>
