@@ -81,7 +81,7 @@
                 </div>
             </div>
         </section>
-		<section class="bar background-gray no-mb padding-big text-center">
+		<section class="bar background-pentagon no-mb padding-big text-center">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
