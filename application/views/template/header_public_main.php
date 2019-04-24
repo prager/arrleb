@@ -6,6 +6,12 @@
     <meta name="robots" content="all,follow">
     <meta name="googlebot" content="index,follow,snippet,archive">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<meta property="og:title" content="ARRL East Bay Section" />
+	     <meta property="og:url" content="http://arrleb.org/" />
+	     <meta property="og:image" content="http://files.arrleb.org/arrl-fb.png" />
+	     <meta property="og:description" content="ARRL East Bay Section home page." />
+		
 
     <title>ARRL East Bay Section</title>
 
