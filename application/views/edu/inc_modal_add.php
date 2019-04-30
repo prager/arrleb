@@ -118,9 +118,20 @@
 			            		'value'         =>  '',
 			            	'placeholder' => 'url',
 			                'class'			=> 'form-control',
-							'maxlength'     => '512');?>
+							'maxlength'     => '1024');?>
 						URL References
-						<?php echo form_input($data);?>
+						<?php //echo form_input($data);?>
+						<?php 
+                            $data = array(
+                            'name' => 'details_url',
+                            'id' => 'details_url',
+                            'value' => '',
+                            'cols' => 100,
+                            'rows' => 7,
+                            'class' => 'form-control'
+                            );
+                            echo form_textarea($data);
+                        ?>
 						</div>
 					</div>
 					<div class="row">&nbsp;</div>
