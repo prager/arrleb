@@ -86,13 +86,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h3>Next Selected Event: </h3>
-                        <h2 class="text-uppercase">Technician License Course</h2> 
+                        <h2 class="text-uppercase">Pacificon Ham Radio Convention</h2> 
                            <p class="lead mb-small">
                            By MDARC (Mount Diablo Amateur Radio Club)</p> 
-                           <p>Dates: 08/15/2019 - 10/10/2019</p>
-                        <p class="mb-small">For more details <?php echo anchor_popup(base_url() . 'index.php/public_ctl/class_details/28', 
-                            'click here')?>
-                        --- More classes listed here <?php echo anchor_popup('education', 'here')?></p>
+                           <p>Dates: 10/16/2020 - 10/18/2020</p>
+                        <p class="mb-small">For more details <?php echo anchor_popup('http://pacificon.org', 
+                            'click here')?></p>
                     </div>
                     <div class="col-md-4 col-md-offset-4">                    
                     </div>

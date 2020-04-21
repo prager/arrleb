@@ -77,6 +77,7 @@
         			<?php }?>
         		</tbody>        	
         	</table>
+        	Please, be aware that the above schedule may change due to concerns regarding Coronavirus (COVID-19) outbreak.
             </div>
             
             </div>
