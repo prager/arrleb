@@ -1,4 +1,9 @@
 ###################
+MDARC ARRL East Bay Section Web portal
+###################
+Currently the portal is under review and is expected to be modified in the near future. It is located at the following URL: https://arrleb.org/
+
+###################
 What is CodeIgniter
 ###################
 
